@@ -35,16 +35,16 @@ export default function ServiceAreasPage() {
         </div>
       </section>
 
-      {/* San Diego Neighborhoods */}
+      {/* All Locations */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="section-label">San Diego</p>
+            <p className="section-label">Where We Serve</p>
             <h2 className="text-3xl font-bold text-dark-800 mb-2">San Diego Neighborhoods</h2>
-            <p className="text-gray-600">We serve all communities within the City of San Diego.</p>
+            <p className="text-gray-600">We serve all communities and cities throughout San Diego County.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {SERVICE_AREAS.neighborhoods.map((area) => (
+            {[...SERVICE_AREAS.neighborhoods, ...SERVICE_AREAS.cities].map((area) => (
               <Link
                 key={area.slug}
                 href={`/service-areas/${area.slug}`}
@@ -52,32 +52,6 @@ export default function ServiceAreasPage() {
               >
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-2 h-2 rounded-full bg-primary-500 shrink-0"></span>
-                  <span className="font-semibold text-dark-800 group-hover:text-primary-700 transition-colors text-sm">{area.name}</span>
-                </div>
-                <span className="text-xs text-gray-500 group-hover:text-primary-500 transition-colors">Pest Control →</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Surrounding Cities */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <p className="section-label">San Diego County</p>
-            <h2 className="text-3xl font-bold text-dark-800 mb-2">Surrounding Cities</h2>
-            <p className="text-gray-600">We also serve all major cities throughout San Diego County.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {SERVICE_AREAS.cities.map((area) => (
-              <Link
-                key={area.slug}
-                href={`/service-areas/${area.slug}`}
-                className="group p-5 bg-white rounded-2xl border border-gray-100 hover:bg-primary-50 hover:border-primary-300 hover:shadow-md transition-all duration-200"
-              >
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-2 h-2 rounded-full bg-dark-400 group-hover:bg-primary-500 shrink-0 transition-colors"></span>
                   <span className="font-semibold text-dark-800 group-hover:text-primary-700 transition-colors text-sm">{area.name}</span>
                 </div>
                 <span className="text-xs text-gray-500 group-hover:text-primary-500 transition-colors">Pest Control →</span>

@@ -19,10 +19,13 @@ const navServices = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [areasOpen, setAreasOpen] = useState(false);
+  const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [announcementVisible, setAnnouncementVisible] = useState(true);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const servicesDropdownRef = useRef<HTMLDivElement>(null);
+  const areasDropdownRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -36,14 +39,17 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on outside click
+  // Close dropdowns on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
         setMobileMenuOpen(false);
       }
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (servicesDropdownRef.current && !servicesDropdownRef.current.contains(e.target as Node)) {
         setServicesOpen(false);
+      }
+      if (areasDropdownRef.current && !areasDropdownRef.current.contains(e.target as Node)) {
+        setAreasOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -104,7 +110,7 @@ export default function Header() {
               </Link>
 
               {/* Services Dropdown */}
-              <div className="relative" ref={dropdownRef}>
+              <div className="relative" ref={servicesDropdownRef}>
                 <button
                   className={`font-medium transition-all duration-300 flex items-center gap-1 py-2 ${
                     isTransparent ? 'text-white hover:text-primary-200 drop-shadow-sm' : 'text-dark-700 hover:text-primary-600'
@@ -149,14 +155,56 @@ export default function Header() {
                 )}
               </div>
 
-              <Link
-                href="/service-areas"
-                className={`font-medium transition-all duration-300 ${
-                  isTransparent ? 'text-white hover:text-primary-200 drop-shadow-sm' : 'text-dark-700 hover:text-primary-600'
-                }`}
-              >
-                Areas
-              </Link>
+              {/* Areas Dropdown */}
+              <div className="relative" ref={areasDropdownRef}>
+                <button
+                  className={`font-medium transition-all duration-300 flex items-center gap-1 py-2 ${
+                    isTransparent ? 'text-white hover:text-primary-200 drop-shadow-sm' : 'text-dark-700 hover:text-primary-600'
+                  }`}
+                  onMouseEnter={() => setAreasOpen(true)}
+                  onMouseLeave={() => setAreasOpen(false)}
+                  onClick={() => setAreasOpen(!areasOpen)}
+                >
+                  Areas
+                  <svg className={`h-4 w-4 transition-transform duration-200 ${areasOpen ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </button>
+                {/* Invisible bridge */}
+                <div className="absolute top-full left-0 w-full h-2 bg-transparent" onMouseEnter={() => setAreasOpen(true)} onMouseLeave={() => setAreasOpen(false)} />
+                {areasOpen && (
+                  <div
+                    className="absolute left-1/2 -translate-x-1/2 top-full w-[520px] bg-white rounded-xl shadow-2xl py-4 z-50 border border-gray-100"
+                    onMouseEnter={() => setAreasOpen(true)}
+                    onMouseLeave={() => setAreasOpen(false)}
+                  >
+                    <div className="px-4">
+                      <p className="text-xs font-bold text-dark-400 uppercase tracking-widest mb-2 px-1">San Diego Neighborhoods</p>
+                      <div className="grid grid-cols-2 gap-x-2">
+                        {[...SERVICE_AREAS.neighborhoods, ...SERVICE_AREAS.cities].map((a) => (
+                          <Link
+                            key={a.slug}
+                            href={`/service-areas/${a.slug}`}
+                            className="block px-2 py-1.5 text-sm text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
+                            onClick={() => setAreasOpen(false)}
+                          >
+                            {a.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="border-t border-gray-100 mt-3 pt-2 px-4">
+                      <Link
+                        href="/service-areas"
+                        className="block px-2 py-2 text-primary-600 font-semibold hover:bg-primary-50 rounded-lg transition-colors text-sm"
+                        onClick={() => setAreasOpen(false)}
+                      >
+                        View All Service Areas →
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
               <Link
                 href="/about"
                 className={`font-medium transition-all duration-300 ${
@@ -235,7 +283,32 @@ export default function Header() {
                   </div>
                   <Link href="/services" className="block mt-2 py-2 px-3 text-sm text-primary-600 font-semibold hover:bg-primary-50 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>View All Services →</Link>
                 </div>
-                <Link href="/service-areas" className="px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium transition-colors" onClick={() => setMobileMenuOpen(false)}>Service Areas</Link>
+                {/* Mobile Areas Expandable */}
+                <div>
+                  <button
+                    className="w-full flex items-center justify-between px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium transition-colors"
+                    onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
+                  >
+                    <span>Service Areas</span>
+                    <svg className={`h-4 w-4 transition-transform duration-200 ${mobileAreasOpen ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                  <div
+                    className="overflow-hidden transition-all duration-300 ease-in-out"
+                    style={{ maxHeight: mobileAreasOpen ? '600px' : '0px' }}
+                  >
+                    <div className="px-4 pb-2">
+                      <p className="text-xs font-bold text-dark-400 uppercase tracking-widest mb-1 mt-1">San Diego Neighborhoods</p>
+                      <div className="grid grid-cols-2 gap-1 mb-2">
+                        {[...SERVICE_AREAS.neighborhoods, ...SERVICE_AREAS.cities].map((a) => (
+                          <Link key={a.slug} href={`/service-areas/${a.slug}`} className="py-1.5 px-2 text-xs text-dark-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>{a.name}</Link>
+                        ))}
+                      </div>
+                      <Link href="/service-areas" className="block py-2 px-2 text-sm text-primary-600 font-semibold hover:bg-primary-50 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>View All Areas →</Link>
+                    </div>
+                  </div>
+                </div>
                 <Link href="/about" className="px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium transition-colors" onClick={() => setMobileMenuOpen(false)}>About</Link>
                 <Link href="/blog" className="px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium transition-colors" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
                 <Link href="/contact" className="px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
