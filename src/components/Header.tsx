@@ -85,15 +85,11 @@ export default function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
               <Image
-                src="/images/logo-full.png"
+                src={isTransparent ? '/images/logo-white.png' : '/images/logo-full.png'}
                 alt={BUSINESS.name}
                 width={180}
                 height={60}
-                className={`transition-all duration-300 w-auto ${
-                  isTransparent
-                    ? 'h-16 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]'
-                    : 'h-14'
-                }`}
+                className={`transition-all duration-300 w-auto ${isTransparent ? 'h-24' : 'h-20'}`}
                 priority
               />
             </Link>
