@@ -29,6 +29,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [areasOpen, setAreasOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -47,6 +48,11 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileMenuOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -275,17 +281,32 @@ export default function Header() {
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="lg:hidden bg-white border-t border-gray-100 py-4 shadow-xl rounded-b-xl">
+            <div className="lg:hidden bg-white border-t border-gray-100 py-4 shadow-xl rounded-b-xl max-h-[75vh] overflow-y-auto overscroll-contain">
               <div className="flex flex-col space-y-1 px-2">
                 <Link href="/" className="px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium transition-colors" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-                <div className="px-4 py-2">
-                  <p className="text-xs font-semibold text-dark-400 uppercase tracking-widest mb-2">Services</p>
-                  <div className="grid grid-cols-2 gap-1">
-                    {navServices.map((s) => (
-                      <Link key={s.href} href={s.href} className="py-2 px-3 text-sm text-dark-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>{s.name}</Link>
-                    ))}
+                <div>
+                  <button
+                    className="w-full flex items-center justify-between px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium transition-colors"
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  >
+                    <span>Services</span>
+                    <svg className={`h-4 w-4 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                  <div
+                    className="overflow-hidden transition-all duration-300 ease-in-out"
+                    style={{ maxHeight: mobileServicesOpen ? '600px' : '0px' }}
+                  >
+                    <div className="px-4 pb-2">
+                      <div className="grid grid-cols-2 gap-1">
+                        {navServices.map((s) => (
+                          <Link key={s.href} href={s.href} className="py-2 px-3 text-sm text-dark-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>{s.name}</Link>
+                        ))}
+                      </div>
+                      <Link href="/services" className="block mt-2 py-2 px-3 text-sm text-primary-600 font-semibold hover:bg-primary-50 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>View All Services →</Link>
+                    </div>
                   </div>
-                  <Link href="/services" className="block mt-2 py-2 px-3 text-sm text-primary-600 font-semibold hover:bg-primary-50 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>View All Services →</Link>
                 </div>
                 {/* Mobile Areas Expandable */}
                 <div>
