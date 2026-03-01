@@ -24,7 +24,7 @@ const posts = [
     category: "Ants",
     readTime: "6 min read",
     date: "February 10, 2025",
-    image: "/images/pest-control-san-diego.jpg",
+    image: "/images/ants-windowsill.jpg",
   },
   {
     slug: "san-diego-bed-bug-treatment-guide",
@@ -33,7 +33,7 @@ const posts = [
     category: "Bed Bugs",
     readTime: "8 min read",
     date: "January 28, 2025",
-    image: "/images/bug.jpg",
+    image: "/images/technician-spraying.jpg",
   },
   {
     slug: "pest-control-san-diego-climate",
@@ -42,7 +42,7 @@ const posts = [
     category: "Prevention",
     readTime: "5 min read",
     date: "January 15, 2025",
-    image: "/images/pest-control-san-diego.jpg",
+    image: "/images/technician-grass.jpg",
   },
   {
     slug: "signs-you-have-rodents-san-diego",
@@ -51,7 +51,7 @@ const posts = [
     category: "Rodents",
     readTime: "7 min read",
     date: "January 5, 2025",
-    image: "/images/team-3.jpg",
+    image: "/images/technician-walkway.jpg",
   },
   {
     slug: "year-round-pest-prevention-san-diego",
@@ -60,7 +60,7 @@ const posts = [
     category: "Prevention",
     readTime: "9 min read",
     date: "December 20, 2024",
-    image: "/images/pest-control-san-diego.jpg",
+    image: "/images/technician-inspection.jpg",
   },
 ];
 

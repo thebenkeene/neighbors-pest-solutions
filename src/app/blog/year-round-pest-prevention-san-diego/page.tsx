@@ -19,7 +19,7 @@ const articleSchema = generateArticleSchema(
   "/blog/year-round-pest-prevention-san-diego",
   "2024-12-20",
   "2024-12-20",
-  `${BUSINESS.url}/images/pest-control-san-diego.jpg`
+  `${BUSINESS.url}/images/technician-inspection.jpg`
 );
 
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -39,7 +39,7 @@ export default function Page() {
         category="Prevention"
         date="December 20, 2024"
         readTime="9 min read"
-        image="/images/pest-control-san-diego.jpg"
+        image="/images/technician-inspection.jpg"
         imageAlt="Pest prevention for San Diego homes"
       >
         <p>

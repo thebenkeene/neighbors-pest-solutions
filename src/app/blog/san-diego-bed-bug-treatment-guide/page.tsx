@@ -19,7 +19,7 @@ const articleSchema = generateArticleSchema(
   "/blog/san-diego-bed-bug-treatment-guide",
   "2025-01-28",
   "2025-01-28",
-  `${BUSINESS.url}/images/bug.jpg`
+  `${BUSINESS.url}/images/technician-spraying.jpg`
 );
 
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -39,7 +39,7 @@ export default function Page() {
         category="Bed Bugs"
         date="January 28, 2025"
         readTime="8 min read"
-        image="/images/bug.jpg"
+        image="/images/technician-spraying.jpg"
         imageAlt="Bed bug close-up"
       >
         <p>

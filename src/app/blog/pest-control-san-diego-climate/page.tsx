@@ -19,7 +19,7 @@ const articleSchema = generateArticleSchema(
   "/blog/pest-control-san-diego-climate",
   "2025-01-15",
   "2025-01-15",
-  `${BUSINESS.url}/images/pest-control-san-diego.jpg`
+  `${BUSINESS.url}/images/technician-grass.jpg`
 );
 
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -39,7 +39,7 @@ export default function Page() {
         category="Prevention"
         date="January 15, 2025"
         readTime="5 min read"
-        image="/images/pest-control-san-diego.jpg"
+        image="/images/technician-grass.jpg"
         imageAlt="San Diego weather and pest control"
       >
         <p>

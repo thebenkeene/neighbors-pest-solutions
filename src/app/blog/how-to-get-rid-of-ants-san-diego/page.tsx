@@ -19,7 +19,7 @@ const articleSchema = generateArticleSchema(
   "/blog/how-to-get-rid-of-ants-san-diego",
   "2025-02-10",
   "2025-02-10",
-  `${BUSINESS.url}/images/pest-control-san-diego.jpg`
+  `${BUSINESS.url}/images/ants-windowsill.jpg`
 );
 
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -39,7 +39,7 @@ export default function Page() {
         category="Ants"
         date="February 10, 2025"
         readTime="6 min read"
-        image="/images/pest-control-san-diego.jpg"
+        image="/images/ants-windowsill.jpg"
         imageAlt="Ant control service in San Diego"
       >
         <p>

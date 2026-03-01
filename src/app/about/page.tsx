@@ -105,17 +105,14 @@ export default function AboutPage() {
 
             {/* Team photos */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-2xl overflow-hidden aspect-square">
-                <Image src="/images/team-1.jpg" alt="Josh - Co-founder of Neighbors Pest Solutions" width={400} height={400} className="object-cover w-full h-full" />
-              </div>
-              <div className="rounded-2xl overflow-hidden aspect-square mt-8">
-                <Image src="/images/team-2.jpg" alt="Derek - Co-founder of Neighbors Pest Solutions" width={400} height={400} className="object-cover w-full h-full" />
+              <div className="rounded-2xl overflow-hidden aspect-square col-span-2">
+                <Image src="/images/owners.jpg" alt="Josh and Derek — co-founders of Neighbors Pest Solutions" width={800} height={530} className="object-cover w-full h-full" />
               </div>
               <div className="rounded-2xl overflow-hidden aspect-square">
-                <Image src="/images/team-4.jpg" alt="Neighbors Pest Solutions team in the field" width={400} height={400} className="object-cover w-full h-full" />
+                <Image src="/images/technician-portrait.jpg" alt="Neighbors Pest Solutions technician" width={400} height={400} className="object-cover w-full h-full" />
               </div>
               <div className="rounded-2xl overflow-hidden aspect-square mt-8">
-                <Image src="/images/team-5.jpg" alt="Neighbors Pest Solutions technician" width={400} height={400} className="object-cover w-full h-full" />
+                <Image src="/images/technician-inspection.jpg" alt="Technician reviewing inspection with customer" width={400} height={400} className="object-cover w-full h-full" />
               </div>
             </div>
           </div>

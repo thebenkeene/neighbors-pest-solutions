@@ -19,7 +19,7 @@ const articleSchema = generateArticleSchema(
   "/blog/signs-you-have-rodents-san-diego",
   "2025-01-05",
   "2025-01-05",
-  `${BUSINESS.url}/images/team-3.jpg`
+  `${BUSINESS.url}/images/technician-walkway.jpg`
 );
 
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -39,7 +39,7 @@ export default function Page() {
         category="Rodents"
         date="January 5, 2025"
         readTime="7 min read"
-        image="/images/team-3.jpg"
+        image="/images/technician-walkway.jpg"
         imageAlt="Rodent control service"
       >
         <p>

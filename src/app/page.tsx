@@ -110,8 +110,8 @@ export default function HomePage() {
         <div className="absolute inset-0 overflow-hidden">
           <div className="hero-bg-animate absolute inset-0">
             <Image
-              src="/images/pest-control-san-diego.jpg"
-              alt="Pest control technician treating a San Diego home"
+              src="/images/hero-bg.png"
+              alt="Pest control service in San Diego neighborhood"
               fill
               className="object-cover"
               priority
@@ -324,11 +324,14 @@ export default function HomePage() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-2xl overflow-hidden aspect-[3/4] col-span-2">
+                <Image src="/images/owners.jpg" alt="Josh and Derek — co-founders of Neighbors Pest Solutions" fill={false} width={800} height={533} className="object-cover w-full h-full" />
+              </div>
               <div className="rounded-2xl overflow-hidden aspect-[3/4]">
-                <Image src="/images/team-1.jpg" alt="Neighbors Pest Solutions team" fill={false} width={400} height={533} className="object-cover w-full h-full" />
+                <Image src="/images/technician-portrait.jpg" alt="Neighbors Pest Solutions technician on the job" fill={false} width={400} height={533} className="object-cover w-full h-full" />
               </div>
               <div className="rounded-2xl overflow-hidden aspect-[3/4] mt-8">
-                <Image src="/images/team-2.jpg" alt="Neighbors Pest Solutions technician" fill={false} width={400} height={533} className="object-cover w-full h-full" />
+                <Image src="/images/technician-customer.jpg" alt="Neighbors Pest Solutions technician with customer" fill={false} width={400} height={533} className="object-cover w-full h-full" />
               </div>
             </div>
           </div>
@@ -344,34 +347,18 @@ export default function HomePage() {
             <p className="text-gray-600 max-w-2xl mx-auto">We provide pest control throughout San Diego County — from the coast to inland communities.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-bold text-dark-800 mb-3 text-sm uppercase tracking-wide">San Diego Neighborhoods</h3>
-              <div className="flex flex-wrap gap-2">
-                {SERVICE_AREAS.neighborhoods.map((area) => (
-                  <Link
-                    key={area.slug}
-                    href={`/service-areas/${area.slug}`}
-                    className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-sm text-dark-600 hover:bg-primary-50 hover:border-primary-300 hover:text-primary-700 transition-all duration-200"
-                  >
-                    {area.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="font-bold text-dark-800 mb-3 text-sm uppercase tracking-wide">Surrounding Cities</h3>
-              <div className="flex flex-wrap gap-2">
-                {SERVICE_AREAS.cities.map((area) => (
-                  <Link
-                    key={area.slug}
-                    href={`/service-areas/${area.slug}`}
-                    className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-sm text-dark-600 hover:bg-primary-50 hover:border-primary-300 hover:text-primary-700 transition-all duration-200"
-                  >
-                    {area.name}
-                  </Link>
-                ))}
-              </div>
+          <div>
+            <h3 className="font-bold text-dark-800 mb-3 text-sm uppercase tracking-wide text-center">San Diego Neighborhoods</h3>
+            <div className="flex flex-wrap gap-2 justify-center">
+              {[...SERVICE_AREAS.neighborhoods, ...SERVICE_AREAS.cities].map((area) => (
+                <Link
+                  key={area.slug}
+                  href={`/service-areas/${area.slug}`}
+                  className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-sm text-dark-600 hover:bg-primary-50 hover:border-primary-300 hover:text-primary-700 transition-all duration-200"
+                >
+                  {area.name}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -419,8 +406,8 @@ export default function HomePage() {
       <section className="relative py-24 text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/team-3.jpg"
-            alt="Pest control service in San Diego"
+            src="/images/truck.jpg"
+            alt="Neighbors Pest Solutions truck in San Diego"
             fill
             className="object-cover"
             quality={85}
