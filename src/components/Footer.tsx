@@ -14,11 +14,11 @@ export default function Footer() {
           <div className="space-y-4 lg:col-span-1">
             <Link href="/">
               <Image
-                src="/images/logo-full.png"
+                src="/images/logo-white.png"
                 alt={BUSINESS.name}
-                width={160}
-                height={54}
-                className="w-auto h-12 brightness-0 invert"
+                width={1170}
+                height={669}
+                className="w-auto h-12"
               />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">

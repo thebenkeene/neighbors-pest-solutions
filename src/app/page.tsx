@@ -87,6 +87,17 @@ const pestIcons = [
   { name: "Silverfish", href: "/services/silverfish-control", icon: "🐟" },
 ];
 
+const serviceImages: Record<string, string> = {
+  "ant-control": "/images/ants-infestation.jpg",
+  "bed-bug-control": "/images/bed-bugs.jpg",
+  "spider-control": "/images/spider-webs-before-after.jpg",
+  "rodent-control": "/images/rodent.jpg",
+  "cockroach-control": "/images/cockroach.jpg",
+  "mosquito-control": "/images/mosquito.jpg",
+  "flea-control": "/images/flea.jpg",
+  "tick-control": "/images/tick.jpg",
+};
+
 const serviceDescriptions: Record<string, string> = {
   "ant-control": "From Argentine ants to fire ants, we eliminate colonies at the source and protect your home year-round.",
   "bed-bug-control": "Thorough bed bug inspections and treatments using the latest heat and chemical methods to eliminate infestations fast.",
@@ -241,6 +252,8 @@ export default function HomePage() {
                 title={service.name}
                 description={serviceDescriptions[service.slug] ?? `Professional ${service.name.toLowerCase()} in San Diego, CA.`}
                 href={`/services/${service.slug}`}
+                imageSrc={serviceImages[service.slug]}
+                imageAlt={`${service.name} in San Diego`}
               />
             ))}
           </div>

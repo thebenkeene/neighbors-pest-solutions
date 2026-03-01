@@ -29,8 +29,8 @@ export function generateLocalBusinessSchema() {
       name: `${area.name}, CA`,
     })),
     priceRange: "$$",
-    image: `${BUSINESS.url}/images/logo.png`,
-    logo: `${BUSINESS.url}/images/logo.png`,
+    image: `${BUSINESS.url}/images/logo-full.png`,
+    logo: `${BUSINESS.url}/images/logo-full.png`,
     sameAs: [BUSINESS.socialFacebook, BUSINESS.socialInstagram],
     openingHoursSpecification: [
       {
@@ -196,7 +196,7 @@ export function generateArticleSchema(
       name: BUSINESS.name,
       logo: {
         "@type": "ImageObject",
-        url: `${BUSINESS.url}/images/logo.png`,
+        url: `${BUSINESS.url}/images/logo-full.png`,
       },
     },
     ...(image && {
