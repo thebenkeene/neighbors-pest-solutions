@@ -315,7 +315,7 @@ export default function HomePage() {
               { step: "2", title: "We Inspect & Treat", desc: "A licensed technician visits your property, performs a thorough inspection, and applies a customized treatment plan." },
               { step: "3", title: "Enjoy a Pest-Free Home", desc: "Sit back and relax. We guarantee our work, if pests return, so do we, at no additional cost." },
             ].map((item) => (
-              <div key={item.step} className="text-center group">
+              <div key={item.step} className="text-center group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-dark-800 text-white text-2xl font-bold mb-5 group-hover:bg-primary-600 transition-colors duration-300 relative z-10">
                   {item.step}
                 </div>

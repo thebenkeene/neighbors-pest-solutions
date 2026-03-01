@@ -114,7 +114,7 @@ export default function ContactPage() {
               </div>
 
               {/* Why contact us box */}
-              <div className="bg-dark-800 rounded-2xl p-6 text-white">
+              <div className="bg-dark-800 rounded-2xl p-6 text-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                 <h3 className="font-bold text-lg mb-3">Why Choose Neighbors?</h3>
                 <ul className="space-y-2 text-sm text-gray-300">
                   {[
@@ -136,7 +136,7 @@ export default function ContactPage() {
               </div>
 
               {/* Service areas snippet */}
-              <div className="bg-primary-50 rounded-2xl p-6 border border-primary-100">
+              <div className="bg-primary-50 rounded-2xl p-6 border border-primary-100 hover:shadow-md hover:-translate-y-1 hover:border-primary-300 transition-all duration-200">
                 <h3 className="font-bold text-dark-800 mb-2">Serving All of San Diego County</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   La Jolla · Mira Mesa · Chula Vista · El Cajon · Carlsbad · Encinitas · Escondido · Poway · Solana Beach · Del Mar and 20+ more cities.{" "}
@@ -147,7 +147,7 @@ export default function ContactPage() {
 
             {/* Right, Form */}
             <div className="lg:col-span-3">
-              <div className="bg-white rounded-2xl shadow-lg p-8">
+              <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-8">
                 <h2 className="text-2xl font-bold text-dark-800 mb-2">Request a Free Quote</h2>
                 <p className="text-gray-500 text-sm mb-6">We typically respond within 1 business day. For immediate help, call <a href={BUSINESS.phoneHref} className="text-primary-600 font-semibold hover:underline">{BUSINESS.phone}</a>.</p>
                 <ContactForm />

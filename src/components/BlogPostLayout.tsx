@@ -65,7 +65,7 @@ export default function BlogPostLayout({ title, category, date, readTime, image,
           </div>
 
           {/* CTA */}
-          <div className="mt-10 bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 text-white text-center">
+          <div className="mt-10 bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 text-white text-center hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
             <h3 className="text-3xl font-bold mb-3 text-white">Need Professional Pest Control in San Diego?</h3>
             <p className="text-lg text-primary-100 mb-6 max-w-2xl mx-auto">
               Same-day service available. 100% satisfaction guaranteed. Call or get a free quote online.

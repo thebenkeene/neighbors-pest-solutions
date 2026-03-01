@@ -112,7 +112,7 @@ export default function ServicePageTemplate({ data }: { data: ServicePageData })
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {data.signs.map((sign, i) => (
-              <div key={i} className="flex items-start gap-3 bg-white p-4 rounded-xl shadow-sm">
+              <div key={i} className="flex items-start gap-3 bg-white p-4 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-primary-200 border border-transparent transition-all duration-200">
                 <span className="text-primary-600 font-bold mt-0.5 shrink-0">⚠</span>
                 <span className="text-gray-700 text-sm leading-relaxed">{sign}</span>
               </div>
@@ -130,7 +130,7 @@ export default function ServicePageTemplate({ data }: { data: ServicePageData })
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {data.process.map((p) => (
-              <div key={p.step} className="text-center group">
+              <div key={p.step} className="text-center group bg-white rounded-2xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-dark-800 text-white text-xl font-bold mb-4 group-hover:bg-primary-600 transition-colors duration-300">
                   {p.step}
                 </div>
@@ -149,7 +149,7 @@ export default function ServicePageTemplate({ data }: { data: ServicePageData })
             <h2 className="text-2xl md:text-3xl font-bold text-dark-800">Treatment Options</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
+            <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
               <h3 className="text-xl font-bold text-dark-800 mb-3">One-Time Treatment</h3>
               <p className="text-gray-600 text-sm mb-4 leading-relaxed">A targeted treatment for your current infestation. Ideal for first-time pest issues or non-recurring problems.</p>
               <ul className="space-y-2 text-sm text-gray-600">
@@ -163,7 +163,7 @@ export default function ServicePageTemplate({ data }: { data: ServicePageData })
                 ))}
               </ul>
             </div>
-            <div className="bg-primary-600 rounded-2xl p-7 text-white relative overflow-hidden">
+            <div className="bg-primary-600 rounded-2xl p-7 text-white relative overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <div className="absolute top-3 right-3 bg-white text-primary-600 text-xs font-bold px-2 py-1 rounded-full">Most Popular</div>
               <h3 className="text-xl font-bold mb-3">Recurring Service Plan</h3>
               <p className="text-primary-100 text-sm mb-4 leading-relaxed">Quarterly preventative treatments to keep pests away year-round. Best value for long-term protection.</p>
@@ -202,7 +202,7 @@ export default function ServicePageTemplate({ data }: { data: ServicePageData })
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-dark-800">{data.name} FAQ</h2>
           </div>
-          <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
+          <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 p-6 md:p-8">
             {data.faqs.map((faq, i) => (
               <FAQItem key={i} question={faq.question} answer={faq.answer} />
             ))}

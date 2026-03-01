@@ -145,13 +145,13 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-dark-800 mb-3">Our Mission & Vision</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 shadow-sm border-t-4 border-primary-600">
+            <div className="bg-white rounded-2xl p-8 shadow-sm border-t-4 border-primary-600 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
               <h3 className="text-xl font-bold text-dark-800 mb-4">Our Mission</h3>
               <p className="text-gray-600 leading-relaxed">
                 To provide safe and effective pest control solutions to our customers, while maintaining the highest standards of professionalism, integrity, and customer service.
               </p>
             </div>
-            <div className="bg-dark-800 rounded-2xl p-8 text-white border-t-4 border-primary-400">
+            <div className="bg-dark-800 rounded-2xl p-8 text-white border-t-4 border-primary-400 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <h3 className="text-xl font-bold text-white mb-4">Our Vision</h3>
               <p className="text-gray-300 leading-relaxed">
                 To be the leading provider of pest control services in our community, through innovative solutions, and an unwavering commitment to environmental responsibility.
