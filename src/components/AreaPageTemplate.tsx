@@ -33,7 +33,7 @@ export default function AreaPageTemplate({ data }: { data: AreaPageData }) {
       <section className="relative bg-dark-900 text-white py-24 -mt-20 pt-44">
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/images/pest-control-san-diego.jpg"
+            src="/images/hero-bg.png"
             alt={`Pest control in ${data.cityName}, CA`}
             fill
             className="object-cover opacity-25"
