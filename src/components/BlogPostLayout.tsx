@@ -21,11 +21,11 @@ export default function BlogPostLayout({ title, category, date, readTime, image,
       </div>
 
       {/* Single white article section — mirrors Boise Cleaning Crew layout */}
-      <article className="py-12 bg-white">
+      <article className="py-8 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Breadcrumb */}
-          <nav className="mb-8 text-sm">
+          <nav className="mb-5 text-sm">
             <Link href="/" className="text-primary-600 hover:text-primary-700 transition-colors">Home</Link>
             <span className="mx-2 text-gray-400">/</span>
             <Link href="/blog" className="text-primary-600 hover:text-primary-700 transition-colors">Blog</Link>
@@ -34,13 +34,13 @@ export default function BlogPostLayout({ title, category, date, readTime, image,
           </nav>
 
           {/* Article header */}
-          <header className="mb-12">
-            <div className="mb-4">
+          <header className="mb-7">
+            <div className="mb-3">
               <span className="inline-block bg-primary-100 text-primary-700 px-4 py-1 rounded-full text-sm font-semibold uppercase tracking-wide">
                 {category}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-dark-800 mb-5 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-dark-800 mb-3 leading-tight">
               {title}
             </h1>
             <div className="flex items-center text-gray-500 text-sm space-x-3">
@@ -54,7 +54,7 @@ export default function BlogPostLayout({ title, category, date, readTime, image,
 
           {/* Featured image — sits between header and body, matching Boise layout */}
           {image && (
-            <div className="relative rounded-xl h-96 mb-12 overflow-hidden shadow-lg">
+            <div className="relative rounded-xl h-80 mb-7 overflow-hidden shadow-lg">
               <Image src={image} alt={imageAlt || title} fill className="object-cover" priority />
             </div>
           )}
@@ -65,9 +65,9 @@ export default function BlogPostLayout({ title, category, date, readTime, image,
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-12 text-white text-center">
-            <h3 className="text-3xl font-bold mb-4 text-white">Need Professional Pest Control in San Diego?</h3>
-            <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+          <div className="mt-10 bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 text-white text-center">
+            <h3 className="text-3xl font-bold mb-3 text-white">Need Professional Pest Control in San Diego?</h3>
+            <p className="text-lg text-primary-100 mb-6 max-w-2xl mx-auto">
               Same-day service available. 100% satisfaction guaranteed. Call or get a free quote online.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -87,7 +87,7 @@ export default function BlogPostLayout({ title, category, date, readTime, image,
           </div>
 
           {/* Back to blog */}
-          <div className="mt-12 text-center">
+          <div className="mt-8 text-center">
             <Link
               href="/blog"
               className="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center transition-colors"

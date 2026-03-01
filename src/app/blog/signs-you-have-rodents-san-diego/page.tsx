@@ -58,8 +58,8 @@ export default function Page() {
         <h2>3. Gnaw Marks</h2>
         <p>Rats have teeth that never stop growing, they must gnaw constantly. Look for gnaw marks on wood, plastic, electrical wiring, food packaging, and insulation. Chewed wires are a serious fire hazard.</p>
 
-        <div className="bg-primary-50 border-l-4 border-primary-600 p-6 rounded-r-xl my-8">
-          <p className="font-semibold text-primary-900 mb-2">Fire Hazard Alert</p>
+        <div className="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-r-xl my-4">
+          <p className="font-semibold text-primary-900 !mb-1">Fire Hazard Alert</p>
           <p className="text-primary-800">
             Rats chewing on electrical wiring inside walls is one of the leading causes of house fires with unknown origins. If you suspect rodents, have an electrician inspect your wiring.
           </p>

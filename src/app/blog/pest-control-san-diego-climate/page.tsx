@@ -56,8 +56,8 @@ export default function Page() {
         <p>
           San Diego summers are the most intense pest season. Heat and drought push insects and rodents indoors looking for water. Mosquitoes breed in any standing water that accumulates from irrigation. Cockroaches thrive in the heat. Wasps and yellow jackets build nests.
         </p>
-        <div className="bg-primary-50 border-l-4 border-primary-600 p-6 rounded-r-xl my-8">
-          <p className="font-semibold text-primary-900 mb-2">Summer Tip</p>
+        <div className="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-r-xl my-4">
+          <p className="font-semibold text-primary-900 !mb-1">Summer Tip</p>
           <p className="text-primary-800">
             Check your irrigation system for standing water in pots, saucers, and low spots. Mosquitoes can breed in as little as one teaspoon of standing water.
           </p>

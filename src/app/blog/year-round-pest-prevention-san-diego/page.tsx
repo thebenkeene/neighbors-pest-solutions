@@ -65,8 +65,8 @@ export default function Page() {
           <li>Trim tree branches that touch your roofline, they&apos;re ant highways</li>
         </ul>
 
-        <div className="bg-primary-50 border-l-4 border-primary-600 p-6 rounded-r-xl my-8">
-          <p className="font-semibold text-primary-900 mb-2">Spring Tip</p>
+        <div className="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-r-xl my-4">
+          <p className="font-semibold text-primary-900 !mb-1">Spring Tip</p>
           <p className="text-primary-800">
             Now is the time to schedule a preventative perimeter treatment before ant season peaks. A professional barrier application in March or April can dramatically reduce summer ant pressure.
           </p>

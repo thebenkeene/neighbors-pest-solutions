@@ -65,8 +65,8 @@ export default function Page() {
           <li><strong>Use slow-acting bait, not spray.</strong> Spraying ants kills the foragers you see, but the colony survives and often splits (called &quot;budding&quot;), making the problem worse. Slow-acting gel bait allows foragers to carry poison back to the colony.</li>
         </ul>
 
-        <div className="bg-primary-50 border-l-4 border-primary-600 p-6 rounded-r-xl my-8">
-          <p className="font-semibold text-primary-900 mb-2">Pro Tip</p>
+        <div className="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-r-xl my-4">
+          <p className="font-semibold text-primary-900 !mb-1">Pro Tip</p>
           <p className="text-primary-800">
             Don&apos;t spray over bait. Residual sprays and bait repel each other, ants won&apos;t pick up bait that&apos;s been contaminated with repellent insecticide. Use one method at a time.
           </p>
