@@ -43,15 +43,15 @@ export default function Page() {
         imageAlt="Ant control service in San Diego"
       >
         <p>
-          If you&apos;ve lived in San Diego for more than one summer, you&apos;ve almost certainly dealt with ants. They appear out of nowhere — a trail across the kitchen counter, scouts in the bathroom, a line marching along the baseboards. San Diego has one of the highest ant pressures in the country, and there&apos;s a good reason for that.
+          If you&apos;ve lived in San Diego for more than one summer, you&apos;ve almost certainly dealt with ants. They appear out of nowhere, a trail across the kitchen counter, scouts in the bathroom, a line marching along the baseboards. San Diego has one of the highest ant pressures in the country, and there&apos;s a good reason for that.
         </p>
 
         <h2>Why Ants Invade San Diego Homes</h2>
         <p>
-          The dominant ant species in San Diego is the <strong>Argentine ant</strong> (<em>Linepithema humile</em>). Unlike most ant species, Argentine ants don&apos;t form single colonies — they form supercolonies that can span acres. San Diego County is home to one of the world&apos;s largest known Argentine ant supercolonies.
+          The dominant ant species in San Diego is the <strong>Argentine ant</strong> (<em>Linepithema humile</em>). Unlike most ant species, Argentine ants don&apos;t form single colonies, they form supercolonies that can span acres. San Diego County is home to one of the world&apos;s largest known Argentine ant supercolonies.
         </p>
         <p>
-          These ants move indoors when outside conditions become unfavorable — typically during hot, dry spells (late summer and fall) or after heavy rain. They&apos;re looking for three things: food, water, and shelter. Your kitchen and bathroom offer all three.
+          These ants move indoors when outside conditions become unfavorable, typically during hot, dry spells (late summer and fall) or after heavy rain. They&apos;re looking for three things: food, water, and shelter. Your kitchen and bathroom offer all three.
         </p>
 
         <h2>DIY Ant Control: What Actually Works</h2>
@@ -68,7 +68,7 @@ export default function Page() {
         <div className="bg-primary-50 border-l-4 border-primary-600 p-5 rounded-r-xl my-6">
           <p className="font-semibold text-primary-900 mb-1">Pro Tip</p>
           <p className="text-primary-800 text-sm">
-            Don&apos;t spray over bait. Residual sprays and bait repel each other — ants won&apos;t pick up bait that&apos;s been contaminated with repellent insecticide. Use one method at a time.
+            Don&apos;t spray over bait. Residual sprays and bait repel each other, ants won&apos;t pick up bait that&apos;s been contaminated with repellent insecticide. Use one method at a time.
           </p>
         </div>
 
@@ -94,15 +94,15 @@ export default function Page() {
           <li>Entry point recommendations and follow-up if ants return</li>
         </ul>
         <p>
-          Most San Diego homeowners see dramatic improvement within 24–72 hours. For Argentine ant colonies, we recommend a quarterly service plan — the supercolony never fully goes away, but with regular perimeter treatments, you can keep it out of your home year-round.
+          Most San Diego homeowners see dramatic improvement within 24–72 hours. For Argentine ant colonies, we recommend a quarterly service plan, the supercolony never fully goes away, but with regular perimeter treatments, you can keep it out of your home year-round.
         </p>
 
         <h2>Final Thoughts</h2>
         <p>
-          Ants in San Diego are a fact of life — but a major infestation doesn&apos;t have to be. With the right approach (bait over spray, addressing moisture and food sources, and a professional perimeter treatment), you can keep your home ant-free for good.
+          Ants in San Diego are a fact of life, but a major infestation doesn&apos;t have to be. With the right approach (bait over spray, addressing moisture and food sources, and a professional perimeter treatment), you can keep your home ant-free for good.
         </p>
         <p>
-          If you&apos;re dealing with a persistent ant problem, <Link href="/contact">give us a call at {BUSINESS.phone}</Link> — we offer free inspections and same-day service throughout San Diego County.
+          If you&apos;re dealing with a persistent ant problem, <Link href="/contact">give us a call at {BUSINESS.phone}</Link>, we offer free inspections and same-day service throughout San Diego County.
         </p>
       </BlogPostLayout>
     </>

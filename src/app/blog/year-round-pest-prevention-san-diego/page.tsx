@@ -43,16 +43,16 @@ export default function Page() {
         imageAlt="Pest prevention for San Diego homes"
       >
         <p>
-          Preventing pests is always easier — and cheaper — than eliminating them. In San Diego, where pests are active 12 months a year, consistent preventative habits make a real difference. Here&apos;s a practical, season-by-season guide to keeping your home pest-free year-round.
+          Preventing pests is always easier, and cheaper, than eliminating them. In San Diego, where pests are active 12 months a year, consistent preventative habits make a real difference. Here&apos;s a practical, season-by-season guide to keeping your home pest-free year-round.
         </p>
 
         <h2>Year-Round Habits (Every Month)</h2>
         <ul>
-          <li>Store food in airtight containers — including pet food</li>
+          <li>Store food in airtight containers, including pet food</li>
           <li>Wipe down kitchen counters and stovetop after cooking</li>
           <li>Empty trash cans regularly and keep lids tight</li>
-          <li>Fix leaky faucets and pipes — moisture attracts ants, cockroaches, and silverfish</li>
-          <li>Keep your home clutter-free — boxes, piles of paper, and stored items provide harborage</li>
+          <li>Fix leaky faucets and pipes, moisture attracts ants, cockroaches, and silverfish</li>
+          <li>Keep your home clutter-free, boxes, piles of paper, and stored items provide harborage</li>
           <li>Inspect deliveries, used furniture, and secondhand clothing for bed bugs</li>
         </ul>
 
@@ -62,7 +62,7 @@ export default function Page() {
           <li>Inspect your foundation and entry points for ant trails and seal any cracks</li>
           <li>Apply caulk around windows, doors, and utility penetrations</li>
           <li>Check for termite mud tubes along your foundation and in crawl spaces</li>
-          <li>Trim tree branches that touch your roofline — they&apos;re ant highways</li>
+          <li>Trim tree branches that touch your roofline, they&apos;re ant highways</li>
         </ul>
 
         <div className="bg-primary-50 border-l-4 border-primary-600 p-5 rounded-r-xl my-6">
@@ -75,7 +75,7 @@ export default function Page() {
         <h2>Summer (June–September)</h2>
         <h3>Mosquitoes, Cockroaches & Fleas</h3>
         <ul>
-          <li>Empty standing water at least weekly — pots, bird baths, pet bowls, gutters</li>
+          <li>Empty standing water at least weekly, pots, bird baths, pet bowls, gutters</li>
           <li>Keep grass mowed and vegetation trimmed away from the house</li>
           <li>Check under sinks and around appliances for cockroach activity</li>
           <li>Treat your yard for fleas if you have pets that spend time outside</li>
@@ -87,7 +87,7 @@ export default function Page() {
         <h3>Rodents & Earwigs</h3>
         <ul>
           <li>Inspect your roofline, attic vents, and soffits for gaps (a ¼-inch hole is enough for a mouse)</li>
-          <li>Trim tree branches away from your roof — roof rats use them as entry points</li>
+          <li>Trim tree branches away from your roof, roof rats use them as entry points</li>
           <li>Store firewood at least 20 feet from the house and off the ground</li>
           <li>Check garage door seals for gaps along the bottom</li>
           <li>Remove leaf piles and debris from around the foundation</li>
@@ -96,15 +96,15 @@ export default function Page() {
         <h2>Winter (January–February)</h2>
         <h3>Ants After Rain & Indoor Pests</h3>
         <ul>
-          <li>Check for ants following rain events — they move indoors to escape wet conditions</li>
+          <li>Check for ants following rain events, they move indoors to escape wet conditions</li>
           <li>Inspect stored items in attic or garage for signs of rodent activity</li>
           <li>Check mattresses and bedroom furniture for bed bug signs if you&apos;ve traveled recently</li>
-          <li>Check interior plumbing for leaks — cockroaches and silverfish seek moisture in winter</li>
+          <li>Check interior plumbing for leaks, cockroaches and silverfish seek moisture in winter</li>
         </ul>
 
         <h2>Professional Pest Prevention: Quarterly Service</h2>
         <p>
-          Even the most diligent homeowner benefits from professional quarterly service. In San Diego&apos;s climate, a professional perimeter treatment every three months provides a barrier layer that individual DIY efforts can&apos;t match — especially against Argentine ant supercolonies.
+          Even the most diligent homeowner benefits from professional quarterly service. In San Diego&apos;s climate, a professional perimeter treatment every three months provides a barrier layer that individual DIY efforts can&apos;t match, especially against Argentine ant supercolonies.
         </p>
         <p>
           Our quarterly service plan includes seasonal perimeter treatments, interior spot treatments as needed, and free re-treatments if pests return between visits. <Link href="/contact">Contact us</Link> to get started.

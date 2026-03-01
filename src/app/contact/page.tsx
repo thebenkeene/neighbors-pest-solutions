@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 import { BUSINESS } from "@/lib/constants";
 
 export const metadata = generateSEO({
-  title: "Contact Us — Free Pest Control Quote San Diego",
+  title: "Contact Us, Free Pest Control Quote San Diego",
   description: "Contact Neighbors Pest Solutions for a free pest control quote in San Diego, CA. Call (858) 878-2847 or fill out our online form. Same-day service available.",
   path: "/contact",
   keywords: ["pest control quote San Diego", "contact pest control San Diego", "free pest inspection San Diego"],
@@ -88,7 +88,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
 
-            {/* Left — Info */}
+            {/* Left, Info */}
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <h2 className="text-2xl font-bold text-dark-800 mb-6">Contact Information</h2>
@@ -145,7 +145,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Right — Form */}
+            {/* Right, Form */}
             <div className="lg:col-span-3">
               <div className="bg-white rounded-2xl shadow-lg p-8">
                 <h2 className="text-2xl font-bold text-dark-800 mb-2">Request a Free Quote</h2>
@@ -162,7 +162,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl overflow-hidden shadow-lg h-64 bg-gray-200 flex items-center justify-center">
             <p className="text-gray-500 text-sm">
-              Map embed — <a href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS.address.full)}`} target="_blank" rel="noopener noreferrer" className="text-primary-600 underline">View on Google Maps</a>
+              Map embed, <a href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS.address.full)}`} target="_blank" rel="noopener noreferrer" className="text-primary-600 underline">View on Google Maps</a>
             </p>
           </div>
         </div>

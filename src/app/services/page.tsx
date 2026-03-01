@@ -11,7 +11,7 @@ export const metadata = generateSEO({
 });
 
 const serviceMeta: Record<string, { icon: string; description: string }> = {
-  "ant-control": { icon: "🐜", description: "Eliminate ant colonies at the source — Argentine, fire, carpenter, and more." },
+  "ant-control": { icon: "🐜", description: "Eliminate ant colonies at the source, Argentine, fire, carpenter, and more." },
   "bed-bug-control": { icon: "🛏️", description: "Heat and chemical treatments to fully eliminate bed bug infestations." },
   "spider-control": { icon: "🕷️", description: "Keep black widows, brown recluses, and other spiders out of your home." },
   "rodent-control": { icon: "🐭", description: "Full rodent exclusion, trapping, and sanitation programs." },

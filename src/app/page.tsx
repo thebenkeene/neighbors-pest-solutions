@@ -22,7 +22,7 @@ const benefits = [
       </svg>
     ),
     title: "Same-Day Service",
-    desc: "Fast response when you need it most — often same-day or next-day.",
+    desc: "Fast response when you need it most, often same-day or next-day.",
   },
   {
     icon: (
@@ -31,7 +31,7 @@ const benefits = [
       </svg>
     ),
     title: "100% Guaranteed",
-    desc: "If pests return, we come back and re-treat — no extra charge.",
+    desc: "If pests return, we come back and re-treat, no extra charge.",
   },
   {
     icon: (
@@ -59,7 +59,7 @@ const benefits = [
       </svg>
     ),
     title: "Locally Owned",
-    desc: "Born and raised in SoCal — your true neighborhood bug guys.",
+    desc: "Born and raised in SoCal, your true neighborhood bug guys.",
   },
   {
     icon: (
@@ -113,12 +113,12 @@ export default function HomePage() {
               src="/images/hero-bg.png"
               alt="Pest control service in San Diego neighborhood"
               fill
-              className="object-cover"
+              className="object-cover object-center"
               priority
               quality={90}
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-dark-900/92 via-dark-900/75 to-dark-800/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-dark-900/85 via-dark-900/55 to-dark-800/15" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-36 w-full">
@@ -133,7 +133,7 @@ export default function HomePage() {
               <span className="text-primary-400">San Diego, CA</span>
             </h1>
             <p className="text-xl md:text-2xl mb-4 text-gray-200 drop-shadow-md leading-relaxed">
-              Safe, reliable pest control for San Diego homeowners. Ants, spiders, bed bugs, rodents, and more — eliminated fast and guaranteed.
+              Safe, reliable pest control for San Diego homeowners. Ants, spiders, bed bugs, rodents, and more, eliminated fast and guaranteed.
             </p>
 
             {/* Ticker */}
@@ -232,7 +232,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <p className="section-label">Our Services</p>
             <h2 className="text-3xl md:text-4xl font-bold text-dark-800 mb-4">Professional Pest Control Services</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Every treatment is customized to your home and pest situation. We never oversell — just effective solutions.</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">Every treatment is customized to your home and pest situation. We never oversell, just effective solutions.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {TOP_SERVICES.map((service) => (
@@ -287,7 +287,7 @@ export default function HomePage() {
             {[
               { step: "1", title: "Call or Request Online", desc: "Call us at (858) 878-2847 or fill out our quick quote form. We&apos;ll ask a few questions about your home and pest problem." },
               { step: "2", title: "We Inspect & Treat", desc: "A licensed technician visits your property, performs a thorough inspection, and applies a customized treatment plan." },
-              { step: "3", title: "Enjoy a Pest-Free Home", desc: "Sit back and relax. We guarantee our work — if pests return, so do we, at no additional cost." },
+              { step: "3", title: "Enjoy a Pest-Free Home", desc: "Sit back and relax. We guarantee our work, if pests return, so do we, at no additional cost." },
             ].map((item) => (
               <div key={item.step} className="text-center group">
                 <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-dark-800 text-white text-2xl font-bold mb-5 group-hover:bg-primary-600 transition-colors duration-300 relative z-10">
@@ -307,12 +307,12 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-primary-400 font-semibold uppercase tracking-widest text-sm mb-3">Who We Are</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Meet the Owners — Josh & Derek</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Meet the Owners, Josh & Derek</h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-4">
-                We&apos;re longtime friends, born and raised right here in Southern California. Together, we have 15+ years of industry experience — Josh as Vice President and Derek as a regional manager and industry-leading sales leader at Florida&apos;s fastest-growing pest company.
+                We&apos;re longtime friends, born and raised right here in Southern California. Together, we have 15+ years of industry experience, Josh as Vice President and Derek as a regional manager and industry-leading sales leader at Florida&apos;s fastest-growing pest company.
               </p>
               <p className="text-gray-300 leading-relaxed mb-6">
-                Although we had great success, we felt it was time to come back home and start our entrepreneurial journey together in our favorite place — San Diego. We pledge to maintain the highest level of service for our local neighbors, using top-of-the-line products that are not only effective but environmentally and family friendly.
+                Although we had great success, we felt it was time to come back home and start our entrepreneurial journey together in our favorite place, San Diego. We pledge to maintain the highest level of service for our local neighbors, using top-of-the-line products that are not only effective but environmentally and family friendly.
               </p>
               <div className="flex gap-4">
                 <Link href="/about" className="btn-outline-white">
@@ -325,7 +325,7 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-2xl overflow-hidden aspect-[3/4] col-span-2">
-                <Image src="/images/owners.jpg" alt="Josh and Derek — co-founders of Neighbors Pest Solutions" fill={false} width={800} height={533} className="object-cover w-full h-full" />
+                <Image src="/images/owners.jpg" alt="Josh and Derek, co-founders of Neighbors Pest Solutions" fill={false} width={800} height={533} className="object-cover w-full h-full" />
               </div>
               <div className="rounded-2xl overflow-hidden aspect-[3/4]">
                 <Image src="/images/technician-portrait.jpg" alt="Neighbors Pest Solutions technician on the job" fill={false} width={400} height={533} className="object-cover w-full h-full" />
@@ -344,7 +344,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <p className="section-label">Where We Work</p>
             <h2 className="text-3xl md:text-4xl font-bold text-dark-800 mb-4">Proudly Serving San Diego County</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">We provide pest control throughout San Diego County — from the coast to inland communities.</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">We provide pest control throughout San Diego County, from the coast to inland communities.</p>
           </div>
 
           <div>
@@ -376,7 +376,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <p className="section-label">Customer Reviews</p>
             <h2 className="text-3xl md:text-4xl font-bold text-dark-800 mb-4">What Our Customers Say</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">We guarantee our work. If pests return, we come back and re-treat — at no extra cost.</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">We guarantee our work. If pests return, we come back and re-treat, at no extra cost.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {TESTIMONIALS.map((t) => (

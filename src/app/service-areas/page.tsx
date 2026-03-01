@@ -4,7 +4,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { BUSINESS, SERVICE_AREAS } from "@/lib/constants";
 
 export const metadata = generateSEO({
-  title: "Pest Control Service Areas — San Diego County CA",
+  title: "Pest Control Service Areas, San Diego County CA",
   description: "Neighbors Pest Solutions serves all of San Diego County. Find pest control near you in La Jolla, Mira Mesa, Chula Vista, Carlsbad, Escondido, and 25+ more cities and neighborhoods.",
   path: "/service-areas",
   keywords: ["pest control near me San Diego", "San Diego County pest control", "pest control service areas"],
@@ -26,7 +26,7 @@ export default function ServiceAreasPage() {
           <p className="section-label text-primary-300">Where We Work</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Pest Control Across San Diego County</h1>
           <p className="text-gray-300 text-xl max-w-2xl mx-auto mb-8">
-            From La Jolla to Oceanside, Downtown to Escondido — we serve all of San Diego County with same-day service and a 100% satisfaction guarantee.
+            From La Jolla to Oceanside, Downtown to Escondido, we serve all of San Diego County with same-day service and a 100% satisfaction guarantee.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary text-base px-8 py-4">Get a Free Quote →</Link>
@@ -67,7 +67,7 @@ export default function ServiceAreasPage() {
           <p className="section-label">Why Neighbors Pest Solutions</p>
           <h2 className="text-3xl font-bold text-dark-800 mb-6">Locally Owned. San Diego Proud.</h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
-            We&apos;re not a national franchise — we&apos;re your neighbors. Josh and Derek grew up in Southern California and built this business specifically to serve our San Diego community. That means faster response times, technicians who know the local pest pressures, and a team that genuinely cares about your home.
+            We&apos;re not a national franchise, we&apos;re your neighbors. Josh and Derek grew up in Southern California and built this business specifically to serve our San Diego community. That means faster response times, technicians who know the local pest pressures, and a team that genuinely cares about your home.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
             {[

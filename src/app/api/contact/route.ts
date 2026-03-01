@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // Log the submission — replace with your email service (Resend, SendGrid, Nodemailer, etc.)
+    // Log the submission, replace with your email service (Resend, SendGrid, Nodemailer, etc.)
     console.log("Contact form submission:", {
       name: `${firstName} ${lastName}`,
       email,
@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     // await resend.emails.send({
     //   from: 'noreply@neighborspestsolutions.com',
     //   to: 'info@neighborspestsolutions.com',
-    //   subject: `New quote request — ${pestType} — ${firstName} ${lastName}`,
+    //   subject: `New quote request, ${pestType}, ${firstName} ${lastName}`,
     //   html: `<p>Name: ${firstName} ${lastName}</p><p>Email: ${email}</p>...`,
     // });
 

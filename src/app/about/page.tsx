@@ -6,7 +6,7 @@ import TestimonialCard from "@/components/TestimonialCard";
 import { BUSINESS, TESTIMONIALS } from "@/lib/constants";
 
 export const metadata = generateSEO({
-  title: "About Us — Locally Owned San Diego Pest Control",
+  title: "About Us, Locally Owned San Diego Pest Control",
   description: "Meet Josh and Derek, the founders of Neighbors Pest Solutions. 15+ years of industry experience, San Diego natives, and your true neighborhood bug guys. Learn our story.",
   path: "/about",
   keywords: ["about Neighbors Pest Solutions", "San Diego pest control company", "locally owned pest control San Diego"],
@@ -38,7 +38,7 @@ const values = [
   },
   {
     title: "Accountability",
-    desc: "Every technician stands behind their work. If pests return, we return — no questions, no extra charge.",
+    desc: "Every technician stands behind their work. If pests return, we return, no questions, no extra charge.",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -75,7 +75,7 @@ export default function AboutPage() {
             <p className="text-primary-400 font-semibold uppercase tracking-widest text-sm mb-3">{BUSINESS.tagline}</p>
             <h1 className="text-4xl md:text-5xl font-bold mb-5 text-white">About Neighbors Pest Solutions</h1>
             <p className="text-gray-200 text-xl leading-relaxed">
-              We&apos;re not a national franchise. We&apos;re your neighbors — born and raised in Southern California, building a pest control company we&apos;d want for our own homes.
+              We&apos;re not a national franchise. We&apos;re your neighbors, born and raised in Southern California, building a pest control company we&apos;d want for our own homes.
             </p>
           </div>
         </div>
@@ -87,12 +87,12 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div>
               <p className="section-label">Who We Are</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-dark-800 mb-6">Meet The Owners — Josh & Derek</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-dark-800 mb-6">Meet The Owners, Josh & Derek</h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-4">
                 We are long-time friends, born and raised locally in the SoCal area. Collectively, we have 15+ years of industry experience and climbed the ladder together at Florida&apos;s fastest-growing pest company. Josh was named Vice President and Derek was a regional manager and industry-leading sales leader.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Although we had great success, we felt it was time to come back home and start our entrepreneurial journey together in our favorite place — San Diego. We pledge to maintain the highest level of service for our local San Diego neighbors while using top-of-the-line products that are not only effective but most importantly environmentally and family friendly.
+                Although we had great success, we felt it was time to come back home and start our entrepreneurial journey together in our favorite place, San Diego. We pledge to maintain the highest level of service for our local San Diego neighbors while using top-of-the-line products that are not only effective but most importantly environmentally and family friendly.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
                 We could not be more excited to serve this amazing county and look forward to giving back to a community that has given us so much!
@@ -106,7 +106,7 @@ export default function AboutPage() {
             {/* Team photos */}
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-2xl overflow-hidden aspect-square col-span-2">
-                <Image src="/images/owners.jpg" alt="Josh and Derek — co-founders of Neighbors Pest Solutions" width={800} height={530} className="object-cover w-full h-full" />
+                <Image src="/images/owners.jpg" alt="Josh and Derek, co-founders of Neighbors Pest Solutions" width={800} height={530} className="object-cover w-full h-full" />
               </div>
               <div className="rounded-2xl overflow-hidden aspect-square">
                 <Image src="/images/technician-portrait.jpg" alt="Neighbors Pest Solutions technician" width={400} height={400} className="object-cover w-full h-full" />

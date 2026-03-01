@@ -43,20 +43,20 @@ export default function Page() {
         imageAlt="Rodent control service"
       >
         <p>
-          Roof rats are among the most common and destructive pests in San Diego County. They&apos;re expert climbers that access homes through trees, utility lines, and roof openings — and they breed fast. A single pair of rats can produce 40+ offspring in a year.
+          Roof rats are among the most common and destructive pests in San Diego County. They&apos;re expert climbers that access homes through trees, utility lines, and roof openings, and they breed fast. A single pair of rats can produce 40+ offspring in a year.
         </p>
         <p>
           The problem: rodents are secretive, and many homeowners don&apos;t realize they have an infestation until significant damage has been done. Here are 10 warning signs to watch for.
         </p>
 
         <h2>1. Noises in Walls or Ceiling at Night</h2>
-        <p>Scratching, scurrying, or thumping sounds — especially between 11 PM and 3 AM — are the most common early sign of roof rats. They&apos;re active after dark and often travel along the same paths inside your walls.</p>
+        <p>Scratching, scurrying, or thumping sounds, especially between 11 PM and 3 AM, are the most common early sign of roof rats. They&apos;re active after dark and often travel along the same paths inside your walls.</p>
 
         <h2>2. Droppings</h2>
-        <p>Rat droppings are capsule-shaped, about ½ inch long, and dark brown or black. They&apos;re commonly found along walls, in cabinets, under sinks, and in the attic. Fresh droppings are shiny and soft — older ones are gray and crumbly.</p>
+        <p>Rat droppings are capsule-shaped, about ½ inch long, and dark brown or black. They&apos;re commonly found along walls, in cabinets, under sinks, and in the attic. Fresh droppings are shiny and soft, older ones are gray and crumbly.</p>
 
         <h2>3. Gnaw Marks</h2>
-        <p>Rats have teeth that never stop growing — they must gnaw constantly. Look for gnaw marks on wood, plastic, electrical wiring, food packaging, and insulation. Chewed wires are a serious fire hazard.</p>
+        <p>Rats have teeth that never stop growing, they must gnaw constantly. Look for gnaw marks on wood, plastic, electrical wiring, food packaging, and insulation. Chewed wires are a serious fire hazard.</p>
 
         <div className="bg-primary-50 border-l-4 border-primary-600 p-5 rounded-r-xl my-6">
           <p className="font-semibold text-primary-900 mb-1">Fire Hazard Alert</p>
@@ -72,7 +72,7 @@ export default function Page() {
         <p>Rats travel the same routes repeatedly, leaving oily rub marks (called &quot;grease marks&quot;) along walls, pipes, and beams. Dark smudge marks at entry points are a telltale sign.</p>
 
         <h2>6. Footprints or Tail Drag Marks</h2>
-        <p>In dusty areas — attics, garages, or beneath appliances — you may see rat footprints or the drag mark left by a rat&apos;s tail.</p>
+        <p>In dusty areas, attics, garages, or beneath appliances, you may see rat footprints or the drag mark left by a rat&apos;s tail.</p>
 
         <h2>7. Pet Behavior Changes</h2>
         <p>Dogs and cats often detect rodents before humans do. If your pet is suddenly sniffing at walls, pawing at baseboards, or acting agitated at night, take it seriously.</p>
@@ -84,7 +84,7 @@ export default function Page() {
         <p>Gnaw holes in pantry items, cereal boxes, pet food bags, or garden products are a clear sign rodents are foraging in your home.</p>
 
         <h2>10. Visible Rodents</h2>
-        <p>Seeing a rat — inside or outside your home — at any time of day is a serious sign. Rats are typically nocturnal; a rat seen in daylight often indicates a large, overcrowded infestation.</p>
+        <p>Seeing a rat, inside or outside your home, at any time of day is a serious sign. Rats are typically nocturnal; a rat seen in daylight often indicates a large, overcrowded infestation.</p>
 
         <h2>What to Do If You Spot These Signs</h2>
         <p>

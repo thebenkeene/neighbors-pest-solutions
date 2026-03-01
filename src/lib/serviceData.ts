@@ -7,12 +7,12 @@ export const servicePages: Record<string, ServicePageData> = {
     heroHeading: "Ant Control San Diego, CA",
     heroSubheading: "Eliminate ant colonies at the source. We target Argentine ants, fire ants, carpenter ants, and all species common to San Diego homes.",
     heroImage: "/images/ants-windowsill.jpg",
-    intro: "Ants are one of the most common pest problems in San Diego due to the warm, dry climate. When it gets hot or dry outside, ant colonies send foragers inside looking for food and water. A single ant trail can lead to hundreds of thousands of ants. Our technicians don't just spray the surface — we locate and treat the source colonies to deliver lasting results.",
+    intro: "Ants are one of the most common pest problems in San Diego due to the warm, dry climate. When it gets hot or dry outside, ant colonies send foragers inside looking for food and water. A single ant trail can lead to hundreds of thousands of ants. Our technicians don't just spray the surface, we locate and treat the source colonies to deliver lasting results.",
     features: [
       { title: "Colony Source Treatment", desc: "We trace ant trails and treat the nest directly, not just the visible ants." },
       { title: "Interior & Exterior Barrier", desc: "A perimeter treatment prevents new ant scouts from entering your home." },
       { title: "Entry Point Sealing", desc: "We identify and recommend sealing of cracks, gaps, and utility penetrations." },
-      { title: "Eco-Friendly Products", desc: "All products are family and pet safe once dry — we'll let you know when it's clear." },
+      { title: "Eco-Friendly Products", desc: "All products are family and pet safe once dry, we'll let you know when it's clear." },
     ],
     signs: [
       "Visible ant trails along walls, counters, or floors",
@@ -46,7 +46,7 @@ export const servicePages: Record<string, ServicePageData> = {
     heroHeading: "Bed Bug Treatment San Diego, CA",
     heroSubheading: "Fast, thorough bed bug elimination using proven heat and chemical treatments. We won't rest until you can.",
     heroImage: "/images/technician-spraying.jpg",
-    intro: "Bed bugs are one of the most stressful and difficult pest infestations to deal with. They hide in mattresses, headboards, furniture, and even electrical outlets. Over-the-counter products rarely work against established infestations. Our licensed technicians use a combination of targeted chemical treatments and professional-grade methods to eliminate bed bugs at every life stage — including eggs.",
+    intro: "Bed bugs are one of the most stressful and difficult pest infestations to deal with. They hide in mattresses, headboards, furniture, and even electrical outlets. Over-the-counter products rarely work against established infestations. Our licensed technicians use a combination of targeted chemical treatments and professional-grade methods to eliminate bed bugs at every life stage, including eggs.",
     features: [
       { title: "Thorough Inspection", desc: "We inspect all potential harborage areas including mattresses, box springs, headboards, sofas, and baseboards." },
       { title: "Multi-Method Treatment", desc: "Residual insecticide applied to all harborage zones for complete elimination." },
@@ -58,7 +58,7 @@ export const servicePages: Record<string, ServicePageData> = {
       "Small blood stains or dark spots on your sheets or mattress",
       "Tiny shed skins or egg casings on or near your bed",
       "A sweet, musty odor in your bedroom",
-      "Visible bed bugs — apple seed-sized, reddish-brown insects",
+      "Visible bed bugs, apple seed-sized, reddish-brown insects",
       "Itching and skin irritation that worsens at night",
     ],
     process: [
@@ -85,17 +85,17 @@ export const servicePages: Record<string, ServicePageData> = {
     heroHeading: "Spider Control San Diego, CA",
     heroSubheading: "Keep black widows, brown recluses, and common house spiders out of your home with targeted spider treatments.",
     heroImage: "/images/technician-webs.jpg",
-    intro: "San Diego is home to a wide variety of spider species — most harmless, but some dangerous. Black widows are common in Southern California and can pose a real health risk, especially in garages, sheds, and children's play areas. Our spider treatments target webs, nesting areas, and entry points to keep spiders from moving in.",
+    intro: "San Diego is home to a wide variety of spider species, most harmless, but some dangerous. Black widows are common in Southern California and can pose a real health risk, especially in garages, sheds, and children's play areas. Our spider treatments target webs, nesting areas, and entry points to keep spiders from moving in.",
     features: [
       { title: "Web Removal", desc: "We knock down and remove existing webs around your home's exterior during each visit." },
       { title: "Residual Perimeter Treatment", desc: "We apply a residual treatment around your foundation, eaves, windows, and doors." },
-      { title: "Black Widow Focus", desc: "Extra attention to dark, sheltered spots — garages, sheds, play equipment — where black widows hide." },
+      { title: "Black Widow Focus", desc: "Extra attention to dark, sheltered spots, garages, sheds, play equipment, where black widows hide." },
       { title: "Interior Spot Treatments", desc: "Treatment of corners, baseboards, and utility rooms where spiders enter and nest." },
     ],
     signs: [
       "Webs appearing in corners, eaves, or garages",
       "Egg sacs attached to surfaces or inside webs",
-      "Visible black widow webs — irregular, tangled, near the ground",
+      "Visible black widow webs, irregular, tangled, near the ground",
       "Frequent spider sightings inside your home",
       "Spider bites or suspected bites on family members",
       "Large population of other insects (spiders follow their prey)",
@@ -124,7 +124,7 @@ export const servicePages: Record<string, ServicePageData> = {
     heroHeading: "Rodent Control San Diego, CA",
     heroSubheading: "Remove rats and mice from your home with comprehensive exclusion, trapping, and sanitation services.",
     heroImage: "/images/technician-walkway.jpg",
-    intro: "Rats and mice are a serious problem in San Diego County. Roof rats are especially common in urban and suburban neighborhoods, accessing homes through trees, utility lines, and gaps in the roofline. Rodents contaminate food, damage wiring, and carry diseases. Our rodent control program doesn't just set traps — we seal your home against re-entry so the problem doesn't return.",
+    intro: "Rats and mice are a serious problem in San Diego County. Roof rats are especially common in urban and suburban neighborhoods, accessing homes through trees, utility lines, and gaps in the roofline. Rodents contaminate food, damage wiring, and carry diseases. Our rodent control program doesn't just set traps, we seal your home against re-entry so the problem doesn't return.",
     features: [
       { title: "Entry Point Exclusion", desc: "We identify and seal all gaps, holes, and entry points rats and mice use to get into your home." },
       { title: "Trap Placement & Monitoring", desc: "Strategic interior and exterior trap placement with regular monitoring and removal." },
@@ -135,7 +135,7 @@ export const servicePages: Record<string, ServicePageData> = {
       "Scratching or scurrying sounds in walls, attic, or ceiling at night",
       "Rodent droppings in cabinets, drawers, or along walls",
       "Gnaw marks on food packaging, wiring, or wood",
-      "Nesting material — shredded paper or fabric — in hidden areas",
+      "Nesting material, shredded paper or fabric, in hidden areas",
       "Grease marks along walls or baseboards",
       "Visible rodents or burrows in your yard",
     ],
@@ -163,7 +163,7 @@ export const servicePages: Record<string, ServicePageData> = {
     heroHeading: "Cockroach Exterminator San Diego, CA",
     heroSubheading: "Fast, effective cockroach elimination for San Diego homes. We target German, American, and Oriental cockroach infestations at the source.",
     heroImage: "/images/cockroach.jpg",
-    intro: "Cockroaches are among the most resilient and fastest-reproducing pests. A small problem can become a full infestation within weeks. They contaminate food, spread bacteria, and trigger asthma and allergies. Our cockroach treatments go beyond surface spraying — we use targeted gel baits, growth regulators, and residual products applied to harborage zones for complete elimination.",
+    intro: "Cockroaches are among the most resilient and fastest-reproducing pests. A small problem can become a full infestation within weeks. They contaminate food, spread bacteria, and trigger asthma and allergies. Our cockroach treatments go beyond surface spraying, we use targeted gel baits, growth regulators, and residual products applied to harborage zones for complete elimination.",
     features: [
       { title: "Gel Bait Placement", desc: "Applied inside cabinets, under appliances, and in cracks where cockroaches harbor." },
       { title: "Insect Growth Regulator", desc: "Prevents juvenile cockroaches from maturing and reproducing, breaking the life cycle." },
@@ -181,7 +181,7 @@ export const servicePages: Record<string, ServicePageData> = {
     process: [
       { step: "1", title: "Inspection", desc: "We inspect kitchens, bathrooms, utility areas, and all appliances to determine species and infestation level." },
       { step: "2", title: "Treatment", desc: "Gel bait, growth regulator, and residual insecticide applied to all harborage zones and entry points." },
-      { step: "3", title: "Follow-Up", desc: "Re-inspection to confirm elimination and retreat as needed — often included in our service guarantee." },
+      { step: "3", title: "Follow-Up", desc: "Re-inspection to confirm elimination and retreat as needed, often included in our service guarantee." },
     ],
     faqs: [
       { question: "How fast can cockroaches reproduce?", answer: "German cockroaches can go from 1 to 1,000 insects in about 3 months. Early treatment is critical." },
@@ -202,7 +202,7 @@ export const servicePages: Record<string, ServicePageData> = {
     heroHeading: "Mosquito Control San Diego, CA",
     heroSubheading: "Reclaim your outdoor spaces with professional mosquito barrier treatments that dramatically reduce mosquito populations.",
     heroImage: "/images/technician-grass.jpg",
-    intro: "San Diego's warm, humid microclimates — especially near canyons, parks, and coastal areas — can produce significant mosquito populations. Beyond the nuisance, mosquitoes can transmit West Nile virus and other diseases. Our mosquito control program combines barrier sprays with source reduction to reduce mosquito populations by up to 90% in treated areas.",
+    intro: "San Diego's warm, humid microclimates, especially near canyons, parks, and coastal areas, can produce significant mosquito populations. Beyond the nuisance, mosquitoes can transmit West Nile virus and other diseases. Our mosquito control program combines barrier sprays with source reduction to reduce mosquito populations by up to 90% in treated areas.",
     features: [
       { title: "Barrier Spray Treatment", desc: "Residual insecticide applied to vegetation, shrubbery, and resting sites around your yard." },
       { title: "Breeding Site Reduction", desc: "We identify and treat standing water sources where mosquitoes lay eggs on your property." },
@@ -241,7 +241,7 @@ export const servicePages: Record<string, ServicePageData> = {
     heroHeading: "Flea Control San Diego, CA",
     heroSubheading: "Complete flea elimination for your home and yard using treatments timed with the flea life cycle.",
     heroImage: "/images/technician-customer.jpg",
-    intro: "Fleas are more than just an itch — they can cause tapeworm infections, flea allergy dermatitis, and in severe cases, anemia. San Diego's mild climate means fleas can be active year-round. Effective flea control requires treating the home, yard, and your pets simultaneously — treating only one area allows fleas to reinfest from untreated sources. Our program covers all three.",
+    intro: "Fleas are more than just an itch, they can cause tapeworm infections, flea allergy dermatitis, and in severe cases, anemia. San Diego's mild climate means fleas can be active year-round. Effective flea control requires treating the home, yard, and your pets simultaneously, treating only one area allows fleas to reinfest from untreated sources. Our program covers all three.",
     features: [
       { title: "Interior Treatment", desc: "Residual insecticide and IGR applied to carpets, baseboards, upholstery, and pet bedding areas." },
       { title: "Exterior Treatment", desc: "Yard treatment targeting shaded areas where fleas rest and reproduce." },
@@ -282,7 +282,7 @@ export const servicePages: Record<string, ServicePageData> = {
     heroImage: "/images/technician-webbing.jpg",
     intro: "Ticks are a growing concern in San Diego County, particularly in neighborhoods near canyons, nature preserves, and chaparral. Western black-legged ticks (deer ticks) in our region can carry Lyme disease. Our tick control treatments target the vegetation, leaf litter, and shaded areas around your property where ticks wait for a host.",
     features: [
-      { title: "Perimeter & Yard Treatment", desc: "Residual treatment applied to the tick 'transition zone' — where your lawn meets vegetation, brush, and fencing." },
+      { title: "Perimeter & Yard Treatment", desc: "Residual treatment applied to the tick 'transition zone', where your lawn meets vegetation, brush, and fencing." },
       { title: "Vegetation Treatment", desc: "Treatment of low-growing shrubs, ground cover, and shaded areas where ticks harbor." },
       { title: "Recurring Protection", desc: "Seasonal or monthly service for properties near canyons, trails, or heavily wooded areas." },
       { title: "Prevention Guidance", desc: "Advice on landscaping practices and personal protection to minimize tick exposure." },
@@ -296,7 +296,7 @@ export const servicePages: Record<string, ServicePageData> = {
       "Wildlife (deer, rabbits) frequently in your yard",
     ],
     process: [
-      { step: "1", title: "Property Assessment", desc: "We walk your property to identify tick habitat — shaded areas, leaf litter, lawn edges, and vegetation zones." },
+      { step: "1", title: "Property Assessment", desc: "We walk your property to identify tick habitat, shaded areas, leaf litter, lawn edges, and vegetation zones." },
       { step: "2", title: "Targeted Treatment", desc: "Residual insecticide applied to all tick harborage areas and the lawn-vegetation transition zone." },
       { step: "3", title: "Ongoing Program", desc: "Monthly or bi-monthly retreatments for properties in high-risk areas near canyons or wildlands." },
     ],

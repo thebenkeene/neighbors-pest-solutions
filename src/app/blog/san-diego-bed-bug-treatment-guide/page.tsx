@@ -43,14 +43,14 @@ export default function Page() {
         imageAlt="Bed bug close-up"
       >
         <p>
-          Bed bug infestations have been rising across the country — and San Diego is no exception. Hotels, apartments, used furniture, and even public transit can all be sources. Once they get into your home, bed bugs are notoriously difficult to eliminate without professional help.
+          Bed bug infestations have been rising across the country, and San Diego is no exception. Hotels, apartments, used furniture, and even public transit can all be sources. Once they get into your home, bed bugs are notoriously difficult to eliminate without professional help.
         </p>
         <p>
           This guide walks you through how to identify bed bugs, compare treatment options, prepare your home, and know what to do if the infestation returns.
         </p>
 
         <h2>How to Identify Bed Bugs</h2>
-        <p>Bed bugs are small — about the size and shape of an apple seed — reddish-brown, and flat unless recently fed. They don&apos;t fly and are mostly nocturnal.</p>
+        <p>Bed bugs are small, about the size and shape of an apple seed, reddish-brown, and flat unless recently fed. They don&apos;t fly and are mostly nocturnal.</p>
         <p><strong>Signs of a bed bug infestation include:</strong></p>
         <ul>
           <li>Waking up with bites in a line or cluster (often arms, shoulders, neck)</li>
@@ -71,11 +71,11 @@ export default function Page() {
         <p>There are two primary professional treatment methods:</p>
         <h3>Chemical Treatment</h3>
         <p>
-          Residual insecticides and insect growth regulators (IGR) are applied to all harborage sites — mattress seams, box spring, headboard, furniture joints, and baseboards. This is the most common and cost-effective treatment. It typically requires a follow-up visit 2 weeks later to treat newly hatched eggs.
+          Residual insecticides and insect growth regulators (IGR) are applied to all harborage sites, mattress seams, box spring, headboard, furniture joints, and baseboards. This is the most common and cost-effective treatment. It typically requires a follow-up visit 2 weeks later to treat newly hatched eggs.
         </p>
         <h3>Heat Treatment</h3>
         <p>
-          The entire room (or home) is heated to temperatures above 120°F for several hours — a temperature lethal to all life stages including eggs. Heat treatment is thorough and can eliminate an infestation in a single day, but is more expensive and requires careful preparation.
+          The entire room (or home) is heated to temperatures above 120°F for several hours, a temperature lethal to all life stages including eggs. Heat treatment is thorough and can eliminate an infestation in a single day, but is more expensive and requires careful preparation.
         </p>
 
         <h2>How to Prepare for Bed Bug Treatment</h2>
@@ -91,7 +91,7 @@ export default function Page() {
 
         <h2>What Happens After Treatment</h2>
         <p>
-          You may continue to see some bed bug activity for 1–2 weeks after treatment — this is normal. Eggs laid before treatment take 7–14 days to hatch. A follow-up visit treats the new hatch. Don&apos;t wash treated surfaces or vacuum treated areas for at least 2 weeks — this removes the residual protection.
+          You may continue to see some bed bug activity for 1–2 weeks after treatment, this is normal. Eggs laid before treatment take 7–14 days to hatch. A follow-up visit treats the new hatch. Don&apos;t wash treated surfaces or vacuum treated areas for at least 2 weeks, this removes the residual protection.
         </p>
 
         <h2>Preventing Reinfestation</h2>
@@ -104,7 +104,7 @@ export default function Page() {
 
         <h2>Final Thoughts</h2>
         <p>
-          Bed bugs are stressful — but they are completely treatable with professional help. The sooner you act, the smaller the infestation and the simpler the treatment. If you suspect bed bugs in your San Diego home, <Link href="/contact">call us at {BUSINESS.phone}</Link> for a free inspection. We offer same-day service and guaranteed results.
+          Bed bugs are stressful, but they are completely treatable with professional help. The sooner you act, the smaller the infestation and the simpler the treatment. If you suspect bed bugs in your San Diego home, <Link href="/contact">call us at {BUSINESS.phone}</Link> for a free inspection. We offer same-day service and guaranteed results.
         </p>
       </BlogPostLayout>
     </>

@@ -118,7 +118,7 @@ export function generateAreaSchema(cityName: string, slug: string) {
   return {
     "@context": "https://schema.org",
     "@type": "PestControlService",
-    name: `${BUSINESS.name} — ${cityName}`,
+    name: `${BUSINESS.name}, ${cityName}`,
     description: `Professional pest control services in ${cityName}, CA. Treatments for ants, spiders, bed bugs, rodents, cockroaches, and more.`,
     url: `${BUSINESS.url}/service-areas/${slug}`,
     telephone: BUSINESS.phoneFull,

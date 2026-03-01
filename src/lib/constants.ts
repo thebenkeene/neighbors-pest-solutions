@@ -164,7 +164,7 @@ export const FAQS = [
   {
     question: "Do you guarantee your pest control services?",
     answer:
-      "Yes — we back every treatment with our satisfaction guarantee. If pests return after we have treated your property, we will come back and re-treat the affected areas at no additional cost to you.",
+      "Yes, we back every treatment with our satisfaction guarantee. If pests return after we have treated your property, we will come back and re-treat the affected areas at no additional cost to you.",
   },
   {
     question: "What areas of San Diego do you serve?",
@@ -174,7 +174,7 @@ export const FAQS = [
   {
     question: "How much does pest control cost in San Diego?",
     answer:
-      "Pricing varies based on the type of pest, the size of your home, and the level of infestation. We offer free inspections and quotes — call us at (858) 878-2847 or fill out our online form to get a no-obligation estimate.",
+      "Pricing varies based on the type of pest, the size of your home, and the level of infestation. We offer free inspections and quotes, call us at (858) 878-2847 or fill out our online form to get a no-obligation estimate.",
   },
   {
     question: "How often should I have my home treated for pests?",

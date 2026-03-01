@@ -84,7 +84,7 @@ export default function AreaPageTemplate({ data }: { data: AreaPageData }) {
               </h2>
               <p className="text-gray-600 leading-relaxed text-lg mb-4">{data.bodyParagraph}</p>
               <p className="text-gray-600 leading-relaxed mb-6">
-                We treat every home in {data.cityName} the same way we&apos;d treat our own — with attention to detail, eco-friendly products, and a 100% satisfaction guarantee. If pests return after treatment, so do we, at no additional charge.
+                We treat every home in {data.cityName} the same way we&apos;d treat our own, with attention to detail, eco-friendly products, and a 100% satisfaction guarantee. If pests return after treatment, so do we, at no additional charge.
               </p>
               <Link href="/contact" className="btn-dark">Schedule a Free Inspection →</Link>
             </div>
@@ -154,7 +154,7 @@ export default function AreaPageTemplate({ data }: { data: AreaPageData }) {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold text-dark-800">
-              Pest Control FAQ — {data.cityName}
+              Pest Control FAQ, {data.cityName}
             </h2>
           </div>
           <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8">

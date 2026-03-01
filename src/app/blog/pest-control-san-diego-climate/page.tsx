@@ -43,12 +43,12 @@ export default function Page() {
         imageAlt="San Diego weather and pest control"
       >
         <p>
-          One of the things people love most about San Diego is the weather — mild winters, warm summers, minimal rain. But that same Mediterranean climate is also why San Diego has one of the highest year-round pest pressures of any major U.S. city. Unlike homeowners in colder climates, San Diego residents can&apos;t count on winter to kill off pest populations.
+          One of the things people love most about San Diego is the weather, mild winters, warm summers, minimal rain. But that same Mediterranean climate is also why San Diego has one of the highest year-round pest pressures of any major U.S. city. Unlike homeowners in colder climates, San Diego residents can&apos;t count on winter to kill off pest populations.
         </p>
 
         <h2>Spring (March–May): Ant Season Begins</h2>
         <p>
-          As temperatures warm and Santa Ana conditions ease, ant pressure ramps up. Argentine ant supercolonies that retreated during cooler weather begin sending foragers in search of food and water. Spring is also when <strong>termite swarms</strong> emerge — a critical time to check for mud tubes and wood damage around your home.
+          As temperatures warm and Santa Ana conditions ease, ant pressure ramps up. Argentine ant supercolonies that retreated during cooler weather begin sending foragers in search of food and water. Spring is also when <strong>termite swarms</strong> emerge, a critical time to check for mud tubes and wood damage around your home.
         </p>
         <p><strong>Watch for:</strong> Ants, termite swarmers, spiders emerging from winter harborage</p>
 
@@ -66,7 +66,7 @@ export default function Page() {
 
         <h2>Fall (October–December): Rodent Season</h2>
         <p>
-          As temperatures drop at night, roof rats and mice begin moving indoors seeking warmth. Fall is peak rodent season in San Diego — and the most important time to inspect your home for entry points. Also watch for ant pressure as the season transitions, since dry conditions continue driving them inside.
+          As temperatures drop at night, roof rats and mice begin moving indoors seeking warmth. Fall is peak rodent season in San Diego, and the most important time to inspect your home for entry points. Also watch for ant pressure as the season transitions, since dry conditions continue driving them inside.
         </p>
         <p><strong>Watch for:</strong> Roof rats, house mice, ants, earwigs, silverfish</p>
 
@@ -78,7 +78,7 @@ export default function Page() {
 
         <h2>The Case for Quarterly Pest Control in San Diego</h2>
         <p>
-          Because pests in San Diego are active 12 months a year, a single annual treatment isn&apos;t enough. A <strong>quarterly service plan</strong> — treatments every 3 months timed to seasonal pest pressures — keeps populations under control before they become infestations. It&apos;s also significantly more cost-effective than emergency treatments.
+          Because pests in San Diego are active 12 months a year, a single annual treatment isn&apos;t enough. A <strong>quarterly service plan</strong>, treatments every 3 months timed to seasonal pest pressures, keeps populations under control before they become infestations. It&apos;s also significantly more cost-effective than emergency treatments.
         </p>
         <p>
           <Link href="/contact">Contact us</Link> to learn about our recurring service plans and get a free quote for your San Diego home.
