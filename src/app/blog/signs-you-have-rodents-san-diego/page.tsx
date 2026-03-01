@@ -42,7 +42,7 @@ export default function Page() {
         image="/images/technician-walkway.jpg"
         imageAlt="Rodent control service"
       >
-        <p>
+        <p className="text-xl text-gray-700 leading-relaxed">
           Roof rats are among the most common and destructive pests in San Diego County. They&apos;re expert climbers that access homes through trees, utility lines, and roof openings, and they breed fast. A single pair of rats can produce 40+ offspring in a year.
         </p>
         <p>
@@ -58,9 +58,9 @@ export default function Page() {
         <h2>3. Gnaw Marks</h2>
         <p>Rats have teeth that never stop growing, they must gnaw constantly. Look for gnaw marks on wood, plastic, electrical wiring, food packaging, and insulation. Chewed wires are a serious fire hazard.</p>
 
-        <div className="bg-primary-50 border-l-4 border-primary-600 p-5 rounded-r-xl my-6">
-          <p className="font-semibold text-primary-900 mb-1">Fire Hazard Alert</p>
-          <p className="text-primary-800 text-sm">
+        <div className="bg-primary-50 border-l-4 border-primary-600 p-6 rounded-r-xl my-8">
+          <p className="font-semibold text-primary-900 mb-2">Fire Hazard Alert</p>
+          <p className="text-primary-800">
             Rats chewing on electrical wiring inside walls is one of the leading causes of house fires with unknown origins. If you suspect rodents, have an electrician inspect your wiring.
           </p>
         </div>

@@ -42,7 +42,7 @@ export default function Page() {
         image="/images/technician-spraying.jpg"
         imageAlt="Bed bug close-up"
       >
-        <p>
+        <p className="text-xl text-gray-700 leading-relaxed">
           Bed bug infestations have been rising across the country, and San Diego is no exception. Hotels, apartments, used furniture, and even public transit can all be sources. Once they get into your home, bed bugs are notoriously difficult to eliminate without professional help.
         </p>
         <p>
@@ -60,9 +60,9 @@ export default function Page() {
           <li>A sweet, musty odor in the bedroom</li>
         </ul>
 
-        <div className="bg-primary-50 border-l-4 border-primary-600 p-5 rounded-r-xl my-6">
-          <p className="font-semibold text-primary-900 mb-1">Not Sure if It&apos;s Bed Bugs?</p>
-          <p className="text-primary-800 text-sm">
+        <div className="bg-primary-50 border-l-4 border-primary-600 p-6 rounded-r-xl my-8">
+          <p className="font-semibold text-primary-900 mb-2">Not Sure if It&apos;s Bed Bugs?</p>
+          <p className="text-primary-800">
             Bed bug bites are often confused with mosquito bites, flea bites, or dermatitis. The best confirmation is finding a live bug or fecal spots on the mattress. When in doubt, call us for a free inspection.
           </p>
         </div>

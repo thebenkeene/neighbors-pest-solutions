@@ -42,7 +42,7 @@ export default function Page() {
         image="/images/technician-inspection.jpg"
         imageAlt="Pest prevention for San Diego homes"
       >
-        <p>
+        <p className="text-xl text-gray-700 leading-relaxed">
           Preventing pests is always easier, and cheaper, than eliminating them. In San Diego, where pests are active 12 months a year, consistent preventative habits make a real difference. Here&apos;s a practical, season-by-season guide to keeping your home pest-free year-round.
         </p>
 
@@ -65,9 +65,9 @@ export default function Page() {
           <li>Trim tree branches that touch your roofline, they&apos;re ant highways</li>
         </ul>
 
-        <div className="bg-primary-50 border-l-4 border-primary-600 p-5 rounded-r-xl my-6">
-          <p className="font-semibold text-primary-900 mb-1">Spring Tip</p>
-          <p className="text-primary-800 text-sm">
+        <div className="bg-primary-50 border-l-4 border-primary-600 p-6 rounded-r-xl my-8">
+          <p className="font-semibold text-primary-900 mb-2">Spring Tip</p>
+          <p className="text-primary-800">
             Now is the time to schedule a preventative perimeter treatment before ant season peaks. A professional barrier application in March or April can dramatically reduce summer ant pressure.
           </p>
         </div>

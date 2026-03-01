@@ -42,7 +42,7 @@ export default function Page() {
         image="/images/technician-grass.jpg"
         imageAlt="San Diego weather and pest control"
       >
-        <p>
+        <p className="text-xl text-gray-700 leading-relaxed">
           One of the things people love most about San Diego is the weather, mild winters, warm summers, minimal rain. But that same Mediterranean climate is also why San Diego has one of the highest year-round pest pressures of any major U.S. city. Unlike homeowners in colder climates, San Diego residents can&apos;t count on winter to kill off pest populations.
         </p>
 
@@ -56,9 +56,9 @@ export default function Page() {
         <p>
           San Diego summers are the most intense pest season. Heat and drought push insects and rodents indoors looking for water. Mosquitoes breed in any standing water that accumulates from irrigation. Cockroaches thrive in the heat. Wasps and yellow jackets build nests.
         </p>
-        <div className="bg-primary-50 border-l-4 border-primary-600 p-5 rounded-r-xl my-6">
-          <p className="font-semibold text-primary-900 mb-1">Summer Tip</p>
-          <p className="text-primary-800 text-sm">
+        <div className="bg-primary-50 border-l-4 border-primary-600 p-6 rounded-r-xl my-8">
+          <p className="font-semibold text-primary-900 mb-2">Summer Tip</p>
+          <p className="text-primary-800">
             Check your irrigation system for standing water in pots, saucers, and low spots. Mosquitoes can breed in as little as one teaspoon of standing water.
           </p>
         </div>

@@ -42,7 +42,7 @@ export default function Page() {
         image="/images/ants-windowsill.jpg"
         imageAlt="Ant control service in San Diego"
       >
-        <p>
+        <p className="text-xl text-gray-700 leading-relaxed">
           If you&apos;ve lived in San Diego for more than one summer, you&apos;ve almost certainly dealt with ants. They appear out of nowhere, a trail across the kitchen counter, scouts in the bathroom, a line marching along the baseboards. San Diego has one of the highest ant pressures in the country, and there&apos;s a good reason for that.
         </p>
 
@@ -65,9 +65,9 @@ export default function Page() {
           <li><strong>Use slow-acting bait, not spray.</strong> Spraying ants kills the foragers you see, but the colony survives and often splits (called &quot;budding&quot;), making the problem worse. Slow-acting gel bait allows foragers to carry poison back to the colony.</li>
         </ul>
 
-        <div className="bg-primary-50 border-l-4 border-primary-600 p-5 rounded-r-xl my-6">
-          <p className="font-semibold text-primary-900 mb-1">Pro Tip</p>
-          <p className="text-primary-800 text-sm">
+        <div className="bg-primary-50 border-l-4 border-primary-600 p-6 rounded-r-xl my-8">
+          <p className="font-semibold text-primary-900 mb-2">Pro Tip</p>
+          <p className="text-primary-800">
             Don&apos;t spray over bait. Residual sprays and bait repel each other, ants won&apos;t pick up bait that&apos;s been contaminated with repellent insecticide. Use one method at a time.
           </p>
         </div>
