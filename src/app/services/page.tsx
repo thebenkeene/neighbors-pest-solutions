@@ -49,7 +49,7 @@ export default function ServicesPage() {
       <section className="bg-dark-900 text-white py-20 -mt-20 pt-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="section-label text-primary-300">What We Offer</p>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Pest Control Services in San Diego, CA</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Pest Control Services in San Diego, CA</h1>
           <p className="text-gray-300 text-xl max-w-2xl mx-auto mb-8">
             Comprehensive treatments for every pest common to San Diego homes. Licensed, eco-friendly, and 100% guaranteed.
           </p>

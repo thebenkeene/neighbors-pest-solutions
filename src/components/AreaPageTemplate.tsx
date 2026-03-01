@@ -51,7 +51,7 @@ export default function AreaPageTemplate({ data }: { data: AreaPageData }) {
           </nav>
           <div className="max-w-3xl">
             <p className="text-primary-400 font-semibold uppercase tracking-widest text-sm mb-3">Pest Control Near You</p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               Pest Control in {data.cityName}, CA
             </h1>
             <p className="text-xl text-gray-200 mb-8 leading-relaxed">{data.intro}</p>

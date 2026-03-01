@@ -24,7 +24,7 @@ export default function ServiceAreasPage() {
       <section className="bg-dark-900 text-white py-20 -mt-20 pt-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="section-label text-primary-300">Where We Work</p>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Pest Control Across San Diego County</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Pest Control Across San Diego County</h1>
           <p className="text-gray-300 text-xl max-w-2xl mx-auto mb-8">
             From La Jolla to Oceanside, Downtown to Escondido — we serve all of San Diego County with same-day service and a 100% satisfaction guarantee.
           </p>

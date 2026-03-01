@@ -128,7 +128,7 @@ export default function HomePage() {
               {BUSINESS.tagline}
             </p>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight drop-shadow-lg text-white">
               Pest Control<br />
               <span className="text-primary-400">San Diego, CA</span>
             </h1>

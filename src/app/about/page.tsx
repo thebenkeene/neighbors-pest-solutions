@@ -73,7 +73,7 @@ export default function AboutPage() {
           </nav>
           <div className="max-w-2xl">
             <p className="text-primary-400 font-semibold uppercase tracking-widest text-sm mb-3">{BUSINESS.tagline}</p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-5">About Neighbors Pest Solutions</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-5 text-white">About Neighbors Pest Solutions</h1>
             <p className="text-gray-200 text-xl leading-relaxed">
               We&apos;re not a national franchise. We&apos;re your neighbors — born and raised in Southern California, building a pest control company we&apos;d want for our own homes.
             </p>

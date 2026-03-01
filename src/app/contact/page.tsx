@@ -75,7 +75,7 @@ export default function ContactPage() {
           </nav>
           <div className="max-w-2xl">
             <p className="text-primary-400 font-semibold uppercase tracking-widest text-sm mb-3">Get in Touch</p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Get a Free Pest Control Quote</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Get a Free Pest Control Quote</h1>
             <p className="text-gray-200 text-xl leading-relaxed">
               Same-day service available. Fill out the form or call us directly at <a href={BUSINESS.phoneHref} className="text-primary-300 font-bold hover:underline">{BUSINESS.phone}</a>.
             </p>

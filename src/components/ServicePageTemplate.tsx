@@ -55,7 +55,7 @@ export default function ServicePageTemplate({ data }: { data: ServicePageData })
           </nav>
           <div className="max-w-2xl">
             <p className="text-primary-300 font-semibold uppercase tracking-widest text-sm mb-3">San Diego, CA</p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">{data.heroHeading}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-white">{data.heroHeading}</h1>
             <p className="text-xl text-gray-200 mb-8 leading-relaxed">{data.heroSubheading}</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact" className="btn-primary text-base px-8 py-4">Get a Free Quote →</Link>
