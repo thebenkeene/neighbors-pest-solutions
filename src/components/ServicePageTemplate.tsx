@@ -35,16 +35,16 @@ export default function ServicePageTemplate({ data }: { data: ServicePageData })
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
-      <section className="relative min-h-[500px] flex items-center text-white -mt-20 pt-20">
+      <section className="relative min-h-[560px] md:h-[560px] flex items-center text-white -mt-20">
         <div className="absolute inset-0 overflow-hidden">
           {data.heroImage ? (
-            <Image src={data.heroImage} alt={data.heroHeading} fill className="object-cover" priority />
+            <Image src={data.heroImage} alt={data.heroHeading} fill className="object-cover object-center" priority />
           ) : (
             <div className="absolute inset-0 bg-dark-800" />
           )}
           <div className="absolute inset-0 bg-gradient-to-r from-dark-900/75 via-dark-900/55 to-dark-800/30" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 w-full">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>

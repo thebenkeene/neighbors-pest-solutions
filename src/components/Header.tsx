@@ -13,6 +13,16 @@ const navServices = [
   { name: 'Mosquito Control', href: '/services/mosquito-control' },
   { name: 'Flea Control', href: '/services/flea-control' },
   { name: 'Tick Control', href: '/services/tick-control' },
+  { name: 'Carpenter Ant Control', href: '/services/carpenter-ant-control' },
+  { name: 'Stinging Pest Control', href: '/services/stinging-pest-control' },
+  { name: 'Fly Control', href: '/services/fly-control' },
+  { name: 'Earwig Control', href: '/services/earwig-control' },
+  { name: 'Cricket Control', href: '/services/cricket-control' },
+  { name: 'Silverfish Control', href: '/services/silverfish-control' },
+  { name: 'Centipede & Millipede Control', href: '/services/centipede-millipede-control' },
+  { name: 'Beetle Control', href: '/services/beetle-control' },
+  { name: 'Moth Control', href: '/services/moth-control' },
+  { name: 'Stink Bug Control', href: '/services/stink-bug-control' },
 ];
 
 export default function Header() {
@@ -117,27 +127,29 @@ export default function Header() {
                   </svg>
                 </button>
                 {/* Invisible bridge */}
-                <div className="absolute top-full left-0 w-64 h-2 bg-transparent" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)} />
+                <div className="absolute top-full left-0 w-full h-2 bg-transparent" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)} />
                 {servicesOpen && (
                   <div
-                    className="absolute left-0 top-full w-64 bg-white rounded-xl shadow-2xl py-2 z-50 border border-gray-100"
+                    className="absolute left-0 top-full w-[480px] bg-white rounded-xl shadow-2xl py-3 z-50 border border-gray-100"
                     onMouseEnter={() => setServicesOpen(true)}
                     onMouseLeave={() => setServicesOpen(false)}
                   >
-                    {navServices.map((s) => (
-                      <Link
-                        key={s.href}
-                        href={s.href}
-                        className="block px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 transition-colors text-sm"
-                        onClick={() => setServicesOpen(false)}
-                      >
-                        {s.name}
-                      </Link>
-                    ))}
-                    <div className="border-t border-gray-100 mt-1 pt-1">
+                    <div className="grid grid-cols-2 gap-0 px-2">
+                      {navServices.map((s) => (
+                        <Link
+                          key={s.href}
+                          href={s.href}
+                          className="block px-3 py-2 text-dark-700 hover:bg-primary-50 hover:text-primary-700 transition-colors text-sm rounded-lg"
+                          onClick={() => setServicesOpen(false)}
+                        >
+                          {s.name}
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="border-t border-gray-100 mt-2 pt-2 px-2">
                       <Link
                         href="/services"
-                        className="block px-4 py-3 text-primary-600 font-semibold hover:bg-primary-50 transition-colors text-sm"
+                        className="block px-3 py-2 text-primary-600 font-semibold hover:bg-primary-50 transition-colors text-sm rounded-lg"
                         onClick={() => setServicesOpen(false)}
                       >
                         View All Services →

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { generateSEO } from "@/lib/seo";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { BUSINESS, SERVICES } from "@/lib/constants";
+import { servicePages } from "@/lib/serviceData";
 
 export const metadata = generateSEO({
   title: "Pest Control Services San Diego CA",
@@ -38,9 +39,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 
 export default function ServicesPage() {
-  // Deduplicate services by slug
-  const uniqueServices = SERVICES.filter((s, i, arr) => arr.findIndex((x) => x.slug === s.slug) === i);
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -64,9 +62,9 @@ export default function ServicesPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {uniqueServices.map((service) => {
+            {SERVICES.map((service) => {
               const meta = serviceMeta[service.slug];
-              const hasPage = ["ant-control","bed-bug-control","spider-control","rodent-control","cockroach-control","mosquito-control","flea-control","tick-control"].includes(service.slug);
+              const hasPage = service.slug in servicePages;
               const href = hasPage ? `/services/${service.slug}` : "/contact";
               return (
                 <Link

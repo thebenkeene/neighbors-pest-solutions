@@ -147,12 +147,25 @@ export default function HomePage() {
               Safe, reliable pest control for San Diego homeowners. Ants, spiders, bed bugs, rodents, and more, eliminated fast and guaranteed.
             </p>
 
-            {/* Ticker */}
+            {/* Pest pills */}
             <div className="flex flex-wrap gap-2 mb-8">
-              {["Spiders", "Ants", "Roaches", "Rodents", "Ticks", "Mosquitoes", "Bed Bugs", "Beetles"].map((p) => (
-                <span key={p} className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                  {p}
-                </span>
+              {[
+                { name: "Spiders",    href: "/services/spider-control" },
+                { name: "Ants",       href: "/services/ant-control" },
+                { name: "Roaches",    href: "/services/cockroach-control" },
+                { name: "Rodents",    href: "/services/rodent-control" },
+                { name: "Ticks",      href: "/services/tick-control" },
+                { name: "Mosquitoes", href: "/services/mosquito-control" },
+                { name: "Bed Bugs",   href: "/services/bed-bug-control" },
+                { name: "Beetles",    href: "/services/beetle-control" },
+              ].map((p) => (
+                <Link
+                  key={p.name}
+                  href={p.href}
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200 hover:bg-white hover:text-dark-800 hover:border-white hover:scale-105 active:scale-95 cursor-pointer"
+                >
+                  {p.name}
+                </Link>
               ))}
             </div>
 

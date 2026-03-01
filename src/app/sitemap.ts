@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { BUSINESS, TOP_SERVICES, ALL_AREAS } from "@/lib/constants";
+import { BUSINESS, SERVICES, ALL_AREAS } from "@/lib/constants";
 
 const base = BUSINESS.url;
 
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/terms-of-service`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
   ];
 
-  const servicePages: MetadataRoute.Sitemap = TOP_SERVICES.map((s) => ({
+  const servicePages: MetadataRoute.Sitemap = SERVICES.map((s) => ({
     url: `${base}/services/${s.slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
