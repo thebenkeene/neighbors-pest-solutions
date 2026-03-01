@@ -344,7 +344,7 @@ export default function HomePage() {
                 <Image src="/images/technician-portrait.jpg" alt="Neighbors Pest Solutions technician on the job" fill={false} width={400} height={533} className="object-cover w-full h-full" />
               </div>
               <div className="rounded-2xl overflow-hidden aspect-[3/4] mt-8">
-                <Image src="/images/technician-customer.jpg" alt="Neighbors Pest Solutions technician with customer" fill={false} width={400} height={533} className="object-cover w-full h-full" />
+                <Image src="/images/technician-customer.jpg" alt="Neighbors Pest Solutions technician with customer" fill={false} width={400} height={533} className="object-cover w-full h-full object-[35%_50%]" />
               </div>
             </div>
           </div>

@@ -42,7 +42,7 @@ export default function ServicePageTemplate({ data }: { data: ServicePageData })
           ) : (
             <div className="absolute inset-0 bg-dark-800" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-r from-dark-900/95 via-dark-900/80 to-dark-800/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-dark-900/75 via-dark-900/55 to-dark-800/30" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
           {/* Breadcrumb */}
