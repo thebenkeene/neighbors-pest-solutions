@@ -75,7 +75,7 @@ export function generateLocalBusinessSchema() {
     priceRange: "$$",
     image: `${BUSINESS.url}/images/og-image.png`,
     logo: `${BUSINESS.url}/images/logo-full.png`,
-    sameAs: [BUSINESS.socialFacebook, BUSINESS.socialInstagram],
+    sameAs: [BUSINESS.socialFacebook, BUSINESS.socialInstagram, BUSINESS.socialX, BUSINESS.socialYouTube, BUSINESS.socialLinkedIn],
     openingHoursSpecification: [OPENING_HOURS_SCHEMA],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -165,7 +165,7 @@ export function generateAreaSchema(cityName: string, slug: string) {
     contactPoint: CONTACT_POINT_SCHEMA,
     geo: GEO_SCHEMA,
     priceRange: "$$",
-    sameAs: [BUSINESS.socialFacebook, BUSINESS.socialInstagram],
+    sameAs: [BUSINESS.socialFacebook, BUSINESS.socialInstagram, BUSINESS.socialX, BUSINESS.socialYouTube, BUSINESS.socialLinkedIn],
     openingHoursSpecification: [OPENING_HOURS_SCHEMA],
     areaServed: {
       "@type": "City",

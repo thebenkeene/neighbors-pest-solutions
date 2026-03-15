@@ -20,8 +20,11 @@ export const BUSINESS = {
     longitude: "-117.1939",
   },
   url: "https://neighborspestsolutions.com",
-  socialFacebook: "https://www.facebook.com/neighborspestsolutions",
+  socialFacebook: "https://www.facebook.com/p/Neighbors-Pest-Solutions-61583820067806/",
   socialInstagram: "https://www.instagram.com/neighborspestsolutions",
+  socialX: "https://x.com/NeighborsPest",
+  socialYouTube: "https://www.youtube.com/channel/UCmAbvVUFpHleRE7XLz-KNGA",
+  socialLinkedIn: "https://www.linkedin.com/company/neighbors-pest-solutions/",
   yearsExperience: 15,
   homesTreated: "5,000+",
 };

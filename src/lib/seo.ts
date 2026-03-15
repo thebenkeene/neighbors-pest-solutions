@@ -62,6 +62,7 @@ export function generateSEO({
     openGraph,
     twitter: {
       card: "summary_large_image",
+      site: "@NeighborsPest",
       title: fullTitle,
       description,
       images: [image || defaultImage],
@@ -123,6 +124,7 @@ export const defaultMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@NeighborsPest",
     images: [`${BUSINESS.url}/images/og-image.png`],
   },
 };
