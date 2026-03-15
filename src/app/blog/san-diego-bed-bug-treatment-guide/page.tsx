@@ -11,6 +11,9 @@ export const metadata: Metadata = generateSEO({
   path: "/blog/san-diego-bed-bug-treatment-guide",
   type: "article",
   keywords: ["bed bug treatment San Diego", "bed bug exterminator San Diego", "how to get rid of bed bugs San Diego CA"],
+  image: `${BUSINESS.url}/images/technician-spraying.jpg`,
+  publishedTime: "2025-01-28",
+  modifiedTime: "2025-01-28",
 });
 
 const articleSchema = generateArticleSchema(

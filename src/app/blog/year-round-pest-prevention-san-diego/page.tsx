@@ -11,6 +11,9 @@ export const metadata: Metadata = generateSEO({
   path: "/blog/year-round-pest-prevention-san-diego",
   type: "article",
   keywords: ["pest prevention San Diego", "how to prevent pests San Diego", "year round pest control San Diego homeowners"],
+  image: `${BUSINESS.url}/images/technician-inspection.jpg`,
+  publishedTime: "2024-12-20",
+  modifiedTime: "2024-12-20",
 });
 
 const articleSchema = generateArticleSchema(

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { BUSINESS, SERVICE_AREAS } from '@/lib/constants';
 
@@ -99,10 +100,13 @@ export default function Header() {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
-              <img
+              <Image
                 src={isTransparent ? '/images/logo-white.png' : '/images/logo-full.png'}
                 alt={BUSINESS.name}
+                width={200}
+                height={114}
                 className={`transition-all duration-300 w-auto ${isTransparent ? 'h-24' : 'h-20'}`}
+                priority
               />
             </Link>
 

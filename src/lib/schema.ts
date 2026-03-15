@@ -38,6 +38,22 @@ const AGGREGATE_RATING_SCHEMA = {
   bestRating: 5,
 };
 
+export function generateWebSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: BUSINESS.name,
+    url: BUSINESS.url,
+    description:
+      "Professional pest control services in San Diego, CA. Safe, reliable treatments for ants, spiders, bed bugs, rodents, cockroaches, mosquitoes, and more.",
+    publisher: {
+      "@type": "Organization",
+      name: BUSINESS.name,
+      url: BUSINESS.url,
+    },
+  };
+}
+
 export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",

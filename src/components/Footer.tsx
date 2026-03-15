@@ -119,7 +119,14 @@ export default function Footer() {
         <div className="border-t border-dark-700 pt-8 mb-8">
           <h3 className="text-white font-semibold text-sm uppercase tracking-widest mb-3 text-center">Areas We Serve in San Diego County</h3>
           <p className="text-center text-gray-500 text-sm leading-relaxed max-w-4xl mx-auto">
-            {[...SERVICE_AREAS.neighborhoods, ...SERVICE_AREAS.cities].map((a) => a.name).join(' · ')}
+            {[...SERVICE_AREAS.neighborhoods, ...SERVICE_AREAS.cities].map((a, i, arr) => (
+              <span key={a.slug}>
+                <Link href={`/service-areas/${a.slug}`} className="hover:text-primary-400 transition-colors">
+                  {a.name}
+                </Link>
+                {i < arr.length - 1 && ' · '}
+              </span>
+            ))}
           </p>
         </div>
 

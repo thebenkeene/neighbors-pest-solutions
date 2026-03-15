@@ -11,6 +11,9 @@ export const metadata: Metadata = generateSEO({
   path: "/blog/how-to-get-rid-of-ants-san-diego",
   type: "article",
   keywords: ["how to get rid of ants San Diego", "ant control San Diego", "Argentine ants San Diego"],
+  image: `${BUSINESS.url}/images/ants-windowsill.jpg`,
+  publishedTime: "2025-02-10",
+  modifiedTime: "2025-02-10",
 });
 
 const articleSchema = generateArticleSchema(

@@ -11,6 +11,9 @@ export const metadata: Metadata = generateSEO({
   path: "/blog/pest-control-san-diego-climate",
   type: "article",
   keywords: ["pest control San Diego climate", "San Diego pest season", "year round pest control San Diego"],
+  image: `${BUSINESS.url}/images/technician-grass.jpg`,
+  publishedTime: "2025-01-15",
+  modifiedTime: "2025-01-15",
 });
 
 const articleSchema = generateArticleSchema(

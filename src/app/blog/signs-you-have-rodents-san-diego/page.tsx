@@ -11,6 +11,9 @@ export const metadata: Metadata = generateSEO({
   path: "/blog/signs-you-have-rodents-san-diego",
   type: "article",
   keywords: ["signs of rodents San Diego", "roof rats San Diego", "rodent infestation San Diego", "how to tell if you have rats"],
+  image: `${BUSINESS.url}/images/technician-walkway.jpg`,
+  publishedTime: "2025-01-05",
+  modifiedTime: "2025-01-05",
 });
 
 const articleSchema = generateArticleSchema(

@@ -8,6 +8,9 @@ interface SEOProps {
   image?: string;
   type?: "website" | "article";
   keywords?: string[];
+  publishedTime?: string;
+  modifiedTime?: string;
+  authors?: string[];
 }
 
 export function generateSEO({
@@ -17,10 +20,35 @@ export function generateSEO({
   image,
   type = "website",
   keywords = [],
+  publishedTime,
+  modifiedTime,
+  authors,
 }: SEOProps): Metadata {
   const url = `${BUSINESS.url}${path}`;
   const defaultImage = `${BUSINESS.url}/images/og-image.png`;
   const fullTitle = `${title} | ${BUSINESS.name}`;
+
+  const openGraph: Metadata["openGraph"] = {
+    title: fullTitle,
+    description,
+    url,
+    siteName: BUSINESS.name,
+    images: [
+      {
+        url: image || defaultImage,
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ],
+    locale: "en_US",
+    type,
+    ...(type === "article" && {
+      publishedTime,
+      modifiedTime,
+      authors: authors || [BUSINESS.name],
+    }),
+  };
 
   return {
     title: { absolute: fullTitle },
@@ -31,22 +59,7 @@ export function generateSEO({
       "San Diego pest control",
       ...keywords,
     ],
-    openGraph: {
-      title: fullTitle,
-      description,
-      url,
-      siteName: BUSINESS.name,
-      images: [
-        {
-          url: image || defaultImage,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-      locale: "en_US",
-      type,
-    },
+    openGraph,
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
