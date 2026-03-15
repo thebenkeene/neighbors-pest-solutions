@@ -213,7 +213,7 @@ export const areaPages: Record<string, AreaPageData> = {
     cityName: "Solana Beach",
     slug: "solana-beach",
     intro: "Pest control in Solana Beach, CA, right in our backyard. We're your true local experts.",
-    bodyParagraph: "Neighbors Pest Solutions is headquartered in Solana Beach. We know this community because we live here. From ant infestations in coastal homes to rodent exclusion in older properties near the train station, we've treated it all.",
+    bodyParagraph: "Neighbors Pest Solutions serves Solana Beach as part of our greater San Diego service area. We know this community well and have treated countless homes here. From ant infestations in coastal homes to rodent exclusion in older properties near the train station, we've done it all.",
     commonPests: [...commonPestsSanDiego, "Silverfish & Earwigs"],
     faqs: makeFAQs("Solana Beach"),
   },
