@@ -13,8 +13,8 @@ export const BUSINESS = {
     zip: "92121",
     full: "9030 Kenamar Drive, Suite 301, San Diego, CA 92121",
   },
-  hours: "Monday–Saturday: 8:00 AM – 5:00 PM",
-  hoursShort: "Mon–Sat 8AM–5PM",
+  hours: "Monday–Friday: 8:00 AM – 5:00 PM",
+  hoursShort: "Mon–Fri 8AM–5PM",
   geo: {
     latitude: "32.9014",
     longitude: "-117.1939",
