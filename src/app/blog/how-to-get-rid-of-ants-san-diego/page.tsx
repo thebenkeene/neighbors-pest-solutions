@@ -85,7 +85,7 @@ export default function Page() {
 
         <h2>What Professional Ant Control Looks Like</h2>
         <p>
-          A professional ant treatment from <Link href="/">Neighbors Pest Solutions</Link> in San Diego includes:
+          A professional ant treatment from our <Link href="/services/ant-control">ant control service</Link> in San Diego includes:
         </p>
         <ul>
           <li>A full interior and exterior inspection to identify the species, entry points, and harborage areas</li>

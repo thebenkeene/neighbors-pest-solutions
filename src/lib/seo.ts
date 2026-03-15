@@ -19,11 +19,11 @@ export function generateSEO({
   keywords = [],
 }: SEOProps): Metadata {
   const url = `${BUSINESS.url}${path}`;
-  const defaultImage = `${BUSINESS.url}/images/og-image.jpg`;
+  const defaultImage = `${BUSINESS.url}/images/og-image.png`;
   const fullTitle = `${title} | ${BUSINESS.name}`;
 
   return {
-    title: fullTitle,
+    title: { absolute: fullTitle },
     description,
     keywords: [
       "pest control San Diego",
@@ -95,4 +95,21 @@ export const defaultMetadata: Metadata = {
   authors: [{ name: BUSINESS.name }],
   creator: BUSINESS.name,
   publisher: BUSINESS.name,
+  openGraph: {
+    siteName: BUSINESS.name,
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: `${BUSINESS.url}/images/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: `${BUSINESS.name} | Pest Control San Diego CA`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [`${BUSINESS.url}/images/og-image.png`],
+  },
 };

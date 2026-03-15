@@ -107,7 +107,7 @@ export default function Page() {
           Even the most diligent homeowner benefits from professional quarterly service. In San Diego&apos;s climate, a professional perimeter treatment every three months provides a barrier layer that individual DIY efforts can&apos;t match, especially against Argentine ant supercolonies.
         </p>
         <p>
-          Our quarterly service plan includes seasonal perimeter treatments, interior spot treatments as needed, and free re-treatments if pests return between visits. <Link href="/contact">Contact us</Link> to get started.
+          Our quarterly service plan includes seasonal perimeter treatments, interior spot treatments as needed, and free re-treatments if pests return between visits. Whether your concern is <Link href="/services/ant-control">ants</Link>, <Link href="/services/rodent-control">rodents</Link>, or <Link href="/services/cockroach-control">cockroaches</Link>, we have you covered. <Link href="/contact">Contact us</Link> to get started.
         </p>
       </BlogPostLayout>
     </>

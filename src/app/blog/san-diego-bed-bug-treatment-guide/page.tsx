@@ -104,7 +104,7 @@ export default function Page() {
 
         <h2>Final Thoughts</h2>
         <p>
-          Bed bugs are stressful, but they are completely treatable with professional help. The sooner you act, the smaller the infestation and the simpler the treatment. If you suspect bed bugs in your San Diego home, <Link href="/contact">call us at {BUSINESS.phone}</Link> for a free inspection. We offer same-day service and guaranteed results.
+          Bed bugs are stressful, but they are completely treatable with professional help. The sooner you act, the smaller the infestation and the simpler the treatment. If you suspect bed bugs in your San Diego home, learn more about our <Link href="/services/bed-bug-control">bed bug treatment services</Link> or <Link href="/contact">call us at {BUSINESS.phone}</Link> for a free inspection. We offer same-day service and guaranteed results.
         </p>
       </BlogPostLayout>
     </>

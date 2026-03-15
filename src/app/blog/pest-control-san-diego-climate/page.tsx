@@ -81,7 +81,7 @@ export default function Page() {
           Because pests in San Diego are active 12 months a year, a single annual treatment isn&apos;t enough. A <strong>quarterly service plan</strong>, treatments every 3 months timed to seasonal pest pressures, keeps populations under control before they become infestations. It&apos;s also significantly more cost-effective than emergency treatments.
         </p>
         <p>
-          <Link href="/contact">Contact us</Link> to learn about our recurring service plans and get a free quote for your San Diego home.
+          Common year-round threats include <Link href="/services/ant-control">ant control</Link>, <Link href="/services/rodent-control">rodent control</Link>, and <Link href="/services/mosquito-control">mosquito control</Link>. <Link href="/contact">Contact us</Link> to learn about our recurring service plans and get a free quote for your San Diego home.
         </p>
       </BlogPostLayout>
     </>

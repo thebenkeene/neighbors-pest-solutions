@@ -5,14 +5,22 @@ import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import FAQItem from "@/components/FAQItem";
 import { generateFAQSchema } from "@/lib/schema";
+import { generateSEO } from "@/lib/seo";
 import { BUSINESS, TOP_SERVICES, TESTIMONIALS, FAQS, SERVICE_AREAS } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: `Pest Control San Diego CA | ${BUSINESS.name}`,
+export const metadata: Metadata = generateSEO({
+  title: "Pest Control San Diego CA",
   description:
     "San Diego's trusted pest control experts. Same-day service available. Safe, eco-friendly treatments for ants, spiders, bed bugs, rodents, cockroaches, mosquitoes & more. Call (858) 878-2847.",
-  alternates: { canonical: BUSINESS.url },
-};
+  path: "",
+  keywords: [
+    "exterminator San Diego CA",
+    "ant control San Diego",
+    "bed bug treatment San Diego",
+    "rodent control San Diego",
+    "same day pest control San Diego",
+  ],
+});
 
 const benefits = [
   {
