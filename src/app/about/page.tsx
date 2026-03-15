@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { generateSEO } from "@/lib/seo";
-import { generateLocalBusinessSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema } from "@/lib/schema";
 import TestimonialCard from "@/components/TestimonialCard";
 import { BUSINESS, TESTIMONIALS } from "@/lib/constants";
 
@@ -57,10 +57,8 @@ const values = [
 ];
 
 export default function AboutPage() {
-  const schema = generateLocalBusinessSchema();
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}

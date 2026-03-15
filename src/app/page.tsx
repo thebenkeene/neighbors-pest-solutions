@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import FAQItem from "@/components/FAQItem";
-import { generateFAQSchema, generateLocalBusinessSchema } from "@/lib/schema";
+import { generateFAQSchema } from "@/lib/schema";
 import { BUSINESS, TOP_SERVICES, TESTIMONIALS, FAQS, SERVICE_AREAS } from "@/lib/constants";
 
 export const metadata: Metadata = {

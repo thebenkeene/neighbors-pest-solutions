@@ -1,9 +1,47 @@
 import { BUSINESS, ALL_AREAS, TESTIMONIALS } from "./constants";
 
+const ADDRESS_SCHEMA = {
+  "@type": "PostalAddress" as const,
+  streetAddress: BUSINESS.address.street,
+  addressLocality: BUSINESS.address.city,
+  addressRegion: BUSINESS.address.state,
+  postalCode: BUSINESS.address.zip,
+  addressCountry: "US",
+};
+
+const CONTACT_POINT_SCHEMA = {
+  "@type": "ContactPoint" as const,
+  contactType: "customer service",
+  telephone: BUSINESS.phoneFull,
+  email: BUSINESS.email,
+  areaServed: "San Diego County, CA",
+  availableLanguage: ["English", "Spanish"],
+};
+
+const OPENING_HOURS_SCHEMA = {
+  "@type": "OpeningHoursSpecification" as const,
+  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+  opens: "08:00",
+  closes: "17:00",
+};
+
+const GEO_SCHEMA = {
+  "@type": "GeoCoordinates" as const,
+  latitude: BUSINESS.geo.latitude,
+  longitude: BUSINESS.geo.longitude,
+};
+
+const AGGREGATE_RATING_SCHEMA = {
+  "@type": "AggregateRating" as const,
+  ratingValue: "5.0",
+  reviewCount: TESTIMONIALS.length,
+  bestRating: 5,
+};
+
 export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "PestControlService",
+    "@type": ["PestControlService", "LocalBusiness"],
     "@id": BUSINESS.url,
     name: BUSINESS.name,
     description:
@@ -11,42 +49,18 @@ export function generateLocalBusinessSchema() {
     url: BUSINESS.url,
     telephone: BUSINESS.phoneFull,
     email: BUSINESS.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: BUSINESS.address.street,
-      addressLocality: BUSINESS.address.city,
-      addressRegion: BUSINESS.address.state,
-      postalCode: BUSINESS.address.zip,
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: BUSINESS.geo.latitude,
-      longitude: BUSINESS.geo.longitude,
-    },
+    address: ADDRESS_SCHEMA,
+    contactPoint: CONTACT_POINT_SCHEMA,
+    geo: GEO_SCHEMA,
     areaServed: ALL_AREAS.map((area) => ({
       "@type": "City",
       name: `${area.name}, CA`,
     })),
     priceRange: "$$",
-    image: `${BUSINESS.url}/images/logo-full.png`,
+    image: `${BUSINESS.url}/images/og-image.jpg`,
     logo: `${BUSINESS.url}/images/logo-full.png`,
     sameAs: [BUSINESS.socialFacebook, BUSINESS.socialInstagram],
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-        ],
-        opens: "08:00",
-        closes: "17:00",
-      },
-    ],
+    openingHoursSpecification: [OPENING_HOURS_SCHEMA],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Pest Control Services",
@@ -80,12 +94,7 @@ export function generateLocalBusinessSchema() {
       },
       reviewBody: t.text,
     })),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: TESTIMONIALS.length,
-      bestRating: 5,
-    },
+    aggregateRating: AGGREGATE_RATING_SCHEMA,
   };
 }
 
@@ -100,16 +109,26 @@ export function generateServiceSchema(
     serviceType: serviceName,
     name: `${serviceName} in San Diego, CA`,
     description,
+    category: "Pest Control Services",
     url: `${BUSINESS.url}/services/${slug}`,
     provider: {
       "@type": "PestControlService",
+      "@id": BUSINESS.url,
       name: BUSINESS.name,
       url: BUSINESS.url,
       telephone: BUSINESS.phoneFull,
+      logo: `${BUSINESS.url}/images/logo-full.png`,
+      contactPoint: CONTACT_POINT_SCHEMA,
     },
     areaServed: {
-      "@type": "AdministrativeArea",
+      "@type": "Place",
       name: "San Diego County, CA",
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      price: "Contact for quote",
+      availability: "https://schema.org/InStock",
     },
   };
 }
@@ -117,24 +136,26 @@ export function generateServiceSchema(
 export function generateAreaSchema(cityName: string, slug: string) {
   return {
     "@context": "https://schema.org",
-    "@type": "PestControlService",
-    name: `${BUSINESS.name}, ${cityName}`,
+    "@type": ["PestControlService", "LocalBusiness"],
+    "@id": `${BUSINESS.url}/service-areas/${slug}`,
+    name: `${BUSINESS.name} - ${cityName}`,
     description: `Professional pest control services in ${cityName}, CA. Treatments for ants, spiders, bed bugs, rodents, cockroaches, and more.`,
     url: `${BUSINESS.url}/service-areas/${slug}`,
     telephone: BUSINESS.phoneFull,
     email: BUSINESS.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: BUSINESS.address.street,
-      addressLocality: BUSINESS.address.city,
-      addressRegion: BUSINESS.address.state,
-      postalCode: BUSINESS.address.zip,
-      addressCountry: "US",
-    },
+    image: `${BUSINESS.url}/images/og-image.jpg`,
+    logo: `${BUSINESS.url}/images/logo-full.png`,
+    address: ADDRESS_SCHEMA,
+    contactPoint: CONTACT_POINT_SCHEMA,
+    geo: GEO_SCHEMA,
+    priceRange: "$$",
+    sameAs: [BUSINESS.socialFacebook, BUSINESS.socialInstagram],
+    openingHoursSpecification: [OPENING_HOURS_SCHEMA],
     areaServed: {
       "@type": "City",
       name: `${cityName}, CA`,
     },
+    aggregateRating: AGGREGATE_RATING_SCHEMA,
   };
 }
 
