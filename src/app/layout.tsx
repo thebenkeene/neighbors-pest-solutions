@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { defaultMetadata } from "@/lib/seo";
-import { generateLocalBusinessSchema, generateWebSiteSchema } from "@/lib/schema";
+import { generateLocalBusinessSchema, generateWebSiteSchema, generateSiteNavigationSchema } from "@/lib/schema";
 import { BUSINESS } from "@/lib/constants";
 
 const inter = Inter({
@@ -22,6 +22,7 @@ export default function RootLayout({
 }>) {
   const localBusinessSchema = generateLocalBusinessSchema();
   const webSiteSchema = generateWebSiteSchema();
+  const siteNavigationSchema = generateSiteNavigationSchema();
 
   return (
     <html lang="en" className={inter.variable}>
@@ -33,6 +34,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigationSchema) }}
         />
         <link rel="icon" href="/favicon.ico" />
         <meta name="geo.region" content="US-CA" />

@@ -42,14 +42,35 @@ export function generateWebSiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${BUSINESS.url}/#website`,
     name: BUSINESS.name,
     url: BUSINESS.url,
     description:
       "Professional pest control services in San Diego, CA. Safe, reliable treatments for ants, spiders, bed bugs, rodents, cockroaches, mosquitoes, and more.",
     publisher: {
       "@type": "Organization",
+      "@id": `${BUSINESS.url}/#organization`,
       name: BUSINESS.name,
       url: BUSINESS.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${BUSINESS.url}/images/logo-full.png`,
+      },
+      sameAs: [
+        BUSINESS.socialFacebook,
+        BUSINESS.socialInstagram,
+        BUSINESS.socialX,
+        BUSINESS.socialYouTube,
+        BUSINESS.socialLinkedIn,
+      ],
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${BUSINESS.url}/services?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
     },
   };
 }
@@ -203,6 +224,30 @@ export function generateFAQSchema(
         "@type": "Answer",
         text: faq.answer,
       },
+    })),
+  };
+}
+
+export function generateSiteNavigationSchema() {
+  const navItems = [
+    { name: "Home", url: BUSINESS.url },
+    { name: "Services", url: `${BUSINESS.url}/services` },
+    { name: "Service Areas", url: `${BUSINESS.url}/service-areas` },
+    { name: "About", url: `${BUSINESS.url}/about` },
+    { name: "Blog", url: `${BUSINESS.url}/blog` },
+    { name: "Contact", url: `${BUSINESS.url}/contact` },
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${BUSINESS.url}/#site-navigation`,
+    name: "Main Navigation",
+    itemListElement: navItems.map((item, index) => ({
+      "@type": "SiteNavigationElement",
+      position: index + 1,
+      name: item.name,
+      url: item.url,
     })),
   };
 }
