@@ -78,9 +78,10 @@ export function generateWebSiteSchema() {
 export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["PestControlService", "LocalBusiness"],
-    "@id": BUSINESS.url,
+    "@type": "LocalBusiness",
+    "@id": `${BUSINESS.url}/#business`,
     name: BUSINESS.name,
+    additionalType: "https://en.wikipedia.org/wiki/Pest_control",
     description:
       "Professional pest control services in San Diego, CA. Safe, reliable treatments for ants, spiders, bed bugs, rodents, cockroaches, mosquitoes, and more. Locally owned and operated.",
     url: BUSINESS.url,
@@ -149,8 +150,8 @@ export function generateServiceSchema(
     category: "Pest Control Services",
     url: `${BUSINESS.url}/services/${slug}`,
     provider: {
-      "@type": "PestControlService",
-      "@id": BUSINESS.url,
+      "@type": "LocalBusiness",
+      "@id": `${BUSINESS.url}/#business`,
       name: BUSINESS.name,
       url: BUSINESS.url,
       telephone: BUSINESS.phoneFull,
@@ -163,9 +164,8 @@ export function generateServiceSchema(
     },
     offers: {
       "@type": "Offer",
-      priceCurrency: "USD",
-      price: "Contact for quote",
-      availability: "https://schema.org/InStock",
+      availability: "https://schema.org/InStoreOnly",
+      description: "Contact for a free quote",
     },
   };
 }
@@ -173,7 +173,8 @@ export function generateServiceSchema(
 export function generateAreaSchema(cityName: string, slug: string) {
   return {
     "@context": "https://schema.org",
-    "@type": ["PestControlService", "LocalBusiness"],
+    "@type": "LocalBusiness",
+    additionalType: "https://en.wikipedia.org/wiki/Pest_control",
     "@id": `${BUSINESS.url}/service-areas/${slug}`,
     name: `${BUSINESS.name} - ${cityName}`,
     description: `Professional pest control services in ${cityName}, CA. Treatments for ants, spiders, bed bugs, rodents, cockroaches, and more.`,
