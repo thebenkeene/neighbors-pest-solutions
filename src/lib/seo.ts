@@ -127,4 +127,8 @@ export const defaultMetadata: Metadata = {
     site: "@NeighborsPest",
     images: [`${BUSINESS.url}/images/og-image.png`],
   },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-icon.png",
+  },
 };
