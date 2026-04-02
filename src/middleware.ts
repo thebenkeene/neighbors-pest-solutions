@@ -30,9 +30,17 @@ function goneResponse() {
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const host = request.headers.get("host") || "";
 
-  if (VALID_EXACT_PATHS.has(pathname)) return NextResponse.next();
-  if (VALID_PATH_PREFIXES.some((prefix) => pathname.startsWith(prefix))) {
+  if (
+    VALID_EXACT_PATHS.has(pathname) ||
+    VALID_PATH_PREFIXES.some((prefix) => pathname.startsWith(prefix))
+  ) {
+    if (host.endsWith(".vercel.app")) {
+      const response = NextResponse.next();
+      response.headers.set("X-Robots-Tag", "noindex, nofollow");
+      return response;
+    }
     return NextResponse.next();
   }
 
