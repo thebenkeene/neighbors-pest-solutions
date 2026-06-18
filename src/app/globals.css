@@ -212,3 +212,34 @@ html {
   padding-top: 0;
   padding-bottom: 0;
 }
+
+/* Free-quote popup animations */
+@keyframes popup-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes popup-overlay-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes popup-panel-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes popup-panel-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(16px) scale(0.97); }
+}
+
+.popup-enter .popup-overlay {
+  animation: popup-overlay-in 0.3s ease forwards;
+}
+.popup-enter .popup-panel {
+  animation: popup-panel-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.popup-exit .popup-overlay {
+  animation: popup-overlay-out 0.25s ease forwards;
+}
+.popup-exit .popup-panel {
+  animation: popup-panel-out 0.25s ease forwards;
+}

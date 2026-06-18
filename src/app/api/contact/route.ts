@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { firstName, lastName, email, phone, serviceType, pestType, address, message } = body;
 
-    if (!firstName || !lastName || !email || !phone || !pestType) {
+    if (!firstName || !phone || !pestType) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
@@ -29,8 +29,8 @@ export async function POST(req: NextRequest) {
     });
 
     const sFirstName   = esc(firstName);
-    const sLastName    = esc(lastName);
-    const sEmail       = esc(email);
+    const sLastName    = esc(lastName || "");
+    const sEmail       = esc(email || "");
     const sPhone       = esc(phone);
     const sServiceType = esc(serviceType || "Residential");
     const sPestType    = esc(pestType);
@@ -93,24 +93,33 @@ export async function POST(req: NextRequest) {
 </body>
 </html>`;
 
-    const [notification, confirmation] = await Promise.all([
+    const nameLine = [sFirstName, sLastName].filter(Boolean).join(" ");
+
+    const emailPromises = [
       resend.emails.send({
         from: FROM_EMAIL,
         to: NOTIFY_EMAILS,
-        replyTo: email,
-        subject: `New Quote Request: ${pestType} — ${firstName} ${lastName}`,
+        ...(email ? { replyTo: email } : {}),
+        subject: `New Quote Request: ${pestType} — ${nameLine}`,
         html: notificationHtml,
       }),
-      resend.emails.send({
-        from: FROM_EMAIL,
-        to: email,
-        subject: "We got your request — Neighbors Pest Solutions",
-        html: confirmationHtml,
-      }),
-    ]);
+    ];
 
-    if (notification.error || confirmation.error) {
-      console.error("Resend errors:", { notification: notification.error, confirmation: confirmation.error });
+    if (email) {
+      emailPromises.push(
+        resend.emails.send({
+          from: FROM_EMAIL,
+          to: email,
+          subject: "We got your request — Neighbors Pest Solutions",
+          html: confirmationHtml,
+        }),
+      );
+    }
+
+    const results = await Promise.all(emailPromises);
+    const failed = results.find((r) => r.error);
+    if (failed) {
+      console.error("Resend error:", failed.error);
       return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
     }
 

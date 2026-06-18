@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FreeQuotePopup from "@/components/FreeQuotePopup";
 import { defaultMetadata } from "@/lib/seo";
 import { generateLocalBusinessSchema, generateWebSiteSchema, generateSiteNavigationSchema } from "@/lib/schema";
 import { BUSINESS } from "@/lib/constants";
@@ -51,6 +52,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <FreeQuotePopup />
       </body>
     </html>
   );
