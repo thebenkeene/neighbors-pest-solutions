@@ -95,7 +95,7 @@ export default function FreeQuotePopup() {
           serviceType: 'Residential',
           pestType: formData.pestType,
           address: '',
-          message: 'Quick quote request from popup form.',
+          message: '50% off first service — popup quote request.',
         }),
       });
       if (res.ok) {
@@ -152,7 +152,7 @@ export default function FreeQuotePopup() {
               </div>
               <h3 className="text-xl font-bold text-dark-800 mb-2">We&apos;ll Be in Touch!</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-5">
-                Thanks, {formData.firstName}! A team member will reach out shortly with your free quote.
+                Thanks, {formData.firstName}! A team member will reach out shortly with your free quote and <strong className="text-primary-600">50% off</strong> your first service.
               </p>
               <p className="text-sm text-gray-500">
                 Need help now? Call{' '}
@@ -171,17 +171,17 @@ export default function FreeQuotePopup() {
             <>
               {/* Header */}
               <div className="text-center mb-6">
-                <div className="inline-flex items-center gap-1.5 bg-primary-50 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full mb-3 uppercase tracking-wide">
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                <div className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wide border border-amber-200">
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  100% Free · No Obligation
+                  Limited Time Offer
                 </div>
                 <h2 className="text-2xl sm:text-[1.7rem] font-bold text-dark-800 leading-tight">
-                  Got Pests? Get a <span className="text-primary-600">Free Quote</span> Today
+                  Get <span className="text-primary-600">50% Off</span> Your First Service
                 </h2>
                 <p className="text-gray-500 text-sm mt-2 leading-relaxed">
-                  San Diego&apos;s trusted pest experts — same-day service available.
+                  New customers save big — claim your free quote and lock in half-price pest control today.
                 </p>
               </div>
 
