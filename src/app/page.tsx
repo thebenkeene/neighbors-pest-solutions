@@ -81,18 +81,24 @@ const benefits = [
 ];
 
 const pestIcons = [
-  { name: "Ants", href: "/services/ant-control", icon: "🐜" },
-  { name: "Bed Bugs", href: "/services/bed-bug-control", icon: "🛏️" },
-  { name: "Spiders", href: "/services/spider-control", icon: "🕷️" },
-  { name: "Rodents", href: "/services/rodent-control", icon: "🐭" },
-  { name: "Cockroaches", href: "/services/cockroach-control", icon: "🪳" },
-  { name: "Mosquitoes", href: "/services/mosquito-control", icon: "🦟" },
-  { name: "Fleas", href: "/services/flea-control", icon: "🐾" },
-  { name: "Ticks", href: "/services/tick-control", icon: "🐞" },
-  { name: "Earwigs", href: "/services/earwig-control", icon: "🪲" },
-  { name: "Moths", href: "/services/moth-control", icon: "🦋" },
-  { name: "Flies", href: "/services/fly-control", icon: "🪰" },
-  { name: "Silverfish", href: "/services/silverfish-control", icon: "🐟" },
+  { name: "Ants", href: "/services/ant-control", icon: "/images/icons/ant.png" },
+  { name: "Bed Bugs", href: "/services/bed-bug-control", icon: "/images/icons/bed-bug.png" },
+  { name: "Spiders", href: "/services/spider-control", icon: "/images/icons/spider.png" },
+  { name: "Rodents", href: "/services/rodent-control", icon: "/images/icons/rodent.png" },
+  { name: "Cockroaches", href: "/services/cockroach-control", icon: "/images/icons/cockroach.png" },
+  { name: "Mosquitoes", href: "/services/mosquito-control", icon: "/images/icons/mosquito.png" },
+  { name: "Fleas", href: "/services/flea-control", icon: "/images/icons/flea.png" },
+  { name: "Ticks", href: "/services/tick-control", icon: "/images/icons/tick.png" },
+  { name: "Carpenter Ants", href: "/services/carpenter-ant-control", icon: "/images/icons/carpenter-ant.png" },
+  { name: "Stinging Pests", href: "/services/stinging-pest-control", icon: "/images/icons/stinging-pest.png" },
+  { name: "Flies", href: "/services/fly-control", icon: "/images/icons/fly.png" },
+  { name: "Earwigs", href: "/services/earwig-control", icon: "/images/icons/earwig.png" },
+  { name: "Crickets", href: "/services/cricket-control", icon: "/images/icons/cricket.png" },
+  { name: "Silverfish", href: "/services/silverfish-control", icon: "/images/icons/silverfish.png" },
+  { name: "Centipedes", href: "/services/centipede-millipede-control", icon: "/images/icons/centipede.png" },
+  { name: "Beetles", href: "/services/beetle-control", icon: "/images/icons/beetle.png" },
+  { name: "Moths", href: "/services/moth-control", icon: "/images/icons/moth.png" },
+  { name: "Stink Bugs", href: "/services/stink-bug-control", icon: "/images/icons/stink-bug.png" },
 ];
 
 const serviceImages: Record<string, string> = {
@@ -243,7 +249,13 @@ export default function HomePage() {
                 href={p.href}
                 className="group flex flex-col items-center gap-2 p-4 bg-white rounded-xl border border-gray-100 hover:border-primary-300 hover:shadow-md hover:-translate-y-1 transition-all duration-200"
               >
-                <span className="text-3xl group-hover:scale-110 transition-transform duration-200">{p.icon}</span>
+                <Image
+                  src={p.icon}
+                  alt={p.name}
+                  width={48}
+                  height={48}
+                  className="group-hover:scale-110 transition-transform duration-200"
+                />
                 <span className="text-xs font-semibold text-dark-700 group-hover:text-primary-600 transition-colors text-center">{p.name}</span>
               </Link>
             ))}

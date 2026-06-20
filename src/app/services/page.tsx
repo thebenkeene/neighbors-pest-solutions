@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { generateSEO } from "@/lib/seo";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { BUSINESS, SERVICES } from "@/lib/constants";
@@ -12,25 +13,24 @@ export const metadata = generateSEO({
 });
 
 const serviceMeta: Record<string, { icon: string; description: string }> = {
-  "ant-control": { icon: "🐜", description: "Eliminate ant colonies at the source, Argentine, fire, carpenter, and more." },
-  "bed-bug-control": { icon: "🛏️", description: "Heat and chemical treatments to fully eliminate bed bug infestations." },
-  "spider-control": { icon: "🕷️", description: "Keep black widows, brown recluses, and other spiders out of your home." },
-  "rodent-control": { icon: "🐭", description: "Full rodent exclusion, trapping, and sanitation programs." },
-  "cockroach-control": { icon: "🪳", description: "Targeted treatments for German, American, and Oriental cockroach infestations." },
-  "mosquito-control": { icon: "🦟", description: "Barrier treatments to reduce mosquito populations in your yard." },
-  "flea-control": { icon: "🐾", description: "Interior and exterior flea elimination timed with the pest life cycle." },
-  "tick-control": { icon: "🐞", description: "Perimeter and yard treatments to protect against tick-borne illness." },
-  "beetle-control": { icon: "🪲", description: "Treatment for carpet beetles, bark beetles, and other destructive beetle species." },
-  "earwig-control": { icon: "🪲", description: "Perimeter and garden treatments to control earwig populations." },
-  "carpenter-ant-control": { icon: "🐜", description: "Structural protection from carpenter ants that damage wood in your home." },
-  "cricket-control": { icon: "🦗", description: "Interior and exterior treatments to stop cricket infestations." },
-  "fly-control": { icon: "🪰", description: "Source identification and treatment to control flies indoors and out." },
-  "moth-control": { icon: "🦋", description: "Pantry and clothing moth treatments to protect your home and belongings." },
-  "silverfish-control": { icon: "🐟", description: "Moisture control and chemical treatments to eliminate silverfish." },
-  "stinging-pest-control": { icon: "🐝", description: "Safe removal and treatment of wasps, hornets, bees, and yellow jackets." },
-  "stink-bug-control": { icon: "🐞", description: "Exclusion and treatment to prevent stink bug invasions." },
-  "centipede-millipede-control": { icon: "🐛", description: "Moisture management and perimeter treatments for centipedes and millipedes." },
-  "mite-control": { icon: "🕷️", description: "Treatment for spider mites, clover mites, and other mite infestations." },
+  "ant-control": { icon: "/images/icons/ant.png", description: "Eliminate ant colonies at the source, Argentine, fire, carpenter, and more." },
+  "bed-bug-control": { icon: "/images/icons/bed-bug.png", description: "Heat and chemical treatments to fully eliminate bed bug infestations." },
+  "spider-control": { icon: "/images/icons/spider.png", description: "Keep black widows, brown recluses, and other spiders out of your home." },
+  "rodent-control": { icon: "/images/icons/rodent.png", description: "Full rodent exclusion, trapping, and sanitation programs." },
+  "cockroach-control": { icon: "/images/icons/cockroach.png", description: "Targeted treatments for German, American, and Oriental cockroach infestations." },
+  "mosquito-control": { icon: "/images/icons/mosquito.png", description: "Barrier treatments to reduce mosquito populations in your yard." },
+  "flea-control": { icon: "/images/icons/flea.png", description: "Interior and exterior flea elimination timed with the pest life cycle." },
+  "tick-control": { icon: "/images/icons/tick.png", description: "Perimeter and yard treatments to protect against tick-borne illness." },
+  "beetle-control": { icon: "/images/icons/beetle.png", description: "Treatment for carpet beetles, bark beetles, and other destructive beetle species." },
+  "earwig-control": { icon: "/images/icons/earwig.png", description: "Perimeter and garden treatments to control earwig populations." },
+  "carpenter-ant-control": { icon: "/images/icons/carpenter-ant.png", description: "Structural protection from carpenter ants that damage wood in your home." },
+  "cricket-control": { icon: "/images/icons/cricket.png", description: "Interior and exterior treatments to stop cricket infestations." },
+  "fly-control": { icon: "/images/icons/fly.png", description: "Source identification and treatment to control flies indoors and out." },
+  "moth-control": { icon: "/images/icons/moth.png", description: "Pantry and clothing moth treatments to protect your home and belongings." },
+  "silverfish-control": { icon: "/images/icons/silverfish.png", description: "Moisture control and chemical treatments to eliminate silverfish." },
+  "stinging-pest-control": { icon: "/images/icons/stinging-pest.png", description: "Safe removal and treatment of wasps, hornets, bees, and yellow jackets." },
+  "stink-bug-control": { icon: "/images/icons/stink-bug.png", description: "Exclusion and treatment to prevent stink bug invasions." },
+  "centipede-millipede-control": { icon: "/images/icons/centipede.png", description: "Moisture management and perimeter treatments for centipedes and millipedes." },
 };
 
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -72,8 +72,13 @@ export default function ServicesPage() {
                   href={href}
                   className="group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 transition-all duration-300"
                 >
-                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-200">
-                    {meta?.icon ?? service.emoji}
+                  <div className="mb-3 group-hover:scale-110 transition-transform duration-200">
+                    <Image
+                      src={meta?.icon ?? service.icon}
+                      alt={service.name}
+                      width={48}
+                      height={48}
+                    />
                   </div>
                   <h2 className="text-base font-bold text-dark-800 mb-2 group-hover:text-primary-600 transition-colors">
                     {service.name}

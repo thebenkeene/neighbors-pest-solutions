@@ -124,7 +124,7 @@ export default function AreaPageTemplate({ data }: { data: AreaPageData }) {
                 href={`/services/${s.slug}`}
                 className="flex items-center gap-2 p-4 bg-white rounded-xl border border-gray-100 hover:border-primary-300 hover:bg-primary-50 hover:shadow-md transition-all duration-200 group"
               >
-                <span className="text-xl">{s.emoji}</span>
+                <Image src={s.icon} alt={s.name} width={28} height={28} />
                 <span className="text-sm font-semibold text-dark-700 group-hover:text-primary-600 transition-colors">{s.name}</span>
               </Link>
             ))}
