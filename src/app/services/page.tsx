@@ -76,8 +76,8 @@ export default function ServicesPage() {
                     <Image
                       src={meta?.icon ?? service.icon}
                       alt={service.name}
-                      width={48}
-                      height={48}
+                      width={64}
+                      height={64}
                     />
                   </div>
                   <h2 className="text-base font-bold text-dark-800 mb-2 group-hover:text-primary-600 transition-colors">

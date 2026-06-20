@@ -252,8 +252,8 @@ export default function HomePage() {
                 <Image
                   src={p.icon}
                   alt={p.name}
-                  width={48}
-                  height={48}
+                  width={64}
+                  height={64}
                   className="group-hover:scale-110 transition-transform duration-200"
                 />
                 <span className="text-xs font-semibold text-dark-700 group-hover:text-primary-600 transition-colors text-center">{p.name}</span>
