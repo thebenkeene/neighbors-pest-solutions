@@ -10,16 +10,116 @@ function esc(str: string): string {
     .replace(/'/g, "&#39;");
 }
 
+/* ── Rate limiter (in-memory, per-IP) ── */
+const rateMap = new Map<string, number[]>();
+const RATE_WINDOW_MS = 60_000 * 15; // 15-minute window
+const RATE_MAX = 3; // max submissions per window
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = (rateMap.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
+  if (timestamps.length >= RATE_MAX) return true;
+  timestamps.push(now);
+  rateMap.set(ip, timestamps);
+  return false;
+}
+
+// Periodic cleanup so the map doesn't grow unbounded
+if (typeof globalThis !== "undefined") {
+  const CLEANUP_KEY = "__nps_rate_cleanup";
+  if (!(globalThis as Record<string, unknown>)[CLEANUP_KEY]) {
+    (globalThis as Record<string, unknown>)[CLEANUP_KEY] = true;
+    setInterval(() => {
+      const now = Date.now();
+      for (const [ip, ts] of rateMap) {
+        const filtered = ts.filter((t) => now - t < RATE_WINDOW_MS);
+        if (filtered.length === 0) rateMap.delete(ip);
+        else rateMap.set(ip, filtered);
+      }
+    }, RATE_WINDOW_MS);
+  }
+}
+
+/* ── Allowed pest-type values ── */
+const ALLOWED_PEST_TYPES = new Set([
+  "Ant Control", "Bed Bug Control", "Spider Control", "Rodent Control",
+  "Cockroach Control", "Mosquito Control", "Flea Control", "Tick Control",
+  "Beetle Control", "Earwig Control", "Carpenter Ant Control", "Cricket Control",
+  "Fly Control", "Moth Control", "Silverfish Control", "Stinging Pest Control",
+  "Stink Bug Control", "Centipede & Millipede Control", "Mite Control",
+  "General Pest Inspection", "Other",
+  // Popup uses shorter labels
+  "Ants", "Bed Bugs", "Spiders", "Rodents", "Cockroaches",
+  "Mosquitoes", "Fleas & Ticks", "Stinging Pests",
+]);
+
+const MIN_SUBMIT_TIME_MS = 3_000; // humans take at least 3 seconds
+const MAX_FIELD_LENGTH = 500;
+
+function looksLikeGibberish(str: string): boolean {
+  if (!str || str.length < 4) return false;
+  const consonantRun = /[^aeiou\s\d.,!?'-]{6,}/i;
+  if (consonantRun.test(str)) return true;
+  const uppercaseRatio = (str.match(/[A-Z]/g) ?? []).length / str.length;
+  if (str.length > 6 && uppercaseRatio > 0.6) return true;
+  return false;
+}
+
+function silentReject() {
+  return NextResponse.json({ success: true }, { status: 200 });
+}
+
 export async function POST(req: NextRequest) {
   try {
+    /* ── Rate limit by IP ── */
+    const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
+      ?? req.headers.get("x-real-ip")
+      ?? "unknown";
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: "Too many requests. Please try again later." },
+        { status: 429 },
+      );
+    }
+
     const resend = new Resend(process.env.RESEND_API_KEY);
     const FROM_EMAIL = "Neighbors Pest Solutions <info@neighborspestsolutions.com>";
     const NOTIFY_EMAILS = ["info@neighborspestsolutions.com", "team@neighborspestsolutions.com"];
     const body = await req.json();
-    const { firstName, lastName, email, phone, serviceType, pestType, address, message } = body;
+    const { firstName, lastName, email, phone, serviceType, pestType, address, message, _hp, _t } = body;
+
+    /* ── Honeypot: bots fill this, humans don't see it ── */
+    if (_hp) return silentReject();
+
+    /* ── Time check: reject if submitted faster than 3 seconds ── */
+    if (typeof _t === "number" && Date.now() - _t < MIN_SUBMIT_TIME_MS) {
+      return silentReject();
+    }
 
     if (!firstName || !phone || !pestType) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
+
+    /* ── Field length limits ── */
+    for (const val of [firstName, lastName, email, phone, address, message]) {
+      if (typeof val === "string" && val.length > MAX_FIELD_LENGTH) {
+        return NextResponse.json({ error: "Field too long" }, { status: 400 });
+      }
+    }
+
+    /* ── Validate pest type against allowed list ── */
+    if (!ALLOWED_PEST_TYPES.has(pestType)) {
+      return NextResponse.json({ error: "Invalid pest type" }, { status: 400 });
+    }
+
+    /* ── Gibberish detection on name fields ── */
+    if (looksLikeGibberish(firstName) || looksLikeGibberish(lastName ?? "")) {
+      return silentReject();
+    }
+
+    /* ── Basic email format check (server-side) ── */
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
     }
 
     const submittedAt = new Date().toLocaleString("en-US", {

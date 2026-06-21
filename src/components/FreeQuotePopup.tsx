@@ -24,6 +24,8 @@ export default function FreeQuotePopup() {
     pestType: '',
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [honeypot, setHoneypot] = useState('');
+  const [loadedAt] = useState(() => Date.now());
   const overlayRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -96,6 +98,8 @@ export default function FreeQuotePopup() {
           pestType: formData.pestType,
           address: '',
           message: '50% off first service — popup quote request.',
+          _hp: honeypot,
+          _t: loadedAt,
         }),
       });
       if (res.ok) {
@@ -187,6 +191,18 @@ export default function FreeQuotePopup() {
 
               {/* Form */}
               <form onSubmit={handleSubmit} noValidate className="space-y-3.5">
+                <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }}>
+                  <label htmlFor="popup-website">Website</label>
+                  <input
+                    id="popup-website"
+                    name="website"
+                    type="text"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
                 {status === 'error' && (
                   <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-2.5 text-sm">
                     Something went wrong. Please try again or call{' '}

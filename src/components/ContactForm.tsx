@@ -39,6 +39,8 @@ export default function ContactForm() {
   });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [honeypot, setHoneypot] = useState('');
+  const [loadedAt] = useState(() => Date.now());
 
   const validate = (): boolean => {
     const newErrors: FieldErrors = {};
@@ -69,7 +71,11 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          _hp: honeypot,
+          _t: loadedAt,
+        }),
       });
       if (res.ok) {
         setStatus('success');
@@ -103,6 +109,18 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }}>
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
       {status === 'error' && (
         <div className="bg-red-50 border border-red-200 text-red-800 rounded-lg p-4 text-sm">
           Something went wrong. Please try again or call us at <a href="tel:+18588782847" className="font-bold underline">(858) 878-2847</a>.
