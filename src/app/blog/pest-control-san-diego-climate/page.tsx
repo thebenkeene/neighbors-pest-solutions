@@ -12,16 +12,16 @@ export const metadata: Metadata = generateSEO({
   type: "article",
   keywords: ["pest control San Diego climate", "San Diego pest season", "year round pest control San Diego"],
   image: `${BUSINESS.url}/images/technician-grass.jpg`,
-  publishedTime: "2025-01-15",
-  modifiedTime: "2025-01-15",
+  publishedTime: "2026-02-24",
+  modifiedTime: "2026-03-15",
 });
 
 const articleSchema = generateArticleSchema(
   "Why San Diego's Climate Makes Pest Control a Year-Round Job",
   "San Diego's mild winters and warm summers mean pests never fully go away. Here's what to expect each season and how to stay ahead.",
   "/blog/pest-control-san-diego-climate",
-  "2025-01-15",
-  "2025-01-15",
+  "2026-02-24",
+  "2026-03-15",
   `${BUSINESS.url}/images/technician-grass.jpg`
 );
 
@@ -40,7 +40,7 @@ export default function Page() {
       <BlogPostLayout
         title="Why San Diego's Climate Makes Pest Control a Year-Round Job"
         category="Prevention"
-        date="January 15, 2025"
+        date="February 24, 2026"
         readTime="5 min read"
         image="/images/technician-grass.jpg"
         imageAlt="San Diego weather and pest control"

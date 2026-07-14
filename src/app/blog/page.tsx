@@ -23,7 +23,7 @@ const posts = [
     excerpt: "Argentine ants are everywhere in San Diego. Learn why they invade, what actually works, and when it's time to call a professional.",
     category: "Ants",
     readTime: "6 min read",
-    date: "February 10, 2025",
+    date: "February 24, 2026",
     image: "/images/ants-windowsill.jpg",
   },
   {
@@ -32,7 +32,7 @@ const posts = [
     excerpt: "Bed bugs are on the rise in San Diego. This guide covers how to identify an infestation, what treatment options exist, and how to prepare your home.",
     category: "Bed Bugs",
     readTime: "8 min read",
-    date: "January 28, 2025",
+    date: "February 24, 2026",
     image: "/images/technician-spraying.jpg",
   },
   {
@@ -41,7 +41,7 @@ const posts = [
     excerpt: "San Diego's mild winters and warm summers mean pests never fully go away. Here's what to expect each season and how to stay ahead of infestations.",
     category: "Prevention",
     readTime: "5 min read",
-    date: "January 15, 2025",
+    date: "February 24, 2026",
     image: "/images/technician-grass.jpg",
   },
   {
@@ -50,7 +50,7 @@ const posts = [
     excerpt: "Roof rats are one of San Diego's most common and destructive pests. Learn the early warning signs before the problem gets out of hand.",
     category: "Rodents",
     readTime: "7 min read",
-    date: "January 5, 2025",
+    date: "February 24, 2026",
     image: "/images/technician-walkway.jpg",
   },
   {
@@ -59,7 +59,7 @@ const posts = [
     excerpt: "A complete monthly checklist to keep your San Diego home pest-free every month of the year, from spring ant invasions to fall rodent exclusion.",
     category: "Prevention",
     readTime: "9 min read",
-    date: "December 20, 2024",
+    date: "February 24, 2026",
     image: "/images/technician-inspection.jpg",
   },
 ];

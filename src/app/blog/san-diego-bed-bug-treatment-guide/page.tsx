@@ -12,16 +12,16 @@ export const metadata: Metadata = generateSEO({
   type: "article",
   keywords: ["bed bug treatment San Diego", "bed bug exterminator San Diego", "how to get rid of bed bugs San Diego CA"],
   image: `${BUSINESS.url}/images/technician-spraying.jpg`,
-  publishedTime: "2025-01-28",
-  modifiedTime: "2025-01-28",
+  publishedTime: "2026-02-24",
+  modifiedTime: "2026-03-15",
 });
 
 const articleSchema = generateArticleSchema(
   "San Diego Bed Bug Treatment: What to Expect",
   "Bed bugs are rising across San Diego. This complete guide covers how to identify bed bugs, compare treatment options, and prepare your home for professional treatment.",
   "/blog/san-diego-bed-bug-treatment-guide",
-  "2025-01-28",
-  "2025-01-28",
+  "2026-02-24",
+  "2026-03-15",
   `${BUSINESS.url}/images/technician-spraying.jpg`
 );
 
@@ -40,7 +40,7 @@ export default function Page() {
       <BlogPostLayout
         title="San Diego Bed Bug Treatment: What to Expect"
         category="Bed Bugs"
-        date="January 28, 2025"
+        date="February 24, 2026"
         readTime="8 min read"
         image="/images/technician-spraying.jpg"
         imageAlt="Bed bug close-up"

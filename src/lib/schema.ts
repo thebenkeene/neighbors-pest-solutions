@@ -1,4 +1,4 @@
-import { BUSINESS, ALL_AREAS, TESTIMONIALS } from "./constants";
+import { BUSINESS, ALL_AREAS } from "./constants";
 
 const ADDRESS_SCHEMA = {
   "@type": "PostalAddress" as const,
@@ -29,13 +29,6 @@ const GEO_SCHEMA = {
   "@type": "GeoCoordinates" as const,
   latitude: BUSINESS.geo.latitude,
   longitude: BUSINESS.geo.longitude,
-};
-
-const AGGREGATE_RATING_SCHEMA = {
-  "@type": "AggregateRating" as const,
-  ratingValue: "5.0",
-  reviewCount: TESTIMONIALS.length,
-  bestRating: 5,
 };
 
 export function generateWebSiteSchema() {
@@ -119,20 +112,6 @@ export function generateLocalBusinessSchema() {
         },
       })),
     },
-    review: TESTIMONIALS.slice(0, 5).map((t) => ({
-      "@type": "Review",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: t.rating,
-        bestRating: 5,
-      },
-      author: {
-        "@type": "Person",
-        name: t.name,
-      },
-      reviewBody: t.text,
-    })),
-    aggregateRating: AGGREGATE_RATING_SCHEMA,
   };
 }
 
@@ -155,8 +134,6 @@ export function generateServiceSchema(
       name: BUSINESS.name,
       url: BUSINESS.url,
       telephone: BUSINESS.phoneFull,
-      logo: `${BUSINESS.url}/images/logo-full.png`,
-      contactPoint: CONTACT_POINT_SCHEMA,
     },
     areaServed: {
       "@type": "Place",
@@ -171,29 +148,28 @@ export function generateServiceSchema(
 }
 
 export function generateAreaSchema(cityName: string, slug: string) {
+  // Area pages describe a Service offered in that city by the single
+  // sitewide LocalBusiness (@id .../#business) — not a separate business
+  // entity per city, which Google treats as duplicate/spammy markup.
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    additionalType: "https://en.wikipedia.org/wiki/Pest_control",
-    "@id": `${BUSINESS.url}/service-areas/${slug}`,
-    name: `${BUSINESS.name} - ${cityName}`,
+    "@type": "Service",
+    "@id": `${BUSINESS.url}/service-areas/${slug}#service`,
+    serviceType: "Pest Control",
+    name: `Pest Control in ${cityName}, CA`,
     description: `Professional pest control services in ${cityName}, CA. Treatments for ants, spiders, bed bugs, rodents, cockroaches, and more.`,
     url: `${BUSINESS.url}/service-areas/${slug}`,
-    telephone: BUSINESS.phoneFull,
-    email: BUSINESS.email,
-    image: `${BUSINESS.url}/images/og-image.png`,
-    logo: `${BUSINESS.url}/images/logo-full.png`,
-    address: ADDRESS_SCHEMA,
-    contactPoint: CONTACT_POINT_SCHEMA,
-    geo: GEO_SCHEMA,
-    priceRange: "$$",
-    sameAs: [BUSINESS.socialFacebook, BUSINESS.socialInstagram, BUSINESS.socialX, BUSINESS.socialYouTube, BUSINESS.socialLinkedIn],
-    openingHoursSpecification: [OPENING_HOURS_SCHEMA],
+    provider: {
+      "@type": "LocalBusiness",
+      "@id": `${BUSINESS.url}/#business`,
+      name: BUSINESS.name,
+      url: BUSINESS.url,
+      telephone: BUSINESS.phoneFull,
+    },
     areaServed: {
       "@type": "City",
       name: `${cityName}, CA`,
     },
-    aggregateRating: AGGREGATE_RATING_SCHEMA,
   };
 }
 

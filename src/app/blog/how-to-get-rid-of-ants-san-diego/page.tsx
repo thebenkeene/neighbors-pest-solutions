@@ -12,16 +12,16 @@ export const metadata: Metadata = generateSEO({
   type: "article",
   keywords: ["how to get rid of ants San Diego", "ant control San Diego", "Argentine ants San Diego"],
   image: `${BUSINESS.url}/images/ants-windowsill.jpg`,
-  publishedTime: "2025-02-10",
-  modifiedTime: "2025-02-10",
+  publishedTime: "2026-02-24",
+  modifiedTime: "2026-03-15",
 });
 
 const articleSchema = generateArticleSchema(
   "How to Get Rid of Ants in Your San Diego Home",
   "Argentine ants invade San Diego homes every year. Learn why they come in, which treatments actually work, and when to call a professional ant exterminator in San Diego.",
   "/blog/how-to-get-rid-of-ants-san-diego",
-  "2025-02-10",
-  "2025-02-10",
+  "2026-02-24",
+  "2026-03-15",
   `${BUSINESS.url}/images/ants-windowsill.jpg`
 );
 
@@ -40,7 +40,7 @@ export default function Page() {
       <BlogPostLayout
         title="How to Get Rid of Ants in Your San Diego Home"
         category="Ants"
-        date="February 10, 2025"
+        date="February 24, 2026"
         readTime="6 min read"
         image="/images/ants-windowsill.jpg"
         imageAlt="Ant control service in San Diego"

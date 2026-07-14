@@ -12,16 +12,16 @@ export const metadata: Metadata = generateSEO({
   type: "article",
   keywords: ["pest prevention San Diego", "how to prevent pests San Diego", "year round pest control San Diego homeowners"],
   image: `${BUSINESS.url}/images/technician-inspection.jpg`,
-  publishedTime: "2024-12-20",
-  modifiedTime: "2024-12-20",
+  publishedTime: "2026-02-24",
+  modifiedTime: "2026-03-15",
 });
 
 const articleSchema = generateArticleSchema(
   "Year-Round Pest Prevention Guide for San Diego Homeowners",
   "A complete monthly checklist to keep your San Diego home pest-free every month of the year.",
   "/blog/year-round-pest-prevention-san-diego",
-  "2024-12-20",
-  "2024-12-20",
+  "2026-02-24",
+  "2026-03-15",
   `${BUSINESS.url}/images/technician-inspection.jpg`
 );
 
@@ -40,7 +40,7 @@ export default function Page() {
       <BlogPostLayout
         title="Year-Round Pest Prevention Guide for San Diego Homeowners"
         category="Prevention"
-        date="December 20, 2024"
+        date="February 24, 2026"
         readTime="9 min read"
         image="/images/technician-inspection.jpg"
         imageAlt="Pest prevention for San Diego homes"

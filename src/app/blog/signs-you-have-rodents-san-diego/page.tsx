@@ -12,16 +12,16 @@ export const metadata: Metadata = generateSEO({
   type: "article",
   keywords: ["signs of rodents San Diego", "roof rats San Diego", "rodent infestation San Diego", "how to tell if you have rats"],
   image: `${BUSINESS.url}/images/technician-walkway.jpg`,
-  publishedTime: "2025-01-05",
-  modifiedTime: "2025-01-05",
+  publishedTime: "2026-02-24",
+  modifiedTime: "2026-03-15",
 });
 
 const articleSchema = generateArticleSchema(
   "10 Signs You Have a Rodent Problem in Your San Diego Home",
   "Roof rats are one of San Diego's most common and destructive pests. Learn the early warning signs before the problem gets out of hand.",
   "/blog/signs-you-have-rodents-san-diego",
-  "2025-01-05",
-  "2025-01-05",
+  "2026-02-24",
+  "2026-03-15",
   `${BUSINESS.url}/images/technician-walkway.jpg`
 );
 
@@ -40,7 +40,7 @@ export default function Page() {
       <BlogPostLayout
         title="10 Signs You Have a Rodent Problem in Your San Diego Home"
         category="Rodents"
-        date="January 5, 2025"
+        date="February 24, 2026"
         readTime="7 min read"
         image="/images/technician-walkway.jpg"
         imageAlt="Rodent control service"
