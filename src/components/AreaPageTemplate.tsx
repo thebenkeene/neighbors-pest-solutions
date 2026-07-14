@@ -12,6 +12,10 @@ export interface AreaPageData {
   bodyParagraph: string;
   commonPests: string[];
   faqs: { question: string; answer: string }[];
+  /** Unique, area-specific content sections (pest pressure, housing stock, seasonality) */
+  localInsights?: Array<{ heading: string; paragraphs: string[] }>;
+  /** Sub-neighborhoods served within this area */
+  neighborhoods?: string[];
 }
 
 export default function AreaPageTemplate({ data }: { data: AreaPageData }) {
@@ -106,6 +110,30 @@ export default function AreaPageTemplate({ data }: { data: AreaPageData }) {
               </div>
             </div>
           </div>
+
+          {/* Area-specific insights */}
+          {data.localInsights && data.localInsights.length > 0 && (
+            <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-10">
+              {data.localInsights.map((section) => (
+                <div key={section.heading}>
+                  <h3 className="text-xl font-bold text-dark-800 mb-3">{section.heading}</h3>
+                  {section.paragraphs.map((p, i) => (
+                    <p key={i} className="text-gray-600 leading-relaxed mb-4">{p}</p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Sub-neighborhoods */}
+          {data.neighborhoods && data.neighborhoods.length > 0 && (
+            <div className="mt-12 p-6 bg-gray-50 rounded-2xl">
+              <h3 className="text-lg font-bold text-dark-800 mb-2">
+                Neighborhoods We Serve in {data.cityName}
+              </h3>
+              <p className="text-gray-600">{data.neighborhoods.join(" · ")}</p>
+            </div>
+          )}
         </div>
       </section>
 

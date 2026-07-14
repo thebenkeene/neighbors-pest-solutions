@@ -19,7 +19,7 @@ const STATIC_LASTMOD: Record<string, string> = {
 };
 
 const SERVICES_LASTMOD = "2026-03-01"; // last serviceData/template content change
-const AREAS_LASTMOD = "2026-03-14"; // last areaData content change
+const AREAS_LASTMOD = "2026-07-13"; // last areaData content change (top-10 area enrichment)
 const BLOG_LASTMOD = "2026-03-15"; // last blog content change
 
 export default function sitemap(): MetadataRoute.Sitemap {
