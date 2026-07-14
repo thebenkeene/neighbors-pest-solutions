@@ -57,14 +57,6 @@ export function generateWebSiteSchema() {
         BUSINESS.socialLinkedIn,
       ],
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${BUSINESS.url}/services?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 

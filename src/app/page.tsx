@@ -115,7 +115,7 @@ const serviceImages: Record<string, string> = {
 const serviceDescriptions: Record<string, string> = {
   "ant-control": "From Argentine ants to fire ants, we eliminate colonies at the source and protect your home year-round.",
   "bed-bug-control": "Thorough bed bug inspections and treatments using the latest heat and chemical methods to eliminate infestations fast.",
-  "spider-control": "We treat crawl spaces, eaves, and entry points to keep black widows, brown recluses, and other spiders out.",
+  "spider-control": "We treat crawl spaces, eaves, and entry points to keep black widows, false widows, and other spiders out.",
   "rodent-control": "Comprehensive rodent exclusion, trapping, and sanitation to remove rats and mice safely from your property.",
   "cockroach-control": "German, American, and Oriental cockroach treatments targeting harborage zones for fast, lasting elimination.",
   "mosquito-control": "Barrier treatments and breeding site reduction to slash mosquito populations and protect your outdoor spaces.",

@@ -23,7 +23,7 @@ function makeFAQs(city: string) {
     },
     {
       question: `Are your pest control treatments safe in ${city} homes?`,
-      answer: `Absolutely. We use eco-friendly, family and pet-safe products approved for residential use in California. Our technicians will walk you through any specific precautions before and after treatment.`,
+      answer: `We use EPA-registered products approved for residential use in California, applied according to their labels. Our technicians will walk you through any product-specific precautions before and after treatment.`,
     },
     {
       question: `Do you offer recurring pest control service in ${city}?`,
@@ -131,7 +131,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Are your treatments safe for kids and pets?",
-        answer: "Yes. We use eco-friendly, family- and pet-safe products approved for residential use in California, and your technician will explain any precautions before and after treatment.",
+        answer: "We use EPA-registered products approved for residential use in California, applied per label directions. Your technician will explain any product-specific precautions before and after treatment.",
       },
     ],
   },
@@ -292,7 +292,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Are your treatments safe for kids and pets?",
-        answer: "Yes. We use eco-friendly, family- and pet-safe products approved for residential use in California — a priority for the young families that make up most of our Carmel Valley customers.",
+        answer: "We use EPA-registered products approved for residential use in California, applied per label directions — and we explain every product-specific precaution up front, a priority for the young families that make up most of our Carmel Valley customers.",
       },
     ],
   },
@@ -367,7 +367,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Are treatments safe for households with pets?",
-        answer: "Yes. We use eco-friendly, family- and pet-safe products approved for residential use in California, and your technician will walk you through any precautions before and after treatment.",
+        answer: "We use EPA-registered products approved for residential use in California and apply them per label directions. Your technician will walk you through any product-specific precautions before and after treatment.",
       },
     ],
   },

@@ -12,7 +12,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { title: "Colony Source Treatment", desc: "We trace ant trails and treat the nest directly, not just the visible ants." },
       { title: "Interior & Exterior Barrier", desc: "A perimeter treatment prevents new ant scouts from entering your home." },
       { title: "Entry Point Sealing", desc: "We identify and recommend sealing of cracks, gaps, and utility penetrations." },
-      { title: "Eco-Friendly Products", desc: "All products are family and pet safe once dry, we'll let you know when it's clear." },
+      { title: "Eco-Friendly Products", desc: "EPA-registered products applied per label directions — your technician tells you exactly when treated areas are ready for kids and pets." },
     ],
     signs: [
       "Visible ant trails along walls, counters, or floors",
@@ -31,7 +31,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { question: "How long does ant treatment take to work?", answer: "Most ant treatments show results within 24–72 hours. Colony baits may take 1–2 weeks to fully eliminate a colony, which is normal and expected." },
       { question: "Are ants dangerous?", answer: "Most ant species are nuisance pests, but fire ants can sting and cause allergic reactions, and carpenter ants can damage wood structures over time." },
       { question: "Why do I keep getting ants every year?", answer: "San Diego's climate makes ant pressure a year-round issue, especially in late summer and fall. A quarterly service plan keeps colonies from re-establishing." },
-      { question: "Is the treatment safe for my pets?", answer: "Yes. We use family and pet-safe products. Your technician will advise on any brief re-entry period after treatment." },
+      { question: "Is the treatment safe for my pets?", answer: "We use EPA-registered products approved for residential use, applied according to their labels. Your technician will advise on any product-specific re-entry period and precautions for pets." },
     ],
     relatedServices: [
       { name: "Cockroach Control", slug: "cockroach-control" },
@@ -83,7 +83,7 @@ export const servicePages: Record<string, ServicePageData> = {
     slug: "spider-control",
     name: "Spider Control",
     heroHeading: "Spider Control San Diego, CA",
-    heroSubheading: "Keep black widows, brown recluses, and common house spiders out of your home with targeted spider treatments.",
+    heroSubheading: "Keep black widows, false widows, and common house spiders out of your home with targeted spider treatments.",
     heroImage: "/images/technician-webs.jpg",
     intro: "San Diego is home to a wide variety of spider species, most harmless, but some dangerous. Black widows are common in Southern California and can pose a real health risk, especially in garages, sheds, and children's play areas. Our spider treatments target webs, nesting areas, and entry points to keep spiders from moving in.",
     features: [
@@ -107,9 +107,9 @@ export const servicePages: Record<string, ServicePageData> = {
     ],
     faqs: [
       { question: "Are black widows common in San Diego?", answer: "Yes. Black widows are one of the most common venomous spiders in Southern California and are frequently found in garages, sheds, and around landscaping." },
-      { question: "Is spider treatment safe around kids?", answer: "Absolutely. All products we use are labeled safe for residential use and are pet and family safe once dry." },
+      { question: "Is spider treatment safe around kids?", answer: "We use EPA-registered products labeled for residential use and applied per label directions. Your technician will explain any product-specific precautions for children and pets before and after treatment." },
       { question: "How often should I have spider treatment?", answer: "Quarterly treatments are recommended for San Diego homes, as spiders are active year-round in the Southern California climate." },
-      { question: "Can you treat for brown recluse spiders?", answer: "Yes, though brown recluses are less common in San Diego than black widows. We inspect and treat for both. Call us if you suspect a brown recluse infestation." },
+      { question: "Are brown recluse spiders found in San Diego?", answer: "Brown recluses are not established in San Diego County — most suspected sightings turn out to be other species. The related desert recluse occurs in some remote desert areas of the county, but it is rarely encountered in homes. We identify spiders correctly and focus treatment on the species that actually pose a local risk, like black widows." },
     ],
     relatedServices: [
       { name: "Ant Control", slug: "ant-control" },
@@ -202,7 +202,7 @@ export const servicePages: Record<string, ServicePageData> = {
     heroHeading: "Mosquito Control San Diego, CA",
     heroSubheading: "Reclaim your outdoor spaces with professional mosquito barrier treatments that dramatically reduce mosquito populations.",
     heroImage: "/images/technician-grass.jpg",
-    intro: "San Diego's warm, humid microclimates, especially near canyons, parks, and coastal areas, can produce significant mosquito populations. Beyond the nuisance, mosquitoes can transmit West Nile virus and other diseases. Our mosquito control program combines barrier sprays with source reduction to reduce mosquito populations by up to 90% in treated areas.",
+    intro: "San Diego's warm, humid microclimates, especially near canyons, parks, and coastal areas, can produce significant mosquito populations. Beyond the nuisance, mosquitoes can transmit West Nile virus and other diseases. Our mosquito control program combines barrier sprays with source reduction to substantially reduce mosquito activity in treated areas.",
     features: [
       { title: "Barrier Spray Treatment", desc: "Residual insecticide applied to vegetation, shrubbery, and resting sites around your yard." },
       { title: "Breeding Site Reduction", desc: "We identify and treat standing water sources where mosquitoes lay eggs on your property." },
@@ -224,9 +224,9 @@ export const servicePages: Record<string, ServicePageData> = {
     ],
     faqs: [
       { question: "How quickly does mosquito treatment work?", answer: "The barrier spray begins working immediately and provides 3–4 weeks of residual protection. You'll notice a significant reduction within 24–48 hours." },
-      { question: "Is mosquito treatment safe for kids and pets?", answer: "Yes. Products are approved for residential use and safe once the treatment has dried, typically 30–45 minutes." },
+      { question: "Is mosquito treatment safe for kids and pets?", answer: "We use EPA-registered products approved for residential use and apply them according to their labels. Your technician will give you product-specific guidance on drying times, re-entry, and any precautions for kids and pets." },
       { question: "What can I do to reduce mosquitoes myself?", answer: "Empty standing water weekly (pots, gutters, bird baths, pet bowls). Trim overgrown vegetation and keep your lawn mowed." },
-      { question: "Do you treat for Aedes mosquitoes?", answer: "Yes. We treat for all mosquito species present in San Diego, including Aedes aegypti (tiger mosquito), which can transmit Zika and dengue." },
+      { question: "Do you treat for Aedes mosquitoes?", answer: "Yes. We treat for all mosquito species present in San Diego, including the invasive Aedes aegypti (yellow fever mosquito) and Aedes albopictus (Asian tiger mosquito), which can transmit diseases such as Zika and dengue." },
     ],
     relatedServices: [
       { name: "Tick Control", slug: "tick-control" },

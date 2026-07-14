@@ -19,7 +19,6 @@ export function generateSEO({
   path,
   image,
   type = "website",
-  keywords = [],
   publishedTime,
   modifiedTime,
   authors,
@@ -53,12 +52,6 @@ export function generateSEO({
   return {
     title: { absolute: fullTitle },
     description,
-    keywords: [
-      "pest control San Diego",
-      "exterminator San Diego",
-      "San Diego pest control",
-      ...keywords,
-    ],
     openGraph,
     twitter: {
       card: "summary_large_image",
@@ -92,20 +85,6 @@ export const defaultMetadata: Metadata = {
   },
   description:
     "San Diego's trusted pest control experts. Safe, effective treatments for ants, spiders, bed bugs, rodents, cockroaches, mosquitoes, and more. Locally owned. Satisfaction guaranteed.",
-  keywords: [
-    "pest control San Diego",
-    "exterminator San Diego CA",
-    "San Diego pest control company",
-    "ant control San Diego",
-    "bed bug treatment San Diego",
-    "spider exterminator San Diego",
-    "rodent control San Diego",
-    "cockroach exterminator San Diego",
-    "mosquito control San Diego",
-    "pest control Solana Beach",
-    "pest control La Jolla",
-    "pest control Mira Mesa",
-  ],
   authors: [{ name: BUSINESS.name }],
   creator: BUSINESS.name,
   publisher: BUSINESS.name,

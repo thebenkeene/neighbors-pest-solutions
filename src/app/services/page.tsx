@@ -15,7 +15,7 @@ export const metadata = generateSEO({
 const serviceMeta: Record<string, { icon: string; description: string }> = {
   "ant-control": { icon: "/images/icons/ant.png", description: "Eliminate ant colonies at the source, Argentine, fire, carpenter, and more." },
   "bed-bug-control": { icon: "/images/icons/bed-bug.png", description: "Heat and chemical treatments to fully eliminate bed bug infestations." },
-  "spider-control": { icon: "/images/icons/spider.png", description: "Keep black widows, brown recluses, and other spiders out of your home." },
+  "spider-control": { icon: "/images/icons/spider.png", description: "Keep black widows, false widows, and other spiders out of your home." },
   "rodent-control": { icon: "/images/icons/rodent.png", description: "Full rodent exclusion, trapping, and sanitation programs." },
   "cockroach-control": { icon: "/images/icons/cockroach.png", description: "Targeted treatments for German, American, and Oriental cockroach infestations." },
   "mosquito-control": { icon: "/images/icons/mosquito.png", description: "Barrier treatments to reduce mosquito populations in your yard." },

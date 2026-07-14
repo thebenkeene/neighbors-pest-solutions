@@ -8,8 +8,8 @@ const base = BUSINESS.url;
 // ignore the lastmod signal entirely — keep these honest and update
 // them when page content actually changes.
 const STATIC_LASTMOD: Record<string, string> = {
-  "/": "2026-06-19",
-  "/services": "2026-06-19",
+  "/": "2026-07-14",
+  "/services": "2026-07-14",
   "/service-areas": "2026-02-28",
   "/about": "2026-03-14",
   "/contact": "2026-03-01",
@@ -18,8 +18,8 @@ const STATIC_LASTMOD: Record<string, string> = {
   "/terms-of-service": "2026-02-24",
 };
 
-const SERVICES_LASTMOD = "2026-03-01"; // last serviceData/template content change
-const AREAS_LASTMOD = "2026-07-13"; // last areaData content change (top-10 area enrichment)
+const SERVICES_LASTMOD = "2026-07-14"; // factual corrections (mosquito species, spider copy, label-language FAQs)
+const AREAS_LASTMOD = "2026-07-14"; // enrichment + label-language FAQ corrections
 const BLOG_LASTMOD = "2026-03-15"; // last blog content change
 
 export default function sitemap(): MetadataRoute.Sitemap {

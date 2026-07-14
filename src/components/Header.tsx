@@ -33,21 +33,25 @@ export default function Header() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [announcementVisible, setAnnouncementVisible] = useState(true);
   const servicesDropdownRef = useRef<HTMLDivElement>(null);
   const areasDropdownRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 50);
       if (y > 80) setAnnouncementVisible(false);
     };
+    // Sync initial state (e.g. refresh mid-page) via rAF so we don't
+    // set state synchronously inside the effect.
+    const raf = requestAnimationFrame(handleScroll);
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -72,14 +76,16 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const isTransparent = mounted && !scrolled;
+  // Server render matches the y=0 state (transparent), so there is no
+  // post-hydration visual flip.
+  const isTransparent = !scrolled;
 
   return (
     <>
       {/* Announcement Bar */}
       <div
         className={`bg-primary-600 text-white text-center text-sm py-2 px-4 font-medium announcement-bar ${
-          mounted && !announcementVisible ? 'hidden' : ''
+          !announcementVisible ? 'hidden' : ''
         }`}
       >
         <span>Same-Day Service Available · </span>
