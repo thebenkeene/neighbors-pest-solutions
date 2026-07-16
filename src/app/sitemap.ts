@@ -19,7 +19,7 @@ const STATIC_LASTMOD: Record<string, string> = {
 };
 
 const SERVICES_LASTMOD = "2026-07-15"; // added gopher + commercial pages, cross-links
-const AREAS_LASTMOD = "2026-07-14"; // enrichment + label-language FAQ corrections
+const AREAS_LASTMOD = "2026-07-15"; // batch-2 enrichment (10 more areas)
 const BLOG_LASTMOD = "2026-03-15"; // last blog content change
 
 export default function sitemap(): MetadataRoute.Sitemap {

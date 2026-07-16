@@ -307,18 +307,104 @@ export const areaPages: Record<string, AreaPageData> = {
   "rancho-bernardo": {
     cityName: "Rancho Bernardo",
     slug: "rancho-bernardo",
-    intro: "Pest control in Rancho Bernardo, CA, protecting Rancho Bernardo families from rodents, spiders, ants, and seasonal pests.",
-    bodyParagraph: "Rancho Bernardo's location near Bernardo Mountain and open space preserves means regular pressure from rodents and spiders. We deliver comprehensive exclusion and treatment programs for RB homeowners.",
-    commonPests: [...commonPestsSanDiego, "Gophers & Ground Squirrels"],
-    faqs: makeFAQs("Rancho Bernardo"),
+    intro: "Pest control in Rancho Bernardo, CA — protecting RB's golf-course communities and Lake Hodges-adjacent homes from rodents, ants, and spiders.",
+    bodyParagraph: "Rancho Bernardo wraps around golf courses, Bernardo Mountain, and the Lake Hodges basin — beautiful geography that keeps pests supplied year-round. The neighborhood's 1970s–80s housing stock is reaching the age where garage seals, vents, and utility penetrations let rodents in, while irrigated fairway and HOA landscaping sustains Argentine ant colonies through the dry season. Communities like Oaks North and Seven Oaks also count on us for patient, thorough service for older residents.",
+    commonPests: [
+      "Roof Rats & House Mice (Lake Hodges & open-space edge)",
+      "Argentine Ants (irrigated landscaping)",
+      "Black Widow Spiders",
+      "Gophers & Ground Squirrels",
+      "American & German Cockroaches",
+      "Earwigs & Crickets",
+      "Mosquitoes (Hodges basin)",
+      "Fleas & Ticks",
+    ],
+    localInsights: [
+      {
+        heading: "Aging Tract Homes, Golf-Course Landscaping",
+        paragraphs: [
+          "Most of RB went up in the 70s and 80s, and four decades of settling shows at exactly the points pests exploit: garage-door sweeps, foundation vents, and stucco gaps. Meanwhile, the irrigation that keeps the golf corridors and HOA slopes green also keeps ant supercolonies alive through months when they'd otherwise die back.",
+          "Our RB service pairs exclusion on the aging entry points with an exterior barrier timed to the ant season — treating the structure and the landscape pressure together.",
+        ],
+      },
+      {
+        heading: "The Lake Hodges Effect",
+        paragraphs: [
+          "Homes on RB's western and southern edges sit above the Lake Hodges basin and Bernardo Mountain open space — permanent habitat for rodents and, in warm months, a mosquito source. Westwood and the streets off Bernardo Center Drive nearest the lake feel it most.",
+          "For basin-adjacent homes we lead with rodent exclusion and add standing-water mosquito checks on the property, since the lake itself isn't treatable — your yard is the defensible line.",
+        ],
+      },
+    ],
+    neighborhoods: ["Westwood", "Oaks North", "Seven Oaks", "High Country West", "Bernardo Heights", "Greens East"],
+    faqs: [
+      {
+        question: "Why do I suddenly have mice in a house I've owned for 20 years?",
+        answer: "Homes age into vulnerability — door sweeps wear, vent screens tear, stucco separates at pipes. RB's 1970s–80s housing is at exactly that stage. We seal the entry points, trap out what's inside, and verify the structure is tight.",
+      },
+      {
+        question: "Do you service the 55+ communities like Oaks North and Seven Oaks?",
+        answer: "Yes, regularly. We're happy to coordinate with family members or property managers on scheduling, and our technicians take the time to walk through everything before and after treatment.",
+      },
+      {
+        question: "Do you offer same-day pest control in Rancho Bernardo?",
+        answer: "Yes. Same-day service is available for most pest situations in RB — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Are your treatments safe for kids, pets, and gardens?",
+        answer: "We use EPA-registered products approved for residential use, applied according to their labels — and your technician will explain any product-specific precautions for children, pets, and edible gardens before treating.",
+      },
+    ],
   },
   "rancho-penasquitos": {
     cityName: "Rancho Peñasquitos",
     slug: "rancho-penasquitos",
-    intro: "Pest control in Rancho Peñasquitos, CA, professional treatments for this family-friendly San Diego community.",
-    bodyParagraph: "Rancho Peñasquitos homeowners regularly deal with Argentine ants, roof rats, and occasional black widow infestations, especially in homes backing to canyon areas. Our team provides tailored treatment programs for the area.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("Rancho Peñasquitos"),
+    intro: "Pest control in Rancho Peñasquitos, CA — canyon-smart treatments for PQ's family neighborhoods along the preserve.",
+    bodyParagraph: "Rancho Peñasquitos sits directly on top of the canyon system that gives it its name — Los Peñasquitos Canyon Preserve runs the neighborhood's entire southern flank, and smaller fingers cut between its 1980s–90s tract streets. That means classic canyon-edge pest pressure: roof rats and black widows commuting from preserved open space, plus Argentine ant surges every time the seasons turn. PQ is family territory, and our service is built accordingly — thorough, scheduled, and explained clearly.",
+    commonPests: [
+      "Argentine Ants",
+      "Roof Rats (canyon corridors)",
+      "Black Widow Spiders (fences, garages & play structures)",
+      "German & American Cockroaches",
+      "Earwigs & Crickets",
+      "House Mice",
+      "Fleas & Ticks",
+      "Mosquitoes",
+    ],
+    localInsights: [
+      {
+        heading: "Living on the Preserve's Edge",
+        paragraphs: [
+          "If your street backs to Los Peñasquitos Canyon or one of its fingers, pests don't visit — they commute. Rats move along fence lines and into attics, black widows set up in view fences and garage corners, and ants re-invade from canyon soil after every treatment that only addresses the house.",
+          "Canyon-edge homes in PQ get our perimeter-first approach: exclusion at the structure, a maintained yard-line barrier, and quarterly upkeep so the preserve's wildlife stays in the preserve.",
+        ],
+      },
+      {
+        heading: "Black Widows Where Kids Play",
+        paragraphs: [
+          "The single most common PQ concern we hear from parents: black widows in play structures, sandbox lids, garage clutter, and the gaps of block walls. San Diego's black widow population is healthy everywhere, but canyon-adjacent yards see more of them.",
+          "Our treatments give play areas, garages, and fence lines specific attention — web removal plus residual treatment of the sheltered spots where widows rebuild.",
+        ],
+      },
+    ],
+    neighborhoods: ["Park Village", "Torrey Highlands border", "Black Mountain Ranch border", "PQ core (92129)", "Canyonside area"],
+    faqs: [
+      {
+        question: "We find black widows around our patio and play set — is that normal in PQ?",
+        answer: "Very common, especially near the canyon. We remove webs, treat the sheltered spots they rebuild in — play structures, fence caps, garage corners — and keep them suppressed with quarterly service.",
+      },
+      {
+        question: "Our house backs the preserve — can pests actually be kept out?",
+        answer: "Yes, with the right structure: exclusion on the home itself plus a maintained perimeter barrier at the yard line. What doesn't work on canyon-edge homes is one-time interior spraying — the pressure source never goes away, so the defense has to be standing.",
+      },
+      {
+        question: "Do you offer same-day pest control in Rancho Peñasquitos?",
+        answer: "Yes. Same-day service is available for most pest situations in PQ — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Are treatments safe for kids and pets?",
+        answer: "We use EPA-registered products approved for residential use, applied per label directions, and your technician will walk you through any precautions for children and pets before and after treatment.",
+      },
+    ],
   },
   "point-loma": {
     cityName: "Point Loma",
@@ -406,10 +492,53 @@ export const areaPages: Record<string, AreaPageData> = {
   "poway": {
     cityName: "Poway",
     slug: "poway",
-    intro: "Pest control in Poway, CA, protecting the 'City in the Country' from rodents, spiders, ants, and suburban pests.",
-    bodyParagraph: "Poway's semi-rural setting and proximity to open space means consistent pressure from rodents, gophers, and spiders. We offer full exclusion and treatment programs for Poway homes, including perimeter protection and attic rodent exclusion.",
-    commonPests: [...commonPestsSanDiego, "Gophers & Ground Squirrels"],
-    faqs: makeFAQs("Poway"),
+    intro: "Pest control in Poway, CA — built for the 'City in the Country's' large lots, horse properties, and open-space borders.",
+    bodyParagraph: "Poway earns its 'City in the Country' name with big lots, horse properties, and neighborhoods that run right up against Blue Sky Reserve, Iron Mountain, and miles of preserved open space. That geography sets the pest profile: steady rodent and gopher pressure from the wildland edge, black widows in barns, sheds, and wood piles, and cricket and ant surges when inland heat spikes. Larger properties need genuine perimeter strategies, not a quick spray at the front door.",
+    commonPests: [
+      "Roof Rats & House Mice (open-space edge)",
+      "Gophers & Ground Squirrels",
+      "Black Widow Spiders (sheds, barns & wood piles)",
+      "Argentine Ants",
+      "Crickets & Earwigs",
+      "American & German Cockroaches",
+      "Fleas & Ticks",
+      "Mosquitoes",
+    ],
+    localInsights: [
+      {
+        heading: "Large Lots Need a Different Strategy",
+        paragraphs: [
+          "A quarter-acre suburban treatment plan doesn't translate to a Poway horse property or a lot backing Blue Sky Reserve. Outbuildings, hay storage, wood piles, and long fence lines each create their own harborage, and rodents treat the wildland edge as a permanent supply line.",
+          "For Poway's larger properties we treat the full perimeter and the outbuildings, prioritize exclusion on the main structure, and put gopher and ground-squirrel programs on a monitoring cadence — because on open-space lots, the question isn't if they return, it's when.",
+        ],
+      },
+      {
+        heading: "Heat, Water, and Summer Invasions",
+        paragraphs: [
+          "Poway runs hotter than coastal San Diego, and when summer peaks, ants and crickets move indoors chasing water. Homes with horse troughs, irrigation, or pool equipment concentrate that pressure around reliable moisture.",
+          "A maintained exterior barrier ahead of the summer surge keeps the seasonal invasion outside — late spring is the right time to have it in place.",
+        ],
+      },
+    ],
+    neighborhoods: ["Old Poway", "Green Valley", "Rancho Arbolitos", "Bridlewood", "Garden Road area", "Blue Sky / Espola corridor"],
+    faqs: [
+      {
+        question: "Do you treat larger properties and horse properties in Poway?",
+        answer: "Yes — large lots, outbuildings, and horse properties are a regular part of our Poway work. We build the treatment plan around the full property: main structure, barns and sheds, fence lines, and the open-space edge.",
+      },
+      {
+        question: "Do you handle gophers in Poway?",
+        answer: "Yes. Gopher and ground squirrel pressure is constant on Poway's larger lots and slopes. We run trapping and burrow-treatment programs with follow-up monitoring — see our gopher control service for details.",
+      },
+      {
+        question: "Do you offer same-day pest control in Poway?",
+        answer: "Yes. Same-day service is available for most pest situations in Poway — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Are treatments safe around horses and livestock?",
+        answer: "We use EPA-registered products applied according to their labels, and we plan applications around animal areas — your technician will walk the property with you and flag any specific precautions before treating.",
+      },
+    ],
   },
   "chula-vista": {
     cityName: "Chula Vista",
@@ -465,26 +594,155 @@ export const areaPages: Record<string, AreaPageData> = {
   "el-cajon": {
     cityName: "El Cajon",
     slug: "el-cajon",
-    intro: "Pest control in El Cajon, CA, effective treatments for one of San Diego's hottest and most pest-active inland cities.",
-    bodyParagraph: "El Cajon's hot, dry summers push pests indoors in large numbers, especially ants, cockroaches, and rodents. We provide responsive, thorough treatments for El Cajon homes and businesses.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("El Cajon"),
+    intro: "Pest control in El Cajon, CA — built for East County's hottest valley, where summer drives pests indoors in force.",
+    bodyParagraph: "El Cajon sits in a valley that traps East County heat, and that changes everything about its pest calendar: when the valley bakes, ants, crickets, and cockroaches head indoors chasing water, and American cockroaches move up from sewer lines into older plumbing. The city's mix of mid-century homes, apartment complexes, and busy commercial corridors gives pests plenty of harborage. Summer in El Cajon is our single busiest season anywhere in the county.",
+    commonPests: [
+      "American Cockroaches (sewer-line pressure)",
+      "Argentine Ants (heat-driven surges)",
+      "German Cockroaches (multi-unit housing)",
+      "Roof Rats & House Mice",
+      "Crickets & Earwigs",
+      "Black Widow Spiders",
+      "Fleas & Ticks",
+      "Bed Bugs",
+    ],
+    localInsights: [
+      {
+        heading: "Valley Heat Is a Pest Engine",
+        paragraphs: [
+          "El Cajon regularly runs 10–15 degrees hotter than the coast, and pests respond predictably: the hotter and drier it gets, the harder they push indoors toward water. Kitchens, bathrooms, and laundry rooms become oases, and a small exterior ant colony becomes an interior invasion in a single hot week.",
+          "The defense is timing — an exterior barrier established in late spring, before the heat peaks, plus fixing the moisture attractants (dripping hose bibs, AC condensate, over-watered foundations) that call pests in.",
+        ],
+      },
+      {
+        heading: "Older Plumbing and American Cockroaches",
+        paragraphs: [
+          "Much of El Cajon's housing dates to the 1950s–70s, and aging drain lines are the American cockroach's highway. They emerge through floor drains, laundry connections, and dried-out P-traps, especially in summer. Multi-unit buildings add German cockroach pressure that moves between units through shared walls.",
+          "We treat the harborage and entry points directly, and for apartment owners we coordinate multi-unit treatments — single-unit treatment in a connected building just relocates the problem.",
+        ],
+      },
+    ],
+    neighborhoods: ["Fletcher Hills", "Rancho San Diego border", "Bostonia", "Granite Hills", "Downtown El Cajon", "Crest border"],
+    faqs: [
+      {
+        question: "Why do I get huge cockroaches coming up my drains every summer?",
+        answer: "Those are American cockroaches moving up from sewer and drain lines — an El Cajon classic in older plumbing. We treat entry points and harborage, and we'll show you the drain-maintenance habits that keep them down.",
+      },
+      {
+        question: "Every hot spell brings ants into my kitchen — how do I stop the cycle?",
+        answer: "Heat pushes colonies indoors toward water, so the fix is a maintained exterior barrier before summer peaks plus eliminating the moisture that attracts them. Treating only the visible indoor trail resets the clock without solving anything.",
+      },
+      {
+        question: "Do you offer same-day pest control in El Cajon?",
+        answer: "Yes. Same-day service is available for most pest situations in El Cajon — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Do you treat apartments and commercial properties in El Cajon?",
+        answer: "Yes — we service multi-unit residential and commercial properties throughout El Cajon, including coordinated treatments across adjacent units. See our commercial pest control service for documented, scheduled programs.",
+      },
+    ],
   },
   "santee": {
     cityName: "Santee",
     slug: "santee",
-    intro: "Pest control in Santee, CA, protecting East San Diego County homes from rodents, ants, spiders, and more.",
-    bodyParagraph: "Santee's suburban neighborhoods adjacent to open space experience ongoing pressure from roof rats, ants, and spiders. We deliver targeted exclusion and barrier treatments for Santee homeowners.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("Santee"),
+    intro: "Pest control in Santee, CA — river-corridor and open-space defense for East County's family neighborhoods.",
+    bodyParagraph: "Santee is shaped by water and open space: the San Diego River runs through its middle, Santee Lakes anchors the north side, and Mission Trails Regional Park borders the west. All three are pest reservoirs — the river bottom and lakes sustain mosquitoes and rodents year-round, and Mission Trails feeds steady rodent and spider pressure into adjacent streets. Add East County summer heat pushing ants and crickets indoors, and Santee homes need a genuinely local plan.",
+    commonPests: [
+      "Mosquitoes (river corridor & Santee Lakes)",
+      "Roof Rats & House Mice",
+      "Argentine Ants",
+      "Black Widow Spiders",
+      "American & German Cockroaches",
+      "Crickets & Earwigs",
+      "Fleas & Ticks",
+      "Gophers & Ground Squirrels",
+    ],
+    localInsights: [
+      {
+        heading: "The River and the Lakes",
+        paragraphs: [
+          "Homes near the San Diego River corridor and Santee Lakes deal with mosquito pressure most of the county doesn't — permanent water plus warm East County evenings is ideal breeding and biting weather. Rodents use the same river-bottom vegetation as habitat and highway.",
+          "For river- and lake-adjacent homes we focus on what's controllable: eliminating standing water on the property, treating shaded resting vegetation, and rodent-proofing the structure. The corridor itself never empties, so your property line is the defense.",
+        ],
+      },
+      {
+        heading: "Mission Trails Edge and Summer Heat",
+        paragraphs: [
+          "West Santee streets bordering Mission Trails get classic open-space overflow — rats, ground squirrels, and black widows moving from parkland into yards. Meanwhile the whole city shares El Cajon-style summer heat that drives ants and crickets indoors chasing water.",
+          "A maintained perimeter barrier, refreshed ahead of summer, covers both fronts. One-time treatments fade before the season does.",
+        ],
+      },
+    ],
+    neighborhoods: ["Santee Lakes area", "Carlton Hills", "Carlton Oaks", "Fanita Ranch area", "Mission Trails border", "West Hills area"],
+    faqs: [
+      {
+        question: "We're near Santee Lakes and getting eaten alive — can you help?",
+        answer: "Yes. We can't treat the lakes or river themselves, but most bites come from mosquitoes breeding and resting on or near your own property. Source elimination plus treatment of shaded resting areas substantially cuts bite pressure, especially with seasonal service through summer.",
+      },
+      {
+        question: "Do homes near Mission Trails need ongoing service?",
+        answer: "Usually, yes. Parkland-adjacent streets face continuous re-invasion pressure from protected open space, so a maintained quarterly perimeter outperforms one-time treatments by a wide margin.",
+      },
+      {
+        question: "Do you offer same-day pest control in Santee?",
+        answer: "Yes. Same-day service is available for most pest situations in Santee — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Are your treatments safe for kids and pets?",
+        answer: "We use EPA-registered products approved for residential use, applied per label directions. Your technician will explain any product-specific precautions before and after treatment.",
+      },
+    ],
   },
   "la-mesa": {
     cityName: "La Mesa",
     slug: "la-mesa",
-    intro: "Pest control in La Mesa, CA, trusted treatments for the 'Jewel of the Hills' and surrounding neighborhoods.",
-    bodyParagraph: "La Mesa's older residential homes and proximity to urban San Diego make it susceptible to cockroach, rodent, and ant infestations. We serve La Mesa homeowners with customized treatment plans and ongoing service programs.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("La Mesa"),
+    intro: "Pest control in La Mesa, CA — from Village-era homes to Mt. Helix estates, treatments matched to the 'Jewel of the Hills.'",
+    bodyParagraph: "La Mesa's charm is its age — 1920s–60s homes around the Village, mature avocado and citrus trees, and the winding estates of Mt. Helix. The same features feed its pest pressure: roof rats thrive in the old fruit trees and dense hillside vegetation, aging drain lines harbor American cockroaches, and original construction gives rodents entry points newer homes don't have. We work the whole city, from Village bungalows to Mt. Helix hillside properties.",
+    commonPests: [
+      "Roof Rats (fruit trees & Mt. Helix vegetation)",
+      "American & German Cockroaches (older plumbing)",
+      "Argentine Ants",
+      "Black Widow Spiders",
+      "House Mice",
+      "Earwigs & Silverfish",
+      "Fleas & Ticks",
+      "Mosquitoes",
+    ],
+    localInsights: [
+      {
+        heading: "Fruit Trees, Hillsides, and Roof Rats",
+        paragraphs: [
+          "Mt. Helix and the older La Mesa hillsides are prime roof rat country: mature avocado, citrus, and ornamental trees provide food and canopy highways straight to rooflines. Rats in the attic are the most common call we get from La Mesa, and the pattern almost always traces back to tree contact and unsealed entry points.",
+          "Our approach is exclusion-first — seal the roofline and vents, trap out the residents, and show you exactly which limbs need trimming to cut the highway.",
+        ],
+      },
+      {
+        heading: "Character Homes, Original Construction",
+        paragraphs: [
+          "La Mesa's older housing predates modern pest exclusion: raised foundations, original crawl-space vents, and decades-old drain lines. That means more rodent entry points and steady American cockroach pressure from aging sewer laterals, especially in the blocks around the Village and University Avenue corridor.",
+          "We treat older construction carefully and thoroughly — full-perimeter inspections, targeted harborage treatment, and exclusion work appropriate to the era of the home.",
+        ],
+      },
+    ],
+    neighborhoods: ["La Mesa Village", "Mt. Helix", "Grossmont", "Lake Murray border", "Fletcher Hills border", "Rolando border"],
+    faqs: [
+      {
+        question: "I hear scratching in my attic at night — what is it?",
+        answer: "In La Mesa, almost always roof rats, especially if you have mature fruit or ornamental trees near the roofline. We inspect the attic and roof, seal entry points, trap out the population, and identify the tree contact giving them access.",
+      },
+      {
+        question: "Can you treat older homes without damaging them?",
+        answer: "Yes — older construction is a large share of our La Mesa work. We use targeted methods appropriate for raised foundations, crawl spaces, and original construction, with no fumigation needed for general pest work.",
+      },
+      {
+        question: "Do you offer same-day pest control in La Mesa?",
+        answer: "Yes. Same-day service is available for most pest situations in La Mesa — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Why do roaches keep appearing in my bathroom at night?",
+        answer: "American cockroaches travel aging drain lines and emerge through floor drains and dried P-traps — common in older La Mesa plumbing. We treat entry points and harborage and advise on simple drain maintenance that keeps them down.",
+      },
+    ],
   },
   "national-city": {
     cityName: "National City",
@@ -521,18 +779,104 @@ export const areaPages: Record<string, AreaPageData> = {
   "del-mar": {
     cityName: "Del Mar",
     slug: "del-mar",
-    intro: "Pest control in Del Mar, CA, premium pest protection for one of San Diego's most prestigious coastal communities.",
-    bodyParagraph: "Del Mar's luxury coastal properties and lush landscaping create ideal conditions for ants, spiders, and occasional rodent activity. We provide discreet, professional pest control that matches the standards Del Mar homeowners expect.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("Del Mar"),
+    intro: "Pest control in Del Mar, CA — discreet, thorough protection for coastal homes from Olde Del Mar to the lagoon.",
+    bodyParagraph: "Del Mar packs remarkable pest diversity into two square miles: salt-air humidity sustaining silverfish and earwigs in Olde Del Mar's older homes, Torrey pines and mature ornamentals carrying roof rats along the hillsides, and the San Dieguito Lagoon generating seasonal mosquitoes on the north end. Del Mar homeowners expect service that's effective and discreet — technicians who respect the property, explain the work, and leave no trace but results.",
+    commonPests: [
+      "Roof Rats (mature trees & hillside vegetation)",
+      "Silverfish & Earwigs (coastal moisture)",
+      "Argentine Ants",
+      "Mosquitoes (San Dieguito Lagoon area)",
+      "Black Widow Spiders",
+      "German & American Cockroaches",
+      "Fleas & Ticks",
+      "Bed Bugs",
+    ],
+    localInsights: [
+      {
+        heading: "Coastal Estates and Roof Rats",
+        paragraphs: [
+          "Del Mar's mature landscaping — Torrey pines, eucalyptus, dense ornamental hedges — is exactly the canopy roof rats use to reach rooflines, and the village's older architecture offers entry points modern builds don't. Hillside homes above Crest Road and around Olde Del Mar see it most.",
+          "Our rodent work here is exclusion-led and discreet: seal the roofline, trap out quietly, and identify the specific canopy contact points to trim.",
+        ],
+      },
+      {
+        heading: "The Lagoon and the Racetrack Season",
+        paragraphs: [
+          "The San Dieguito Lagoon brings seasonal mosquito pressure to Del Mar's north side, peaking through the summer months when outdoor living — and the fairgrounds season — is in full swing. The lagoon is protected habitat, so effective control lives on your property: breeding-source elimination and treatment of shaded resting areas.",
+          "For north-end homes we recommend seasonal mosquito service from late spring through early fall.",
+        ],
+      },
+    ],
+    neighborhoods: ["Olde Del Mar", "Del Mar Heights", "Del Mar Woods", "Beach Colony", "Crest Canyon area"],
+    faqs: [
+      {
+        question: "How discreet is your service?",
+        answer: "Very. Technicians arrive on schedule, work efficiently, explain findings clearly, and treatments are targeted rather than conspicuous. Many Del Mar clients are on quarterly programs precisely because prevention is quieter than reaction.",
+      },
+      {
+        question: "Something is running across our roof at night — rats?",
+        answer: "Almost certainly roof rats using tree canopy to reach the roofline — the most common Del Mar call we get. We inspect, seal entry points, trap out the population, and show you which limbs to trim to cut off access.",
+      },
+      {
+        question: "Do you offer same-day pest control in Del Mar?",
+        answer: "Yes. Same-day service is available for most pest situations in Del Mar — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Are treatments safe for kids, pets, and coastal gardens?",
+        answer: "We use EPA-registered products applied according to their labels, targeted to harborage areas. Your technician will walk the property with you and explain any precautions for children, pets, and garden areas before treating.",
+      },
+    ],
   },
   "encinitas": {
     cityName: "Encinitas",
     slug: "encinitas",
-    intro: "Pest control in Encinitas, CA, eco-conscious, effective treatments for this North County coastal community.",
-    bodyParagraph: "Encinitas homeowners appreciate our commitment to eco-friendly, family-safe products, a perfect match for this community's environmental values. We provide comprehensive pest control for Encinitas homes, gardens, and businesses.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("Encinitas"),
+    intro: "Pest control in Encinitas, CA — eco-conscious treatments for Leucadia cottages, Village homes, and the lagoon-adjacent south side.",
+    bodyParagraph: "Encinitas runs from aging Leucadia beach cottages to newer inland communities, with the San Elijo Lagoon anchoring its southern edge — and each zone has its own pest story. Coastal humidity keeps silverfish and earwigs active in the older housing stock, the lagoon drives seasonal mosquito pressure in Cardiff and the south side, and mature landscaping shelters roof rats throughout. This is also a community that cares how treatments are done — our label-first, targeted approach fits Encinitas well.",
+    commonPests: [
+      "Argentine Ants",
+      "Silverfish & Earwigs (coastal moisture)",
+      "Roof Rats (mature landscaping)",
+      "Mosquitoes (San Elijo Lagoon area)",
+      "Black Widow Spiders",
+      "German & American Cockroaches",
+      "Fleas & Ticks",
+      "Bed Bugs",
+    ],
+    localInsights: [
+      {
+        heading: "Old Leucadia Cottages vs. New Inland Builds",
+        paragraphs: [
+          "Leucadia and Old Encinitas cottages — many from the 1940s–60s — hold coastal moisture in crawl spaces and garages, sustaining silverfish, earwigs, and roaches through the marine-layer months. Meanwhile newer inland communities face the familiar HOA-irrigation ant cycle and open-space rodent pressure.",
+          "We match the plan to the house: moisture-pest harborage work in the older coastal stock, perimeter ant and rodent defense inland.",
+        ],
+      },
+      {
+        heading: "The Lagoon and Mosquito Season",
+        paragraphs: [
+          "San Elijo Lagoon is protected habitat and a seasonal mosquito source for Cardiff-by-the-Sea and southern Encinitas. Since the lagoon can't be treated, control happens on your side of the fence: standing-water elimination, treatment of shaded resting vegetation, and seasonal timing from late spring through early fall.",
+          "For lagoon-adjacent homes we recommend seasonal mosquito service layered on general pest treatment.",
+        ],
+      },
+    ],
+    neighborhoods: ["Leucadia", "Old Encinitas / The Village", "Cardiff-by-the-Sea", "Olivenhain", "New Encinitas", "Encinitas Ranch"],
+    faqs: [
+      {
+        question: "Do you use eco-friendly products?",
+        answer: "We use EPA-registered products applied strictly according to their labels, targeted to harborage rather than broadcast — the least product for the most effect. Your technician will walk you through everything applied and any precautions.",
+      },
+      {
+        question: "Why does my Leucadia cottage get silverfish every year?",
+        answer: "Coastal humidity plus older construction is silverfish heaven — dark, damp crawl spaces and garages keep them going through the marine-layer months. We treat the harborage zones and flag the moisture conditions that sustain them.",
+      },
+      {
+        question: "Do you offer same-day pest control in Encinitas?",
+        answer: "Yes. Same-day service is available for most pest situations in Encinitas — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Can you reduce mosquitoes near San Elijo Lagoon?",
+        answer: "Meaningfully, yes. The lagoon itself is protected, but most bites come from mosquitoes breeding and resting on your own property — source elimination plus resting-area treatment cuts pressure substantially, especially with seasonal service.",
+      },
+    ],
   },
   "carlsbad": {
     cityName: "Carlsbad",
@@ -639,18 +983,104 @@ export const areaPages: Record<string, AreaPageData> = {
   "san-marcos": {
     cityName: "San Marcos",
     slug: "san-marcos",
-    intro: "Pest control in San Marcos, CA, protecting North County Inland families and businesses.",
-    bodyParagraph: "San Marcos's rapidly growing residential communities and warm inland climate attract ants, rodents, and cockroaches. We serve new construction and established neighborhoods throughout San Marcos.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("San Marcos"),
+    intro: "Pest control in San Marcos, CA — from San Elijo Hills to the university district, defense matched to North County's fastest-growing city.",
+    bodyParagraph: "San Marcos has grown fast, and its pest pressure follows the growth pattern: master-planned hillside communities like San Elijo Hills and Discovery Hills back directly onto preserved open space and canyons, while the Cal State San Marcos district adds dense student rentals with high turnover. New construction slows pests down but doesn't stop what walks in from the hills — ants, rodents, and spiders re-invade development edges continuously, and warm inland summers push everything indoors.",
+    commonPests: [
+      "Argentine Ants",
+      "Roof Rats & House Mice (canyon & open-space edges)",
+      "Black Widow Spiders",
+      "German Cockroaches (rental turnover)",
+      "Crickets & Earwigs",
+      "Gophers & Ground Squirrels (slopes)",
+      "Fleas & Ticks",
+      "Bed Bugs (student housing turnover)",
+    ],
+    localInsights: [
+      {
+        heading: "Hillside Communities on the Open-Space Edge",
+        paragraphs: [
+          "San Elijo Hills, Discovery Hills, and the ridgeline communities were built into the hills — which means homes on the development edge live with continuous invasion pressure from the canyons and preserved slopes next door. New construction quality helps, but ants, rats, and spiders don't read building permits.",
+          "Edge-of-development homes get our perimeter-first program: exclusion at the structure, a maintained barrier at the yard line, and quarterly upkeep matched to the seasonal push.",
+        ],
+      },
+      {
+        heading: "The University District and Rental Turnover",
+        paragraphs: [
+          "The neighborhoods around Cal State San Marcos carry the pest signature of every college district: high tenant turnover, shared housing, and the German cockroach and bed bug pressure that moves with furniture and move-in cycles.",
+          "We work with property owners and managers on turnover inspections and coordinated multi-unit treatments — catching problems between tenants, when they're cheapest to fix.",
+        ],
+      },
+    ],
+    neighborhoods: ["San Elijo Hills", "Discovery Hills", "Lake San Marcos", "University District / CSUSM area", "Twin Oaks Valley", "Richmar area"],
+    faqs: [
+      {
+        question: "Our San Elijo Hills home backs open space — why do pests keep returning?",
+        answer: "Development-edge homes face continuous re-invasion from the preserved hills; the source never depletes. A maintained quarterly perimeter is the realistic defense — one-time treatments fade in weeks in these locations.",
+      },
+      {
+        question: "Do you service student rentals near CSUSM?",
+        answer: "Yes — with owner or property-manager authorization. For roaches and bed bugs in shared housing we recommend turnover inspections between tenants and coordinated treatment of adjacent units where needed.",
+      },
+      {
+        question: "Do you offer same-day pest control in San Marcos?",
+        answer: "Yes. Same-day service is available for most pest situations in San Marcos — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Are your treatments safe for kids and pets?",
+        answer: "We use EPA-registered products approved for residential use, applied per label directions. Your technician will explain any product-specific precautions before and after treatment.",
+      },
+    ],
   },
   "vista": {
     cityName: "Vista",
     slug: "vista",
-    intro: "Pest control in Vista, CA, trusted treatments for North County Inland homeowners.",
-    bodyParagraph: "Vista's mix of residential neighborhoods and agricultural surroundings creates unique pest challenges, including gophers, rodents, and regular ant pressure. Our Vista service covers comprehensive interior and exterior treatments.",
-    commonPests: [...commonPestsSanDiego, "Gophers & Ground Squirrels"],
-    faqs: makeFAQs("Vista"),
+    intro: "Pest control in Vista, CA — grove-country treatments for North County's hills, older ranch homes, and newer communities.",
+    bodyParagraph: "Vista's hills carry the legacy of North County's avocado and citrus era, and its pests know it: roof rats thrive along grove edges and in the mature trees of older neighborhoods, while gophers work the slopes and larger lots. The city's famous growing climate — warm, mild, humid mornings — keeps ants and crickets productive nearly year-round. From downtown's older ranch homes to newer Shadowridge developments, we build the treatment around the property's era and surroundings.",
+    commonPests: [
+      "Roof Rats (grove edges & mature trees)",
+      "Argentine Ants",
+      "Gophers & Ground Squirrels (slopes & large lots)",
+      "Crickets & Earwigs",
+      "American & German Cockroaches",
+      "Black Widow Spiders",
+      "Fleas & Ticks",
+      "Mosquitoes",
+    ],
+    localInsights: [
+      {
+        heading: "Grove Country Rodents",
+        paragraphs: [
+          "Vista's remaining groves and the mature trees of its older hillside neighborhoods sustain some of North County's healthiest roof rat populations. Properties near grove edges — and older homes with untrimmed palms or fruit trees — see steady pressure into attics and outbuildings.",
+          "We lead with exclusion: seal the structure, trap out residents, and point out the landscaping conditions that keep inviting replacements.",
+        ],
+      },
+      {
+        heading: "The Growing Climate Grows Pests Too",
+        paragraphs: [
+          "The microclimate that made Vista an agricultural hub — warm days, mild nights, coastal moisture reaching inland — also gives ants, crickets, and earwigs an unusually long active season. Homes with irrigated landscaping or garden beds against the foundation concentrate that activity.",
+          "A maintained exterior barrier plus moisture management at the foundation line is the difference between an occasional scout and a seasonal invasion.",
+        ],
+      },
+    ],
+    neighborhoods: ["Shadowridge", "Downtown Vista", "Vista Village", "Buena Creek area", "Foothill / Gopher Canyon area", "Business Park district"],
+    faqs: [
+      {
+        question: "We're near an old grove and keep getting rats — is that why?",
+        answer: "Very likely. Grove edges are prime roof rat habitat, and adjacent properties absorb the overflow. We seal your structure's entry points, trap out what's inside, and set up ongoing monitoring if the pressure source is permanent.",
+      },
+      {
+        question: "Do you handle gophers on slope properties in Vista?",
+        answer: "Yes — gophers and ground squirrels are constant on Vista's hillsides and larger lots. We run trapping and burrow-treatment programs with follow-up. See our gopher control service for the full approach.",
+      },
+      {
+        question: "Do you offer same-day pest control in Vista?",
+        answer: "Yes. Same-day service is available for most pest situations in Vista — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Are your treatments safe for kids, pets, and gardens?",
+        answer: "We use EPA-registered products approved for residential use, applied per label directions — and your technician will flag any precautions for children, pets, and edible gardens before treatment.",
+      },
+    ],
   },
   "oceanside": {
     cityName: "Oceanside",
