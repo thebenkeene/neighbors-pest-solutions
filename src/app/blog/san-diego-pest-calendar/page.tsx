@@ -127,22 +127,38 @@ export default function Page() {
           <em>Feel free to reference or link to this calendar — a link back to this page is appreciated. For neighborhood-specific patterns, see our <Link href="/service-areas">service area guides</Link>.</em>
         </p>
 
-        {MONTHS.map((m) => (
-          <div key={m.month}>
-            <h2>{m.month}: {m.headline}</h2>
-            <ul>
+        {MONTHS.map((m, i) => (
+          <div
+            key={m.month}
+            className="bg-gray-50 border border-gray-100 rounded-2xl p-6 my-5 hover:shadow-md hover:border-primary-200 transition-all duration-200"
+          >
+            <div className="flex items-center gap-3 mb-1">
+              <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">
+                {i + 1}
+              </span>
+              <h2 className="!mt-0 !mb-0 !text-2xl">{m.month}: {m.headline}</h2>
+            </div>
+            <div className="flex flex-wrap gap-2 my-4">
               {m.pests.map((p) => (
-                <li key={p}><strong>{p}</strong></li>
+                <span
+                  key={p}
+                  className="inline-block bg-primary-100 text-primary-800 text-sm font-semibold px-3 py-1 rounded-full"
+                >
+                  {p}
+                </span>
               ))}
-            </ul>
-            <p>{m.note}</p>
+            </div>
+            <p className="!mb-0">{m.note}</p>
           </div>
         ))}
 
         <h2>The Three Big Seasonal Turns</h2>
-        <p>
-          If you remember nothing else, remember the three moments that generate most of San Diego&apos;s pest emergencies: the <strong>first heavy rains</strong> (ants flood indoors — usually February), the <strong>late-summer heat peak</strong> (the year&apos;s biggest ant and roach invasions — August), and the <strong>first cool nights</strong> (rodents enter attics — October). A perimeter treatment placed <em>ahead</em> of each turn prevents what a reactive treatment can only clean up.
-        </p>
+        <div className="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-r-xl my-4">
+          <p className="font-semibold text-primary-900 !mb-1">If You Remember Nothing Else</p>
+          <p className="text-primary-800">
+            Three moments generate most of San Diego&apos;s pest emergencies: the <strong>first heavy rains</strong> (ants flood indoors — usually February), the <strong>late-summer heat peak</strong> (the year&apos;s biggest ant and roach invasions — August), and the <strong>first cool nights</strong> (rodents enter attics — October). A perimeter treatment placed <em>ahead</em> of each turn prevents what a reactive treatment can only clean up.
+          </p>
+        </div>
 
         <h2>Sources and Further Reading</h2>
         <p>
