@@ -50,19 +50,19 @@ export default function Page() {
 
         <h2>The Two Pricing Models: One-Time vs. Recurring</h2>
         <p>
-          Nearly every San Diego pest company offers two paths. A <strong>one-time treatment</strong> addresses a current problem, you pay for the visit, usually with a short re-treatment guarantee. A <strong>recurring plan</strong> (typically quarterly, sometimes bi-monthly) maintains a protective barrier year-round at a lower per-visit rate.
+          Nearly every San Diego pest company offers two paths. A <strong>one-time treatment</strong> addresses a current problem: you pay for the visit, usually with a short re-treatment guarantee. A <strong>recurring plan</strong> (typically quarterly, sometimes bi-monthly) maintains a protective barrier year-round at a lower per-visit rate.
         </p>
         <p>
-          In San Diego&apos;s climate, recurring service isn&apos;t an upsell gimmick, it reflects biology. Argentine ant supercolonies, year-round spider activity, and mild winters mean pest pressure never fully stops here. A one-time treatment solves today&apos;s infestation; it can&apos;t stop next season&apos;s.
+          In San Diego&apos;s climate, recurring service isn&apos;t an upsell gimmick; it reflects biology. Argentine ant supercolonies, year-round spider activity, and mild winters mean pest pressure never fully stops here. A one-time treatment solves today&apos;s infestation; it can&apos;t stop next season&apos;s.
         </p>
 
         <h2>What Drives the Price Up or Down</h2>
         <ul>
           <li><strong>The pest.</strong> General perimeter pests (ants, spiders, roaches) sit at the affordable end. Bed bugs, rodent exclusion, and gopher programs cost more because they take more labor, follow-up visits, and specialized methods.</li>
           <li><strong>Infestation severity.</strong> A few scout ants and a full German cockroach infestation in a kitchen are very different jobs.</li>
-          <li><strong>Property size and type.</strong> A Mira Mesa tract home, a <Link href="/service-areas/poway">Poway horse property</Link>, and a Pacific Beach fourplex each price differently, more perimeter, more structures, more units means more time and product.</li>
+          <li><strong>Property size and type.</strong> A Mira Mesa tract home, a <Link href="/service-areas/poway">Poway horse property</Link>, and a Pacific Beach fourplex each price differently: more perimeter, more structures, more units means more time and product.</li>
           <li><strong>Location factors.</strong> Canyon-edge and open-space-adjacent homes often need more robust (and more frequent) perimeter work, because re-invasion pressure is constant.</li>
-          <li><strong>Follow-up requirements.</strong> Some pests, bed bugs, fleas, rodents, essentially always need a follow-up visit to catch the next life-cycle stage. Quotes that skip the follow-up usually aren&apos;t cheaper; they&apos;re just incomplete.</li>
+          <li><strong>Follow-up requirements.</strong> Some pests (bed bugs, fleas, rodents) essentially always need a follow-up visit to catch the next life-cycle stage. Quotes that skip the follow-up usually aren&apos;t cheaper; they&apos;re just incomplete.</li>
         </ul>
 
         <div className="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-r-xl my-4">
@@ -73,7 +73,7 @@ export default function Page() {
         </div>
 
         <h2>Questions That Reveal the Real Price</h2>
-        <p>Whoever you get quotes from, ask these five questions, the answers matter more than the sticker number:</p>
+        <p>Whoever you get quotes from, ask these five questions; the answers matter more than the sticker number:</p>
         <ul>
           <li>Is the follow-up visit included, or billed separately?</li>
           <li>What exactly does the guarantee cover, and for how long?</li>
@@ -95,7 +95,7 @@ export default function Page() {
           Pest control in San Diego is priced by pest, severity, and property, not by zip code mystery. Get the inspection, get the quote in writing, ask the five questions above, and you&apos;ll never be surprised by a pest control bill.
         </p>
         <p>
-          Ready for a real number instead of a range? <Link href="/contact">Request a free quote</Link> or call {BUSINESS.phone}, same-day service is available throughout San Diego County.
+          Ready for a real number instead of a range? <Link href="/contact">Request a free quote</Link> or call {BUSINESS.phone}. Same-day service is available throughout San Diego County.
         </p>
       </BlogPostLayout>
     </>

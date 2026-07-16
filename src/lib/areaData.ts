@@ -157,7 +157,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Scripps Ranch?",
-        answer: "Yes. Same-day service is available for most pest situations in Scripps Ranch, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Scripps Ranch. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Will trimming my eucalyptus really make a difference for rats?",
@@ -208,7 +208,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Clairemont?",
-        answer: "Yes. Same-day service is available for most pest situations in Clairemont, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Clairemont. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are your treatments safe for kids and pets?",
@@ -259,7 +259,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Pacific Beach?",
-        answer: "Yes. Same-day service is available for most pest situations in PB, call (858) 878-2847 and we'll do our best to get a technician out today.",
+        answer: "Yes. Same-day service is available for most pest situations in PB. Call (858) 878-2847 and we'll do our best to get a technician out today.",
       },
       {
         question: "Why does my PB home get silverfish every summer?",
@@ -310,7 +310,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Carmel Valley?",
-        answer: "Yes. Same-day service is available for most pest situations in Carmel Valley, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Carmel Valley. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are your treatments safe for kids and pets?",
@@ -338,7 +338,7 @@ export const areaPages: Record<string, AreaPageData> = {
         heading: "The River Is a Permanent Pest Reservoir",
         paragraphs: [
           "The San Diego River corridor gives rodents and mosquitoes permanent habitat through the middle of the valley, vegetation, water, and cover that never goes away. Complexes and businesses backing the river path see the most pressure, especially in fall when rats seek indoor harborage.",
-          "For river-adjacent properties we prioritize structural exclusion and standing-water elimination, the corridor itself can't be treated, so the building envelope is the defense.",
+          "For river-adjacent properties we prioritize structural exclusion and standing-water elimination. The corridor itself can't be treated, so the building envelope is the defense.",
         ],
       },
       {
@@ -357,11 +357,11 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Why are there rats around our complex near the river path?",
-        answer: "The river corridor is permanent rodent habitat, and complexes along it absorb the overflow. Effective control means sealing the buildings, managing trash areas, and maintained exterior baiting, we set that up as an ongoing program.",
+        answer: "The river corridor is permanent rodent habitat, and complexes along it absorb the overflow. Effective control means sealing the buildings, managing trash areas, and maintained exterior baiting; we set that up as an ongoing program.",
       },
       {
         question: "Do you offer same-day pest control in Mission Valley?",
-        answer: "Yes. Same-day service is available for most pest situations in Mission Valley, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Mission Valley. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Do you service hotels and businesses in Mission Valley?",
@@ -412,7 +412,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Rancho Bernardo?",
-        answer: "Yes. Same-day service is available for most pest situations in RB, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in RB. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are your treatments safe for kids, pets, and gardens?",
@@ -439,7 +439,7 @@ export const areaPages: Record<string, AreaPageData> = {
       {
         heading: "Living on the Preserve's Edge",
         paragraphs: [
-          "If your street backs to Los Peñasquitos Canyon or one of its fingers, pests don't visit, they commute. Rats move along fence lines and into attics, black widows set up in view fences and garage corners, and ants re-invade from canyon soil after every treatment that only addresses the house.",
+          "If your street backs to Los Peñasquitos Canyon or one of its fingers, pests don't visit; they commute. Rats move along fence lines and into attics, black widows set up in view fences and garage corners, and ants re-invade from canyon soil after every treatment that only addresses the house.",
           "Canyon-edge homes in PQ get our perimeter-first approach: exclusion at the structure, a maintained yard-line barrier, and quarterly upkeep so the preserve's wildlife stays in the preserve.",
         ],
       },
@@ -459,11 +459,11 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Our house backs the preserve, can pests actually be kept out?",
-        answer: "Yes, with the right structure: exclusion on the home itself plus a maintained perimeter barrier at the yard line. What doesn't work on canyon-edge homes is one-time interior spraying, the pressure source never goes away, so the defense has to be standing.",
+        answer: "Yes, with the right structure: exclusion on the home itself plus a maintained perimeter barrier at the yard line. What doesn't work on canyon-edge homes is one-time interior spraying: the pressure source never goes away, so the defense has to be standing.",
       },
       {
         question: "Do you offer same-day pest control in Rancho Peñasquitos?",
-        answer: "Yes. Same-day service is available for most pest situations in PQ, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in PQ. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are treatments safe for kids and pets?",
@@ -514,7 +514,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Point Loma?",
-        answer: "Yes. Same-day service is available for most pest situations in Point Loma, call (858) 878-2847 and we'll do our best to get a technician out today.",
+        answer: "Yes. Same-day service is available for most pest situations in Point Loma. Call (858) 878-2847 and we'll do our best to get a technician out today.",
       },
       {
         question: "Are treatments safe for households with pets?",
@@ -561,15 +561,15 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "We keep getting fleas even though we treat our dog, why?",
-        answer: "Fleas persist in carpets, furniture, and yards for months, so pet treatment alone can't clear an environment. Full elimination treats the home, the yard, and the pets at the same time, we coordinate the first two and your vet handles the third.",
+        answer: "Fleas persist in carpets, furniture, and yards for months, so pet treatment alone can't clear an environment. Full elimination treats the home, the yard, and the pets at the same time; we coordinate the first two and your vet handles the third.",
       },
       {
         question: "Do you offer same-day pest control in Ocean Beach?",
-        answer: "Yes. Same-day service is available for most pest situations in OB, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in OB. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "I rent in OB, can you treat my place?",
-        answer: "Yes, with your property owner's or manager's authorization. For roaches and bed bugs in shared buildings, we'll often recommend treating adjacent units too, it's the difference between solving and shuffling the problem.",
+        answer: "Yes, with your property owner's or manager's authorization. For roaches and bed bugs in shared buildings, we'll often recommend treating adjacent units too; it's the difference between solving and shuffling the problem.",
       },
     ],
   },
@@ -616,7 +616,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in North Park?",
-        answer: "Yes. Same-day service is available for most pest situations in North Park, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in North Park. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are your treatments safe for kids and pets?",
@@ -667,7 +667,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Hillcrest?",
-        answer: "Yes. Same-day service is available for most pest situations in Hillcrest, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Hillcrest. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are your treatments safe for kids and pets?",
@@ -718,7 +718,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control downtown?",
-        answer: "Yes. Same-day service is available for most pest situations downtown, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations downtown. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "We just moved into a downtown apartment, should we worry about bed bugs?",
@@ -746,7 +746,7 @@ export const areaPages: Record<string, AreaPageData> = {
         heading: "Large Lots Need a Different Strategy",
         paragraphs: [
           "A quarter-acre suburban treatment plan doesn't translate to a Poway horse property or a lot backing Blue Sky Reserve. Outbuildings, hay storage, wood piles, and long fence lines each create their own harborage, and rodents treat the wildland edge as a permanent supply line.",
-          "For Poway's larger properties we treat the full perimeter and the outbuildings, prioritize exclusion on the main structure, and put gopher and ground-squirrel programs on a monitoring cadence, because on open-space lots, the question isn't if they return, it's when.",
+          "For Poway's larger properties we treat the full perimeter and the outbuildings, prioritize exclusion on the main structure, and put gopher and ground-squirrel programs on a monitoring cadence, because on open-space lots, the question isn't if they return; it's when.",
         ],
       },
       {
@@ -769,7 +769,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Poway?",
-        answer: "Yes. Same-day service is available for most pest situations in Poway, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Poway. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are treatments safe around horses and livestock?",
@@ -820,7 +820,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Chula Vista?",
-        answer: "Yes. Same-day service is available for most pest situations in Chula Vista, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Chula Vista. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Can you treat both my home and my business in Chula Vista?",
@@ -871,7 +871,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in El Cajon?",
-        answer: "Yes. Same-day service is available for most pest situations in El Cajon, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in El Cajon. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Do you treat apartments and commercial properties in El Cajon?",
@@ -883,7 +883,7 @@ export const areaPages: Record<string, AreaPageData> = {
     cityName: "Santee",
     slug: "santee",
     intro: "Pest control in Santee, CA, river-corridor and open-space defense for East County's family neighborhoods.",
-    bodyParagraph: "Santee is shaped by water and open space: the San Diego River runs through its middle, Santee Lakes anchors the north side, and Mission Trails Regional Park borders the west. All three are pest reservoirs, the river bottom and lakes sustain mosquitoes and rodents year-round, and Mission Trails feeds steady rodent and spider pressure into adjacent streets. Add East County summer heat pushing ants and crickets indoors, and Santee homes need a genuinely local plan.",
+    bodyParagraph: "Santee is shaped by water and open space: the San Diego River runs through its middle, Santee Lakes anchors the north side, and Mission Trails Regional Park borders the west. All three are pest reservoirs: the river bottom and lakes sustain mosquitoes and rodents year-round, and Mission Trails feeds steady rodent and spider pressure into adjacent streets. Add East County summer heat pushing ants and crickets indoors, and Santee homes need a genuinely local plan.",
     commonPests: [
       "Mosquitoes (river corridor & Santee Lakes)",
       "Roof Rats & House Mice",
@@ -922,7 +922,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Santee?",
-        answer: "Yes. Same-day service is available for most pest situations in Santee, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Santee. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are your treatments safe for kids and pets?",
@@ -973,7 +973,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in La Mesa?",
-        answer: "Yes. Same-day service is available for most pest situations in La Mesa, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in La Mesa. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Why do roaches keep appearing in my bathroom at night?",
@@ -1024,7 +1024,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in National City?",
-        answer: "Yes. Same-day service is available for most pest situations in National City, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in National City. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are your treatments safe for kids and pets?",
@@ -1075,7 +1075,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Spring Valley?",
-        answer: "Yes. Same-day service is available for most pest situations in Spring Valley, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Spring Valley. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are your treatments safe for kids and pets?",
@@ -1122,11 +1122,11 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "The flies are relentless near our animals, can that actually improve?",
-        answer: "Substantially. Fly control on animal properties combines breeding-source management (manure, moisture) with targeted treatment of resting surfaces, it's ongoing work, but the difference is dramatic. See our fly control service.",
+        answer: "Substantially. Fly control on animal properties combines breeding-source management (manure, moisture) with targeted treatment of resting surfaces; it's ongoing work, but the difference is dramatic. See our fly control service.",
       },
       {
         question: "Do you offer same-day pest control in Lakeside?",
-        answer: "Yes. Same-day service is available for most pest situations in Lakeside, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Lakeside. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Do you handle gophers in Lakeside?",
@@ -1173,11 +1173,11 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Why does my home near the beach get silverfish year-round?",
-        answer: "Salt-air humidity plus older construction gives them permanent dark, damp harborage, the marine layer never really lets coastal crawl spaces dry out. We treat the harborage zones and flag the moisture conditions that sustain them.",
+        answer: "Salt-air humidity plus older construction gives them permanent dark, damp harborage; the marine layer never really lets coastal crawl spaces dry out. We treat the harborage zones and flag the moisture conditions that sustain them.",
       },
       {
         question: "Do you offer same-day pest control in Solana Beach?",
-        answer: "Yes. Same-day service is available for most pest situations in Solana Beach, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Solana Beach. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Can you reduce mosquitoes near San Elijo Lagoon?",
@@ -1228,7 +1228,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Del Mar?",
-        answer: "Yes. Same-day service is available for most pest situations in Del Mar, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Del Mar. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are treatments safe for kids, pets, and coastal gardens?",
@@ -1279,7 +1279,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Encinitas?",
-        answer: "Yes. Same-day service is available for most pest situations in Encinitas, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Encinitas. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Can you reduce mosquitoes near San Elijo Lagoon?",
@@ -1330,7 +1330,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Carlsbad?",
-        answer: "Yes. Same-day service is available for most pest situations in Carlsbad, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Carlsbad. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "When is mosquito season in Carlsbad?",
@@ -1357,14 +1357,14 @@ export const areaPages: Record<string, AreaPageData> = {
       {
         heading: "Heat Drives Pests Indoors",
         paragraphs: [
-          "When inland temperatures spike, pests don't slow down, they relocate. Ant colonies that lived happily in your yard all spring will move trails into kitchens and bathrooms chasing water during Escondido's hot months, and crickets and roaches follow the same logic. Late summer is our busiest season here.",
+          "When inland temperatures spike, pests don't slow down; they relocate. Ant colonies that lived happily in your yard all spring will move trails into kitchens and bathrooms chasing water during Escondido's hot months, and crickets and roaches follow the same logic. Late summer is our busiest season here.",
           "The fix is a maintained exterior barrier plus eliminating the moisture attractants, dripping hose bibs, AC condensate lines, over-watered beds against the foundation.",
         ],
       },
       {
         heading: "Groves, Palms, and Roof Rats",
         paragraphs: [
-          "Escondido's agricultural history left it ringed with avocado and citrus, and roof rats treat groves as both pantry and nursery. Properties near grove edges, East Valley, Felicita, the hills toward Hidden Meadows, see steady rodent pressure, and untrimmed palms function as rat hotels even in the city core.",
+          "Escondido's agricultural history left it ringed with avocado and citrus, and roof rats treat groves as both pantry and nursery. Properties near grove edges (East Valley, Felicita, the hills toward Hidden Meadows) see steady rodent pressure, and untrimmed palms function as rat hotels even in the city core.",
           "We handle it with exclusion-first rodent work: seal the structure, trap out the residents, and advise on the landscaping that keeps inviting new ones.",
         ],
       },
@@ -1381,7 +1381,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Escondido?",
-        answer: "Yes. Same-day service is available for most pest situations in Escondido, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Escondido. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Do you handle gophers in Escondido?",
@@ -1432,7 +1432,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in San Marcos?",
-        answer: "Yes. Same-day service is available for most pest situations in San Marcos, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in San Marcos. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are your treatments safe for kids and pets?",
@@ -1483,7 +1483,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Vista?",
-        answer: "Yes. Same-day service is available for most pest situations in Vista, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Vista. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Are your treatments safe for kids, pets, and gardens?",
@@ -1534,7 +1534,7 @@ export const areaPages: Record<string, AreaPageData> = {
       },
       {
         question: "Do you offer same-day pest control in Oceanside?",
-        answer: "Yes. Same-day service is available for most pest situations in Oceanside, call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+        answer: "Yes. Same-day service is available for most pest situations in Oceanside. Call (858) 878-2847 and we'll do our best to dispatch a technician today.",
       },
       {
         question: "Why does my home near the river valley have more pests than my old place?",

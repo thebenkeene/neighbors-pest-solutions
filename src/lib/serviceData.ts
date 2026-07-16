@@ -733,7 +733,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { step: "3", title: "Follow-Up", desc: "We re-check for fresh activity, reset or retreat as needed, and confirm the burrow system has gone quiet." },
     ],
     faqs: [
-      { question: "How do I know if it's a gopher or a mole?", answer: "In San Diego it's almost always pocket gophers, moles are rare here. Gopher mounds are crescent- or fan-shaped with a plugged hole to one side; mole hills are round volcanoes. Send us a photo if you're unsure and we'll identify it." },
+      { question: "How do I know if it's a gopher or a mole?", answer: "In San Diego it's almost always pocket gophers; moles are rare here. Gopher mounds are crescent- or fan-shaped with a plugged hole to one side; mole hills are round volcanoes. Send us a photo if you're unsure and we'll identify it." },
       { question: "How long does it take to get rid of gophers?", answer: "Individual gophers are typically resolved within 1–2 weeks of trapping and follow-up. Larger properties or slope infestations with multiple animals can take several visits. We keep working until activity stops." },
       { question: "Is gopher treatment safe for my dog or cat?", answer: "We select methods with pets in mind, trapping in below-ground runs is our first line, and any products we use are applied inside burrows according to their EPA labels. Your technician will walk you through property-specific precautions." },
       { question: "Why do gophers keep coming back?", answer: "Vacant burrow systems get re-occupied by neighboring gophers, especially on canyon and slope properties. For high-pressure locations we recommend ongoing monitoring as part of a recurring service plan." },

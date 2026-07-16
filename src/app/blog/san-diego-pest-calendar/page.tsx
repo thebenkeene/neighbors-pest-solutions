@@ -7,7 +7,7 @@ import { BUSINESS } from "@/lib/constants";
 
 export const metadata: Metadata = generateSEO({
   title: "San Diego Pest Activity Calendar: What's Active Every Month",
-  description: "A month-by-month reference to pest activity in San Diego County, when ants, rodents, mosquitoes, spiders, termites, and more peak, and why. Built for homeowners, HOAs, and property managers.",
+  description: "A month-by-month reference to pest activity in San Diego County: when ants, rodents, mosquitoes, spiders, termites, and more peak, and why. Built for homeowners, HOAs, and property managers.",
   path: "/blog/san-diego-pest-calendar",
   type: "article",
   image: `${BUSINESS.url}/images/technician-grass.jpg`,
@@ -17,7 +17,7 @@ export const metadata: Metadata = generateSEO({
 
 const articleSchema = generateArticleSchema(
   "San Diego Pest Activity Calendar: What's Active Every Month",
-  "A month-by-month reference to pest activity in San Diego County, when ants, rodents, mosquitoes, spiders, termites, and more peak, and why.",
+  "A month-by-month reference to pest activity in San Diego County: when ants, rodents, mosquitoes, spiders, termites, and more peak, and why.",
   "/blog/san-diego-pest-calendar",
   "2026-07-15",
   "2026-07-15",
@@ -35,7 +35,7 @@ const MONTHS: Array<{ month: string; headline: string; pests: string[]; note: st
     month: "January",
     headline: "Rodents indoors, moisture pests waking up",
     pests: ["Roof rats & mice (indoor harborage)", "American cockroaches (drains)", "Silverfish (rain moisture)"],
-    note: "Cool, wet weather keeps rodents sheltering in attics and garages. Winter rains raise moisture in crawl spaces, silverfish and roach activity follows the dampness.",
+    note: "Cool, wet weather keeps rodents sheltering in attics and garages. Winter rains raise moisture in crawl spaces; silverfish and roach activity follows the dampness.",
   },
   {
     month: "February",
@@ -45,7 +45,7 @@ const MONTHS: Array<{ month: string; headline: string; pests: string[]; note: st
   },
   {
     month: "March",
-    headline: "Spring emergence, ants, spiders, carpenter ant swarmers",
+    headline: "Spring emergence: ants, spiders, carpenter ant swarmers",
     pests: ["Argentine ants", "Carpenter ant swarmers", "Spiders (egg sacs hatching)"],
     note: "Warming soil wakes everything up. Carpenter ant swarmers appear near moisture-damaged wood, and spider populations begin their spring build.",
   },
@@ -69,7 +69,7 @@ const MONTHS: Array<{ month: string; headline: string; pests: string[]; note: st
   },
   {
     month: "July",
-    headline: "Peak summer pressure, everything is active",
+    headline: "Peak summer pressure: everything is active",
     pests: ["Ants (heat-driven indoor pushes)", "Mosquitoes (peak)", "Fleas & ticks (peak)", "Crickets"],
     note: "Inland heat drives ants and crickets indoors chasing water, especially in El Cajon, Escondido, and Poway. Mosquito activity peaks countywide.",
   },
@@ -120,11 +120,11 @@ export default function Page() {
         imageAlt="Pest control technician treating a San Diego yard"
       >
         <p className="text-xl text-gray-700 leading-relaxed">
-          San Diego&apos;s mild climate means pests never really stop, they just rotate. This calendar maps what&apos;s active in San Diego County month by month, based on what our technicians see across 30+ neighborhoods and the seasonal patterns documented by UC&apos;s Integrated Pest Management program and county vector control. Bookmark it, share it with your HOA, and you&apos;ll never be surprised by a season again.
+          San Diego&apos;s mild climate means pests never really stop; they just rotate. This calendar maps what&apos;s active in San Diego County month by month, based on what our technicians see across 30+ neighborhoods and the seasonal patterns documented by UC&apos;s Integrated Pest Management program and county vector control. Bookmark it, share it with your HOA, and you&apos;ll never be surprised by a season again.
         </p>
 
         <p>
-          <em>Feel free to reference or link to this calendar, a link back to this page is appreciated. For neighborhood-specific patterns, see our <Link href="/service-areas">service area guides</Link>.</em>
+          <em>Feel free to reference or link to this calendar; a link back to this page is appreciated. For neighborhood-specific patterns, see our <Link href="/service-areas">service area guides</Link>.</em>
         </p>
 
         {MONTHS.map((m, i) => (
@@ -170,7 +170,7 @@ export default function Page() {
         </p>
 
         <p>
-          Facing this month&apos;s pest right now? <Link href="/contact">Request a free quote</Link> or call {BUSINESS.phone}, same-day service available throughout San Diego County.
+          Facing this month&apos;s pest right now? <Link href="/contact">Request a free quote</Link> or call {BUSINESS.phone}. Same-day service is available throughout San Diego County.
         </p>
       </BlogPostLayout>
     </>

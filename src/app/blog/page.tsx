@@ -20,7 +20,7 @@ const posts = [
   {
     slug: "san-diego-pest-calendar",
     title: "San Diego Pest Activity Calendar: What's Active Every Month",
-    excerpt: "A month-by-month reference to pest activity in San Diego County, when ants, rodents, mosquitoes, spiders, and termites peak, and why.",
+    excerpt: "A month-by-month reference to pest activity in San Diego County: when ants, rodents, mosquitoes, spiders, and termites peak, and why.",
     category: "Reference",
     readTime: "10 min read",
     date: "July 15, 2026",
@@ -159,7 +159,7 @@ export default function BlogPage() {
       <section className="py-16 bg-dark-900 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-3">Have a Pest Problem Right Now?</h2>
-          <p className="text-gray-300 mb-6">Don&apos;t wait, same-day service is available throughout San Diego County.</p>
+          <p className="text-gray-300 mb-6">Don&apos;t wait. Same-day service is available throughout San Diego County.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary px-8 py-4">Get a Free Quote →</Link>
             <a href={BUSINESS.phoneHref} className="btn-outline-white px-8 py-4">{BUSINESS.phone}</a>
