@@ -18,7 +18,7 @@ const STATIC_LASTMOD: Record<string, string> = {
   "/terms-of-service": "2026-02-24",
 };
 
-const SERVICES_LASTMOD = "2026-07-14"; // factual corrections (mosquito species, spider copy, label-language FAQs)
+const SERVICES_LASTMOD = "2026-07-15"; // added gopher + commercial pages, cross-links
 const AREAS_LASTMOD = "2026-07-14"; // enrichment + label-language FAQ corrections
 const BLOG_LASTMOD = "2026-03-15"; // last blog content change
 

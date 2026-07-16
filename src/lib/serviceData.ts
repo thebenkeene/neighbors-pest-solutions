@@ -151,6 +151,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { question: "How long does rodent treatment take?", answer: "Most active infestations are resolved within 2–4 weeks, depending on severity. Exclusion work is done on the first visit. Follow-up visits confirm elimination." },
     ],
     relatedServices: [
+      { name: "Gopher Control", slug: "gopher-control" },
       { name: "Ant Control", slug: "ant-control" },
       { name: "Cockroach Control", slug: "cockroach-control" },
       { name: "Spider Control", slug: "spider-control" },
@@ -190,6 +191,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { question: "How long until cockroaches are gone?", answer: "Most infestations show dramatic improvement within 1–2 weeks. A follow-up visit 2–4 weeks later ensures the infestation is fully resolved." },
     ],
     relatedServices: [
+      { name: "Commercial Pest Control", slug: "commercial-pest-control" },
       { name: "Ant Control", slug: "ant-control" },
       { name: "Rodent Control", slug: "rodent-control" },
       { name: "Spider Control", slug: "spider-control" },
@@ -541,6 +543,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { question: "How long does fly treatment take to work?", answer: "Adult populations are dramatically reduced within 24–48 hours after treatment. Eliminating breeding sources prevents reinfestation within 1–2 weeks." },
     ],
     relatedServices: [
+      { name: "Commercial Pest Control", slug: "commercial-pest-control" },
       { name: "Cockroach Control", slug: "cockroach-control" },
       { name: "Ant Control", slug: "ant-control" },
       { name: "Mosquito Control", slug: "mosquito-control" },
@@ -700,6 +703,84 @@ export const servicePages: Record<string, ServicePageData> = {
       { name: "Cricket Control", slug: "cricket-control" },
       { name: "Earwig Control", slug: "earwig-control" },
       { name: "Spider Control", slug: "spider-control" },
+    ],
+  },
+
+  "gopher-control": {
+    slug: "gopher-control",
+    name: "Gopher Control",
+    heroHeading: "Gopher Control San Diego, CA",
+    heroSubheading: "Protect your lawn, slopes, and irrigation from pocket gophers and ground squirrels with targeted removal programs.",
+    heroImage: "/images/technician-grass.jpg",
+    intro: "San Diego's canyon-laced neighborhoods and landscaped slopes are prime pocket gopher habitat, and our mild climate keeps them digging year-round. A single gopher can throw up dozens of mounds, sever drip lines, girdle roots, and destabilize slopes — and because gophers are territorial, clearing one often just opens the burrow system for the next. Effective control means treating the burrow network, not the mound. We provide targeted gopher and ground squirrel programs for homes across San Diego County, with special focus on canyon-adjacent and slope properties.",
+    features: [
+      { title: "Burrow Inspection & Mapping", desc: "We probe fresh mounds to locate active tunnel runs, so treatment goes where the gopher actually is." },
+      { title: "Targeted Trapping Programs", desc: "Traps placed directly in active runs — the most reliable method for individual gophers, with follow-up checks." },
+      { title: "Burrow Treatment", desc: "Where trapping alone isn't enough, we apply burrow treatments according to their labels for larger or persistent infestations." },
+      { title: "Ground Squirrel Control", desc: "Burrow treatment and harborage reduction for ground squirrels on slopes, embankments, and larger lots." },
+    ],
+    signs: [
+      "Fresh crescent- or fan-shaped dirt mounds appearing in lawn or beds",
+      "Plants wilting suddenly or being pulled downward into the soil",
+      "Chewed drip irrigation lines or sprinkler wiring",
+      "Soft, collapsing soil or visible tunnel ridges underfoot",
+      "Burrow openings on slopes or along retaining walls",
+      "Ground squirrels active on fences, slopes, or under decks",
+    ],
+    process: [
+      { step: "1", title: "Inspection", desc: "We map the active burrow system by probing fresh mounds and identify whether you're dealing with gophers, ground squirrels, or both." },
+      { step: "2", title: "Treatment", desc: "Traps set in active runs and/or burrow treatments applied per label, matched to the infestation and the property." },
+      { step: "3", title: "Follow-Up", desc: "We re-check for fresh activity, reset or retreat as needed, and confirm the burrow system has gone quiet." },
+    ],
+    faqs: [
+      { question: "How do I know if it's a gopher or a mole?", answer: "In San Diego it's almost always pocket gophers — moles are rare here. Gopher mounds are crescent- or fan-shaped with a plugged hole to one side; mole hills are round volcanoes. Send us a photo if you're unsure and we'll identify it." },
+      { question: "How long does it take to get rid of gophers?", answer: "Individual gophers are typically resolved within 1–2 weeks of trapping and follow-up. Larger properties or slope infestations with multiple animals can take several visits. We keep working until activity stops." },
+      { question: "Is gopher treatment safe for my dog or cat?", answer: "We select methods with pets in mind — trapping in below-ground runs is our first line, and any products we use are applied inside burrows according to their EPA labels. Your technician will walk you through property-specific precautions." },
+      { question: "Why do gophers keep coming back?", answer: "Vacant burrow systems get re-occupied by neighboring gophers, especially on canyon and slope properties. For high-pressure locations we recommend ongoing monitoring as part of a recurring service plan." },
+    ],
+    relatedServices: [
+      { name: "Rodent Control", slug: "rodent-control" },
+      { name: "Tick Control", slug: "tick-control" },
+      { name: "Ant Control", slug: "ant-control" },
+    ],
+  },
+
+  "commercial-pest-control": {
+    slug: "commercial-pest-control",
+    name: "Commercial Pest Control",
+    heroHeading: "Commercial Pest Control San Diego, CA",
+    heroSubheading: "Scheduled, documented pest management for San Diego restaurants, offices, HOAs, and multi-unit properties.",
+    heroImage: "/images/truck.jpg",
+    intro: "For a business, a pest problem isn't just a nuisance — it's a health-inspection finding, a bad review, a tenant complaint, or a lost customer. Commercial pest management is about prevention and documentation, not just response: regular scheduled service, treatment records you can show an inspector, and a technician who knows your property. We service restaurants and food facilities, offices, retail, warehouses, HOAs, and multi-unit residential buildings across San Diego County.",
+    features: [
+      { title: "Scheduled Service Programs", desc: "Monthly or bi-monthly service matched to your facility type and pest pressure, with the same technician whenever possible." },
+      { title: "Documentation & Reporting", desc: "Service records after every visit — what was found, what was treated, and what needs attention — ready for health inspections and audits." },
+      { title: "Multi-Unit & HOA Programs", desc: "Coordinated treatment of common areas and individual units, with scheduling handled through your property manager." },
+      { title: "Flexible Scheduling", desc: "We work around your business hours where possible, so treatments don't disrupt customers, staff, or tenants." },
+    ],
+    signs: [
+      "Staff or tenants reporting pest sightings",
+      "Droppings or gnaw marks in storage, stockrooms, or utility areas",
+      "Flies persisting around kitchens, drains, or waste areas",
+      "Cockroach activity near floor drains, dish areas, or break rooms",
+      "Recurring complaints in specific units of a multi-unit building",
+      "A recent health-inspection note or audit finding involving pests",
+    ],
+    process: [
+      { step: "1", title: "Site Assessment", desc: "We walk the property with you, identify pest pressure points and conducive conditions, and build a service plan around your facility and schedule." },
+      { step: "2", title: "Initial Service", desc: "A thorough first treatment targeting current activity, plus exclusion and sanitation recommendations documented in your service report." },
+      { step: "3", title: "Ongoing Program", desc: "Recurring scheduled visits with monitoring, treatment, and written reports, adjusted seasonally as pest pressure changes." },
+    ],
+    faqs: [
+      { question: "What types of businesses do you service?", answer: "Restaurants and food service, offices, retail, warehouses, medical and professional suites, HOAs, and multi-unit residential buildings throughout San Diego County. Every program is built around the specific facility." },
+      { question: "Can you service our facility outside business hours?", answer: "In most cases, yes — we schedule around your operating hours where possible so service doesn't disrupt customers or staff. Talk to us about early morning or off-peak visits." },
+      { question: "Do you provide documentation for health inspections?", answer: "Yes. Every commercial visit generates a service record covering findings, treatments, and recommendations — the paper trail inspectors and auditors expect to see." },
+      { question: "How do multi-unit or HOA treatments work?", answer: "We coordinate through your property manager or board: common areas on a set schedule, individual units as needed, and consolidated reporting so the whole property is covered without chasing tenants." },
+    ],
+    relatedServices: [
+      { name: "Cockroach Control", slug: "cockroach-control" },
+      { name: "Rodent Control", slug: "rodent-control" },
+      { name: "Fly Control", slug: "fly-control" },
     ],
   },
 };

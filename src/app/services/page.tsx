@@ -28,6 +28,8 @@ const serviceMeta: Record<string, { icon: string; description: string }> = {
   "fly-control": { icon: "/images/icons/fly.png", description: "Source identification and treatment to control flies indoors and out." },
   "moth-control": { icon: "/images/icons/moth.png", description: "Pantry and clothing moth treatments to protect your home and belongings." },
   "silverfish-control": { icon: "/images/icons/silverfish.png", description: "Moisture control and chemical treatments to eliminate silverfish." },
+  "gopher-control": { icon: "/images/icons/rodent.png", description: "Gopher and ground squirrel removal for lawns, slopes, and canyon properties." },
+  "commercial-pest-control": { icon: "/favicon.png", description: "Scheduled, documented pest programs for restaurants, offices, HOAs, and multi-unit buildings." },
   "stinging-pest-control": { icon: "/images/icons/stinging-pest.png", description: "Safe removal and treatment of wasps, hornets, bees, and yellow jackets." },
   "stink-bug-control": { icon: "/images/icons/stink-bug.png", description: "Exclusion and treatment to prevent stink bug invasions." },
   "centipede-millipede-control": { icon: "/images/icons/centipede.png", description: "Moisture management and perimeter treatments for centipedes and millipedes." },

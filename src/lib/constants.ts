@@ -48,6 +48,8 @@ export const SERVICES = [
   { name: "Beetle Control", slug: "beetle-control", icon: "/images/icons/beetle.png" },
   { name: "Moth Control", slug: "moth-control", icon: "/images/icons/moth.png" },
   { name: "Stink Bug Control", slug: "stink-bug-control", icon: "/images/icons/stink-bug.png" },
+  { name: "Gopher Control", slug: "gopher-control", icon: "/images/icons/rodent.png" },
+  { name: "Commercial Pest Control", slug: "commercial-pest-control", icon: "/favicon.png" },
 ];
 
 export const TOP_SERVICES = SERVICES.slice(0, 8);
