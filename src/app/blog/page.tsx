@@ -18,6 +18,33 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
 const posts = [
   {
+    slug: "san-diego-pest-calendar",
+    title: "San Diego Pest Activity Calendar: What's Active Every Month",
+    excerpt: "A month-by-month reference to pest activity in San Diego County — when ants, rodents, mosquitoes, spiders, and termites peak, and why.",
+    category: "Reference",
+    readTime: "10 min read",
+    date: "July 15, 2026",
+    image: "/images/technician-grass.jpg",
+  },
+  {
+    slug: "pest-control-cost-san-diego",
+    title: "How Much Does Pest Control Cost in San Diego?",
+    excerpt: "What San Diego homeowners actually pay for pest control, what drives the price up or down, and the five questions that reveal the real cost.",
+    category: "Guides",
+    readTime: "7 min read",
+    date: "July 15, 2026",
+    image: "/images/technician-customer.jpg",
+  },
+  {
+    slug: "termites-vs-carpenter-ants-san-diego",
+    title: "Termites vs. Carpenter Ants in San Diego: How to Tell the Difference",
+    excerpt: "Wood damage in your San Diego home? Wings, frass, and damage patterns that tell drywood termites apart from carpenter ants — and what to do about each.",
+    category: "Termites",
+    readTime: "6 min read",
+    date: "July 15, 2026",
+    image: "/images/technician-inspection.jpg",
+  },
+  {
     slug: "how-to-get-rid-of-ants-san-diego",
     title: "How to Get Rid of Ants in Your San Diego Home",
     excerpt: "Argentine ants are everywhere in San Diego. Learn why they invade, what actually works, and when it's time to call a professional.",

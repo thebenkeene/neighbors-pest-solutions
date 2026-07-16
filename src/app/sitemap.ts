@@ -20,7 +20,7 @@ const STATIC_LASTMOD: Record<string, string> = {
 
 const SERVICES_LASTMOD = "2026-07-15"; // added gopher + commercial pages, cross-links
 const AREAS_LASTMOD = "2026-07-15"; // batch-2 enrichment (10 more areas)
-const BLOG_LASTMOD = "2026-03-15"; // last blog content change
+const BLOG_LASTMOD = "2026-07-15"; // three new posts (calendar, cost guide, termites vs carpenter ants)
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
@@ -49,6 +49,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const blogSlugs = [
+    "san-diego-pest-calendar",
+    "pest-control-cost-san-diego",
+    "termites-vs-carpenter-ants-san-diego",
     "how-to-get-rid-of-ants-san-diego",
     "san-diego-bed-bug-treatment-guide",
     "pest-control-san-diego-climate",
