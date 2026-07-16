@@ -7,6 +7,7 @@ import FAQItem from "@/components/FAQItem";
 import { generateFAQSchema } from "@/lib/schema";
 import { generateSEO } from "@/lib/seo";
 import { BUSINESS, TOP_SERVICES, TESTIMONIALS, FAQS, SERVICE_AREAS } from "@/lib/constants";
+import DroppingSpider from "@/components/DroppingSpider";
 
 export const metadata: Metadata = generateSEO({
   title: "Pest Control San Diego CA",
@@ -129,6 +130,8 @@ export default function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <DroppingSpider />
 
       {/* ── HERO ────────────────────────────────────────────── */}
       <section className="relative min-h-[700px] md:min-h-[800px] flex items-center text-white -mt-20 pt-20">

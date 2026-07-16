@@ -291,3 +291,98 @@ html {
   40% { transform: scale(1.35, 0.4); opacity: 0.95; }
   100% { transform: scale(1.6, 0.1); opacity: 0; }
 }
+
+/* ── Homepage web-drop spider ────────────────────────────── */
+.web-drop {
+  position: fixed;
+  top: 0;
+  right: 14vw;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  pointer-events: none;
+}
+
+.web-anchor {
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.web-drop--dropping .web-anchor,
+.web-drop--hanging .web-anchor,
+.web-drop--falling .web-anchor {
+  opacity: 1;
+}
+
+.web-thread {
+  width: 1.5px;
+  height: 0;
+  background: linear-gradient(to bottom, rgb(17 24 39 / 0.15), rgb(17 24 39 / 0.45));
+  flex-shrink: 0;
+}
+
+.web-drop--dropping .web-thread {
+  animation: thread-drop 1.8s cubic-bezier(0.3, 1.35, 0.45, 1) forwards;
+}
+
+.web-drop--hanging .web-thread,
+.web-drop--falling .web-thread {
+  height: min(30vh, 300px);
+}
+
+.web-drop--hanging {
+  animation: spider-sway 3.2s ease-in-out infinite alternate;
+}
+
+.web-drop--leaving .web-thread {
+  animation: thread-climb 1.5s ease-in forwards;
+}
+
+.web-spider {
+  flex-shrink: 0;
+  margin-top: -4px;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.web-spider .bug-legs-a,
+.web-spider .bug-legs-b {
+  animation-duration: 0.3s;
+}
+
+.web-drop--hanging .web-spider .bug-legs-a,
+.web-drop--hanging .web-spider .bug-legs-b {
+  animation-duration: 1.6s;
+}
+
+.web-drop--falling .web-thread {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.web-drop--falling .web-spider {
+  animation: spider-plummet 1.15s cubic-bezier(0.5, 0, 0.9, 0.6) forwards;
+}
+
+@keyframes thread-drop {
+  from { height: 0; }
+  to { height: min(30vh, 300px); }
+}
+
+@keyframes thread-climb {
+  from { height: min(30vh, 300px); }
+  to { height: 0; }
+}
+
+@keyframes spider-sway {
+  from { transform: rotate(-4deg); }
+  to { transform: rotate(4deg); }
+}
+
+@keyframes spider-plummet {
+  from { transform: translateY(0) rotate(0deg); opacity: 1; }
+  to { transform: translateY(115vh) rotate(400deg); opacity: 1; }
+}
