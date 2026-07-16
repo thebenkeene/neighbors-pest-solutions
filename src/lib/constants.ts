@@ -192,6 +192,6 @@ export const FAQS = [
   {
     question: "Are you licensed and insured?",
     answer:
-      "Yes. Neighbors Pest Solutions is fully licensed by the California Department of Pesticide Regulation and carries comprehensive liability insurance. You can have complete peace of mind when our technicians are on your property.",
+      "Yes. Neighbors Pest Solutions is fully licensed for structural pest control in California and carries comprehensive liability insurance. You can have complete peace of mind when our technicians are on your property.",
   },
 ];

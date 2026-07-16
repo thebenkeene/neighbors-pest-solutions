@@ -11,27 +11,6 @@ const commonPestsSanDiego = [
   "Earwigs & Silverfish",
 ];
 
-function makeFAQs(city: string) {
-  return [
-    {
-      question: `Do you offer same-day pest control in ${city}?`,
-      answer: `Yes! We offer same-day service for most pest situations in ${city} and throughout San Diego County. Call us at (858) 878-2847 and we'll do our best to dispatch a technician the same day.`,
-    },
-    {
-      question: `How much does pest control cost in ${city}?`,
-      answer: `Pricing depends on the type of pest, size of your property, and level of infestation. We offer free inspections and quotes, call (858) 878-2847 or fill out our online form for a no-obligation estimate.`,
-    },
-    {
-      question: `Are your pest control treatments safe in ${city} homes?`,
-      answer: `We use EPA-registered products approved for residential use in California, applied according to their labels. Our technicians will walk you through any product-specific precautions before and after treatment.`,
-    },
-    {
-      question: `Do you offer recurring pest control service in ${city}?`,
-      answer: `Yes. We recommend quarterly preventative treatments for most ${city} homes. San Diego's mild climate means pests are active year-round, so regular service is the best way to stay ahead of infestations.`,
-    },
-  ];
-}
-
 export const areaPages: Record<string, AreaPageData> = {
   "la-jolla": {
     cityName: "La Jolla",
@@ -189,10 +168,53 @@ export const areaPages: Record<string, AreaPageData> = {
   "clairemont": {
     cityName: "Clairemont",
     slug: "clairemont",
-    intro: "Trusted pest control in Clairemont, CA, effective treatments for ants, spiders, roaches, rodents, and other common pests.",
-    bodyParagraph: "Clairemont is one of San Diego's most established residential neighborhoods, with a mix of older homes that can be more susceptible to rodent entry and cockroach infestations. Our team has extensive experience treating Clairemont homes.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("Clairemont"),
+    intro: "Pest control in Clairemont, CA — canyon-edge defense for one of San Diego's original postwar neighborhoods.",
+    bodyParagraph: "Clairemont was San Diego's first big postwar suburb, and its 1950s–60s homes are now 60-plus years old — worn garage seals, original vents, and aging drain lines that invite rodents and American cockroaches. The neighborhood is also carved up by Tecolote and San Clemente canyons, which keep a steady supply of rats, ants, and black widows moving toward canyon-rim streets. Older homes plus canyon edges is Clairemont's signature pest combination.",
+    commonPests: [
+      "Roof Rats & House Mice (canyon corridors, older garages)",
+      "American & German Cockroaches (aging drain lines)",
+      "Argentine Ants",
+      "Black Widow Spiders",
+      "Earwigs & Silverfish",
+      "Crickets",
+      "Fleas & Ticks",
+      "Mosquitoes",
+    ],
+    localInsights: [
+      {
+        heading: "Sixty-Year-Old Homes Need Exclusion First",
+        paragraphs: [
+          "Clairemont's mid-century construction predates modern pest exclusion by decades: original foundation vents, garage doors that no longer seal, and stucco gaps at every utility penetration. Mice and roaches exploit exactly these — which is why our Clairemont service starts with an entry-point inspection, not just product.",
+          "Sealing three or four worn openings on a 1958 house routinely does more lasting good than any spray program alone.",
+        ],
+      },
+      {
+        heading: "Tecolote and San Clemente Canyon Pressure",
+        paragraphs: [
+          "Streets backing Tecolote Canyon or the Highway 52 canyon corridor live with continuous pest traffic from protected open space — rats along fence lines, black widows in block-wall gaps, ants re-invading from canyon soil.",
+          "For canyon-edge homes we maintain a quarterly perimeter; interior-only treatments in these locations fade within weeks because the source never empties.",
+        ],
+      },
+    ],
+    neighborhoods: ["Clairemont Mesa East & West", "Bay Ho", "Bay Park border", "North Clairemont", "Tecolote Canyon edge"],
+    faqs: [
+      {
+        question: "Why does my 1950s Clairemont home get mice every fall?",
+        answer: "Sixty years of settling opens entry points — worn door sweeps, torn vent screens, stucco gaps. Cooling weather pushes mice indoors through them. We seal the openings, trap out what's inside, and verify the structure is tight.",
+      },
+      {
+        question: "We back up to Tecolote Canyon — what should we expect?",
+        answer: "Steady seasonal pressure from rats, ants, and black widows moving out of the canyon. A maintained quarterly perimeter keeps canyon wildlife in the canyon — one-time treatments can't hold that line.",
+      },
+      {
+        question: "Do you offer same-day pest control in Clairemont?",
+        answer: "Yes. Same-day service is available for most pest situations in Clairemont — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Are your treatments safe for kids and pets?",
+        answer: "We use EPA-registered products approved for residential use, applied per label directions. Your technician will explain any product-specific precautions before and after treatment.",
+      },
+    ],
   },
   "pacific-beach": {
     cityName: "Pacific Beach",
@@ -299,10 +321,53 @@ export const areaPages: Record<string, AreaPageData> = {
   "mission-valley": {
     cityName: "Mission Valley",
     slug: "mission-valley",
-    intro: "Pest control in Mission Valley, CA, residential and commercial treatments for the heart of San Diego.",
-    bodyParagraph: "Mission Valley's mix of condos, apartments, and commercial properties experiences persistent cockroach, ant, and rodent pressure. We serve multi-unit properties, individual condos, and residential homes throughout Mission Valley.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("Mission Valley"),
+    intro: "Pest control in Mission Valley, CA — river-corridor and multi-unit expertise for the valley's condos, apartments, and businesses.",
+    bodyParagraph: "Mission Valley is defined by two things pests love: the San Diego River running its entire length, and some of the densest multi-unit housing in the county. The river bottom sustains year-round rodent and mosquito populations that spill into adjacent complexes, while shared walls, trash rooms, and plumbing chases let roaches move between units. Add hotels, restaurants, and retail, and Mission Valley pest work is as much about buildings as it is about bugs.",
+    commonPests: [
+      "German Cockroaches (multi-unit spread)",
+      "Roof Rats & House Mice (river corridor)",
+      "Mosquitoes (river bottom)",
+      "Argentine Ants",
+      "American Cockroaches (garages & drains)",
+      "Bed Bugs (rental & hotel turnover)",
+      "Black Widow Spiders",
+      "Fleas",
+    ],
+    localInsights: [
+      {
+        heading: "The River Is a Permanent Pest Reservoir",
+        paragraphs: [
+          "The San Diego River corridor gives rodents and mosquitoes permanent habitat through the middle of the valley — vegetation, water, and cover that never goes away. Complexes and businesses backing the river path see the most pressure, especially in fall when rats seek indoor harborage.",
+          "For river-adjacent properties we prioritize structural exclusion and standing-water elimination — the corridor itself can't be treated, so the building envelope is the defense.",
+        ],
+      },
+      {
+        heading: "Condos and Apartments: Treat the Building, Not Just the Unit",
+        paragraphs: [
+          "In Mission Valley's multi-unit buildings, German cockroaches and bed bugs travel through shared walls and utility chases. Treating one unit in isolation often relocates the problem next door — and back again a month later.",
+          "We coordinate with HOAs and property managers on adjacent-unit treatments and common-area programs, with documentation for boards and owners. See our commercial pest control service for scheduled multi-unit programs.",
+        ],
+      },
+    ],
+    neighborhoods: ["Civita", "Fenton Marketplace area", "Hotel Circle", "Grantville border", "Fashion Valley area", "Serra Mesa border"],
+    faqs: [
+      {
+        question: "I live in a Mission Valley condo — can you treat just my unit?",
+        answer: "Yes, with owner or HOA authorization — but for roaches and bed bugs we'll often recommend coordinating with the building, since single-unit treatments in shared structures commonly see reinfestation from neighbors. We're happy to work with your property manager.",
+      },
+      {
+        question: "Why are there rats around our complex near the river path?",
+        answer: "The river corridor is permanent rodent habitat, and complexes along it absorb the overflow. Effective control means sealing the buildings, managing trash areas, and maintained exterior baiting — we set that up as an ongoing program.",
+      },
+      {
+        question: "Do you offer same-day pest control in Mission Valley?",
+        answer: "Yes. Same-day service is available for most pest situations in Mission Valley — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Do you service hotels and businesses in Mission Valley?",
+        answer: "Yes — restaurants, hotels, retail, and offices throughout the valley, with scheduled service and written reports for inspections. See our commercial pest control page for details.",
+      },
+    ],
   },
   "rancho-bernardo": {
     cityName: "Rancho Bernardo",
@@ -460,34 +525,206 @@ export const areaPages: Record<string, AreaPageData> = {
   "ocean-beach": {
     cityName: "Ocean Beach",
     slug: "ocean-beach",
-    intro: "Pest control in Ocean Beach, CA, fast, eco-friendly treatments for OB homes and rentals.",
-    bodyParagraph: "Ocean Beach's coastal humidity and older housing stock create favorable conditions for silverfish, cockroaches, and earwigs. We serve OB homeowners, renters, and property managers with responsive, thorough pest treatments.",
-    commonPests: [...commonPestsSanDiego, "Silverfish & Earwigs"],
-    faqs: makeFAQs("Ocean Beach"),
+    intro: "Pest control in Ocean Beach, CA — beach-cottage and rental-savvy treatments for OB's salt-air blocks.",
+    bodyParagraph: "OB's housing is San Diego's most weathered: 1920s–50s beach cottages and converted duplexes living under permanent salt-air humidity. That combination keeps moisture pests — silverfish, earwigs, roaches — active nearly year-round, while Dog Beach culture makes fleas a neighborhood constant. Dense rentals, shared alleys, and beachfront trash zones round out the picture. We work with OB homeowners, long-time renters, and the property managers who run much of the neighborhood.",
+    commonPests: [
+      "Silverfish & Earwigs (salt-air humidity)",
+      "German & American Cockroaches",
+      "Fleas (Dog Beach neighborhood)",
+      "Roof Rats & House Mice (older cottages)",
+      "Argentine Ants",
+      "Black Widow Spiders",
+      "Bed Bugs (rental turnover)",
+      "Mosquitoes",
+    ],
+    localInsights: [
+      {
+        heading: "Salt Air, Old Wood, and Moisture Pests",
+        paragraphs: [
+          "OB cottages hold coastal dampness in crawl spaces, garages, and original wood framing — ideal harborage for silverfish, earwigs, and roaches through the marine-layer months. The older the cottage, the more entry points and the more humidity it traps.",
+          "We treat the harborage zones directly and show you the ventilation and moisture fixes that make treatments last — in OB, moisture management is half the battle.",
+        ],
+      },
+      {
+        heading: "Dogs, Rentals, and Fleas",
+        paragraphs: [
+          "A neighborhood built around Dog Beach has flea pressure most of San Diego doesn't: pets carry fleas home, and dense rental housing with shared yards spreads them. Flea problems in OB routinely persist because only one unit or one yard gets treated.",
+          "Effective flea control here treats home, yard, and (through your vet) the pets simultaneously — and in multi-unit buildings, coordinating with the neighbors matters.",
+        ],
+      },
+    ],
+    neighborhoods: ["OB proper (92107)", "Sunset Cliffs border", "Point Loma Heights", "Ocean Beach Highlands", "Voltaire corridor"],
+    faqs: [
+      {
+        question: "Why does my OB cottage get silverfish no matter what I do?",
+        answer: "Salt-air humidity plus original construction gives them permanent dark, damp harborage. We treat those zones directly and flag the moisture conditions sustaining them — treatments last when the dampness is managed too.",
+      },
+      {
+        question: "We keep getting fleas even though we treat our dog — why?",
+        answer: "Fleas persist in carpets, furniture, and yards for months, so pet treatment alone can't clear an environment. Full elimination treats the home, the yard, and the pets at the same time — we coordinate the first two and your vet handles the third.",
+      },
+      {
+        question: "Do you offer same-day pest control in Ocean Beach?",
+        answer: "Yes. Same-day service is available for most pest situations in OB — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "I rent in OB — can you treat my place?",
+        answer: "Yes, with your property owner's or manager's authorization. For roaches and bed bugs in shared buildings, we'll often recommend treating adjacent units too — it's the difference between solving and shuffling the problem.",
+      },
+    ],
   },
   "north-park": {
     cityName: "North Park",
     slug: "north-park",
-    intro: "Pest control in North Park, CA, keeping one of San Diego's hippest neighborhoods pest-free.",
-    bodyParagraph: "North Park's older craftsman homes and dense urban environment make it a prime area for cockroach, rodent, and bed bug activity. We serve both residential and commercial properties throughout North Park and neighboring areas.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("North Park"),
+    intro: "Pest control in North Park, CA — craftsman-home and restaurant-district expertise for San Diego's urban core.",
+    bodyParagraph: "North Park runs on two pest engines: a century of housing stock — craftsman bungalows from the 1910s–40s with raised foundations, crawl spaces, and original everything — and one of the county's densest restaurant and bar districts along 30th Street and University Avenue. Old wood framing shelters rodents and termite-adjacent damage; commercial kitchens and shared-wall apartments keep German cockroach and rat pressure constant. Urban pest control is its own discipline, and North Park is where we practice it most.",
+    commonPests: [
+      "German Cockroaches (restaurant district & apartments)",
+      "Roof Rats & House Mice (craftsman crawl spaces)",
+      "Argentine Ants",
+      "Bed Bugs (dense rental housing)",
+      "American Cockroaches (aging drains)",
+      "Black Widow Spiders",
+      "Silverfish (older wood-frame homes)",
+      "Fleas",
+    ],
+    localInsights: [
+      {
+        heading: "Craftsman Homes: Beautiful, and Full of Entry Points",
+        paragraphs: [
+          "North Park's bungalows were framed a century before modern exclusion standards — raised foundations with ventilated crawl spaces, original wood siding, and decades of remodels that left gaps behind. Rats and mice treat these as open invitations, especially in fall.",
+          "Our older-home work is exclusion-led: crawl-space and roofline sealing, trap-out, and honest guidance about which original features need attention versus which are fine.",
+        ],
+      },
+      {
+        heading: "Living Near the Restaurant District",
+        paragraphs: [
+          "The blocks around 30th and University enjoy the county's best food — and the pest pressure that comes with dumpster corrals, grease bins, and late-night kitchens. Roaches and rats sustained by the commercial corridor spill into adjacent residential streets.",
+          "Homes near the corridor benefit from a maintained exterior program, and for the businesses themselves, our commercial pest control service provides the scheduled, documented treatment health inspectors expect.",
+        ],
+      },
+    ],
+    neighborhoods: ["30th & University corridor", "Morley Field area", "Altadena / 28th Street", "University Heights border", "South Park border", "Normal Heights border"],
+    faqs: [
+      {
+        question: "Our 1920s craftsman has rats in the crawl space — can it be sealed?",
+        answer: "Yes — century-old homes can absolutely be rodent-proofed; it just takes a thorough inspection to find original vents, gaps, and remodel seams newer homes don't have. We seal, trap out, and verify with follow-up.",
+      },
+      {
+        question: "We live near the 30th Street corridor — is the roach pressure just permanent?",
+        answer: "The commercial source is permanent; your exposure isn't. A maintained exterior barrier plus sealed entry points keeps corridor pests from becoming house pests. For businesses, scheduled commercial service handles the source side.",
+      },
+      {
+        question: "Do you offer same-day pest control in North Park?",
+        answer: "Yes. Same-day service is available for most pest situations in North Park — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Are your treatments safe for kids and pets?",
+        answer: "We use EPA-registered products approved for residential use, applied per label directions. Your technician will explain any product-specific precautions before and after treatment.",
+      },
+    ],
   },
   "hillcrest": {
     cityName: "Hillcrest",
     slug: "hillcrest",
-    intro: "Pest control in Hillcrest, CA, reliable treatments for San Diego's urban core.",
-    bodyParagraph: "Hillcrest's dense urban setting and older building stock present unique pest challenges, from German cockroaches in restaurants and kitchens to rodents in older structures. We provide both residential and commercial pest solutions.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("Hillcrest"),
+    intro: "Pest control in Hillcrest, CA — apartment, condo, and restaurant-row treatments for San Diego's densest urban village.",
+    bodyParagraph: "Hillcrest packs restaurants, medical offices, vintage apartment buildings, and canyon edges into one tight urban village. Pre-war apartment stock along the avenues shares walls, plumbing, and — inevitably — German cockroaches and the occasional bed bug introduction; the University Avenue restaurant row sustains rats and roaches at the block level; and the canyon fingers dropping toward Mission Valley bring wildlife-adjacent pests to the neighborhood's north edge.",
+    commonPests: [
+      "German Cockroaches (apartments & restaurant row)",
+      "Roof Rats & House Mice",
+      "Bed Bugs (dense rental turnover)",
+      "American Cockroaches (older building drains)",
+      "Argentine Ants",
+      "Black Widow Spiders",
+      "Silverfish (older buildings)",
+      "Fleas",
+    ],
+    localInsights: [
+      {
+        heading: "Vintage Apartments and Shared-Wall Pests",
+        paragraphs: [
+          "Hillcrest's charm is its older buildings, and its pest challenge is the same thing: decades-old plumbing chases and shared walls that let roaches move between units freely. One untreated unit can re-seed a whole floor.",
+          "We work with tenants, owners, and property managers on coordinated treatments — adjacent units together, common areas on schedule, and documentation the building can keep on file.",
+        ],
+      },
+      {
+        heading: "Restaurant Row and the Canyon Edge",
+        paragraphs: [
+          "University and Fifth Avenue's food corridor keeps block-level rat and roach populations fed, while the canyon slopes toward Mission Valley supply the north edge with rodents and spiders. Between them, Hillcrest homes sit in a pincer of urban and wild pest pressure.",
+          "The answer is boundary control: sealed structures, managed trash zones, and a maintained exterior program. For the restaurants themselves, our commercial pest control service provides inspection-ready documentation.",
+        ],
+      },
+    ],
+    neighborhoods: ["University Avenue corridor", "Fifth Avenue medical district", "Marston Hills", "Park West border", "Mission Hills border", "University Heights border"],
+    faqs: [
+      {
+        question: "Roaches keep coming back to my Hillcrest apartment — why?",
+        answer: "In shared buildings, roaches travel plumbing chases and walls between units, so treating one unit alone usually just rotates the problem. Coordinated treatment of adjacent units — which we arrange with your manager — is what actually clears it.",
+      },
+      {
+        question: "Do you work with property managers and HOAs in Hillcrest?",
+        answer: "Yes, extensively — scheduled common-area service, unit treatments, and written reports for boards and owners. See our commercial pest control page for program details.",
+      },
+      {
+        question: "Do you offer same-day pest control in Hillcrest?",
+        answer: "Yes. Same-day service is available for most pest situations in Hillcrest — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Are your treatments safe for kids and pets?",
+        answer: "We use EPA-registered products approved for residential use, applied per label directions. Your technician will explain any product-specific precautions before and after treatment.",
+      },
+    ],
   },
   "downtown-san-diego": {
     cityName: "Downtown San Diego",
     slug: "downtown-san-diego",
-    intro: "Pest control in Downtown San Diego, CA, professional treatments for condos, commercial properties, and residences.",
-    bodyParagraph: "Downtown San Diego's high-density living and commercial activity create ideal conditions for cockroaches, bed bugs, and rodents. We serve condo buildings, restaurants, offices, and residential properties throughout the downtown core.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("Downtown San Diego"),
+    intro: "Pest control in Downtown San Diego, CA — high-rise condos, Gaslamp restaurants, and everything the urban core throws at a building.",
+    bodyParagraph: "Downtown is San Diego's most concentrated pest environment: high-rise condo towers where a single introduction can travel dozens of units, the Gaslamp and East Village restaurant density feeding street-level rat and roach populations, and constant residential turnover moving bed bugs in and out. Pest control here is building management as much as treatment — coordination with HOAs, property managers, and commercial kitchens is the actual work.",
+    commonPests: [
+      "German Cockroaches (towers & commercial kitchens)",
+      "Bed Bugs (high-turnover housing & hospitality)",
+      "Roof Rats & Norway Rats (street level & parking structures)",
+      "American Cockroaches (garages, drains & utility levels)",
+      "Argentine Ants",
+      "Fleas",
+      "Flies (waste areas)",
+      "Spiders",
+    ],
+    localInsights: [
+      {
+        heading: "High-Rise Living, High-Rise Pests",
+        paragraphs: [
+          "In a condo tower, pests use the building's own systems — trash chutes, utility risers, shared walls — to move between floors. Roach or bed bug introductions in one unit become building issues fast, and unit-by-unit whack-a-mole never ends.",
+          "We work at the building level: coordinated unit treatments, chute and utility-level programs, and reporting HOAs can act on. If you're on a board or manage a tower, our commercial pest control service is built for exactly this.",
+        ],
+      },
+      {
+        heading: "The Gaslamp Effect",
+        paragraphs: [
+          "Restaurant density in the Gaslamp and East Village sustains street-level rodent and roach populations that pressure every adjacent building — residential or commercial. Parking structures and basement utility levels are the usual entry points.",
+          "Ground-floor defense is exclusion plus maintained exterior control at the loading docks, trash corrals, and structure entrances where the street meets the building.",
+        ],
+      },
+    ],
+    neighborhoods: ["Gaslamp Quarter", "East Village", "Marina District", "Little Italy", "Cortez Hill", "Columbia District"],
+    faqs: [
+      {
+        question: "I found roaches in my downtown condo — is it my unit or the building?",
+        answer: "In towers it's usually both: roaches travel chutes, risers, and shared walls. We treat your unit and recommend coordinating with your HOA on adjacent units and common areas — which we can arrange and document for the board.",
+      },
+      {
+        question: "Do you service restaurants in the Gaslamp?",
+        answer: "Yes — scheduled commercial programs with written service reports for health inspections, off-peak scheduling, and the drain/harborage work commercial kitchens need. See our commercial pest control page.",
+      },
+      {
+        question: "Do you offer same-day pest control downtown?",
+        answer: "Yes. Same-day service is available for most pest situations downtown — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "We just moved into a downtown apartment — should we worry about bed bugs?",
+        answer: "High-turnover buildings carry elevated risk, and early detection is everything. If the unit had quick turnover or you're seeing bites, a professional inspection catches infestations while they're still small and cheap to fix.",
+      },
+    ],
   },
   "poway": {
     cityName: "Poway",
@@ -747,34 +984,206 @@ export const areaPages: Record<string, AreaPageData> = {
   "national-city": {
     cityName: "National City",
     slug: "national-city",
-    intro: "Pest control in National City, CA, professional treatments for residential and commercial properties.",
-    bodyParagraph: "National City's dense urban environment and proximity to the bay create conditions favorable to cockroaches, rodents, and moisture pests. We provide thorough treatments for homes, apartments, and businesses throughout National City.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("National City"),
+    intro: "Pest control in National City, CA — dense-housing and bayfront-industrial expertise for South Bay's oldest city.",
+    bodyParagraph: "National City is California's second-oldest incorporated city, and its pest picture reflects that history: early-1900s housing stock alongside dense apartments, an active bayfront industrial and port corridor that sustains serious rodent populations, and the Sweetwater River channel on its southern edge. Aging drain infrastructure keeps American cockroaches supplied, and multi-family housing spreads German roaches unit to unit. We serve National City homes, apartment buildings, and businesses with treatments matched to that mix.",
+    commonPests: [
+      "Norway & Roof Rats (bayfront & rail corridor)",
+      "American Cockroaches (aging drains)",
+      "German Cockroaches (multi-unit housing)",
+      "Argentine Ants",
+      "Bed Bugs",
+      "Black Widow Spiders",
+      "Fleas & Ticks",
+      "Mosquitoes (Sweetwater channel)",
+    ],
+    localInsights: [
+      {
+        heading: "Port, Rail, and Rodents",
+        paragraphs: [
+          "The working bayfront — port facilities, rail lines, and industrial yards — sustains some of the county's most established rodent populations, and the neighborhoods east of the corridor absorb the pressure. Older foundations and garages give rats easy entry once they arrive.",
+          "Our National City rodent work is exclusion-heavy: seal the structure, trap out residents, and maintain exterior control on properties nearest the corridor.",
+        ],
+      },
+      {
+        heading: "Older Housing, Shared Walls",
+        paragraphs: [
+          "Between historic single-family homes and postwar apartment blocks, much of National City's housing predates modern pest exclusion, and shared-wall buildings let German cockroaches circulate between units.",
+          "For apartments we coordinate with owners and managers on adjacent-unit treatments; for older homes we pair harborage treatment with sealing the entry points a century of settling has opened.",
+        ],
+      },
+    ],
+    neighborhoods: ["Old Town National City", "Lincoln Acres", "Paradise Hills border", "Bayfront / Mile of Cars area", "Sweetwater Heights"],
+    faqs: [
+      {
+        question: "Why does my older National City home keep getting big roaches from the drains?",
+        answer: "American cockroaches travel aging sewer laterals and surface through floor drains and dried P-traps — common in older South Bay infrastructure. We treat entry points and harborage and show you the drain maintenance that keeps them down.",
+      },
+      {
+        question: "Do you treat apartment buildings in National City?",
+        answer: "Yes — including coordinated multi-unit treatments with owner or manager authorization, which is what actually clears shared-wall roach problems. See our commercial pest control service for scheduled building programs.",
+      },
+      {
+        question: "Do you offer same-day pest control in National City?",
+        answer: "Yes. Same-day service is available for most pest situations in National City — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Are your treatments safe for kids and pets?",
+        answer: "We use EPA-registered products approved for residential use, applied per label directions. Your technician will explain any product-specific precautions before and after treatment.",
+      },
+    ],
   },
   "spring-valley": {
     cityName: "Spring Valley",
     slug: "spring-valley",
-    intro: "Pest control in Spring Valley, CA, effective treatments for this unincorporated community in San Diego County.",
-    bodyParagraph: "Spring Valley's semi-rural character and older housing stock invite rodents, spiders, and ant colonies. Our team provides thorough inspections and customized treatment plans for Spring Valley residents.",
-    commonPests: commonPestsSanDiego,
-    faqs: makeFAQs("Spring Valley"),
+    intro: "Pest control in Spring Valley, CA — hillside and older-home treatments for East County's unincorporated heart.",
+    bodyParagraph: "Spring Valley climbs the hills between La Mesa and the Sweetwater Reservoir, and its unincorporated, semi-rural character shapes the pest load: older homes on larger, often sloped lots, mature trees and brush that shelter roof rats, and East County heat that drives ants and crickets indoors every summer. Dictionary Hill and the reservoir-adjacent streets add classic hillside pressure — black widows in outbuildings, gophers on slopes, rodents from the brush.",
+    commonPests: [
+      "Roof Rats (hillside brush & mature trees)",
+      "Argentine Ants (heat-driven surges)",
+      "Black Widow Spiders (sheds & outbuildings)",
+      "American & German Cockroaches",
+      "Crickets & Earwigs",
+      "Gophers & Ground Squirrels (slopes)",
+      "Fleas & Ticks",
+      "Mosquitoes (reservoir area)",
+    ],
+    localInsights: [
+      {
+        heading: "Hillside Lots and Brush Pressure",
+        paragraphs: [
+          "Spring Valley's sloped lots back onto brush, canyons, and reservoir open space — permanent habitat for rats, ground squirrels, and spiders. Outbuildings, wood piles, and older detached garages give them staging areas within feet of the house.",
+          "We treat the property as a system: exclusion on the main structure, harborage cleanup guidance for the outbuildings, and a maintained perimeter for the lot line.",
+        ],
+      },
+      {
+        heading: "East County Heat and the Summer Push",
+        paragraphs: [
+          "Like El Cajon and Lakeside, Spring Valley bakes in summer — and heat pushes ants, crickets, and roaches indoors chasing water. Homes with irrigation, pools, or shaded foundations concentrate the traffic.",
+          "An exterior barrier established before the heat peaks, plus fixing the moisture attractants at the foundation, keeps the summer invasion outside.",
+        ],
+      },
+    ],
+    neighborhoods: ["Dictionary Hill", "Casa de Oro border", "La Presa", "Sweetwater Reservoir area", "Bancroft area"],
+    faqs: [
+      {
+        question: "We hear rats in the brush behind our house — will they get in?",
+        answer: "If entry points exist, eventually yes — hillside brush is permanent habitat, and cooling fall nights push rats toward structures. Exclusion now beats trapping later: we seal the house, clear what's inside, and keep the perimeter maintained.",
+      },
+      {
+        question: "Do you handle gophers on Spring Valley slopes?",
+        answer: "Yes — slope lots here see constant gopher and ground squirrel activity. We run trapping and burrow-treatment programs with follow-up; see our gopher control service for the full approach.",
+      },
+      {
+        question: "Do you offer same-day pest control in Spring Valley?",
+        answer: "Yes. Same-day service is available for most pest situations in Spring Valley — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Are your treatments safe for kids and pets?",
+        answer: "We use EPA-registered products approved for residential use, applied per label directions. Your technician will explain any product-specific precautions before and after treatment.",
+      },
+    ],
   },
   "lakeside": {
     cityName: "Lakeside",
     slug: "lakeside",
-    intro: "Pest control in Lakeside, CA, protecting East County families from pests year-round.",
-    bodyParagraph: "Lakeside's rural-suburban mix and proximity to the San Diego River corridor means regular rodent, spider, and ant activity. We offer comprehensive residential pest programs for Lakeside homeowners.",
-    commonPests: [...commonPestsSanDiego, "Gophers & Ground Squirrels"],
-    faqs: makeFAQs("Lakeside"),
+    intro: "Pest control in Lakeside, CA — river-bottom, horse-property, and rural-lot expertise for East County.",
+    bodyParagraph: "Lakeside is where San Diego turns rural: horse properties, larger lots, the San Diego River bottom running through town, and Lindo Lake at its center. Water plus animals plus open country is a complete pest ecosystem — mosquitoes from the river and lake, flies and rodents around horse facilities, black widows in barns and hay storage, and gophers working every irrigated pasture and slope. Lakeside properties need more than a doorstep spray, and that's how we treat them.",
+    commonPests: [
+      "Mosquitoes (river bottom & Lindo Lake)",
+      "Flies (horse properties)",
+      "Roof Rats & House Mice",
+      "Black Widow Spiders (barns & outbuildings)",
+      "Gophers & Ground Squirrels",
+      "Argentine Ants",
+      "Crickets & Earwigs",
+      "Fleas & Ticks",
+    ],
+    localInsights: [
+      {
+        heading: "Horse Country Pest Management",
+        paragraphs: [
+          "Feed storage, manure management, and water troughs make horse properties a magnet for flies, rodents, and the spiders that follow them. Barns and tack rooms are classic black widow habitat, and hay deliveries can import rodents directly.",
+          "We build Lakeside treatment plans around the whole operation — main house, barns, feed rooms, and fence lines — with fly and rodent programs suited to properties with animals, applied per label with livestock in mind.",
+        ],
+      },
+      {
+        heading: "The River Bottom and Lindo Lake",
+        paragraphs: [
+          "The San Diego River corridor and Lindo Lake keep mosquitoes and rodents supplied year-round, and adjacent neighborhoods feel it every warm evening. The water isn't treatable — your property is.",
+          "For river- and lake-adjacent homes: standing-water elimination, resting-area treatment, and structural rodent exclusion form the working defense, refreshed seasonally.",
+        ],
+      },
+    ],
+    neighborhoods: ["Lindo Lake area", "Eucalyptus Hills", "Winter Gardens", "Moreno Valley area", "Riverview", "El Monte Valley border"],
+    faqs: [
+      {
+        question: "Do you treat horse properties and barns in Lakeside?",
+        answer: "Yes — barns, tack rooms, feed storage, and the main house as one plan. We use EPA-registered products applied per label around animal areas, and your technician will walk the property and flag every precaution before treating.",
+      },
+      {
+        question: "The flies are relentless near our animals — can that actually improve?",
+        answer: "Substantially. Fly control on animal properties combines breeding-source management (manure, moisture) with targeted treatment of resting surfaces — it's ongoing work, but the difference is dramatic. See our fly control service.",
+      },
+      {
+        question: "Do you offer same-day pest control in Lakeside?",
+        answer: "Yes. Same-day service is available for most pest situations in Lakeside — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Do you handle gophers in Lakeside?",
+        answer: "Yes — pastures, slopes, and irrigated lots here see constant gopher pressure. We run trapping and burrow-treatment programs with follow-up monitoring; see our gopher control service.",
+      },
+    ],
   },
   "solana-beach": {
     cityName: "Solana Beach",
     slug: "solana-beach",
-    intro: "Pest control in Solana Beach, CA, right in our backyard. We're your true local experts.",
-    bodyParagraph: "Neighbors Pest Solutions serves Solana Beach as part of our greater San Diego service area. We know this community well and have treated countless homes here. From ant infestations in coastal homes to rodent exclusion in older properties near the train station, we've done it all.",
-    commonPests: [...commonPestsSanDiego, "Silverfish & Earwigs"],
-    faqs: makeFAQs("Solana Beach"),
+    intro: "Pest control in Solana Beach, CA — our original home turf, from the Cedros Design District to the bluffs.",
+    bodyParagraph: "Solana Beach is where Neighbors Pest Solutions got its start, and we know its pest patterns street by street: salt-air humidity keeping silverfish and earwigs active in the older beach homes west of the 101, the San Elijo Lagoon feeding seasonal mosquitoes on the north edge, and mature landscaping carrying roof rats through the view neighborhoods east of the tracks. Small city, distinct micro-zones — and years of our service history in every one of them.",
+    commonPests: [
+      "Silverfish & Earwigs (coastal moisture)",
+      "Roof Rats (mature landscaping & bluff vegetation)",
+      "Argentine Ants",
+      "Mosquitoes (San Elijo Lagoon edge)",
+      "Black Widow Spiders",
+      "German & American Cockroaches",
+      "Fleas & Ticks",
+      "Bed Bugs",
+    ],
+    localInsights: [
+      {
+        heading: "West of the 101: Salt Air and Older Cottages",
+        paragraphs: [
+          "The beach blocks and the streets around the Cedros Design District hold Solana Beach's older housing — and the marine layer keeps it damp enough for silverfish, earwigs, and roaches most of the year. Crawl spaces and garages near the bluffs are the usual harborage.",
+          "We pair harborage treatment with moisture guidance, because in coastal homes the humidity is the infestation's engine.",
+        ],
+      },
+      {
+        heading: "East of the Tracks: Canopy and Lagoon",
+        paragraphs: [
+          "The view neighborhoods east of the rail corridor — Lomas Santa Fe and the hills — carry roof rats through mature trees and ornamental landscaping, while the San Elijo Lagoon brings seasonal mosquito pressure to the city's north side.",
+          "Exclusion-led rodent work and property-side mosquito control (the lagoon itself is protected habitat) are the standing answers, maintained quarterly.",
+        ],
+      },
+    ],
+    neighborhoods: ["Cedros Design District", "Fletcher Cove area", "Lomas Santa Fe", "Solana Highlands", "Eden Gardens", "San Elijo Lagoon edge"],
+    faqs: [
+      {
+        question: "Are you actually local to Solana Beach?",
+        answer: "It's our original home turf — Neighbors Pest Solutions started here before growing across San Diego County. We've been treating Solana Beach homes since day one and know its coastal pest patterns as well as anyone working in the city.",
+      },
+      {
+        question: "Why does my home near the beach get silverfish year-round?",
+        answer: "Salt-air humidity plus older construction gives them permanent dark, damp harborage — the marine layer never really lets coastal crawl spaces dry out. We treat the harborage zones and flag the moisture conditions that sustain them.",
+      },
+      {
+        question: "Do you offer same-day pest control in Solana Beach?",
+        answer: "Yes. Same-day service is available for most pest situations in Solana Beach — call (858) 878-2847 and we'll do our best to dispatch a technician today.",
+      },
+      {
+        question: "Can you reduce mosquitoes near San Elijo Lagoon?",
+        answer: "Meaningfully, yes. The lagoon is protected habitat, but most bites come from mosquitoes breeding and resting on your own property — source elimination plus resting-area treatment cuts pressure substantially, especially with seasonal service.",
+      },
+    ],
   },
   "del-mar": {
     cityName: "Del Mar",
