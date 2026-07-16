@@ -247,42 +247,47 @@ html {
 /* ── Crawling bug Easter egg ─────────────────────────────── */
 .bug-crawler {
   position: fixed;
-  bottom: 16px;
+  top: 0;
   left: 0;
   z-index: 60;
   cursor: pointer;
-  pointer-events: auto;
-  animation: bug-crawl 9s linear forwards;
   will-change: transform;
 }
 
-.bug-crawler svg {
+.bug-body {
   display: block;
-  opacity: 0.85;
-  animation: bug-scuttle 0.22s linear infinite;
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 2px rgb(0 0 0 / 0.25));
 }
 
-.bug-squashed {
-  animation-play-state: paused;
+/* Alternating tripod gait — two leg groups step out of phase */
+.bug-legs-a,
+.bug-legs-b {
+  transform-origin: 12px 11.5px;
+  animation: bug-step 0.16s linear infinite;
 }
 
-.bug-squashed svg {
+.bug-legs-b {
+  animation-direction: reverse;
+}
+
+.bug-squashed .bug-body {
   animation: bug-squash 0.45s ease-out forwards;
 }
 
-@keyframes bug-crawl {
-  from { transform: translateX(-48px); }
-  to { transform: translateX(calc(100vw + 48px)); }
+.bug-squashed .bug-legs-a,
+.bug-squashed .bug-legs-b {
+  animation-play-state: paused;
 }
 
-@keyframes bug-scuttle {
-  0% { transform: rotate(88deg) translateY(0); }
-  50% { transform: rotate(93deg) translateY(-1.5px); }
-  100% { transform: rotate(88deg) translateY(0); }
+@keyframes bug-step {
+  0% { transform: rotate(7deg); }
+  50% { transform: rotate(-7deg); }
+  100% { transform: rotate(7deg); }
 }
 
 @keyframes bug-squash {
-  0% { transform: rotate(90deg) scale(1); opacity: 0.85; }
-  40% { transform: rotate(90deg) scale(1.3, 0.45); opacity: 0.9; }
-  100% { transform: rotate(90deg) scale(1.5, 0.12); opacity: 0; }
+  0% { transform: scale(1); opacity: 0.9; }
+  40% { transform: scale(1.35, 0.4); opacity: 0.95; }
+  100% { transform: scale(1.6, 0.1); opacity: 0; }
 }
