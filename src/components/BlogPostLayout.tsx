@@ -15,12 +15,12 @@ interface BlogPostLayoutProps {
 export default function BlogPostLayout({ title, category, date, readTime, image, imageAlt, children }: BlogPostLayoutProps) {
   return (
     <>
-      {/* Thin hero — gives the transparent navbar a dark backdrop */}
+      {/* Thin hero, gives the transparent navbar a dark backdrop */}
       <div className="relative h-40 -mt-20 bg-dark-900">
         <div className="absolute inset-0 bg-gradient-to-r from-dark-900 via-dark-800 to-dark-700" />
       </div>
 
-      {/* Single white article section — mirrors Boise Cleaning Crew layout */}
+      {/* Single white article section, mirrors Boise Cleaning Crew layout */}
       <article className="py-8 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -52,7 +52,7 @@ export default function BlogPostLayout({ title, category, date, readTime, image,
             </div>
           </header>
 
-          {/* Featured image — sits between header and body, matching Boise layout */}
+          {/* Featured image, sits between header and body, matching Boise layout */}
           {image && (
             <div className="relative rounded-xl h-80 mb-7 overflow-hidden shadow-lg">
               <Image src={image} alt={imageAlt || title} fill className="object-cover" priority />

@@ -8,7 +8,7 @@ type Phase = 'hidden' | 'dropping' | 'hanging' | 'leaving' | 'falling';
 
 /**
  * Homepage showpiece: a spider rappels down from a corner web on a silk
- * thread, bounces to a stop, hangs and sways — then climbs back up.
+ * thread, bounces to a stop, hangs and sways, then climbs back up.
  * Click it while it hangs and the thread snaps: it plummets off screen.
  *
  * Once per session, transform/height-only animation on a fixed overlay,
@@ -56,7 +56,7 @@ export default function DroppingSpider() {
         </g>
       </svg>
 
-      {/* Silk thread — grows on drop, shrinks on climb */}
+      {/* Silk thread, grows on drop, shrinks on climb */}
       <div className="web-thread" />
 
       {/* The spider */}

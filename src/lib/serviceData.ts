@@ -12,7 +12,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { title: "Colony Source Treatment", desc: "We trace ant trails and treat the nest directly, not just the visible ants." },
       { title: "Interior & Exterior Barrier", desc: "A perimeter treatment prevents new ant scouts from entering your home." },
       { title: "Entry Point Sealing", desc: "We identify and recommend sealing of cracks, gaps, and utility penetrations." },
-      { title: "Eco-Friendly Products", desc: "EPA-registered products applied per label directions — your technician tells you exactly when treated areas are ready for kids and pets." },
+      { title: "Eco-Friendly Products", desc: "EPA-registered products applied per label directions, your technician tells you exactly when treated areas are ready for kids and pets." },
     ],
     signs: [
       "Visible ant trails along walls, counters, or floors",
@@ -109,7 +109,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { question: "Are black widows common in San Diego?", answer: "Yes. Black widows are one of the most common venomous spiders in Southern California and are frequently found in garages, sheds, and around landscaping." },
       { question: "Is spider treatment safe around kids?", answer: "We use EPA-registered products labeled for residential use and applied per label directions. Your technician will explain any product-specific precautions for children and pets before and after treatment." },
       { question: "How often should I have spider treatment?", answer: "Quarterly treatments are recommended for San Diego homes, as spiders are active year-round in the Southern California climate." },
-      { question: "Are brown recluse spiders found in San Diego?", answer: "Brown recluses are not established in San Diego County — most suspected sightings turn out to be other species. The related desert recluse occurs in some remote desert areas of the county, but it is rarely encountered in homes. We identify spiders correctly and focus treatment on the species that actually pose a local risk, like black widows." },
+      { question: "Are brown recluse spiders found in San Diego?", answer: "Brown recluses are not established in San Diego County. Most suspected sightings turn out to be other species. The related desert recluse occurs in some remote desert areas of the county, but it is rarely encountered in homes. We identify spiders correctly and focus treatment on the species that actually pose a local risk, like black widows." },
     ],
     relatedServices: [
       { name: "Ant Control", slug: "ant-control" },
@@ -712,10 +712,10 @@ export const servicePages: Record<string, ServicePageData> = {
     heroHeading: "Gopher Control San Diego, CA",
     heroSubheading: "Protect your lawn, slopes, and irrigation from pocket gophers and ground squirrels with targeted removal programs.",
     heroImage: "/images/technician-grass.jpg",
-    intro: "San Diego's canyon-laced neighborhoods and landscaped slopes are prime pocket gopher habitat, and our mild climate keeps them digging year-round. A single gopher can throw up dozens of mounds, sever drip lines, girdle roots, and destabilize slopes — and because gophers are territorial, clearing one often just opens the burrow system for the next. Effective control means treating the burrow network, not the mound. We provide targeted gopher and ground squirrel programs for homes across San Diego County, with special focus on canyon-adjacent and slope properties.",
+    intro: "San Diego's canyon-laced neighborhoods and landscaped slopes are prime pocket gopher habitat, and our mild climate keeps them digging year-round. A single gopher can throw up dozens of mounds, sever drip lines, girdle roots, and destabilize slopes, and because gophers are territorial, clearing one often just opens the burrow system for the next. Effective control means treating the burrow network, not the mound. We provide targeted gopher and ground squirrel programs for homes across San Diego County, with special focus on canyon-adjacent and slope properties.",
     features: [
       { title: "Burrow Inspection & Mapping", desc: "We probe fresh mounds to locate active tunnel runs, so treatment goes where the gopher actually is." },
-      { title: "Targeted Trapping Programs", desc: "Traps placed directly in active runs — the most reliable method for individual gophers, with follow-up checks." },
+      { title: "Targeted Trapping Programs", desc: "Traps placed directly in active runs, the most reliable method for individual gophers, with follow-up checks." },
       { title: "Burrow Treatment", desc: "Where trapping alone isn't enough, we apply burrow treatments according to their labels for larger or persistent infestations." },
       { title: "Ground Squirrel Control", desc: "Burrow treatment and harborage reduction for ground squirrels on slopes, embankments, and larger lots." },
     ],
@@ -733,9 +733,9 @@ export const servicePages: Record<string, ServicePageData> = {
       { step: "3", title: "Follow-Up", desc: "We re-check for fresh activity, reset or retreat as needed, and confirm the burrow system has gone quiet." },
     ],
     faqs: [
-      { question: "How do I know if it's a gopher or a mole?", answer: "In San Diego it's almost always pocket gophers — moles are rare here. Gopher mounds are crescent- or fan-shaped with a plugged hole to one side; mole hills are round volcanoes. Send us a photo if you're unsure and we'll identify it." },
+      { question: "How do I know if it's a gopher or a mole?", answer: "In San Diego it's almost always pocket gophers, moles are rare here. Gopher mounds are crescent- or fan-shaped with a plugged hole to one side; mole hills are round volcanoes. Send us a photo if you're unsure and we'll identify it." },
       { question: "How long does it take to get rid of gophers?", answer: "Individual gophers are typically resolved within 1–2 weeks of trapping and follow-up. Larger properties or slope infestations with multiple animals can take several visits. We keep working until activity stops." },
-      { question: "Is gopher treatment safe for my dog or cat?", answer: "We select methods with pets in mind — trapping in below-ground runs is our first line, and any products we use are applied inside burrows according to their EPA labels. Your technician will walk you through property-specific precautions." },
+      { question: "Is gopher treatment safe for my dog or cat?", answer: "We select methods with pets in mind, trapping in below-ground runs is our first line, and any products we use are applied inside burrows according to their EPA labels. Your technician will walk you through property-specific precautions." },
       { question: "Why do gophers keep coming back?", answer: "Vacant burrow systems get re-occupied by neighboring gophers, especially on canyon and slope properties. For high-pressure locations we recommend ongoing monitoring as part of a recurring service plan." },
     ],
     relatedServices: [
@@ -751,10 +751,10 @@ export const servicePages: Record<string, ServicePageData> = {
     heroHeading: "Commercial Pest Control San Diego, CA",
     heroSubheading: "Scheduled, documented pest management for San Diego restaurants, offices, HOAs, and multi-unit properties.",
     heroImage: "/images/truck.jpg",
-    intro: "For a business, a pest problem isn't just a nuisance — it's a health-inspection finding, a bad review, a tenant complaint, or a lost customer. Commercial pest management is about prevention and documentation, not just response: regular scheduled service, treatment records you can show an inspector, and a technician who knows your property. We service restaurants and food facilities, offices, retail, warehouses, HOAs, and multi-unit residential buildings across San Diego County.",
+    intro: "For a business, a pest problem isn't just a nuisance, it's a health-inspection finding, a bad review, a tenant complaint, or a lost customer. Commercial pest management is about prevention and documentation, not just response: regular scheduled service, treatment records you can show an inspector, and a technician who knows your property. We service restaurants and food facilities, offices, retail, warehouses, HOAs, and multi-unit residential buildings across San Diego County.",
     features: [
       { title: "Scheduled Service Programs", desc: "Monthly or bi-monthly service matched to your facility type and pest pressure, with the same technician whenever possible." },
-      { title: "Documentation & Reporting", desc: "Service records after every visit — what was found, what was treated, and what needs attention — ready for health inspections and audits." },
+      { title: "Documentation & Reporting", desc: "Service records after every visit, what was found, what was treated, and what needs attention, ready for health inspections and audits." },
       { title: "Multi-Unit & HOA Programs", desc: "Coordinated treatment of common areas and individual units, with scheduling handled through your property manager." },
       { title: "Flexible Scheduling", desc: "We work around your business hours where possible, so treatments don't disrupt customers, staff, or tenants." },
     ],
@@ -773,8 +773,8 @@ export const servicePages: Record<string, ServicePageData> = {
     ],
     faqs: [
       { question: "What types of businesses do you service?", answer: "Restaurants and food service, offices, retail, warehouses, medical and professional suites, HOAs, and multi-unit residential buildings throughout San Diego County. Every program is built around the specific facility." },
-      { question: "Can you service our facility outside business hours?", answer: "In most cases, yes — we schedule around your operating hours where possible so service doesn't disrupt customers or staff. Talk to us about early morning or off-peak visits." },
-      { question: "Do you provide documentation for health inspections?", answer: "Yes. Every commercial visit generates a service record covering findings, treatments, and recommendations — the paper trail inspectors and auditors expect to see." },
+      { question: "Can you service our facility outside business hours?", answer: "In most cases, yes, we schedule around your operating hours where possible so service doesn't disrupt customers or staff. Talk to us about early morning or off-peak visits." },
+      { question: "Do you provide documentation for health inspections?", answer: "Yes. Every commercial visit generates a service record covering findings, treatments, and recommendations, the paper trail inspectors and auditors expect to see." },
       { question: "How do multi-unit or HOA treatments work?", answer: "We coordinate through your property manager or board: common areas on a set schedule, individual units as needed, and consolidated reporting so the whole property is covered without chasing tenants." },
     ],
     relatedServices: [

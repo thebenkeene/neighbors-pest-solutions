@@ -156,7 +156,7 @@ const SVGS: Record<Species, (p: { size: number }) => React.ReactElement> = {
 
 /**
  * A staggered parade of different bugs that wander across the page once
- * per session — each species with its own gait and personality. Click
+ * per session, each species with its own gait and personality. Click
  * any of them to squash it.
  *
  * Performance-safe: one shared rAF loop writing transforms to refs (no

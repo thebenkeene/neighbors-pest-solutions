@@ -5,7 +5,7 @@ const base = BUSINESS.url;
 
 // Real last-substantive-update dates (from git history).
 // A sitemap that stamps "now" on every request teaches Google to
-// ignore the lastmod signal entirely — keep these honest and update
+// ignore the lastmod signal entirely, keep these honest and update
 // them when page content actually changes.
 const STATIC_LASTMOD: Record<string, string> = {
   "/": "2026-07-14",

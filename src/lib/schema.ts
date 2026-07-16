@@ -141,7 +141,7 @@ export function generateServiceSchema(
 
 export function generateAreaSchema(cityName: string, slug: string) {
   // Area pages describe a Service offered in that city by the single
-  // sitewide LocalBusiness (@id .../#business) — not a separate business
+  // sitewide LocalBusiness (@id .../#business), not a separate business
   // entity per city, which Google treats as duplicate/spammy markup.
   return {
     "@context": "https://schema.org",

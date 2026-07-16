@@ -20,7 +20,7 @@ const posts = [
   {
     slug: "san-diego-pest-calendar",
     title: "San Diego Pest Activity Calendar: What's Active Every Month",
-    excerpt: "A month-by-month reference to pest activity in San Diego County — when ants, rodents, mosquitoes, spiders, and termites peak, and why.",
+    excerpt: "A month-by-month reference to pest activity in San Diego County, when ants, rodents, mosquitoes, spiders, and termites peak, and why.",
     category: "Reference",
     readTime: "10 min read",
     date: "July 15, 2026",
@@ -38,7 +38,7 @@ const posts = [
   {
     slug: "termites-vs-carpenter-ants-san-diego",
     title: "Termites vs. Carpenter Ants in San Diego: How to Tell the Difference",
-    excerpt: "Wood damage in your San Diego home? Wings, frass, and damage patterns that tell drywood termites apart from carpenter ants — and what to do about each.",
+    excerpt: "Wood damage in your San Diego home? Wings, frass, and damage patterns that tell drywood termites apart from carpenter ants, and what to do about each.",
     category: "Termites",
     readTime: "6 min read",
     date: "July 15, 2026",

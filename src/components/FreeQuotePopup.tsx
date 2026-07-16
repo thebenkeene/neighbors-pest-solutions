@@ -12,7 +12,7 @@ const PEST_OPTIONS = [
 const STORAGE_KEY = 'nps_quote_popup_dismissed';
 const SUBMITTED_KEY = 'nps_quote_popup_submitted';
 // Engagement-based trigger: 30s on page OR 50% scroll depth, whichever first.
-// (A 4s timer interrupted visitors before they'd read anything — bad for
+// (A 4s timer interrupted visitors before they'd read anything, bad for
 // bounce, INP, and lead quality.)
 const POPUP_DELAY_MS = 30000;
 const SCROLL_TRIGGER_RATIO = 0.5;
@@ -121,7 +121,7 @@ export default function FreeQuotePopup() {
           serviceType: 'Residential',
           pestType: formData.pestType,
           address: '',
-          message: '50% off first service — popup quote request.',
+          message: '50% off first service, popup quote request.',
           _hp: honeypot,
           _t: loadedAt,
         }),
@@ -210,7 +210,7 @@ export default function FreeQuotePopup() {
                   Get <span className="text-primary-600">50% Off</span> Your First Service
                 </h2>
                 <p className="text-gray-500 text-sm mt-2 leading-relaxed">
-                  New customers save big — claim your free quote and lock in half-price pest control today.
+                  New customers save big, claim your free quote and lock in half-price pest control today.
                 </p>
               </div>
 

@@ -153,8 +153,8 @@ export async function POST(req: NextRequest) {
       <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a; background: #eff6ff;">Phone</td><td style="padding: 10px 12px; background: #eff6ff;"><a href="tel:${sPhone}" style="color:#3b82f6; text-decoration: none;">${sPhone}</a></td></tr>
       <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a;">Service Type</td><td style="padding: 10px 12px; color: #111111;">${sServiceType}</td></tr>
       <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a; background: #eff6ff;">Pest Type</td><td style="padding: 10px 12px; background: #eff6ff; color: #111111;"><strong>${sPestType}</strong></td></tr>
-      <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a;">Property Address</td><td style="padding: 10px 12px; color: #111111;">${sAddress || "—"}</td></tr>
-      <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a; background: #eff6ff; vertical-align: top;">Message</td><td style="padding: 10px 12px; background: #eff6ff; color: #111111; white-space: pre-wrap;">${sMessage || "—"}</td></tr>
+      <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a;">Property Address</td><td style="padding: 10px 12px; color: #111111;">${sAddress || "N/A"}</td></tr>
+      <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a; background: #eff6ff; vertical-align: top;">Message</td><td style="padding: 10px 12px; background: #eff6ff; color: #111111; white-space: pre-wrap;">${sMessage || "N/A"}</td></tr>
       <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a;">Submitted</td><td style="padding: 10px 12px; color: #6b6b6b; font-size: 13px;">${submittedAt}</td></tr>
     </table>
     <div style="margin-top: 24px; padding: 14px 16px; background: #eff6ff; border-left: 4px solid #3b82f6;">
@@ -187,7 +187,7 @@ export async function POST(req: NextRequest) {
       <p style="margin: 0 0 6px 0; color: #bfdbfe; font-size: 13px;">Need help sooner? Call us directly:</p>
       <a href="tel:+18588782847" style="color: #ffffff; font-size: 20px; font-weight: 700; text-decoration: none;">(858) 878-2847</a>
     </div>
-    <p style="margin: 24px 0 0 0; font-size: 14px; color: #404040;">— The Neighbors Pest Solutions Team</p>
+    <p style="margin: 24px 0 0 0; font-size: 14px; color: #404040;">The Neighbors Pest Solutions Team</p>
   </div>
   <p style="font-size: 11px; color: #a0a0a0; margin-top: 16px; text-align: center;">Neighbors Pest Solutions · neighborspestsolutions.com</p>
 </body>
@@ -200,7 +200,7 @@ export async function POST(req: NextRequest) {
         from: FROM_EMAIL,
         to: NOTIFY_EMAILS,
         ...(email ? { replyTo: email } : {}),
-        subject: `New Quote Request: ${pestType} — ${nameLine}`,
+        subject: `New Quote Request: ${pestType}, ${nameLine}`,
         html: notificationHtml,
       }),
     ];
@@ -210,7 +210,7 @@ export async function POST(req: NextRequest) {
         resend.emails.send({
           from: FROM_EMAIL,
           to: email,
-          subject: "We got your request — Neighbors Pest Solutions",
+          subject: "We got your request, Neighbors Pest Solutions",
           html: confirmationHtml,
         }),
       );
