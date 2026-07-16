@@ -243,3 +243,46 @@ html {
 .popup-exit .popup-panel {
   animation: popup-panel-out 0.25s ease forwards;
 }
+
+/* ── Crawling bug Easter egg ─────────────────────────────── */
+.bug-crawler {
+  position: fixed;
+  bottom: 16px;
+  left: 0;
+  z-index: 60;
+  cursor: pointer;
+  pointer-events: auto;
+  animation: bug-crawl 9s linear forwards;
+  will-change: transform;
+}
+
+.bug-crawler svg {
+  display: block;
+  opacity: 0.85;
+  animation: bug-scuttle 0.22s linear infinite;
+}
+
+.bug-squashed {
+  animation-play-state: paused;
+}
+
+.bug-squashed svg {
+  animation: bug-squash 0.45s ease-out forwards;
+}
+
+@keyframes bug-crawl {
+  from { transform: translateX(-48px); }
+  to { transform: translateX(calc(100vw + 48px)); }
+}
+
+@keyframes bug-scuttle {
+  0% { transform: rotate(88deg) translateY(0); }
+  50% { transform: rotate(93deg) translateY(-1.5px); }
+  100% { transform: rotate(88deg) translateY(0); }
+}
+
+@keyframes bug-squash {
+  0% { transform: rotate(90deg) scale(1); opacity: 0.85; }
+  40% { transform: rotate(90deg) scale(1.3, 0.45); opacity: 0.9; }
+  100% { transform: rotate(90deg) scale(1.5, 0.12); opacity: 0; }
+}

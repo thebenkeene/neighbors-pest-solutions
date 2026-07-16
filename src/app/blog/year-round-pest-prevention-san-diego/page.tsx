@@ -59,7 +59,10 @@ export default function Page() {
           <li>Inspect deliveries, used furniture, and secondhand clothing for bed bugs</li>
         </ul>
 
-        <h2>Spring (March–May)</h2>
+        <div className="flex items-center gap-3 mt-10 mb-3">
+          <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">1</span>
+          <h2 className="!mt-0 !mb-0">Spring (March–May)</h2>
+        </div>
         <h3>Ants & Termites</h3>
         <ul>
           <li>Inspect your foundation and entry points for ant trails and seal any cracks</li>
@@ -75,7 +78,10 @@ export default function Page() {
           </p>
         </div>
 
-        <h2>Summer (June–September)</h2>
+        <div className="flex items-center gap-3 mt-10 mb-3">
+          <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">2</span>
+          <h2 className="!mt-0 !mb-0">Summer (June–September)</h2>
+        </div>
         <h3>Mosquitoes, Cockroaches & Fleas</h3>
         <ul>
           <li>Empty standing water at least weekly, pots, bird baths, pet bowls, gutters</li>
@@ -86,7 +92,10 @@ export default function Page() {
           <li>Keep garage doors closed, especially at night</li>
         </ul>
 
-        <h2>Fall (October–December)</h2>
+        <div className="flex items-center gap-3 mt-10 mb-3">
+          <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">3</span>
+          <h2 className="!mt-0 !mb-0">Fall (October–December)</h2>
+        </div>
         <h3>Rodents & Earwigs</h3>
         <ul>
           <li>Inspect your roofline, attic vents, and soffits for gaps (a ¼-inch hole is enough for a mouse)</li>
@@ -96,7 +105,10 @@ export default function Page() {
           <li>Remove leaf piles and debris from around the foundation</li>
         </ul>
 
-        <h2>Winter (January–February)</h2>
+        <div className="flex items-center gap-3 mt-10 mb-3">
+          <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">4</span>
+          <h2 className="!mt-0 !mb-0">Winter (January–February)</h2>
+        </div>
         <h3>Ants After Rain & Indoor Pests</h3>
         <ul>
           <li>Check for ants following rain events, they move indoors to escape wet conditions</li>

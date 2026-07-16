@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FreeQuotePopup from "@/components/FreeQuotePopup";
+import CrawlingBug from "@/components/CrawlingBug";
 import { defaultMetadata } from "@/lib/seo";
 import { generateLocalBusinessSchema, generateWebSiteSchema, generateSiteNavigationSchema } from "@/lib/schema";
 import { BUSINESS } from "@/lib/constants";
@@ -53,6 +54,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <FreeQuotePopup />
+        <CrawlingBug />
       </body>
     </html>
   );

@@ -52,14 +52,29 @@ export default function Page() {
           The problem: rodents are secretive, and many homeowners don&apos;t realize they have an infestation until significant damage has been done. Here are 10 warning signs to watch for.
         </p>
 
-        <h2>1. Noises in Walls or Ceiling at Night</h2>
-        <p>Scratching, scurrying, or thumping sounds, especially between 11 PM and 3 AM, are the most common early sign of roof rats. They&apos;re active after dark and often travel along the same paths inside your walls.</p>
+        <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 my-5 hover:shadow-md hover:border-primary-200 transition-all duration-200">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">1</span>
+            <h2 className="!mt-0 !mb-0 !text-2xl">Noises in Walls or Ceiling at Night</h2>
+          </div>
+          <p className="!mb-0">Scratching, scurrying, or thumping sounds, especially between 11 PM and 3 AM, are the most common early sign of roof rats. They&apos;re active after dark and often travel along the same paths inside your walls.</p>
+        </div>
 
-        <h2>2. Droppings</h2>
-        <p>Rat droppings are capsule-shaped, about ½ inch long, and dark brown or black. They&apos;re commonly found along walls, in cabinets, under sinks, and in the attic. Fresh droppings are shiny and soft, older ones are gray and crumbly.</p>
+        <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 my-5 hover:shadow-md hover:border-primary-200 transition-all duration-200">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">2</span>
+            <h2 className="!mt-0 !mb-0 !text-2xl">Droppings</h2>
+          </div>
+          <p className="!mb-0">Rat droppings are capsule-shaped, about ½ inch long, and dark brown or black. They&apos;re commonly found along walls, in cabinets, under sinks, and in the attic. Fresh droppings are shiny and soft, older ones are gray and crumbly.</p>
+        </div>
 
-        <h2>3. Gnaw Marks</h2>
-        <p>Rats have teeth that never stop growing, they must gnaw constantly. Look for gnaw marks on wood, plastic, electrical wiring, food packaging, and insulation. Chewed wires are a serious fire hazard.</p>
+        <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 my-5 hover:shadow-md hover:border-primary-200 transition-all duration-200">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">3</span>
+            <h2 className="!mt-0 !mb-0 !text-2xl">Gnaw Marks</h2>
+          </div>
+          <p className="!mb-0">Rats have teeth that never stop growing, they must gnaw constantly. Look for gnaw marks on wood, plastic, electrical wiring, food packaging, and insulation. Chewed wires are a serious fire hazard.</p>
+        </div>
 
         <div className="bg-primary-50 border-l-4 border-primary-600 p-4 rounded-r-xl my-4">
           <p className="font-semibold text-primary-900 !mb-1">Fire Hazard Alert</p>
@@ -68,26 +83,61 @@ export default function Page() {
           </p>
         </div>
 
-        <h2>4. Nesting Material</h2>
-        <p>Rats build nests from shredded paper, fabric, insulation, and plant material. Check attic corners, inside walls, behind appliances, and in storage boxes for nesting material.</p>
+        <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 my-5 hover:shadow-md hover:border-primary-200 transition-all duration-200">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">4</span>
+            <h2 className="!mt-0 !mb-0 !text-2xl">Nesting Material</h2>
+          </div>
+          <p className="!mb-0">Rats build nests from shredded paper, fabric, insulation, and plant material. Check attic corners, inside walls, behind appliances, and in storage boxes for nesting material.</p>
+        </div>
 
-        <h2>5. Grease Marks on Walls</h2>
-        <p>Rats travel the same routes repeatedly, leaving oily rub marks (called &quot;grease marks&quot;) along walls, pipes, and beams. Dark smudge marks at entry points are a telltale sign.</p>
+        <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 my-5 hover:shadow-md hover:border-primary-200 transition-all duration-200">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">5</span>
+            <h2 className="!mt-0 !mb-0 !text-2xl">Grease Marks on Walls</h2>
+          </div>
+          <p className="!mb-0">Rats travel the same routes repeatedly, leaving oily rub marks (called &quot;grease marks&quot;) along walls, pipes, and beams. Dark smudge marks at entry points are a telltale sign.</p>
+        </div>
 
-        <h2>6. Footprints or Tail Drag Marks</h2>
-        <p>In dusty areas, attics, garages, or beneath appliances, you may see rat footprints or the drag mark left by a rat&apos;s tail.</p>
+        <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 my-5 hover:shadow-md hover:border-primary-200 transition-all duration-200">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">6</span>
+            <h2 className="!mt-0 !mb-0 !text-2xl">Footprints or Tail Drag Marks</h2>
+          </div>
+          <p className="!mb-0">In dusty areas, attics, garages, or beneath appliances, you may see rat footprints or the drag mark left by a rat&apos;s tail.</p>
+        </div>
 
-        <h2>7. Pet Behavior Changes</h2>
-        <p>Dogs and cats often detect rodents before humans do. If your pet is suddenly sniffing at walls, pawing at baseboards, or acting agitated at night, take it seriously.</p>
+        <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 my-5 hover:shadow-md hover:border-primary-200 transition-all duration-200">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">7</span>
+            <h2 className="!mt-0 !mb-0 !text-2xl">Pet Behavior Changes</h2>
+          </div>
+          <p className="!mb-0">Dogs and cats often detect rodents before humans do. If your pet is suddenly sniffing at walls, pawing at baseboards, or acting agitated at night, take it seriously.</p>
+        </div>
 
-        <h2>8. Burrows or Runways in Your Yard</h2>
-        <p>Norway rats (less common than roof rats in San Diego, but present) burrow in the ground. Look for golf ball-sized holes along fences, under concrete slabs, or near compost piles.</p>
+        <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 my-5 hover:shadow-md hover:border-primary-200 transition-all duration-200">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">8</span>
+            <h2 className="!mt-0 !mb-0 !text-2xl">Burrows or Runways in Your Yard</h2>
+          </div>
+          <p className="!mb-0">Norway rats (less common than roof rats in San Diego, but present) burrow in the ground. Look for golf ball-sized holes along fences, under concrete slabs, or near compost piles.</p>
+        </div>
 
-        <h2>9. Food Packaging Damage</h2>
-        <p>Gnaw holes in pantry items, cereal boxes, pet food bags, or garden products are a clear sign rodents are foraging in your home.</p>
+        <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 my-5 hover:shadow-md hover:border-primary-200 transition-all duration-200">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">9</span>
+            <h2 className="!mt-0 !mb-0 !text-2xl">Food Packaging Damage</h2>
+          </div>
+          <p className="!mb-0">Gnaw holes in pantry items, cereal boxes, pet food bags, or garden products are a clear sign rodents are foraging in your home.</p>
+        </div>
 
-        <h2>10. Visible Rodents</h2>
-        <p>Seeing a rat, inside or outside your home, at any time of day is a serious sign. Rats are typically nocturnal; a rat seen in daylight often indicates a large, overcrowded infestation.</p>
+        <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 my-5 hover:shadow-md hover:border-primary-200 transition-all duration-200">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-9 h-9 shrink-0 rounded-full bg-primary-600 text-white text-sm font-bold flex items-center justify-center">10</span>
+            <h2 className="!mt-0 !mb-0 !text-2xl">Visible Rodents</h2>
+          </div>
+          <p className="!mb-0">Seeing a rat, inside or outside your home, at any time of day is a serious sign. Rats are typically nocturnal; a rat seen in daylight often indicates a large, overcrowded infestation.</p>
+        </div>
 
         <h2>What to Do If You Spot These Signs</h2>
         <p>
