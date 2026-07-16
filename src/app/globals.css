@@ -292,26 +292,14 @@ html {
   100% { transform: scale(1.6, 0.1); opacity: 0; }
 }
 
-/* ── Hero bug rotator ────────────────────────────────────── */
-.bug-stage-cycle {
-  animation: bug-walk-across 4.2s ease-in-out both;
+/* ── Rotating headline pest word (Orkin-style ticker) ────── */
+.pest-word-cycle {
+  animation: pest-word-cycle 2.6s ease-in-out both;
 }
 
-.bug-name-cycle {
-  animation: bug-name-cycle 4.2s ease-in-out both;
-}
-
-@keyframes bug-walk-across {
-  0% { transform: translateX(-130%); }
-  24% { transform: translateX(0); }
-  78% { transform: translateX(0); }
-  100% { transform: translateX(130%); }
-}
-
-@keyframes bug-name-cycle {
-  0% { opacity: 0; transform: translateY(10px); }
-  14% { opacity: 1; transform: translateY(0); }
-  82% { opacity: 1; transform: translateY(0); }
-  96% { opacity: 0; transform: translateY(-8px); }
-  100% { opacity: 0; transform: translateY(-8px); }
+@keyframes pest-word-cycle {
+  0% { transform: translateY(105%); opacity: 0.6; }
+  14% { transform: translateY(0); opacity: 1; }
+  84% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-105%); opacity: 0.6; }
 }

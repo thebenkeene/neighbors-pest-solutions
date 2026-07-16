@@ -7,7 +7,7 @@ import FAQItem from "@/components/FAQItem";
 import { generateFAQSchema } from "@/lib/schema";
 import { generateSEO } from "@/lib/seo";
 import { BUSINESS, TOP_SERVICES, TESTIMONIALS, FAQS, SERVICE_AREAS } from "@/lib/constants";
-import BugRotator from "@/components/BugRotator";
+import RotatingPestWord from "@/components/RotatingPestWord";
 
 export const metadata: Metadata = generateSEO({
   title: "Pest Control San Diego CA",
@@ -149,17 +149,21 @@ export default function HomePage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-36 w-full">
-          <BugRotator />
           <div className="max-w-3xl">
             {/* Label */}
             <p className="text-primary-300 font-semibold uppercase tracking-widest text-sm mb-4">
               {BUSINESS.tagline}
             </p>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight drop-shadow-lg text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-lg text-white">
               Pest Control<br />
               <span className="text-primary-400">San Diego, CA</span>
             </h1>
+            {/* Decorative rotating line (aria-hidden); the H1 above is the real headline */}
+            <p className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight drop-shadow-lg text-white">
+              The best in{" "}
+              <RotatingPestWord />
+            </p>
             <p className="text-xl md:text-2xl mb-4 text-gray-200 drop-shadow-md leading-relaxed">
               Safe, reliable pest control for San Diego homeowners. Ants, spiders, bed bugs, rodents, and more, eliminated fast and guaranteed.
             </p>
