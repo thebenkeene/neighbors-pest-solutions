@@ -10,7 +10,6 @@ const PEST_OPTIONS = [
 ];
 
 const STORAGE_KEY = 'nps_quote_popup_dismissed';
-const SUBMITTED_KEY = 'nps_quote_popup_submitted';
 // Shows once per browser session (sessionStorage flag set on dismiss or
 // submit), 4 seconds after page load.
 const POPUP_DELAY_MS = 4000;
@@ -38,7 +37,6 @@ export default function FreeQuotePopup() {
   useEffect(() => {
     if (isExcluded) return;
     if (sessionStorage.getItem(STORAGE_KEY)) return;
-    if (localStorage.getItem(SUBMITTED_KEY)) return; // don't re-prompt past converters
 
     const timer = setTimeout(() => setVisible(true), POPUP_DELAY_MS);
     return () => clearTimeout(timer);
@@ -110,7 +108,6 @@ export default function FreeQuotePopup() {
       if (res.ok) {
         setStatus('success');
         sessionStorage.setItem(STORAGE_KEY, '1');
-        localStorage.setItem(SUBMITTED_KEY, '1');
       } else {
         setStatus('error');
       }
