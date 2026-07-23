@@ -27,6 +27,7 @@ export default function FreeQuotePopup() {
     firstName: '',
     phone: '',
     pestType: '',
+    source: '',
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [honeypot, setHoneypot] = useState('');
@@ -120,6 +121,7 @@ export default function FreeQuotePopup() {
           phone: formData.phone,
           serviceType: 'Residential',
           pestType: formData.pestType,
+          source: formData.source,
           address: '',
           message: '50% off first service, popup quote request.',
           _hp: honeypot,
@@ -281,6 +283,28 @@ export default function FreeQuotePopup() {
                     ))}
                   </select>
                   {errors.pestType && <p className="mt-1 text-xs text-red-600">{errors.pestType}</p>}
+                </div>
+
+                {/* Lead source (optional, one tap) */}
+                <div>
+                  <p className="text-xs font-medium text-dark-600 mb-1.5">How did you hear about us?</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {['Customer', 'Customer Referral', 'Online', 'Other'].map((s) => (
+                      <button
+                        key={s}
+                        type="button"
+                        aria-pressed={formData.source === s}
+                        onClick={() => setFormData((prev) => ({ ...prev, source: prev.source === s ? '' : s }))}
+                        className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-150 ${
+                          formData.source === s
+                            ? 'bg-primary-600 text-white border-primary-600'
+                            : 'bg-white text-dark-600 border-gray-200 hover:border-primary-400 hover:text-primary-600'
+                        }`}
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <button

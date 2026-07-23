@@ -20,6 +20,7 @@ interface FormData {
   pestType: string;
   address: string;
   message: string;
+  source: string;
 }
 
 interface FieldErrors {
@@ -36,6 +37,7 @@ export default function ContactForm() {
     pestType: '',
     address: '',
     message: '',
+    source: '',
   });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -79,7 +81,7 @@ export default function ContactForm() {
       });
       if (res.ok) {
         setStatus('success');
-        setFormData({ firstName: '', lastName: '', email: '', phone: '', serviceType: 'Residential', pestType: '', address: '', message: '' });
+        setFormData({ firstName: '', lastName: '', email: '', phone: '', serviceType: 'Residential', pestType: '', address: '', message: '', source: '' });
       } else {
         setStatus('error');
       }
@@ -184,6 +186,28 @@ export default function ContactForm() {
       <div>
         <label className="block text-sm font-medium text-dark-700 mb-1" htmlFor="message">Message</label>
         <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className={inputClass('message')} placeholder="Tell us about your pest situation..." />
+      </div>
+
+      {/* Lead source (optional, one tap) */}
+      <div>
+        <label className="block text-sm font-medium text-dark-700 mb-2">How did you hear about us?</label>
+        <div className="flex flex-wrap gap-2">
+          {['Customer', 'Customer Referral', 'Online', 'Other'].map((s) => (
+            <button
+              key={s}
+              type="button"
+              aria-pressed={formData.source === s}
+              onClick={() => setFormData((prev) => ({ ...prev, source: prev.source === s ? '' : s }))}
+              className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-150 ${
+                formData.source === s
+                  ? 'bg-primary-600 text-white border-primary-600 shadow-sm'
+                  : 'bg-white text-dark-600 border-gray-300 hover:border-primary-400 hover:text-primary-600'
+              }`}
+            >
+              {s}
+            </button>
+          ))}
+        </div>
       </div>
 
       <button

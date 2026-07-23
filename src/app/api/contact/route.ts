@@ -86,7 +86,7 @@ export async function POST(req: NextRequest) {
     const FROM_EMAIL = "Neighbors Pest Solutions <info@neighborspestsolutions.com>";
     const NOTIFY_EMAILS = ["info@neighborspestsolutions.com", "team@neighborspestsolutions.com"];
     const body = await req.json();
-    const { firstName, lastName, email, phone, serviceType, pestType, address, message, _hp, _t } = body;
+    const { firstName, lastName, email, phone, serviceType, pestType, address, message, source, _hp, _t } = body;
 
     /* ── Honeypot: bots fill this, humans don't see it ── */
     if (_hp) return silentReject();
@@ -136,6 +136,8 @@ export async function POST(req: NextRequest) {
     const sPestType    = esc(pestType);
     const sAddress     = esc(address || "");
     const sMessage     = esc(message || "");
+    const ALLOWED_SOURCES = ["Customer", "Customer Referral", "Online", "Other"];
+    const sSource      = ALLOWED_SOURCES.includes(source) ? source : "";
 
     const notificationHtml = `
 <!DOCTYPE html>
@@ -154,8 +156,9 @@ export async function POST(req: NextRequest) {
       <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a;">Service Type</td><td style="padding: 10px 12px; color: #111111;">${sServiceType}</td></tr>
       <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a; background: #eff6ff;">Pest Type</td><td style="padding: 10px 12px; background: #eff6ff; color: #111111;"><strong>${sPestType}</strong></td></tr>
       <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a;">Property Address</td><td style="padding: 10px 12px; color: #111111;">${sAddress || "N/A"}</td></tr>
-      <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a; background: #eff6ff; vertical-align: top;">Message</td><td style="padding: 10px 12px; background: #eff6ff; color: #111111; white-space: pre-wrap;">${sMessage || "N/A"}</td></tr>
-      <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a;">Submitted</td><td style="padding: 10px 12px; color: #6b6b6b; font-size: 13px;">${submittedAt}</td></tr>
+      <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a; background: #eff6ff;">Lead Source</td><td style="padding: 10px 12px; background: #eff6ff; color: #111111;"><strong>${sSource || "Not provided"}</strong></td></tr>
+      <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a; vertical-align: top;">Message</td><td style="padding: 10px 12px; color: #111111; white-space: pre-wrap;">${sMessage || "N/A"}</td></tr>
+      <tr><td style="padding: 10px 12px; font-weight: 700; color: #1e3a8a; background: #eff6ff;">Submitted</td><td style="padding: 10px 12px; background: #eff6ff; color: #6b6b6b; font-size: 13px;">${submittedAt}</td></tr>
     </table>
     <div style="margin-top: 24px; padding: 14px 16px; background: #eff6ff; border-left: 4px solid #3b82f6;">
       <p style="margin: 0; font-size: 13px; color: #1e3a8a;">Reply to this email to respond directly to <strong>${sFirstName}</strong>, or click <a href="mailto:${sEmail}" style="color:#3b82f6;">${sEmail}</a>.</p>
