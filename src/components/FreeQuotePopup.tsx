@@ -11,11 +11,9 @@ const PEST_OPTIONS = [
 
 const STORAGE_KEY = 'nps_quote_popup_dismissed';
 const SUBMITTED_KEY = 'nps_quote_popup_submitted';
-// Engagement-based trigger: 30s on page OR 50% scroll depth, whichever first.
-// (A 4s timer interrupted visitors before they'd read anything, bad for
-// bounce, INP, and lead quality.)
-const POPUP_DELAY_MS = 30000;
-const SCROLL_TRIGGER_RATIO = 0.5;
+// Shows once per browser session (sessionStorage flag set on dismiss or
+// submit), 4 seconds after page load.
+const POPUP_DELAY_MS = 4000;
 const EXCLUDED_PATHS = ['/contact', '/privacy-policy', '/terms-of-service'];
 
 export default function FreeQuotePopup() {
@@ -40,29 +38,10 @@ export default function FreeQuotePopup() {
   useEffect(() => {
     if (isExcluded) return;
     if (sessionStorage.getItem(STORAGE_KEY)) return;
-    if (localStorage.getItem(SUBMITTED_KEY)) return; // don't re-prompt converters
+    if (localStorage.getItem(SUBMITTED_KEY)) return; // don't re-prompt past converters
 
-    let triggered = false;
-    const trigger = () => {
-      if (triggered) return;
-      triggered = true;
-      setVisible(true);
-      window.removeEventListener('scroll', onScroll);
-    };
-
-    const onScroll = () => {
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      if (scrollable > 0 && window.scrollY / scrollable >= SCROLL_TRIGGER_RATIO) {
-        trigger();
-      }
-    };
-
-    const timer = setTimeout(trigger, POPUP_DELAY_MS);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('scroll', onScroll);
-    };
+    const timer = setTimeout(() => setVisible(true), POPUP_DELAY_MS);
+    return () => clearTimeout(timer);
   }, [isExcluded]);
 
   const dismiss = useCallback(() => {
