@@ -54,6 +54,7 @@ export async function GET(request: Request) {
     const snapshot = await client.createSnapshot(
       startInclusive,
       tomorrowInLosAngeles(),
+      latest,
     );
     await saveSnapshot(snapshot);
 
@@ -63,6 +64,10 @@ export async function GET(request: Request) {
       generatedAt: snapshot.metadata.generatedAt,
       apiReadsUsed: snapshot.metadata.apiReadsUsed,
       recurringRecords: snapshot.metadata.recurringRecords,
+      serviceRecords: snapshot.metadata.serviceRecords,
+      serviceHistoryStartInclusive:
+        snapshot.metadata.serviceHistoryStartInclusive,
+      serviceHistoryComplete: snapshot.metadata.serviceHistoryComplete,
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Sync failed";

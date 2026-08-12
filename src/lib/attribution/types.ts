@@ -1,9 +1,14 @@
 export type SellerCategory = -1 | 0 | 1 | 2;
 
+export type AttributionChannel = "sales-team" | "online" | "referral";
+export type AttributionChannelFilter = "all" | AttributionChannel;
+export type OnlineDetail = "Google" | "Facebook" | "Yelp" | "Unknown";
+
 export interface AttributionRecord {
   customerID: number;
   subscriptionID: number;
   soldDate: string;
+  customerCreatedDate?: string;
   annualRecurringValue: string;
   subscriptionActive: boolean;
   customerActive: boolean;
@@ -18,8 +23,19 @@ export interface AttributionRecord {
   customerSubSource: string;
 }
 
+export interface AttributionServiceRecord {
+  appointmentID: number;
+  customerID: number;
+  subscriptionID: number | null;
+  serviceDate: string;
+  completedAt: string;
+  ticketID: number | null;
+  commissionRevenue: string;
+  revenueBasis: "productionValue" | "subTotal" | "none";
+}
+
 export interface AttributionSnapshot {
-  version: 1;
+  version: 1 | 2;
   metadata: {
     tenant: "neighborspest";
     officeID: 1;
@@ -29,33 +45,26 @@ export interface AttributionSnapshot {
     apiReadsUsed: number;
     recordsRetrieved: number;
     recurringRecords: number;
+    serviceRecords?: number;
+    serviceHistoryStartInclusive?: string;
+    serviceHistoryEndExclusive?: string;
+    serviceHistoryComplete?: boolean;
   };
   definitions: {
     arr: string;
     nonSalesRep: string;
     reportEquivalent: string;
+    serviceRevenue?: string;
+    firstYear?: string;
   };
   records: AttributionRecord[];
+  services?: AttributionServiceRecord[];
 }
-
-export type SourceDimension =
-  | "customer"
-  | "subscription"
-  | "lead";
-
-export type SalesFilter = "all" | "non-sales" | "no-sales-credit";
-export type StatusFilter = "all" | "active-subscription" | "report-equivalent";
-export type OnlineFilter = "all" | "online-only" | "exclude-online";
 
 export interface AttributionFilters {
   startMonth: string;
   endMonth: string;
-  dimension: SourceDimension;
-  source: string;
-  subSource: string;
-  sales: SalesFilter;
-  status: StatusFilter;
-  online: OnlineFilter;
+  channel: AttributionChannelFilter;
 }
 
 export interface AttributionStats {
@@ -65,5 +74,15 @@ export interface AttributionStats {
 }
 
 export interface AttributionGroup extends AttributionStats {
+  label: string;
+}
+
+export interface ServiceStats {
+  customers: number;
+  services: number;
+  commissionRevenue: number;
+}
+
+export interface ServiceGroup extends ServiceStats {
   label: string;
 }

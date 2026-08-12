@@ -81,7 +81,7 @@ export default async function AttributionPage() {
               Attribution overview
             </h1>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
-              Recurring customer ARR grouped by sold month and acquisition source.
+              Customer ARR, acquisition channels, and first-year Online service revenue.
             </p>
           </div>
           <div className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-xs text-slate-500 shadow-sm">

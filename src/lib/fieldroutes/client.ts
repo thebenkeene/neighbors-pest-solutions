@@ -1,5 +1,6 @@
 import type {
   AttributionRecord,
+  AttributionServiceRecord,
   AttributionSnapshot,
   SellerCategory,
 } from "@/lib/attribution/types";
@@ -7,6 +8,8 @@ import type {
 const DEFAULT_BASE_URL = "https://neighborspest.pestroutes.com/api";
 export const MAX_FIELDROUTES_READS = 40;
 const BULK_SIZE = 1000;
+const SERVICE_WINDOW_DAYS = 14;
+const SERVICE_REFRESH_DAYS = 28;
 
 type FormValue = string | number | boolean | Array<string | number> | object;
 type ApiObject = Record<string, unknown>;
@@ -45,6 +48,16 @@ function endOfPreviousSecond(endExclusive: string): string {
   const timestamp = new Date(`${endExclusive}T00:00:00Z`);
   timestamp.setUTCSeconds(timestamp.getUTCSeconds() - 1);
   return timestamp.toISOString().slice(0, 19).replace("T", " ");
+}
+
+function addDays(value: string, days: number): string {
+  const timestamp = new Date(`${value}T00:00:00Z`);
+  timestamp.setUTCDate(timestamp.getUTCDate() + days);
+  return timestamp.toISOString().slice(0, 10);
+}
+
+function laterDate(left: string, right: string): string {
+  return left > right ? left : right;
 }
 
 function sellerLabel(type: SellerCategory): string {
@@ -149,9 +162,203 @@ export class FieldRoutesClient {
     return entities;
   }
 
+  private async fetchCompletedServiceWindow(
+    startInclusive: string,
+    endExclusive: string,
+  ): Promise<AttributionServiceRecord[] | null> {
+    const search = await this.post("appointment", "search", {
+      status: 1,
+      dateStart: `${startInclusive} 00:00:00`,
+      dateEnd: endOfPreviousSecond(endExclusive),
+      includeData: 1,
+    });
+    const appointments = asObjects(search.appointments);
+    const unresolvedIDs = (Array.isArray(search.appointmentIDsNoDataExported)
+      ? search.appointmentIDsNoDataExported
+      : [])
+      .map(positiveID)
+      .filter((value): value is number => value !== null);
+    const allIDs = (Array.isArray(search.appointmentIDs)
+      ? search.appointmentIDs
+      : [])
+      .map(positiveID)
+      .filter((value): value is number => value !== null);
+    const appointmentCount = Math.max(
+      allIDs.length,
+      appointments.length + unresolvedIDs.length,
+    );
+    const unresolvedBatches = Math.ceil(unresolvedIDs.length / BULK_SIZE);
+    // Every completed appointment can have at most one invoice. Reserve the
+    // worst-case ticket reads before resolving the rest of this window.
+    const maximumTicketBatches = Math.ceil(appointmentCount / BULK_SIZE);
+    if (
+      this.readsUsed + unresolvedBatches + maximumTicketBatches >
+      this.maxReads
+    ) {
+      return null;
+    }
+
+    appointments.push(
+      ...(await this.getEntities(
+        "appointment",
+        unresolvedIDs,
+        "appointmentIDs",
+        "appointments",
+      )),
+    );
+
+    const completed = appointments.filter((appointment) => {
+      const serviceDate = asString(appointment.date).slice(0, 10);
+      return (
+        asNumber(appointment.status) === 1 &&
+        serviceDate >= startInclusive &&
+        serviceDate < endExclusive
+      );
+    });
+    const ticketIDs = [
+      ...new Set(
+        completed
+          .map((appointment) => positiveID(appointment.ticketID))
+          .filter((value): value is number => value !== null),
+      ),
+    ].sort((a, b) => a - b);
+    const tickets = await this.getEntities(
+      "ticket",
+      ticketIDs,
+      "ticketIDs",
+      "tickets",
+    );
+    const ticketsByID = new Map(
+      tickets.map((ticket) => [asNumber(ticket.ticketID), ticket]),
+    );
+
+    return completed.flatMap((appointment) => {
+      const appointmentID = positiveID(appointment.appointmentID);
+      const customerID = positiveID(appointment.customerID);
+      if (!appointmentID || !customerID) return [];
+      const ticketID = positiveID(appointment.ticketID);
+      const ticket = ticketID ? ticketsByID.get(ticketID) : undefined;
+      const ticketIsActive = ticket && asNumber(ticket.active) === 1;
+      let commissionRevenue = 0;
+      let revenueBasis: AttributionServiceRecord["revenueBasis"] = "none";
+      if (ticketIsActive) {
+        const hasProductionValue =
+          ticket.productionValue !== null &&
+          ticket.productionValue !== undefined &&
+          asString(ticket.productionValue).trim() !== "";
+        const productionValue = asNumber(ticket.productionValue);
+        if (hasProductionValue && productionValue >= 0) {
+          commissionRevenue = productionValue;
+          revenueBasis = "productionValue";
+        } else {
+          commissionRevenue = asNumber(ticket.subTotal);
+          revenueBasis = "subTotal";
+        }
+      }
+
+      return [
+        {
+          appointmentID,
+          customerID,
+          subscriptionID: positiveID(appointment.subscriptionID),
+          serviceDate: asString(appointment.date),
+          completedAt: asString(appointment.dateCompleted),
+          ticketID,
+          commissionRevenue: commissionRevenue.toFixed(2),
+          revenueBasis,
+        },
+      ];
+    });
+  }
+
+  private async syncServiceHistory(
+    startInclusive: string,
+    endExclusive: string,
+    previous: AttributionSnapshot | null,
+  ): Promise<{
+    services: AttributionServiceRecord[];
+    historyStartInclusive: string;
+    historyComplete: boolean;
+  }> {
+    const services = new Map(
+      (previous?.services ?? []).map((service) => [
+        service.appointmentID,
+        service,
+      ]),
+    );
+    let historyStartInclusive =
+      previous?.metadata.serviceHistoryStartInclusive ?? endExclusive;
+
+    const applyWindow = (
+      windowStart: string,
+      windowEnd: string,
+      rows: AttributionServiceRecord[],
+    ) => {
+      for (const [appointmentID, service] of services) {
+        const date = service.serviceDate.slice(0, 10);
+        if (date >= windowStart && date < windowEnd) {
+          services.delete(appointmentID);
+        }
+      }
+      for (const service of rows) services.set(service.appointmentID, service);
+      if (
+        historyStartInclusive === windowEnd ||
+        (historyStartInclusive > windowStart &&
+          historyStartInclusive <= windowEnd)
+      ) {
+        historyStartInclusive = windowStart;
+      }
+    };
+
+    const refreshStart = laterDate(
+      startInclusive,
+      addDays(endExclusive, -SERVICE_REFRESH_DAYS),
+    );
+    let refreshEnd = endExclusive;
+    while (refreshEnd > refreshStart && this.maxReads - this.readsUsed >= 2) {
+      const windowStart = laterDate(
+        refreshStart,
+        addDays(refreshEnd, -SERVICE_WINDOW_DAYS),
+      );
+      const rows = await this.fetchCompletedServiceWindow(
+        windowStart,
+        refreshEnd,
+      );
+      if (!rows) break;
+      applyWindow(windowStart, refreshEnd, rows);
+      refreshEnd = windowStart;
+    }
+
+    let backfillEnd = historyStartInclusive;
+    while (backfillEnd > startInclusive && this.maxReads - this.readsUsed >= 2) {
+      const windowStart = laterDate(
+        startInclusive,
+        addDays(backfillEnd, -SERVICE_WINDOW_DAYS),
+      );
+      const rows = await this.fetchCompletedServiceWindow(
+        windowStart,
+        backfillEnd,
+      );
+      if (!rows) break;
+      applyWindow(windowStart, backfillEnd, rows);
+      backfillEnd = windowStart;
+    }
+
+    return {
+      services: [...services.values()].sort(
+        (left, right) =>
+          left.serviceDate.localeCompare(right.serviceDate) ||
+          left.appointmentID - right.appointmentID,
+      ),
+      historyStartInclusive,
+      historyComplete: historyStartInclusive <= startInclusive,
+    };
+  }
+
   async createSnapshot(
     startInclusive: string,
     endExclusive: string,
+    previous: AttributionSnapshot | null = null,
   ): Promise<AttributionSnapshot> {
     const search = await this.post("subscription", "search", {
       dateAddedStart: `${startInclusive} 00:00:00`,
@@ -249,6 +456,7 @@ export class FieldRoutesClient {
           customerID,
           subscriptionID,
           soldDate: asString(subscription.dateAdded),
+          customerCreatedDate: asString(customer.dateAdded),
           annualRecurringValue: asNumber(
             subscription.annualRecurringValue,
           ).toFixed(2),
@@ -267,8 +475,14 @@ export class FieldRoutesClient {
       ];
     });
 
+    const serviceHistory = await this.syncServiceHistory(
+      startInclusive,
+      endExclusive,
+      previous,
+    );
+
     return {
-      version: 1,
+      version: 2,
       metadata: {
         tenant: "neighborspest",
         officeID: 1,
@@ -278,14 +492,23 @@ export class FieldRoutesClient {
         apiReadsUsed: this.readsUsed,
         recordsRetrieved: subscriptions.length,
         recurringRecords: records.length,
+        serviceRecords: serviceHistory.services.length,
+        serviceHistoryStartInclusive: serviceHistory.historyStartInclusive,
+        serviceHistoryEndExclusive: endExclusive,
+        serviceHistoryComplete: serviceHistory.historyComplete,
       },
       definitions: {
         arr: "subscription.annualRecurringValue > 0",
         nonSalesRep: "primary soldBy employee type is not Sales Rep (type 2)",
         reportEquivalent:
-          "non-sales-rep recurring subscription with active subscription and active customer",
+          "recurring subscription with active subscription and active customer",
+        serviceRevenue:
+          "active appointment invoice productionValue; use subTotal when productionValue is -1",
+        firstYear:
+          "service date is on/after customer dateAdded and before its one-year anniversary",
       },
       records,
+      services: serviceHistory.services,
     };
   }
 }
