@@ -5,6 +5,7 @@ import {
   filterRecords,
   getAttributionChannel,
   getOnlineDetail,
+  groupByMonth,
   isFirstYearService,
   summarize,
   summarizeServices,
@@ -112,6 +113,12 @@ test("keeps the inclusive start and end month range accurate", () => {
     endMonth: "2026-06",
   });
   assert.deepEqual(result.map((record) => record.customerID), [2, 3]);
+  assert.deepEqual(groupByMonth(records).map((group) => group.label), [
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+  ]);
 });
 
 test("filters by the friendly channel without exposing raw fields", () => {

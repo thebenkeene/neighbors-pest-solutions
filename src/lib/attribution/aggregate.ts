@@ -114,7 +114,9 @@ function groupBy(
 }
 
 export function groupByMonth(records: AttributionRecord[]): AttributionGroup[] {
-  return groupBy(records, (record) => monthOf(record.soldDate));
+  return groupBy(records, (record) => monthOf(record.soldDate)).sort((left, right) =>
+    left.label.localeCompare(right.label),
+  );
 }
 
 export function groupByChannel(records: AttributionRecord[]): AttributionGroup[] {
