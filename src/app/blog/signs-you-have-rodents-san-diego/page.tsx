@@ -7,6 +7,7 @@ import { BUSINESS } from "@/lib/constants";
 
 export const metadata: Metadata = generateSEO({
   title: "10 Signs You Have a Rodent Problem in San Diego",
+  brandSuffix: false,
   description: "Roof rats are one of San Diego's most destructive pests. Learn the 10 early warning signs of a rodent infestation before it gets out of hand.",
   path: "/blog/signs-you-have-rodents-san-diego",
   type: "article",

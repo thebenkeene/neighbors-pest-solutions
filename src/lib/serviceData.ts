@@ -37,6 +37,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { name: "Cockroach Control", slug: "cockroach-control" },
       { name: "Spider Control", slug: "spider-control" },
       { name: "Carpenter Ant Control", slug: "carpenter-ant-control" },
+      { name: "Exterminator Services", slug: "exterminator-san-diego" },
     ],
   },
 
@@ -114,7 +115,8 @@ export const servicePages: Record<string, ServicePageData> = {
     relatedServices: [
       { name: "Ant Control", slug: "ant-control" },
       { name: "Cockroach Control", slug: "cockroach-control" },
-      { name: "Earwig Control", slug: "earwig-control" },
+      { name: "Bed Bug Control", slug: "bed-bug-control" },
+      { name: "Exterminator Services", slug: "exterminator-san-diego" },
     ],
   },
 
@@ -547,6 +549,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { name: "Cockroach Control", slug: "cockroach-control" },
       { name: "Ant Control", slug: "ant-control" },
       { name: "Mosquito Control", slug: "mosquito-control" },
+      { name: "Exterminator Services", slug: "exterminator-san-diego" },
     ],
   },
 

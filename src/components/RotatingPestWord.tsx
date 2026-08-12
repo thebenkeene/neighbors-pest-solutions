@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useSyncExternalStore } from 'react';
 
 const PESTS = [
   'Ants.',
@@ -13,6 +13,18 @@ const PESTS = [
   'Ticks.',
 ];
 
+const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+
+function subscribeToReducedMotion(callback: () => void) {
+  const mql = window.matchMedia(REDUCED_MOTION_QUERY);
+  mql.addEventListener('change', callback);
+  return () => mql.removeEventListener('change', callback);
+}
+
+function getReducedMotion() {
+  return window.matchMedia(REDUCED_MOTION_QUERY).matches;
+}
+
 /**
  * Orkin-style rotating headline word: "The best in ___" where the pest
  * name ticker-slides up and out as the next slides in from below.
@@ -24,11 +36,13 @@ const PESTS = [
  */
 export default function RotatingPestWord() {
   const [index, setIndex] = useState(0);
-  const [reduced, setReduced] = useState(false);
-
-  useEffect(() => {
-    setReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  }, []);
+  // useSyncExternalStore avoids setting state inside an effect and stays
+  // in sync if the OS-level preference changes mid-session.
+  const reduced = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotion,
+    () => false // server snapshot: assume animation allowed
+  );
 
   return (
     <span aria-hidden="true" className="block overflow-hidden leading-tight">

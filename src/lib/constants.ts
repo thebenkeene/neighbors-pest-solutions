@@ -16,8 +16,10 @@ export const BUSINESS = {
   hours: "Monday–Friday: 8:00 AM – 5:00 PM",
   hoursShort: "Mon–Fri 8AM–5PM",
   geo: {
-    latitude: 32.9014,
-    longitude: -117.1939,
+    // Verified office coordinates (9030 Kenamar Dr #301) — feeds both the
+    // geo meta tags and LocalBusiness JSON-LD.
+    latitude: 32.8867087,
+    longitude: -117.1570582,
   },
   url: "https://www.neighborspestsolutions.com",
   socialFacebook: "https://www.facebook.com/p/Neighbors-Pest-Solutions-61583820067806/",

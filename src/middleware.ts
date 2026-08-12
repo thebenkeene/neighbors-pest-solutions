@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// ⚠️ FOOTGUN: any NEW top-level route must be added to VALID_PATH_PREFIXES
+// or VALID_EXACT_PATHS below, or it will silently return 410 Gone in
+// production. Routes under /services, /service-areas, /blog and /api are
+// covered automatically.
 const VALID_PATH_PREFIXES = [
   "/services",
   "/service-areas",

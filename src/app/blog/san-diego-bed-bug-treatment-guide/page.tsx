@@ -7,6 +7,7 @@ import { BUSINESS } from "@/lib/constants";
 
 export const metadata: Metadata = generateSEO({
   title: "San Diego Bed Bug Treatment: What to Expect",
+  brandSuffix: false,
   description: "Bed bugs are rising across San Diego. This complete guide covers how to identify bed bugs, compare treatment options, prepare your home, and what to do if they come back.",
   path: "/blog/san-diego-bed-bug-treatment-guide",
   type: "article",

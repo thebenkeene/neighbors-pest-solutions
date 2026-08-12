@@ -133,8 +133,9 @@ export function generateServiceSchema(
     },
     offers: {
       "@type": "Offer",
-      availability: "https://schema.org/InStoreOnly",
-      description: "Contact for a free quote",
+      // No availability constraint — this is an on-site mobile service, not
+      // an in-store product (InStoreOnly was semantically wrong here).
+      description: "Free inspections and quotes. Same-day service available.",
     },
   };
 }

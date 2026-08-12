@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Analytics from "@/components/Analytics";
 import FreeQuotePopup from "@/components/FreeQuotePopup";
 import CrawlingBug from "@/components/CrawlingBug";
 import { defaultMetadata } from "@/lib/seo";
@@ -55,6 +56,7 @@ export default function RootLayout({
         <Footer />
         <FreeQuotePopup />
         <CrawlingBug />
+        <Analytics />
       </body>
     </html>
   );

@@ -5,7 +5,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { BUSINESS } from "@/lib/constants";
 
 export const metadata = generateSEO({
-  title: "Pest Control Blog, San Diego Tips & Guides",
+  title: "San Diego Pest Control Blog",
   description: "Expert pest control tips, guides, and resources for San Diego homeowners. Learn how to prevent and eliminate ants, bed bugs, rodents, and more in San Diego's climate.",
   path: "/blog",
   keywords: ["pest control tips San Diego", "San Diego pest guide", "how to get rid of pests San Diego"],

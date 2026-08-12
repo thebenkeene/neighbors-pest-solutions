@@ -7,6 +7,7 @@ import { BUSINESS } from "@/lib/constants";
 
 export const metadata: Metadata = generateSEO({
   title: "Why San Diego's Climate Makes Pest Control Year-Round",
+  brandSuffix: false,
   description: "San Diego's mild winters and warm summers mean pests never fully go dormant. Learn what pests to expect in each season and how to protect your home year-round.",
   path: "/blog/pest-control-san-diego-climate",
   type: "article",

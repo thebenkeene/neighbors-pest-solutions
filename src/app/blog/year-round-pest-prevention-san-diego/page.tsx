@@ -6,7 +6,8 @@ import BlogPostLayout from "@/components/BlogPostLayout";
 import { BUSINESS } from "@/lib/constants";
 
 export const metadata: Metadata = generateSEO({
-  title: "Year-Round Pest Prevention Guide for San Diego Homeowners",
+  title: "Year-Round Pest Prevention Guide for San Diego Homes",
+  brandSuffix: false,
   description: "A complete monthly pest prevention checklist for San Diego homeowners. Keep ants, rodents, cockroaches, mosquitoes, and more out of your home all year long.",
   path: "/blog/year-round-pest-prevention-san-diego",
   type: "article",

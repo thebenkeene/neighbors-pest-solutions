@@ -4,8 +4,8 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { BUSINESS, SERVICE_AREAS } from "@/lib/constants";
 
 export const metadata = generateSEO({
-  title: "Pest Control Service Areas, San Diego County CA",
-  description: "Neighbors Pest Solutions serves all of San Diego County. Find pest control near you in La Jolla, Mira Mesa, Chula Vista, Carlsbad, Escondido, and 25+ more cities and neighborhoods.",
+  title: "Service Areas, San Diego County",
+  description: "Pest control across San Diego County: La Jolla, Mira Mesa, Chula Vista, Carlsbad, Escondido, and 25+ more cities and neighborhoods.",
   path: "/service-areas",
   keywords: ["pest control near me San Diego", "San Diego County pest control", "pest control service areas"],
 });

@@ -6,8 +6,9 @@ import BlogPostLayout from "@/components/BlogPostLayout";
 import { BUSINESS } from "@/lib/constants";
 
 export const metadata: Metadata = generateSEO({
-  title: "San Diego Pest Activity Calendar: What's Active Every Month",
-  description: "A month-by-month reference to pest activity in San Diego County: when ants, rodents, mosquitoes, spiders, termites, and more peak, and why. Built for homeowners, HOAs, and property managers.",
+  title: "San Diego Pest Calendar: What's Active Every Month",
+  brandSuffix: false,
+  description: "Month-by-month San Diego pest activity: when ants, rodents, mosquitoes, spiders, and termites peak, and what to do before they do.",
   path: "/blog/san-diego-pest-calendar",
   type: "article",
   image: `${BUSINESS.url}/images/technician-grass.jpg`,

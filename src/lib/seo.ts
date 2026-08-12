@@ -11,6 +11,9 @@ interface SEOProps {
   publishedTime?: string;
   modifiedTime?: string;
   authors?: string[];
+  /** Set false to omit the "| Neighbors Pest Solutions" suffix when the
+   *  title is already long (mainly blog posts). Default true. */
+  brandSuffix?: boolean;
 }
 
 export function generateSEO({
@@ -19,13 +22,15 @@ export function generateSEO({
   path,
   image,
   type = "website",
+  keywords,
   publishedTime,
   modifiedTime,
   authors,
+  brandSuffix = true,
 }: SEOProps): Metadata {
   const url = `${BUSINESS.url}${path}`;
   const defaultImage = `${BUSINESS.url}/images/og-image.png`;
-  const fullTitle = `${title} | ${BUSINESS.name}`;
+  const fullTitle = brandSuffix ? `${title} | ${BUSINESS.name}` : title;
 
   const openGraph: Metadata["openGraph"] = {
     title: fullTitle,
@@ -52,6 +57,7 @@ export function generateSEO({
   return {
     title: { absolute: fullTitle },
     description,
+    ...(keywords && keywords.length > 0 && { keywords }),
     openGraph,
     twitter: {
       card: "summary_large_image",

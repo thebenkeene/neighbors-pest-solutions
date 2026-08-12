@@ -4,6 +4,7 @@ import FAQItem from "./FAQItem";
 import TestimonialCard from "./TestimonialCard";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
 import { BUSINESS, TESTIMONIALS } from "@/lib/constants";
+import { readingForService } from "@/lib/blogPosts";
 
 export interface ServicePageData {
   slug: string;
@@ -225,6 +226,25 @@ export default function ServicePageTemplate({ data }: { data: ServicePageData })
           </div>
         </section>
       )}
+
+      {/* Related Reading — contextual links into the blog */}
+      <section className="py-12 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl font-bold text-dark-800 mb-4">Related Reading</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {readingForService(data.slug).map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="block p-5 bg-white rounded-xl border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all duration-200"
+              >
+                <p className="font-semibold text-dark-800 mb-1 leading-snug">{post.title}</p>
+                <p className="text-sm text-gray-500 leading-relaxed">{post.teaser}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="py-16 bg-dark-900 text-white text-center">

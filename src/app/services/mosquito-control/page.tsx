@@ -8,7 +8,7 @@ const data = servicePages["mosquito-control"];
 
 export const metadata: Metadata = generateSEO({
   title: `${data.name} San Diego CA`,
-  description: `${data.heroSubheading} Call ${BUSINESS.phone} for same-day ${data.name.toLowerCase()} in San Diego.`,
+  description: `Barrier sprays and breeding-site reduction that slash mosquito populations. Call ${BUSINESS.phone} for same-day mosquito control in San Diego.`,
   path: `/services/mosquito-control`,
   keywords: [`${data.name.toLowerCase()} San Diego`, `${data.name.toLowerCase()} San Diego CA`],
 });

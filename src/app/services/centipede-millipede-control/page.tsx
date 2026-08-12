@@ -8,7 +8,7 @@ const data = servicePages["centipede-millipede-control"];
 
 export const metadata: Metadata = generateSEO({
   title: `${data.name} San Diego CA`,
-  description: `${data.heroSubheading} Call ${BUSINESS.phone} for same-day ${data.name.toLowerCase()} in San Diego.`,
+  description: `Moisture management and perimeter treatments that keep centipedes and millipedes out. Call ${BUSINESS.phone} for same-day San Diego service.`,
   path: `/services/centipede-millipede-control`,
   keywords: [`${data.name.toLowerCase()} San Diego`, `${data.name.toLowerCase()} San Diego CA`],
 });

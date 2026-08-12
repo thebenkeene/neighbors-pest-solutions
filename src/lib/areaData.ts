@@ -1,16 +1,5 @@
 import { AreaPageData } from "@/components/AreaPageTemplate";
 
-const commonPestsSanDiego = [
-  "Argentine Ants & Fire Ants",
-  "Black Widow Spiders",
-  "Roof Rats & House Mice",
-  "German & American Cockroaches",
-  "Bed Bugs",
-  "Fleas & Ticks",
-  "Mosquitoes",
-  "Earwigs & Silverfish",
-];
-
 export const areaPages: Record<string, AreaPageData> = {
   "la-jolla": {
     cityName: "La Jolla",

@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { BUSINESS } from '@/lib/constants';
+import { trackEvent } from '@/lib/analytics';
 
 const PEST_OPTIONS = [
   'Ants', 'Bed Bugs', 'Spiders', 'Rodents', 'Cockroaches',
@@ -10,9 +11,12 @@ const PEST_OPTIONS = [
 ];
 
 const STORAGE_KEY = 'nps_quote_popup_dismissed';
-// Shows once per browser session (sessionStorage flag set on dismiss or
-// submit), 4 seconds after page load.
-const POPUP_DELAY_MS = 4000;
+// Non-blocking bottom-right quote card, desktop only (mobile already has the
+// persistent Call/Quote bar). Shows once per browser session, 6 seconds after
+// page load. Replaced the previous full-screen timed interstitial, which was
+// a mobile page-experience risk (Google intrusive-interstitial guidance) and
+// produced accessibility contrast failures.
+const POPUP_DELAY_MS = 6000;
 const EXCLUDED_PATHS = ['/contact', '/privacy-policy', '/terms-of-service'];
 
 export default function FreeQuotePopup() {
@@ -60,13 +64,6 @@ export default function FreeQuotePopup() {
     return () => document.removeEventListener('keydown', onKey);
   }, [visible, dismiss]);
 
-  useEffect(() => {
-    if (!visible || closing) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = prev; };
-  }, [visible, closing]);
-
   const validate = () => {
     const next: Record<string, string> = {};
     if (!formData.firstName.trim()) next.firstName = 'Required';
@@ -108,6 +105,7 @@ export default function FreeQuotePopup() {
       if (res.ok) {
         setStatus('success');
         sessionStorage.setItem(STORAGE_KEY, '1');
+        trackEvent('generate_lead', { method: 'quote_banner', pest_type: formData.pestType });
       } else {
         setStatus('error');
       }
@@ -121,19 +119,17 @@ export default function FreeQuotePopup() {
   const animClass = closing ? 'popup-exit' : 'popup-enter';
 
   return (
+    // Non-blocking corner card: no overlay, no scroll lock, page stays
+    // fully usable. Desktop only — mobile keeps the sticky CTA bar.
     <div
       ref={overlayRef}
-      className={`fixed inset-0 z-[9998] flex items-center justify-center p-4 ${animClass}`}
-      onMouseDown={(e) => { if (e.target === overlayRef.current || (e.target as HTMLElement).closest('.popup-overlay')) dismiss(); }}
-      role="dialog"
-      aria-modal="true"
+      className={`hidden lg:block fixed bottom-6 right-6 z-[9998] ${animClass}`}
+      role="complementary"
       aria-label="Get a free pest control quote"
     >
-      <div className="absolute inset-0 bg-dark-900/60 backdrop-blur-sm popup-overlay" />
-
       <div
         ref={panelRef}
-        className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden popup-panel"
+        className="relative w-[370px] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden popup-panel"
       >
         {/* Top accent bar */}
         <div className="h-1.5 bg-gradient-to-r from-primary-500 via-primary-600 to-primary-800" />
@@ -149,7 +145,7 @@ export default function FreeQuotePopup() {
           </svg>
         </button>
 
-        <div className="px-6 pt-6 pb-7 sm:px-8 sm:pt-7 sm:pb-8">
+        <div className="px-6 pt-5 pb-6">
           {status === 'success' ? (
             <div className="text-center py-4">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
@@ -177,18 +173,18 @@ export default function FreeQuotePopup() {
           ) : (
             <>
               {/* Header */}
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wide border border-amber-200">
+              <div className="text-center mb-4">
+                <div className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-full mb-2 uppercase tracking-wide border border-amber-200">
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   Limited Time Offer
                 </div>
-                <h2 className="text-2xl sm:text-[1.7rem] font-bold text-dark-800 leading-tight">
+                <h2 className="text-xl font-bold text-dark-800 leading-tight">
                   Get <span className="text-primary-600">50% Off</span> Your First Service
                 </h2>
-                <p className="text-gray-500 text-sm mt-2 leading-relaxed">
-                  New customers save big, claim your free quote and lock in half-price pest control today.
+                <p className="text-gray-500 text-sm mt-1.5 leading-relaxed">
+                  Claim your free quote and lock in half-price pest control.
                 </p>
               </div>
 

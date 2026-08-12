@@ -3,7 +3,8 @@ import Image from "next/image";
 import FAQItem from "./FAQItem";
 import TestimonialCard from "./TestimonialCard";
 import { generateAreaSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
-import { BUSINESS, TOP_SERVICES, TESTIMONIALS } from "@/lib/constants";
+import { BUSINESS, TOP_SERVICES, TESTIMONIALS, ALL_AREAS } from "@/lib/constants";
+import { readingForArea } from "@/lib/blogPosts";
 
 export interface AreaPageData {
   cityName: string;
@@ -189,6 +190,52 @@ export default function AreaPageTemplate({ data }: { data: AreaPageData }) {
             {data.faqs.map((faq, i) => (
               <FAQItem key={i} question={faq.question} answer={faq.answer} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pest tips — contextual links into the blog */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl font-bold text-dark-800 mb-4">Pest Control Tips for {data.cityName} Homeowners</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {readingForArea(data.slug).map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="block p-5 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all duration-200"
+              >
+                <p className="font-semibold text-dark-800 mb-1 leading-snug">{post.title}</p>
+                <p className="text-sm text-gray-500 leading-relaxed">{post.teaser}</p>
+              </Link>
+            ))}
+          </div>
+
+          {/* Nearby areas */}
+          <div className="mt-8">
+            <h3 className="text-lg font-bold text-dark-800 mb-3">Nearby Areas We Serve</h3>
+            <div className="flex flex-wrap gap-2">
+              {(() => {
+                const idx = ALL_AREAS.findIndex((a) => a.slug === data.slug);
+                const nearby: typeof ALL_AREAS = [];
+                for (let offset = 1; nearby.length < 4 && offset <= ALL_AREAS.length; offset++) {
+                  for (const dir of [1, -1]) {
+                    if (nearby.length >= 4) break;
+                    const cand = ALL_AREAS[(idx + dir * offset + ALL_AREAS.length) % ALL_AREAS.length];
+                    if (cand.slug !== data.slug && !nearby.some((n) => n.slug === cand.slug)) nearby.push(cand);
+                  }
+                }
+                return nearby.map((a) => (
+                  <Link
+                    key={a.slug}
+                    href={`/service-areas/${a.slug}`}
+                    className="px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm text-dark-700 hover:bg-primary-50 hover:border-primary-300 hover:text-primary-700 transition-all"
+                  >
+                    Pest Control in {a.name}
+                  </Link>
+                ));
+              })()}
+            </div>
           </div>
         </div>
       </section>

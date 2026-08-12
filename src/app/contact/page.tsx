@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 import { BUSINESS } from "@/lib/constants";
 
 export const metadata = generateSEO({
-  title: "Contact Us, Free Pest Control Quote San Diego",
+  title: "Contact, Free Pest Control Quote",
   description: "Contact Neighbors Pest Solutions for a free pest control quote in San Diego, CA. Call (858) 878-2847 or fill out our online form. Same-day service available.",
   path: "/contact",
   keywords: ["pest control quote San Diego", "contact pest control San Diego", "free pest inspection San Diego"],

@@ -6,7 +6,8 @@ import BlogPostLayout from "@/components/BlogPostLayout";
 import { BUSINESS } from "@/lib/constants";
 
 export const metadata: Metadata = generateSEO({
-  title: "Termites vs. Carpenter Ants in San Diego: How to Tell the Difference",
+  title: "Termites vs. Carpenter Ants in San Diego: Key Differences",
+  brandSuffix: false,
   description: "Wood damage in your San Diego home? Learn how to tell drywood termites from carpenter ants: wings, frass, and damage patterns, plus what to do about each.",
   path: "/blog/termites-vs-carpenter-ants-san-diego",
   type: "article",

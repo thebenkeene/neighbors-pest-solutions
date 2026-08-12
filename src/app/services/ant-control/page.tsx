@@ -8,7 +8,7 @@ const data = servicePages["ant-control"];
 
 export const metadata: Metadata = generateSEO({
   title: `${data.name} San Diego CA`,
-  description: `${data.heroSubheading} Call ${BUSINESS.phone} for same-day ${data.name.toLowerCase()} in San Diego.`,
+  description: `Ant control that eliminates colonies at the source: Argentine, fire & carpenter ants. Call ${BUSINESS.phone} for same-day service in San Diego.`,
   path: `/services/ant-control`,
   keywords: [`${data.name.toLowerCase()} San Diego`, `${data.name.toLowerCase()} San Diego CA`],
 });

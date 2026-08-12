@@ -7,6 +7,7 @@ import { BUSINESS } from "@/lib/constants";
 
 export const metadata: Metadata = generateSEO({
   title: "How to Get Rid of Ants in Your San Diego Home",
+  brandSuffix: false,
   description: "Argentine ants invade San Diego homes every year. Learn why they come in, which treatments actually work, and when to call a professional ant exterminator in San Diego.",
   path: "/blog/how-to-get-rid-of-ants-san-diego",
   type: "article",

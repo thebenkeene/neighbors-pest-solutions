@@ -41,6 +41,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
+  // Standalone service-intent page (not in the SERVICES constant so it keeps
+  // its own honest lastmod).
+  servicePages.push({
+    url: `${base}/services/exterminator-san-diego`,
+    lastModified: new Date("2026-08-12"),
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  });
+
   const areaPages: MetadataRoute.Sitemap = ALL_AREAS.map((a) => ({
     url: `${base}/service-areas/${a.slug}`,
     lastModified: new Date(AREAS_LASTMOD),

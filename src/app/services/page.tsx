@@ -7,7 +7,7 @@ import { servicePages } from "@/lib/serviceData";
 
 export const metadata = generateSEO({
   title: "Pest Control Services San Diego CA",
-  description: "Complete pest control services in San Diego, CA. Treatments for ants, bed bugs, spiders, rodents, cockroaches, mosquitoes, fleas, ticks, and 15+ more pests. Licensed & insured.",
+  description: "Complete pest control services in San Diego, CA: ants, bed bugs, spiders, rodents, cockroaches, mosquitoes, and 15+ more. Licensed & insured.",
   path: "/services",
   keywords: ["pest control services San Diego", "exterminator services San Diego CA"],
 });
@@ -63,6 +63,28 @@ export default function ServicesPage() {
       {/* Services grid */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Featured: exterminator-intent page */}
+          <Link
+            href="/services/exterminator-san-diego"
+            className="group block bg-dark-800 text-white rounded-2xl p-6 mb-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div>
+                <h2 className="text-lg font-bold mb-1 group-hover:text-primary-300 transition-colors">
+                  Need an Exterminator in San Diego?
+                </h2>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Licensed local exterminators with same-day appointments, ants, roaches, rodents, bed bugs, and everything in between.
+                </p>
+              </div>
+              <span className="shrink-0 inline-flex items-center gap-1 text-primary-300 font-semibold text-sm">
+                Exterminator Services
+                <svg className="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </Link>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {SERVICES.map((service) => {
               const meta = serviceMeta[service.slug];

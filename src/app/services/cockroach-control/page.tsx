@@ -8,7 +8,7 @@ const data = servicePages["cockroach-control"];
 
 export const metadata: Metadata = generateSEO({
   title: `${data.name} San Diego CA`,
-  description: `${data.heroSubheading} Call ${BUSINESS.phone} for same-day ${data.name.toLowerCase()} in San Diego.`,
+  description: `German, American & Oriental cockroach treatments that hit harborage zones for lasting elimination. Call ${BUSINESS.phone} for same-day service.`,
   path: `/services/cockroach-control`,
   keywords: [`${data.name.toLowerCase()} San Diego`, `${data.name.toLowerCase()} San Diego CA`],
 });

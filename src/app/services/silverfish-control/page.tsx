@@ -8,7 +8,7 @@ const data = servicePages["silverfish-control"];
 
 export const metadata: Metadata = generateSEO({
   title: `${data.name} San Diego CA`,
-  description: `${data.heroSubheading} Call ${BUSINESS.phone} for same-day ${data.name.toLowerCase()} in San Diego.`,
+  description: `Moisture control and targeted treatment to eliminate silverfish for good. Call ${BUSINESS.phone} for same-day silverfish control in San Diego.`,
   path: `/services/silverfish-control`,
   keywords: [`${data.name.toLowerCase()} San Diego`, `${data.name.toLowerCase()} San Diego CA`],
 });

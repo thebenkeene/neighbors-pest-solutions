@@ -6,8 +6,8 @@ import TestimonialCard from "@/components/TestimonialCard";
 import { BUSINESS, TESTIMONIALS } from "@/lib/constants";
 
 export const metadata = generateSEO({
-  title: "About Us, Locally Owned San Diego Pest Control",
-  description: "Meet Josh and Derek, the founders of Neighbors Pest Solutions. 15+ years of industry experience, San Diego natives, and your true neighborhood bug guys. Learn our story.",
+  title: "About Us, San Diego Pest Control",
+  description: "Meet Josh and Derek, founders of Neighbors Pest Solutions. 15+ years of experience, San Diego natives, your true neighborhood bug guys.",
   path: "/about",
   keywords: ["about Neighbors Pest Solutions", "San Diego pest control company", "locally owned pest control San Diego"],
 });

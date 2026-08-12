@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react';
 import { BUSINESS, SERVICE_AREAS } from '@/lib/constants';
 
 const navServices = [
+  { name: 'Exterminator Services', href: '/services/exterminator-san-diego' },
   { name: 'Ant Control', href: '/services/ant-control' },
   { name: 'Bed Bug Control', href: '/services/bed-bug-control' },
   { name: 'Spider Control', href: '/services/spider-control' },
@@ -127,29 +128,42 @@ export default function Header() {
                 Home
               </Link>
 
-              {/* Services Dropdown */}
-              <div className="relative" ref={servicesDropdownRef}>
-                <button
-                  className={`font-medium transition-all duration-300 flex items-center gap-1 py-2 ${
-                    isTransparent ? 'text-white hover:text-primary-200 drop-shadow-sm' : 'text-dark-700 hover:text-primary-600'
-                  }`}
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
-                  onClick={() => setServicesOpen(!servicesOpen)}
-                >
-                  Services
-                  <svg className={`h-4 w-4 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </button>
-                {/* Invisible bridge */}
-                <div className="absolute top-full left-0 w-full h-2 bg-transparent" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)} />
-                {servicesOpen && (
-                  <div
-                    className="absolute left-0 top-full w-[480px] bg-white rounded-xl shadow-2xl py-3 z-50 border border-gray-100"
-                    onMouseEnter={() => setServicesOpen(true)}
-                    onMouseLeave={() => setServicesOpen(false)}
+              {/* Services Dropdown — the label is a real link to /services so the
+                  hub is reachable in the initial HTML; the chevron button
+                  handles open/close for keyboard and touch. The dropdown panel
+                  is always rendered (CSS-hidden when closed) so every service
+                  link exists in the server-rendered document. */}
+              <div
+                className="relative"
+                ref={servicesDropdownRef}
+                onMouseEnter={() => setServicesOpen(true)}
+                onMouseLeave={() => setServicesOpen(false)}
+              >
+                <div className={`font-medium transition-all duration-300 flex items-center gap-1 py-2 ${
+                  isTransparent ? 'text-white drop-shadow-sm' : 'text-dark-700'
+                }`}>
+                  <Link
+                    href="/services"
+                    className={isTransparent ? 'hover:text-primary-200' : 'hover:text-primary-600'}
                   >
+                    Services
+                  </Link>
+                  <button
+                    aria-label="Open services menu"
+                    aria-expanded={servicesOpen}
+                    onClick={() => setServicesOpen(!servicesOpen)}
+                    className={isTransparent ? 'hover:text-primary-200' : 'hover:text-primary-600'}
+                  >
+                    <svg className={`h-4 w-4 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+                {/* Invisible bridge */}
+                <div className="absolute top-full left-0 w-full h-2 bg-transparent" />
+                <div
+                  className={`${servicesOpen ? 'block' : 'hidden'} absolute left-0 top-full w-[480px] bg-white rounded-xl shadow-2xl py-3 z-50 border border-gray-100`}
+                >
                     <div className="grid grid-cols-2 gap-0 px-2">
                       {navServices.map((s) => (
                         <Link
@@ -172,32 +186,40 @@ export default function Header() {
                       </Link>
                     </div>
                   </div>
-                )}
               </div>
 
-              {/* Areas Dropdown */}
-              <div className="relative" ref={areasDropdownRef}>
-                <button
-                  className={`font-medium transition-all duration-300 flex items-center gap-1 py-2 ${
-                    isTransparent ? 'text-white hover:text-primary-200 drop-shadow-sm' : 'text-dark-700 hover:text-primary-600'
-                  }`}
-                  onMouseEnter={() => setAreasOpen(true)}
-                  onMouseLeave={() => setAreasOpen(false)}
-                  onClick={() => setAreasOpen(!areasOpen)}
-                >
-                  Areas
-                  <svg className={`h-4 w-4 transition-transform duration-200 ${areasOpen ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </button>
-                {/* Invisible bridge */}
-                <div className="absolute top-full left-0 w-full h-2 bg-transparent" onMouseEnter={() => setAreasOpen(true)} onMouseLeave={() => setAreasOpen(false)} />
-                {areasOpen && (
-                  <div
-                    className="absolute left-1/2 -translate-x-1/2 top-full w-[520px] bg-white rounded-xl shadow-2xl py-4 z-50 border border-gray-100"
-                    onMouseEnter={() => setAreasOpen(true)}
-                    onMouseLeave={() => setAreasOpen(false)}
+              {/* Areas Dropdown — same pattern: real link + always-rendered panel */}
+              <div
+                className="relative"
+                ref={areasDropdownRef}
+                onMouseEnter={() => setAreasOpen(true)}
+                onMouseLeave={() => setAreasOpen(false)}
+              >
+                <div className={`font-medium transition-all duration-300 flex items-center gap-1 py-2 ${
+                  isTransparent ? 'text-white drop-shadow-sm' : 'text-dark-700'
+                }`}>
+                  <Link
+                    href="/service-areas"
+                    className={isTransparent ? 'hover:text-primary-200' : 'hover:text-primary-600'}
                   >
+                    Areas
+                  </Link>
+                  <button
+                    aria-label="Open service areas menu"
+                    aria-expanded={areasOpen}
+                    onClick={() => setAreasOpen(!areasOpen)}
+                    className={isTransparent ? 'hover:text-primary-200' : 'hover:text-primary-600'}
+                  >
+                    <svg className={`h-4 w-4 transition-transform duration-200 ${areasOpen ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+                {/* Invisible bridge */}
+                <div className="absolute top-full left-0 w-full h-2 bg-transparent" />
+                <div
+                  className={`${areasOpen ? 'block' : 'hidden'} absolute left-1/2 -translate-x-1/2 top-full w-[520px] bg-white rounded-xl shadow-2xl py-4 z-50 border border-gray-100`}
+                >
                     <div className="px-4">
                       <p className="text-xs font-bold text-dark-400 uppercase tracking-widest mb-2 px-1">San Diego Neighborhoods</p>
                       <div className="grid grid-cols-2 gap-x-2">
@@ -223,7 +245,6 @@ export default function Header() {
                       </Link>
                     </div>
                   </div>
-                )}
               </div>
               <Link
                 href="/about"
@@ -289,9 +310,9 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Mobile Menu */}
-          {mobileMenuOpen && (
-            <div className="lg:hidden bg-white border-t border-gray-100 py-4 shadow-xl rounded-b-xl max-h-[75vh] overflow-y-auto overscroll-contain">
+          {/* Mobile Menu — always rendered (CSS-hidden when closed) so its
+              links exist in the server-rendered HTML */}
+            <div className={`${mobileMenuOpen ? '' : 'hidden'} lg:hidden bg-white border-t border-gray-100 py-4 shadow-xl rounded-b-xl max-h-[75vh] overflow-y-auto overscroll-contain`}>
               <div className="flex flex-col space-y-1 px-2">
                 <Link href="/" className="px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium transition-colors" onClick={() => setMobileMenuOpen(false)}>Home</Link>
                 <div>
@@ -353,7 +374,6 @@ export default function Header() {
                 </div>
               </div>
             </div>
-          )}
         </nav>
       </header>
 

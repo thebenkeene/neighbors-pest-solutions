@@ -8,11 +8,12 @@ import { generateFAQSchema } from "@/lib/schema";
 import { generateSEO } from "@/lib/seo";
 import { BUSINESS, TOP_SERVICES, TESTIMONIALS, FAQS, SERVICE_AREAS } from "@/lib/constants";
 import RotatingPestWord from "@/components/RotatingPestWord";
+import { BLOG_POSTS } from "@/lib/blogPosts";
 
 export const metadata: Metadata = generateSEO({
   title: "Pest Control San Diego CA",
   description:
-    "San Diego's trusted pest control experts. Same-day service available. Safe, eco-friendly treatments for ants, spiders, bed bugs, rodents, cockroaches, mosquitoes & more. Call (858) 878-2847.",
+    "San Diego's trusted pest control experts. Same-day service, eco-friendly treatments for ants, spiders, bed bugs, rodents & more. Call (858) 878-2847.",
   path: "",
   keywords: [
     "exterminator San Diego CA",
@@ -451,6 +452,34 @@ export default function HomePage() {
             {FAQS.map((faq, i) => (
               <FAQItem key={i} question={faq.question} answer={faq.answer} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FROM THE BLOG ──────────────────────────────────────── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="section-label">Pest Control Tips</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-dark-800 mb-4">From the Blog</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">Local guides written for San Diego homeowners, what&apos;s active, what it costs, and how to keep pests out.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {BLOG_POSTS.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="block p-5 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary-300 hover:shadow-md hover:-translate-y-1 transition-all duration-200"
+              >
+                <p className="font-semibold text-dark-800 mb-1 leading-snug">{post.title}</p>
+                <p className="text-sm text-gray-500 leading-relaxed">{post.teaser}</p>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/blog" className="text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+              View All Articles →
+            </Link>
           </div>
         </div>
       </section>

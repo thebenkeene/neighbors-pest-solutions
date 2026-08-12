@@ -6,8 +6,9 @@ import BlogPostLayout from "@/components/BlogPostLayout";
 import { BUSINESS } from "@/lib/constants";
 
 export const metadata: Metadata = generateSEO({
-  title: "How Much Does Pest Control Cost in San Diego?",
-  description: "What San Diego homeowners actually pay for pest control: one-time treatments, quarterly plans, and specialty services like bed bugs and rodent exclusion, and what drives the price up or down.",
+  title: "How Much Does Pest Control Cost in San Diego? (2026)",
+  brandSuffix: false,
+  description: "What San Diego homeowners actually pay for pest control: one-time visits, quarterly plans, and specialty services, plus what drives the price.",
   path: "/blog/pest-control-cost-san-diego",
   type: "article",
   image: `${BUSINESS.url}/images/technician-customer.jpg`,
