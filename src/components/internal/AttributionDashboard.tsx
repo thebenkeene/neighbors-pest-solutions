@@ -37,31 +37,40 @@ const CHANNELS: Array<{
     id: "sales-team",
     label: "Sales Team",
     detail: "Sold by a FieldRoutes sales rep",
-    color: "#123f71",
-    soft: "#e8f1fb",
+    color: "#1e3a8a",
+    soft: "#eff6ff",
   },
   {
     id: "online",
     label: "Online",
     detail: "Online plus uncategorized non-sales",
-    color: "#16866f",
-    soft: "#e4f7f1",
+    color: "#5b9bd5",
+    soft: "#dbeafe",
   },
   {
     id: "referral",
     label: "Referral",
     detail: "Referral, truck sighting, and flyer",
-    color: "#e2a627",
-    soft: "#fff6d9",
+    color: "#3b82f6",
+    soft: "#eff6ff",
   },
 ];
 
 const ONLINE_COLORS: Record<string, string> = {
-  Google: "#16866f",
-  Facebook: "#2878c8",
-  Yelp: "#e45645",
-  Unknown: "#8da39d",
+  Google: "#5b9bd5",
+  Facebook: "#3b82f6",
+  Yelp: "#2563c8",
+  Unknown: "#111111",
 };
+
+const NEIGHBORS = {
+  logoBlue: "#5b9bd5",
+  primaryBlue: "#3b82f6",
+  deepBlue: "#1e3a8a",
+  dark: "#111111",
+  paleBlue: "#eff6ff",
+  lightBlue: "#dbeafe",
+} as const;
 
 function prettyMonth(value: string): string {
   if (!value) return "Unknown";
@@ -71,6 +80,12 @@ function prettyMonth(value: string): string {
     year: "numeric",
     timeZone: "UTC",
   }).format(new Date(Date.UTC(year, month - 1, 1)));
+}
+
+function prettyRange(startMonth: string, endMonth: string): string {
+  if (!startMonth || !endMonth) return "Selected period";
+  if (startMonth === endMonth) return prettyMonth(startMonth);
+  return `${prettyMonth(startMonth)} – ${prettyMonth(endMonth)}`;
 }
 
 function nextMonth(value: string): string {
@@ -116,7 +131,7 @@ function MetricCard({
   label,
   value,
   detail,
-  accent = "#16866f",
+  accent = NEIGHBORS.logoBlue,
 }: {
   label: string;
   value: string;
@@ -208,12 +223,13 @@ function AreaTrendChart({ groups }: { groups: AttributionGroup[] }) {
     <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Monthly ARR trend" className="mt-4 h-auto w-full overflow-visible">
       <defs>
         <linearGradient id="neighbors-area" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#22a888" stopOpacity="0.3" />
-          <stop offset="100%" stopColor="#22a888" stopOpacity="0.02" />
+          <stop offset="0%" stopColor={NEIGHBORS.logoBlue} stopOpacity="0.3" />
+          <stop offset="100%" stopColor={NEIGHBORS.logoBlue} stopOpacity="0.02" />
         </linearGradient>
         <linearGradient id="neighbors-line" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#123f71" />
-          <stop offset="100%" stopColor="#22a888" />
+          <stop offset="0%" stopColor={NEIGHBORS.deepBlue} />
+          <stop offset="52%" stopColor={NEIGHBORS.primaryBlue} />
+          <stop offset="100%" stopColor={NEIGHBORS.logoBlue} />
         </linearGradient>
       </defs>
       {[0, 0.33, 0.66, 1].map((step) => (
@@ -223,7 +239,7 @@ function AreaTrendChart({ groups }: { groups: AttributionGroup[] }) {
       <path d={line} fill="none" stroke="url(#neighbors-line)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
       {groups.map((group, index) => (
         <g key={group.label}>
-          <circle cx={x(index)} cy={y(group.arr)} r="5" fill="white" stroke="#16866f" strokeWidth="3" />
+          <circle cx={x(index)} cy={y(group.arr)} r="5" fill="white" stroke={NEIGHBORS.logoBlue} strokeWidth="3" />
           <text x={x(index)} y={height - 14} textAnchor="middle" fontSize="12" fill="#64748b">
             {prettyMonth(group.label).replace(" ", " ’").replace(/20(?=\d{2}$)/, "")}
           </text>
@@ -284,10 +300,13 @@ function ServiceRevenueChart({ groups }: { groups: ServiceGroup[] }) {
       {groups.map((group) => (
         <div key={group.label} className="flex min-w-0 flex-1 flex-col items-center justify-end gap-2">
           <span className="text-[11px] font-semibold tabular-nums text-slate-700">{currency.format(group.commissionRevenue)}</span>
-          <div className="relative flex h-36 w-full items-end overflow-hidden rounded-xl bg-emerald-50">
+          <div className="relative flex h-36 w-full items-end overflow-hidden rounded-xl bg-blue-50">
             <div
-              className="w-full rounded-xl bg-gradient-to-t from-primary-700 to-emerald-400 transition-all"
-              style={{ height: `${Math.max((group.commissionRevenue / max) * 100, 4)}%` }}
+              className="w-full rounded-xl transition-all"
+              style={{
+                height: `${Math.max((group.commissionRevenue / max) * 100, 4)}%`,
+                background: `linear-gradient(to top, ${NEIGHBORS.deepBlue}, ${NEIGHBORS.primaryBlue}, ${NEIGHBORS.logoBlue})`,
+              }}
             />
           </div>
           <span className="truncate text-[11px] text-slate-500">{prettyMonth(group.label)}</span>
@@ -322,6 +341,7 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
   const [startMonth, setStartMonth] = useState(firstMonth);
   const [endMonth, setEndMonth] = useState(lastMonth);
   const [channel, setChannel] = useState<AttributionChannelFilter>("all");
+  const allTimeSelected = startMonth === months[0] && endMonth === months.at(-1);
 
   const rangeRecords = useMemo(
     () => filterRecords(records, { startMonth, endMonth, channel: "all" }),
@@ -351,6 +371,11 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
     setChannel("all");
   }
 
+  function selectAllTime() {
+    setStartMonth(months[0] ?? "");
+    setEndMonth(months.at(-1) ?? "");
+  }
+
   if (!snapshot || records.length === 0) return <EmptyState />;
 
   const selectedLabel =
@@ -358,16 +383,16 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
 
   return (
     <div className="space-y-6">
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0f3e70] via-[#126f75] to-[#1c9879] px-6 py-7 text-white shadow-[0_18px_55px_rgba(18,63,113,0.22)] sm:px-8">
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1e3a8a] via-[#3b82f6] to-[#5b9bd5] px-6 py-7 text-white shadow-[0_18px_55px_rgba(30,58,138,0.22)] sm:px-8">
         <div className="relative z-10 max-w-2xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-200">Neighbors growth view</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-100">Neighbors growth view</p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">See how every new neighbor found us.</h2>
           <p className="mt-2 max-w-xl text-sm leading-6 text-blue-50/80">ARR, acquisition mix, and first-year Online service commission in one simple view.</p>
         </div>
         <svg aria-hidden="true" viewBox="0 0 520 180" className="pointer-events-none absolute -bottom-5 right-0 h-44 w-auto opacity-25 sm:opacity-40">
           <path d="M20 143V88l55-43 55 43v55M108 143V106l55-43 55 43v37M205 143V78l70-54 70 54v65M332 143V99l55-42 55 42v44M425 143v-28l36-28 36 28v28" fill="none" stroke="white" strokeWidth="5" strokeLinejoin="round" />
           <path d="M60 143v-30h30v30m94 0v-24h25v24m56 0v-37h35v37m72 0v-25h27v25m54 0v-18h19v18M0 144h520" fill="none" stroke="white" strokeWidth="4" />
-          <circle cx="465" cy="35" r="15" fill="#ffd65a" />
+          <circle cx="465" cy="35" r="15" fill="#ffffff" fillOpacity="0.82" />
         </svg>
       </section>
 
@@ -379,6 +404,23 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
           </div>
           <button type="button" onClick={reset} className="self-start rounded-lg px-3 py-2 text-xs font-semibold text-primary-700 transition hover:bg-primary-50">Reset view</button>
         </div>
+        <div className="mt-5 flex flex-wrap gap-2" aria-label="Quick reporting ranges">
+          <button
+            type="button"
+            aria-pressed={allTimeSelected}
+            onClick={selectAllTime}
+            className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
+              allTimeSelected
+                ? "bg-primary-800 text-white shadow-sm"
+                : "border border-primary-200 bg-primary-50 text-primary-800 hover:bg-primary-100"
+            }`}
+          >
+            All time
+          </button>
+          <span className="self-center text-xs text-slate-500">
+            {allTimeSelected ? `All available history · ${prettyRange(months[0] ?? "", months.at(-1) ?? "")}` : `Custom range · ${prettyRange(startMonth, endMonth)}`}
+          </span>
+        </div>
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <label className="block">
             <span className="mb-2 block text-[11px] font-bold uppercase tracking-[0.15em] text-slate-500">Start month</span>
@@ -388,6 +430,30 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
             <span className="mb-2 block text-[11px] font-bold uppercase tracking-[0.15em] text-slate-500">End month</span>
             <input type="month" value={endMonth} min={startMonth || months[0]} max={months.at(-1)} onChange={(event) => setEndMonth(event.target.value)} className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800 outline-none transition focus:border-primary-500 focus:ring-4 focus:ring-primary-100" />
           </label>
+        </div>
+      </section>
+
+      <section className="overflow-hidden rounded-3xl border border-primary-200/70 bg-gradient-to-br from-primary-50 via-white to-primary-100/60 p-5 shadow-[0_10px_40px_rgba(30,58,138,0.07)] sm:p-6">
+        <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary-800">Period totals</p>
+            <h2 className="mt-1 text-xl font-semibold text-slate-950">{prettyRange(startMonth, endMonth)}</h2>
+          </div>
+          <p className="text-xs text-slate-500">Active customers and recurring subscriptions</p>
+        </div>
+        <div className="mt-5 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl border border-white bg-white/90 p-4 shadow-sm">
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">Total ARR</p>
+            <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">{currency.format(totalStats.arr)}</p>
+          </div>
+          <div className="rounded-2xl border border-white bg-white/90 p-4 shadow-sm">
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">Customers</p>
+            <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">{wholeNumber.format(totalStats.customers)}</p>
+          </div>
+          <div className="rounded-2xl border border-white bg-white/90 p-4 shadow-sm">
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">Subscriptions</p>
+            <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">{wholeNumber.format(totalStats.subscriptions)}</p>
+          </div>
         </div>
       </section>
 
@@ -416,10 +482,10 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
       </section>
 
       {channel === "online" ? (
-        <section className="rounded-3xl border border-emerald-200/70 bg-gradient-to-br from-emerald-50 to-white p-5 shadow-[0_8px_40px_rgba(15,118,94,0.07)] sm:p-6">
+        <section className="rounded-3xl border border-primary-200/70 bg-gradient-to-br from-primary-50 to-white p-5 shadow-[0_8px_40px_rgba(30,58,138,0.07)] sm:p-6">
           <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-emerald-700">Inside Online</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary-700">Inside Online</p>
               <h2 className="mt-1 text-lg font-semibold text-slate-950">Online attribution breakdown</h2>
             </div>
             <p className="max-w-md text-xs leading-5 text-slate-500">Unknown includes blank, Conditions, and any other non-sales record that is not a referral.</p>
@@ -442,10 +508,10 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
       ) : null}
 
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <MetricCard label={`${selectedLabel} ARR`} value={currency.format(stats.arr)} detail="Annual recurring value on active customers and subscriptions" accent="#16866f" />
-        <MetricCard label="Customers" value={wholeNumber.format(stats.customers)} detail="Unique customers in the selected view" accent="#123f71" />
-        <MetricCard label="Subscriptions" value={wholeNumber.format(stats.subscriptions)} detail="Recurring subscriptions sold in the range" accent="#2878c8" />
-        <MetricCard label="Average ARR" value={currency.format(stats.customers ? stats.arr / stats.customers : 0)} detail="ARR per unique customer" accent="#e2a627" />
+        <MetricCard label={`${selectedLabel} ARR`} value={currency.format(stats.arr)} detail="Annual recurring value on active customers and subscriptions" accent={NEIGHBORS.logoBlue} />
+        <MetricCard label="Customers" value={wholeNumber.format(stats.customers)} detail="Unique customers in the selected view" accent={NEIGHBORS.deepBlue} />
+        <MetricCard label="Subscriptions" value={wholeNumber.format(stats.subscriptions)} detail="Recurring subscriptions sold in the range" accent={NEIGHBORS.primaryBlue} />
+        <MetricCard label="Average ARR" value={currency.format(stats.customers ? stats.arr / stats.customers : 0)} detail="ARR per unique customer" accent={NEIGHBORS.dark} />
       </section>
 
       <div className="grid gap-6 xl:grid-cols-[1.25fr_0.75fr]">
@@ -498,29 +564,29 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
         </div>
       </section>
 
-      <section className="rounded-3xl border border-emerald-200/70 bg-white p-5 shadow-[0_10px_45px_rgba(15,118,94,0.08)] sm:p-6">
+      <section className="rounded-3xl border border-primary-200/70 bg-white p-5 shadow-[0_10px_45px_rgba(30,58,138,0.08)] sm:p-6">
         <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-start">
           <div>
             <div className="flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-100 text-primary-700">
                 <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M4 17 9 12l3 3 7-8m-4 0h4v4" /></svg>
               </span>
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-emerald-700">Commission view</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary-700">Commission view</p>
                 <h2 className="text-lg font-semibold text-slate-950">First-year Online services</h2>
               </div>
             </div>
             <p className="mt-3 max-w-2xl text-xs leading-5 text-slate-500">Completed Online appointments inside the customer’s first year. Revenue uses FieldRoutes production value, falling back to invoice subtotal when instructed by FieldRoutes.</p>
           </div>
-          <div className={`rounded-full px-3 py-1.5 text-[11px] font-semibold ${serviceComplete ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-800"}`}>
-            {serviceComplete ? "History complete for this range" : `History backfilling from ${snapshot.metadata.serviceHistoryStartInclusive ? prettyMonth(snapshot.metadata.serviceHistoryStartInclusive.slice(0, 7)) : "next sync"}`}
+          <div className={`rounded-full px-3 py-1.5 text-[11px] font-semibold ${serviceComplete ? "bg-primary-100 text-primary-800" : "bg-primary-50 text-primary-800"}`}>
+            {serviceComplete ? "Updated daily" : "Service totals will appear when ready"}
           </div>
         </div>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          <MetricCard label="Completed services" value={serviceComplete ? wholeNumber.format(serviceStats.services) : "—"} detail="Commission-eligible Online visits" accent="#16866f" />
-          <MetricCard label="Customers serviced" value={serviceComplete ? wholeNumber.format(serviceStats.customers) : "—"} detail="Unique first-year Online customers" accent="#2878c8" />
-          <MetricCard label="Commission revenue" value={serviceComplete ? currency.format(serviceStats.commissionRevenue) : "—"} detail="Production value before tax" accent="#e2a627" />
+          <MetricCard label="Completed services" value={serviceComplete ? wholeNumber.format(serviceStats.services) : "—"} detail="Commission-eligible Online visits" accent={NEIGHBORS.logoBlue} />
+          <MetricCard label="Customers serviced" value={serviceComplete ? wholeNumber.format(serviceStats.customers) : "—"} detail="Unique first-year Online customers" accent={NEIGHBORS.primaryBlue} />
+          <MetricCard label="Commission revenue" value={serviceComplete ? currency.format(serviceStats.commissionRevenue) : "—"} detail="Production value before tax" accent={NEIGHBORS.dark} />
         </div>
 
         <div className="mt-6 rounded-2xl bg-slate-50 p-4 sm:p-5">
