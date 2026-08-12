@@ -9,6 +9,7 @@ const VALID_PATH_PREFIXES = [
   "/service-areas",
   "/blog",
   "/api",
+  "/team",
 ];
 
 const VALID_EXACT_PATHS = new Set([
@@ -32,7 +33,7 @@ function goneResponse() {
   );
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const host = request.headers.get("host") || "";
 
@@ -40,7 +41,7 @@ export function middleware(request: NextRequest) {
     VALID_EXACT_PATHS.has(pathname) ||
     VALID_PATH_PREFIXES.some((prefix) => pathname.startsWith(prefix))
   ) {
-    if (host.endsWith(".vercel.app")) {
+    if (host.endsWith(".vercel.app") || pathname.startsWith("/team")) {
       const response = NextResponse.next();
       response.headers.set("X-Robots-Tag", "noindex, nofollow");
       return response;

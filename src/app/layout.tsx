@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Analytics from "@/components/Analytics";
-import FreeQuotePopup from "@/components/FreeQuotePopup";
-import CrawlingBug from "@/components/CrawlingBug";
+import SiteChrome from "@/components/SiteChrome";
 import { defaultMetadata } from "@/lib/seo";
 import { generateLocalBusinessSchema, generateWebSiteSchema, generateSiteNavigationSchema } from "@/lib/schema";
 import { BUSINESS } from "@/lib/constants";
@@ -49,14 +45,7 @@ export default function RootLayout({
         <meta name="ICBM" content={`${BUSINESS.geo.latitude}, ${BUSINESS.geo.longitude}`} />
       </head>
       <body className={`${inter.variable} font-sans antialiased flex flex-col min-h-screen`}>
-        <Header />
-        <main className="flex-grow pb-16 lg:pb-0">
-          {children}
-        </main>
-        <Footer />
-        <FreeQuotePopup />
-        <CrawlingBug />
-        <Analytics />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
