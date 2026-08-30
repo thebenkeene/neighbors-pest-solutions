@@ -8,6 +8,11 @@ export interface BlogPostRef {
 
 export const BLOG_POSTS: BlogPostRef[] = [
   {
+    slug: "east-county-san-diego-pest-control-guide",
+    title: "Pest Control in East County San Diego: A City-by-City Guide",
+    teaser: "Why El Cajon, Santee, La Mesa, Lakeside, and Spring Valley see the county's heaviest pest pressure.",
+  },
+  {
     slug: "san-diego-pest-calendar",
     title: "San Diego Pest Activity Calendar: What's Active Every Month",
     teaser: "Month-by-month guide to which pests surge and when to act.",

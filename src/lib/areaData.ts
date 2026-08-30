@@ -155,6 +155,9 @@ export const areaPages: Record<string, AreaPageData> = {
     ],
   },
   "clairemont": {
+    testimonials: [
+      { name: "Diana V.", location: "Clairemont", rating: 5, source: "Yelp", text: "Always great work, satisfied customer" },
+    ],
     cityName: "Clairemont",
     slug: "clairemont",
     intro: "Pest control in Clairemont, CA, canyon-edge defense for one of San Diego's original postwar neighborhoods.",
@@ -716,6 +719,10 @@ export const areaPages: Record<string, AreaPageData> = {
     ],
   },
   "poway": {
+    testimonials: [
+      { name: "Valerie L.", location: "Poway", rating: 5, source: "Yelp", text: "Big shout out to Nathan. Friendly professional. I highly recommend this company for all your pest issues" },
+      { name: "B J.", location: "Poway", rating: 5, source: "Yelp", text: "Nathan Vega does a good job communicating and treating my yard. I told him that large slugs are showing up around the yard and he is now treating for that as well." },
+    ],
     cityName: "Poway",
     slug: "poway",
     intro: "Pest control in Poway, CA, built for the 'City in the Country's' large lots, horse properties, and open-space borders.",
@@ -818,6 +825,11 @@ export const areaPages: Record<string, AreaPageData> = {
     ],
   },
   "el-cajon": {
+    testimonials: [
+      { name: "Heather H.", location: "El Cajon", rating: 5, source: "Yelp", text: "Ty has been great! Very attentive, careful to always close gates and he's a pro at spider patrol! It's nice not having spiderwebs!" },
+      { name: "Gwen P.", location: "El Cajon", rating: 5, source: "Yelp", text: "Daniel Hartley has been my technician every time and I'm so pleased with him that I don't want anyone else taking his place. He's always pleasant and informative and a pleasure to work with!" },
+      { name: "Brande S.", location: "El Cajon", rating: 5, source: "Yelp", text: "Just received pest service today and Daniel Hartley was extremely helpful. He listened to my concerns about spiders in a retaining wall and explained he would be sure to cover the area to take care of it. Very happy with the attentiveness and service." },
+    ],
     cityName: "El Cajon",
     slug: "el-cajon",
     intro: "Pest control in El Cajon, CA, built for East County's hottest valley, where summer drives pests indoors in force.",
@@ -869,6 +881,10 @@ export const areaPages: Record<string, AreaPageData> = {
     ],
   },
   "santee": {
+    testimonials: [
+      { name: "Christine S.", location: "Santee", rating: 5, source: "Yelp", text: "We have been a customer of Neighbor's Pest Control for a couple years now and they are fantastic. Daniel always makes sure to check in and ask if we have any concerns or areas that need extra treatment. He's the best!" },
+      { name: "Marsi Q.", location: "Santee", rating: 5, source: "Yelp", text: "This small friendly family based company has been great for us. Our technician Daniel Hartley is courteous and does a great job" },
+    ],
     cityName: "Santee",
     slug: "santee",
     intro: "Pest control in Santee, CA, river-corridor and open-space defense for East County's family neighborhoods.",
@@ -920,6 +936,10 @@ export const areaPages: Record<string, AreaPageData> = {
     ],
   },
   "la-mesa": {
+    testimonials: [
+      { name: "Kevin C.", location: "La Mesa", rating: 5, source: "Yelp", text: "Hector was very great! Came through with affordable pricing and also a good explanation of what the service will consist of and include. Very polite and easy to work with! Definitely recommend" },
+      { name: "Patricia R.", location: "La Mesa", rating: 5, source: "Yelp", text: "Ty comes every month and he knows where all of my six bait stations are located on my 1 acre property. We are working on eliminating rats who are eating the leaves on my tangerine tree." },
+    ],
     cityName: "La Mesa",
     slug: "la-mesa",
     intro: "Pest control in La Mesa, CA, from Village-era homes to Mt. Helix estates, treatments matched to the 'Jewel of the Hills.'",
@@ -1022,6 +1042,9 @@ export const areaPages: Record<string, AreaPageData> = {
     ],
   },
   "spring-valley": {
+    testimonials: [
+      { name: "Ragan D.", location: "Spring Valley", rating: 5, source: "Yelp", text: "Ive been real happy with their service and technician Ty. Pet friendly products and they communicate with you on your appointment day" },
+    ],
     cityName: "Spring Valley",
     slug: "spring-valley",
     intro: "Pest control in Spring Valley, CA, hillside and older-home treatments for East County's unincorporated heart.",

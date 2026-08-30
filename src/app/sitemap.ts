@@ -21,6 +21,18 @@ const STATIC_LASTMOD: Record<string, string> = {
 const SERVICES_LASTMOD = "2026-07-15"; // added gopher + commercial pages, cross-links
 const AREAS_LASTMOD = "2026-07-15"; // batch-2 enrichment (10 more areas)
 const BLOG_LASTMOD = "2026-07-15"; // three new posts (calendar, cost guide, termites vs carpenter ants)
+// City-specific testimonials added Aug 30, 2026 — only these pages actually changed.
+const AREAS_LASTMOD_OVERRIDES: Record<string, string> = {
+  santee: "2026-08-30",
+  "el-cajon": "2026-08-30",
+  "la-mesa": "2026-08-30",
+  poway: "2026-08-30",
+  clairemont: "2026-08-30",
+  "spring-valley": "2026-08-30",
+};
+const BLOG_LASTMOD_OVERRIDES: Record<string, string> = {
+  "east-county-san-diego-pest-control-guide": "2026-08-30",
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
@@ -52,12 +64,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const areaPages: MetadataRoute.Sitemap = ALL_AREAS.map((a) => ({
     url: `${base}/service-areas/${a.slug}`,
-    lastModified: new Date(AREAS_LASTMOD),
+    lastModified: new Date(AREAS_LASTMOD_OVERRIDES[a.slug] ?? AREAS_LASTMOD),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
   const blogSlugs = [
+    "east-county-san-diego-pest-control-guide",
     "san-diego-pest-calendar",
     "pest-control-cost-san-diego",
     "termites-vs-carpenter-ants-san-diego",
@@ -70,7 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
     url: `${base}/blog/${slug}`,
-    lastModified: new Date(BLOG_LASTMOD),
+    lastModified: new Date(BLOG_LASTMOD_OVERRIDES[slug] ?? BLOG_LASTMOD),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));

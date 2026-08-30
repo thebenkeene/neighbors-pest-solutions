@@ -17,6 +17,16 @@ export interface AreaPageData {
   localInsights?: Array<{ heading: string; paragraphs: string[] }>;
   /** Sub-neighborhoods served within this area */
   neighborhoods?: string[];
+  /** City-specific customer reviews (verbatim excerpts, attributed). Shown first, padded with sitewide TESTIMONIALS to 3. */
+  testimonials?: AreaTestimonial[];
+}
+
+export interface AreaTestimonial {
+  name: string;
+  text: string;
+  rating?: number;
+  source?: string;
+  location?: string;
 }
 
 export default function AreaPageTemplate({ data }: { data: AreaPageData }) {
@@ -164,15 +174,17 @@ export default function AreaPageTemplate({ data }: { data: AreaPageData }) {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials — city-specific reviews first, padded with sitewide ones */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-dark-800">What San Diego Customers Say</h2>
+            <h2 className="text-2xl font-bold text-dark-800">
+              {data.testimonials?.length ? `What ${data.cityName} Customers Say` : "What San Diego Customers Say"}
+            </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.slice(3, 6).map((t) => (
-              <TestimonialCard key={t.name} name={t.name} text={t.text} rating={t.rating} source={t.source} />
+            {([...(data.testimonials ?? []), ...TESTIMONIALS.slice(3, 6)] as AreaTestimonial[]).slice(0, 3).map((t) => (
+              <TestimonialCard key={t.name} name={t.name} text={t.text} rating={t.rating} source={t.source} location={t.location} />
             ))}
           </div>
         </div>

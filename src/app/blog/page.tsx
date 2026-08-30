@@ -18,6 +18,15 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
 const posts = [
   {
+    slug: "east-county-san-diego-pest-control-guide",
+    title: "Pest Control in East County San Diego: A City-by-City Guide",
+    excerpt: "Why East County's heat, canyons, and river corridors give El Cajon, Santee, La Mesa, Lakeside, and Spring Valley a different pest profile than the coast, and how treatment differs in each city.",
+    category: "Local Guides",
+    readTime: "7 min read",
+    date: "August 30, 2026",
+    image: "/images/technician-inspection.jpg",
+  },
+  {
     slug: "san-diego-pest-calendar",
     title: "San Diego Pest Activity Calendar: What's Active Every Month",
     excerpt: "A month-by-month reference to pest activity in San Diego County: when ants, rodents, mosquitoes, spiders, and termites peak, and why.",
