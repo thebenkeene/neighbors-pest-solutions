@@ -13,7 +13,7 @@ const STATIC_LASTMOD: Record<string, string> = {
   "/service-areas": "2026-02-28",
   "/about": "2026-03-14",
   "/contact": "2026-03-01",
-  "/blog": "2026-02-28",
+  "/blog": "2026-08-30", // index changed: East County guide card added
   "/privacy-policy": "2026-02-24",
   "/terms-of-service": "2026-02-24",
 };
