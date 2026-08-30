@@ -9,6 +9,7 @@ test("builds a minimized joined attribution snapshot in three reads", async () =
   process.env.FIELDROUTES_AUTH_KEY = "test-key";
   process.env.FIELDROUTES_AUTH_TOKEN = "test-token";
   const calls: Array<{ url: string; body: string }> = [];
+  const callTimes: number[] = [];
   const responses = [
     {
       success: true,
@@ -49,12 +50,13 @@ test("builds a minimized joined attribution snapshot in three reads", async () =
     },
   ];
   globalThis.fetch = async (input, init) => {
+    callTimes.push(Date.now());
     calls.push({ url: String(input), body: String(init?.body ?? "") });
     return Response.json(responses[calls.length - 1]);
   };
 
   try {
-    const client = new FieldRoutesClient({ maxReads: 3 });
+    const client = new FieldRoutesClient({ maxReads: 3, minReadIntervalMs: 20 });
     const snapshot = await client.createSnapshot("2026-04-01", "2026-08-01");
     assert.equal(snapshot.metadata.apiReadsUsed, 3);
     assert.equal(snapshot.records.length, 1);
@@ -84,6 +86,8 @@ test("builds a minimized joined attribution snapshot in three reads", async () =
       ),
       true,
     );
+    assert.ok(callTimes[1] - callTimes[0] >= 15);
+    assert.ok(callTimes[2] - callTimes[1] >= 15);
   } finally {
     globalThis.fetch = originalFetch;
     if (originalKey === undefined) delete process.env.FIELDROUTES_AUTH_KEY;
@@ -166,7 +170,7 @@ test("adds completed services with FieldRoutes commission revenue", async () => 
   };
 
   try {
-    const client = new FieldRoutesClient({ maxReads: 5 });
+    const client = new FieldRoutesClient({ maxReads: 5, minReadIntervalMs: 0 });
     const snapshot = await client.createSnapshot("2026-07-01", "2026-08-01");
     assert.equal(snapshot.version, 2);
     assert.equal(snapshot.metadata.apiReadsUsed, 5);
@@ -207,7 +211,7 @@ test("refuses a run before exceeding its local API-read cap", async () => {
     });
 
   try {
-    const client = new FieldRoutesClient({ maxReads: 2 });
+    const client = new FieldRoutesClient({ maxReads: 2, minReadIntervalMs: 0 });
     await assert.rejects(
       client.createSnapshot("2026-04-01", "2026-08-01"),
       /40-read|safety cap/i,

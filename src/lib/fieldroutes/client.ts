@@ -7,6 +7,9 @@ import type {
 
 const DEFAULT_BASE_URL = "https://neighborspest.pestroutes.com/api";
 export const MAX_FIELDROUTES_READS = 40;
+// The free FieldRoutes key also allows only 20 reads per minute. Keep a small
+// margin so clock skew and request timing never put the daily sync on the edge.
+const MIN_READ_INTERVAL_MS = 3_250;
 const BULK_SIZE = 1000;
 const SERVICE_WINDOW_DAYS = 14;
 const SERVICE_REFRESH_DAYS = 28;
@@ -75,16 +78,20 @@ export class FieldRoutesClient {
   private readonly authenticationKey: string;
   private readonly authenticationToken: string;
   private readonly baseUrl: string;
+  private readonly minReadIntervalMs: number;
+  private lastReadStartedAt = 0;
   readonly maxReads: number;
   readsUsed = 0;
 
-  constructor(options?: { maxReads?: number }) {
+  constructor(options?: { maxReads?: number; minReadIntervalMs?: number }) {
     this.authenticationKey = process.env.FIELDROUTES_AUTH_KEY?.trim() ?? "";
     this.authenticationToken = process.env.FIELDROUTES_AUTH_TOKEN?.trim() ?? "";
     this.baseUrl = (
       process.env.FIELDROUTES_BASE_URL?.trim() || DEFAULT_BASE_URL
     ).replace(/\/$/, "");
     this.maxReads = options?.maxReads ?? MAX_FIELDROUTES_READS;
+    this.minReadIntervalMs =
+      options?.minReadIntervalMs ?? MIN_READ_INTERVAL_MS;
 
     if (!this.authenticationKey || !this.authenticationToken) {
       throw new Error("FieldRoutes credentials are not configured");
@@ -99,12 +106,22 @@ export class FieldRoutesClient {
     }
   }
 
+  private async waitForReadSlot(): Promise<void> {
+    const waitMs =
+      this.lastReadStartedAt + this.minReadIntervalMs - Date.now();
+    if (waitMs > 0) {
+      await new Promise((resolve) => setTimeout(resolve, waitMs));
+    }
+    this.lastReadStartedAt = Date.now();
+  }
+
   private async post(
     endpoint: string,
     action: string,
     params: Record<string, FormValue> = {},
   ): Promise<ApiObject> {
     this.ensureReadsAvailable();
+    await this.waitForReadSlot();
     const body = new URLSearchParams();
     for (const [name, value] of Object.entries(params)) {
       if (Array.isArray(value)) {
@@ -139,6 +156,9 @@ export class FieldRoutesClient {
     if (result.success === false || error) {
       if (error.toLowerCase().includes("maximum number of read requests per day")) {
         throw new Error("FieldRoutes daily read limit has been reached");
+      }
+      if (error.toLowerCase().includes("maximum number of read requests per minute")) {
+        throw new Error("FieldRoutes per-minute read limit has been reached");
       }
       // Never include the upstream response: it can echo credential parameters.
       throw new Error(error || `FieldRoutes ${endpoint}/${action} failed`);
