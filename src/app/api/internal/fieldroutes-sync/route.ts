@@ -36,7 +36,8 @@ export async function GET(request: Request) {
     const today = dateInLosAngeles(new Date());
     if (
       latest &&
-      dateInLosAngeles(latest.metadata.generatedAt) === today
+      dateInLosAngeles(latest.metadata.generatedAt) === today &&
+      latest.metadata.attributionCheckpoint !== true
     ) {
       return NextResponse.json({
         ok: true,
@@ -55,6 +56,9 @@ export async function GET(request: Request) {
       startInclusive,
       tomorrowInLosAngeles(),
       latest,
+      async (checkpoint) => {
+        await saveSnapshot(checkpoint);
+      },
     );
     await saveSnapshot(snapshot);
 

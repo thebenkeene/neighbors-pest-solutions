@@ -379,6 +379,9 @@ export class FieldRoutesClient {
     startInclusive: string,
     endExclusive: string,
     previous: AttributionSnapshot | null = null,
+    onAttributionCheckpoint?: (
+      snapshot: AttributionSnapshot,
+    ) => Promise<void>,
   ): Promise<AttributionSnapshot> {
     const search = await this.post("subscription", "search", {
       dateAddedStart: `${startInclusive} 00:00:00`,
@@ -495,11 +498,53 @@ export class FieldRoutesClient {
       ];
     });
 
+    const definitions: AttributionSnapshot["definitions"] = {
+      arr: "subscription.annualRecurringValue > 0",
+      nonSalesRep: "primary soldBy employee type is not Sales Rep (type 2)",
+      reportEquivalent:
+        "recurring subscription with active subscription and active customer",
+      serviceRevenue:
+        "active appointment invoice productionValue; use subTotal when productionValue is -1",
+      firstYear:
+        "service date is on/after customer dateAdded and before its one-year anniversary",
+    };
+    const checkpointGeneratedAt = new Date().toISOString();
+
+    if (onAttributionCheckpoint) {
+      const previousServices = previous?.services ?? [];
+      await onAttributionCheckpoint({
+        version: 2,
+        metadata: {
+          tenant: "neighborspest",
+          officeID: 1,
+          startInclusive,
+          endExclusive,
+          generatedAt: checkpointGeneratedAt,
+          apiReadsUsed: this.readsUsed,
+          recordsRetrieved: subscriptions.length,
+          recurringRecords: records.length,
+          serviceRecords: previousServices.length,
+          serviceHistoryStartInclusive:
+            previous?.metadata.serviceHistoryStartInclusive,
+          serviceHistoryEndExclusive:
+            previous?.metadata.serviceHistoryEndExclusive,
+          serviceHistoryComplete: false,
+          attributionCheckpoint: true,
+        },
+        definitions,
+        records,
+        services: previousServices,
+      });
+    }
+
     const serviceHistory = await this.syncServiceHistory(
       startInclusive,
       endExclusive,
       previous,
     );
+    const generatedAt = new Date(
+      Math.max(Date.now(), Date.parse(checkpointGeneratedAt) + 1),
+    ).toISOString();
 
     return {
       version: 2,
@@ -508,7 +553,7 @@ export class FieldRoutesClient {
         officeID: 1,
         startInclusive,
         endExclusive,
-        generatedAt: new Date().toISOString(),
+        generatedAt,
         apiReadsUsed: this.readsUsed,
         recordsRetrieved: subscriptions.length,
         recurringRecords: records.length,
@@ -516,17 +561,9 @@ export class FieldRoutesClient {
         serviceHistoryStartInclusive: serviceHistory.historyStartInclusive,
         serviceHistoryEndExclusive: endExclusive,
         serviceHistoryComplete: serviceHistory.historyComplete,
+        attributionCheckpoint: false,
       },
-      definitions: {
-        arr: "subscription.annualRecurringValue > 0",
-        nonSalesRep: "primary soldBy employee type is not Sales Rep (type 2)",
-        reportEquivalent:
-          "recurring subscription with active subscription and active customer",
-        serviceRevenue:
-          "active appointment invoice productionValue; use subTotal when productionValue is -1",
-        firstYear:
-          "service date is on/after customer dateAdded and before its one-year anniversary",
-      },
+      definitions,
       records,
       services: serviceHistory.services,
     };

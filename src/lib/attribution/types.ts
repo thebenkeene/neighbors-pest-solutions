@@ -49,6 +49,7 @@ export interface AttributionSnapshot {
     serviceHistoryStartInclusive?: string;
     serviceHistoryEndExclusive?: string;
     serviceHistoryComplete?: boolean;
+    attributionCheckpoint?: boolean;
   };
   definitions: {
     arr: string;

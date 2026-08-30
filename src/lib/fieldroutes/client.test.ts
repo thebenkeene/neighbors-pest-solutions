@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import type { AttributionSnapshot } from "../attribution/types";
 import { FieldRoutesClient } from "./client";
 
 test("builds a minimized joined attribution snapshot in three reads", async () => {
@@ -171,8 +172,24 @@ test("adds completed services with FieldRoutes commission revenue", async () => 
 
   try {
     const client = new FieldRoutesClient({ maxReads: 5, minReadIntervalMs: 0 });
-    const snapshot = await client.createSnapshot("2026-07-01", "2026-08-01");
+    const checkpoints: AttributionSnapshot[] = [];
+    let callsAtCheckpoint = 0;
+    const snapshot = await client.createSnapshot(
+      "2026-07-01",
+      "2026-08-01",
+      null,
+      async (candidate) => {
+        checkpoints.push(candidate);
+        callsAtCheckpoint = calls.length;
+      },
+    );
+    const checkpoint = checkpoints[0];
+    assert.equal(callsAtCheckpoint, 3);
+    assert.equal(checkpoint?.metadata.attributionCheckpoint, true);
+    assert.equal(checkpoint?.records.length, 1);
+    assert.equal(checkpoint?.services?.length, 0);
     assert.equal(snapshot.version, 2);
+    assert.equal(snapshot.metadata.attributionCheckpoint, false);
     assert.equal(snapshot.metadata.apiReadsUsed, 5);
     assert.equal(snapshot.services?.length, 1);
     assert.deepEqual(snapshot.services?.[0], {
