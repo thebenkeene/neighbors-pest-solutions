@@ -43,7 +43,7 @@ const CHANNELS: Array<{
   {
     id: "online",
     label: "Online",
-    detail: "Online plus uncategorized non-sales",
+    detail: "Online",
     color: "#5b9bd5",
     soft: "#dbeafe",
   },
