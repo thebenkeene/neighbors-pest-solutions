@@ -78,8 +78,10 @@ details, or credentials.
   always state which entity's field is being reported.
 
 The page defaults to April–July 2026 when those months exist in the snapshot,
-with active customer plus active subscription. The All time button selects every
-month currently present in the snapshot.
+with active customer plus active subscription. All time is a reversible toggle:
+selecting it hides the month inputs and makes every dashboard calculation use
+the earliest through latest month in the available snapshot. Selecting it again
+restores the prior custom range and its month inputs.
 
 ## Vercel deployment protection
 

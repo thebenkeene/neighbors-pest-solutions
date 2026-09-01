@@ -39,6 +39,20 @@ function inMonthRange(value: string, startMonth: string, endMonth: string): bool
   return true;
 }
 
+export function resolveReportingRange(
+  months: string[],
+  startMonth: string,
+  endMonth: string,
+  allTimeSelected: boolean,
+): { startMonth: string; endMonth: string } {
+  if (!allTimeSelected) return { startMonth, endMonth };
+  const availableMonths = [...new Set(months.filter(Boolean))].sort();
+  return {
+    startMonth: availableMonths[0] ?? "",
+    endMonth: availableMonths.at(-1) ?? "",
+  };
+}
+
 function isReferral(record: AttributionRecord): boolean {
   const labels = [
     record.customerSource,

@@ -7,6 +7,7 @@ import {
   getOnlineDetail,
   groupByMonth,
   isFirstYearService,
+  resolveReportingRange,
   summarize,
   summarizeServices,
 } from "./aggregate";
@@ -119,6 +120,39 @@ test("keeps the inclusive start and end month range accurate", () => {
     "2026-06",
     "2026-07",
   ]);
+});
+
+test("switches between a saved custom range and all available history", () => {
+  const months = ["2026-07", "2026-04", "2026-06", "2026-05"];
+  const customRange = resolveReportingRange(
+    months,
+    "2026-05",
+    "2026-06",
+    false,
+  );
+  assert.deepEqual(customRange, {
+    startMonth: "2026-05",
+    endMonth: "2026-06",
+  });
+  assert.deepEqual(
+    summarize(filterRecords(records, { ...customRange, channel: "all" })),
+    { customers: 2, subscriptions: 2, arr: 1380 },
+  );
+
+  const allTimeRange = resolveReportingRange(
+    months,
+    customRange.startMonth,
+    customRange.endMonth,
+    true,
+  );
+  assert.deepEqual(allTimeRange, {
+    startMonth: "2026-04",
+    endMonth: "2026-07",
+  });
+  assert.deepEqual(
+    summarize(filterRecords(records, { ...allTimeRange, channel: "all" })),
+    { customers: 4, subscriptions: 4, arr: 2700 },
+  );
 });
 
 test("filters by the friendly channel without exposing raw fields", () => {

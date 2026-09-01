@@ -8,6 +8,7 @@ import {
   groupByMonth,
   groupByOnlineDetail,
   groupServicesByMonth,
+  resolveReportingRange,
   summarize,
   summarizeServices,
 } from "@/lib/attribution/aggregate";
@@ -341,15 +342,21 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
   const [startMonth, setStartMonth] = useState(firstMonth);
   const [endMonth, setEndMonth] = useState(lastMonth);
   const [channel, setChannel] = useState<AttributionChannelFilter>("all");
-  const allTimeSelected = startMonth === months[0] && endMonth === months.at(-1);
+  const [allTimeSelected, setAllTimeSelected] = useState(false);
+  const reportingRange = useMemo(
+    () => resolveReportingRange(months, startMonth, endMonth, allTimeSelected),
+    [months, startMonth, endMonth, allTimeSelected],
+  );
+  const effectiveStartMonth = reportingRange.startMonth;
+  const effectiveEndMonth = reportingRange.endMonth;
 
   const rangeRecords = useMemo(
-    () => filterRecords(records, { startMonth, endMonth, channel: "all" }),
-    [records, startMonth, endMonth],
+    () => filterRecords(records, { startMonth: effectiveStartMonth, endMonth: effectiveEndMonth, channel: "all" }),
+    [records, effectiveStartMonth, effectiveEndMonth],
   );
   const filteredRecords = useMemo(
-    () => filterRecords(records, { startMonth, endMonth, channel }),
-    [records, startMonth, endMonth, channel],
+    () => filterRecords(records, { startMonth: effectiveStartMonth, endMonth: effectiveEndMonth, channel }),
+    [records, effectiveStartMonth, effectiveEndMonth, channel],
   );
   const stats = useMemo(() => summarize(filteredRecords), [filteredRecords]);
   const totalStats = useMemo(() => summarize(rangeRecords), [rangeRecords]);
@@ -357,23 +364,23 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
   const channelGroups = useMemo(() => groupByChannel(rangeRecords), [rangeRecords]);
   const onlineGroups = useMemo(() => groupByOnlineDetail(rangeRecords), [rangeRecords]);
   const eligibleServices = useMemo(
-    () => eligibleOnlineServices(snapshot?.services ?? [], records, startMonth, endMonth),
-    [snapshot?.services, records, startMonth, endMonth],
+    () => eligibleOnlineServices(snapshot?.services ?? [], records, effectiveStartMonth, effectiveEndMonth),
+    [snapshot?.services, records, effectiveStartMonth, effectiveEndMonth],
   );
   const serviceStats = useMemo(() => summarizeServices(eligibleServices), [eligibleServices]);
   const serviceMonthGroups = useMemo(() => groupServicesByMonth(eligibleServices), [eligibleServices]);
-  const serviceComplete = snapshot ? serviceCoverageComplete(snapshot, startMonth, endMonth) : false;
+  const serviceComplete = snapshot ? serviceCoverageComplete(snapshot, effectiveStartMonth, effectiveEndMonth) : false;
   const maxOnlineARR = Math.max(...onlineGroups.map((group) => group.arr), 1);
 
   function reset() {
     setStartMonth(firstMonth);
     setEndMonth(lastMonth);
     setChannel("all");
+    setAllTimeSelected(false);
   }
 
-  function selectAllTime() {
-    setStartMonth(months[0] ?? "");
-    setEndMonth(months.at(-1) ?? "");
+  function toggleAllTime() {
+    setAllTimeSelected((selected) => !selected);
   }
 
   if (!snapshot || records.length === 0) return <EmptyState />;
@@ -408,7 +415,7 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
           <button
             type="button"
             aria-pressed={allTimeSelected}
-            onClick={selectAllTime}
+            onClick={toggleAllTime}
             className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
               allTimeSelected
                 ? "bg-primary-800 text-white shadow-sm"
@@ -418,26 +425,28 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
             All time
           </button>
           <span className="self-center text-xs text-slate-500">
-            {allTimeSelected ? `All available history · ${prettyRange(months[0] ?? "", months.at(-1) ?? "")}` : `Custom range · ${prettyRange(startMonth, endMonth)}`}
+            {allTimeSelected ? `All available history · ${prettyRange(effectiveStartMonth, effectiveEndMonth)}` : `Custom range · ${prettyRange(effectiveStartMonth, effectiveEndMonth)}`}
           </span>
         </div>
-        <div className="mt-5 grid gap-4 sm:grid-cols-2">
-          <label className="block">
-            <span className="mb-2 block text-[11px] font-bold uppercase tracking-[0.15em] text-slate-500">Start month</span>
-            <input type="month" value={startMonth} min={months[0]} max={endMonth || months.at(-1)} onChange={(event) => setStartMonth(event.target.value)} className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800 outline-none transition focus:border-primary-500 focus:ring-4 focus:ring-primary-100" />
-          </label>
-          <label className="block">
-            <span className="mb-2 block text-[11px] font-bold uppercase tracking-[0.15em] text-slate-500">End month</span>
-            <input type="month" value={endMonth} min={startMonth || months[0]} max={months.at(-1)} onChange={(event) => setEndMonth(event.target.value)} className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800 outline-none transition focus:border-primary-500 focus:ring-4 focus:ring-primary-100" />
-          </label>
-        </div>
+        {!allTimeSelected ? (
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <label className="block">
+              <span className="mb-2 block text-[11px] font-bold uppercase tracking-[0.15em] text-slate-500">Start month</span>
+              <input type="month" value={startMonth} min={months[0]} max={endMonth || months.at(-1)} onChange={(event) => setStartMonth(event.target.value)} className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800 outline-none transition focus:border-primary-500 focus:ring-4 focus:ring-primary-100" />
+            </label>
+            <label className="block">
+              <span className="mb-2 block text-[11px] font-bold uppercase tracking-[0.15em] text-slate-500">End month</span>
+              <input type="month" value={endMonth} min={startMonth || months[0]} max={months.at(-1)} onChange={(event) => setEndMonth(event.target.value)} className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800 outline-none transition focus:border-primary-500 focus:ring-4 focus:ring-primary-100" />
+            </label>
+          </div>
+        ) : null}
       </section>
 
       <section className="overflow-hidden rounded-3xl border border-primary-200/70 bg-gradient-to-br from-primary-50 via-white to-primary-100/60 p-5 shadow-[0_10px_40px_rgba(30,58,138,0.07)] sm:p-6">
         <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary-800">Period totals</p>
-            <h2 className="mt-1 text-xl font-semibold text-slate-950">{prettyRange(startMonth, endMonth)}</h2>
+            <h2 className="mt-1 text-xl font-semibold text-slate-950">{prettyRange(effectiveStartMonth, effectiveEndMonth)}</h2>
           </div>
           <p className="text-xs text-slate-500">Active customers and recurring subscriptions</p>
         </div>
