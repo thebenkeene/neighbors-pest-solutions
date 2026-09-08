@@ -32,27 +32,45 @@ const CURRENT_SERVICE_SLUGS = [
   "stinging-pest-control", "stink-bug-control", "tick-control",
 ];
 
+// Match legacy URLs with or without a trailing slash before applying the
+// site's general slash canonicalization. Otherwise a slash variant takes one
+// redirect to remove the slash and a second redirect to reach the new page.
+function permanentRedirectVariants(source: string, destination: string) {
+  return [
+    { source, destination, permanent: true },
+    { source: `${source}/`, destination, permanent: true },
+  ];
+}
+
 const nextConfig: NextConfig = {
   async redirects() {
     return [
       // Old WordPress page URLs
-      { source: "/about-us", destination: "/about", permanent: true },
-      { source: "/contact-us", destination: "/contact", permanent: true },
-      { source: "/get-a-quote", destination: "/contact", permanent: true },
+      ...permanentRedirectVariants("/about-us", "/about"),
+      ...permanentRedirectVariants("/contact-us", "/contact"),
+      ...permanentRedirectVariants("/get-a-quote", "/contact"),
       // Old plural-pest service slugs (e.g. /services/cockroaches)
-      ...OLD_SERVICE_SLUGS.map(([oldSlug, newSlug]) => ({
-        source: `/services/${oldSlug}`,
-        destination: `/services/${newSlug}`,
-        permanent: true,
-      })),
+      ...OLD_SERVICE_SLUGS.flatMap(([oldSlug, newSlug]) =>
+        permanentRedirectVariants(
+          `/services/${oldSlug}`,
+          `/services/${newSlug}`
+        )
+      ),
       // Old "-san-diego"-suffixed slugs (e.g. /services/ant-control-san-diego)
-      ...CURRENT_SERVICE_SLUGS.map((slug) => ({
-        source: `/services/${slug}-san-diego`,
-        destination: `/services/${slug}`,
-        permanent: true,
-      })),
+      ...CURRENT_SERVICE_SLUGS.flatMap((slug) =>
+        permanentRedirectVariants(
+          `/services/${slug}-san-diego`,
+          `/services/${slug}`
+        )
+      ),
+      // Preserve the site's no-trailing-slash canonical policy for every
+      // other route after the more-specific legacy mappings above.
+      { source: "/:path+/", destination: "/:path+", permanent: true },
     ];
   },
+  // We define slash handling above so legacy slash variants can skip an
+  // otherwise unavoidable intermediate redirect.
+  skipTrailingSlashRedirect: true,
   images: {
     remotePatterns: [
       {
