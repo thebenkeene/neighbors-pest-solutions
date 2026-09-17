@@ -2,7 +2,6 @@ export type SellerCategory = -1 | 0 | 1 | 2;
 
 export type AttributionChannel = "sales-team" | "online" | "referral";
 export type AttributionChannelFilter = "all" | AttributionChannel;
-export type OnlineDetail = "Google" | "Facebook" | "Yelp" | "Unknown";
 
 export interface AttributionRecord {
   customerID: number;
@@ -76,6 +75,11 @@ export interface AttributionStats {
 
 export interface AttributionGroup extends AttributionStats {
   label: string;
+}
+
+export interface OnlineSourceGroup extends AttributionStats {
+  customerSource: string;
+  customerSubSource: string;
 }
 
 export interface ServiceStats {

@@ -5,7 +5,7 @@ import type {
   AttributionRecord,
   AttributionServiceRecord,
   AttributionStats,
-  OnlineDetail,
+  OnlineSourceGroup,
   ServiceGroup,
   ServiceStats,
 } from "./types";
@@ -73,14 +73,6 @@ export function getAttributionChannel(
   return "online";
 }
 
-export function getOnlineDetail(record: AttributionRecord): OnlineDetail {
-  const detail = clean(record.customerSubSource);
-  if (detail.includes("google")) return "Google";
-  if (detail.includes("facebook") || detail === "fb") return "Facebook";
-  if (detail.includes("yelp")) return "Yelp";
-  return "Unknown";
-}
-
 export function filterRecords(
   records: AttributionRecord[],
   filters: AttributionFilters,
@@ -137,13 +129,39 @@ export function groupByChannel(records: AttributionRecord[]): AttributionGroup[]
   return groupBy(records, getAttributionChannel);
 }
 
-export function groupByOnlineDetail(
+function sourceLabel(value: string | null | undefined, fallback: string): string {
+  const label = (value ?? "").trim();
+  return label && clean(label) !== "n a" ? label : fallback;
+}
+
+export function groupByOnlineSources(
   records: AttributionRecord[],
-): AttributionGroup[] {
-  return groupBy(
-    records.filter((record) => getAttributionChannel(record) === "online"),
-    getOnlineDetail,
-  );
+): OnlineSourceGroup[] {
+  const groups = new Map<string, {
+    customerSource: string;
+    customerSubSource: string;
+    records: AttributionRecord[];
+  }>();
+  for (const record of records) {
+    if (getAttributionChannel(record) !== "online") continue;
+    const customerSource = sourceLabel(record.customerSource, "Unmarked");
+    const customerSubSource = sourceLabel(record.customerSubSource, "Unspecified");
+    const key = JSON.stringify([customerSource, customerSubSource]);
+    const group = groups.get(key) ?? { customerSource, customerSubSource, records: [] };
+    group.records.push(record);
+    groups.set(key, group);
+  }
+  return [...groups.values()]
+    .map((group) => ({
+      customerSource: group.customerSource,
+      customerSubSource: group.customerSubSource,
+      ...summarize(group.records),
+    }))
+    .sort((a, b) =>
+      b.arr - a.arr ||
+      a.customerSource.localeCompare(b.customerSource) ||
+      a.customerSubSource.localeCompare(b.customerSubSource),
+    );
 }
 
 function customerAttributionRecords(

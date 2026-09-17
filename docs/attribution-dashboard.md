@@ -72,8 +72,11 @@ details, or credentials.
   for every remaining non-sales record.
 - **Online** is an operational remainder bucket, not proof of SEO. It can include
   blank, Unknown Source, Conditions, and other unmapped non-sales labels.
-- **Online detail** uses Customer Sub-Source for Google, Facebook, or Yelp and
-  labels everything else Unknown.
+- **Online breakdown** shows each distinct Customer Source and Customer
+  Sub-Source pair. Blank or `N/A` Customer Source is labeled Unmarked; blank or
+  `N/A` Customer Sub-Source is labeled Unspecified. Recorded labels, including
+  Google, Facebook, or Yelp sub-sources, remain visible without implying that
+  an unmarked source was explicitly Online.
 - **Customer Source** remains separate from Subscription Source and Lead Source;
   always state which entity's field is being reported.
 

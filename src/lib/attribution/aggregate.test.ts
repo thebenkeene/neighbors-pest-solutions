@@ -4,7 +4,7 @@ import {
   eligibleOnlineServices,
   filterRecords,
   getAttributionChannel,
-  getOnlineDetail,
+  groupByOnlineSources,
   groupByMonth,
   isFirstYearService,
   resolveReportingRange,
@@ -103,8 +103,41 @@ test("uses plug-and-play attribution precedence", () => {
   assert.equal(getAttributionChannel(records[1]), "sales-team");
   assert.equal(getAttributionChannel(records[2]), "referral");
   assert.equal(getAttributionChannel(records[3]), "online");
-  assert.equal(getOnlineDetail(records[0]), "Google");
-  assert.equal(getOnlineDetail(records[3]), "Unknown");
+  assert.deepEqual(groupByOnlineSources(records), [
+    { customerSource: "Unmarked", customerSubSource: "Unspecified", customers: 1, subscriptions: 1, arr: 720 },
+    { customerSource: "Online", customerSubSource: "Google Organic", customers: 1, subscriptions: 1, arr: 600 },
+  ]);
+});
+
+test("keeps declared Customer Source separate from missing Customer Sub-Source", () => {
+  const august = [
+    ...[516, 1308, 556, 840, 1428].map((arr, index) => ({
+      ...records[0],
+      customerID: 100 + index,
+      subscriptionID: 200 + index,
+      soldDate: "2026-08-15 09:00:00",
+      customerSource: "Online",
+      customerSubSource: "",
+      annualRecurringValue: String(arr),
+    })),
+    ...Array.from({ length: 13 }, (_, index) => ({
+      ...records[0],
+      customerID: 200 + index,
+      subscriptionID: 300 + index,
+      soldDate: "2026-08-15 09:00:00",
+      customerSource: "",
+      customerSubSource: index === 0 ? "N/A" : "",
+      annualRecurringValue: String(index === 0 ? 1979 : 800),
+    })),
+  ];
+  const groups = groupByOnlineSources(filterRecords(august, {
+    startMonth: "2026-08", endMonth: "2026-08", channel: "online",
+  }));
+  assert.deepEqual(groups, [
+    { customerSource: "Unmarked", customerSubSource: "Unspecified", customers: 13, subscriptions: 13, arr: 11579 },
+    { customerSource: "Online", customerSubSource: "Unspecified", customers: 5, subscriptions: 5, arr: 4648 },
+  ]);
+  assert.equal(groups.reduce((total, group) => total + group.arr, 0), 16227);
 });
 
 test("keeps the inclusive start and end month range accurate", () => {

@@ -6,7 +6,7 @@ import {
   filterRecords,
   groupByChannel,
   groupByMonth,
-  groupByOnlineDetail,
+  groupByOnlineSources,
   groupServicesByMonth,
   resolveReportingRange,
   summarize,
@@ -56,13 +56,6 @@ const CHANNELS: Array<{
     soft: "#eff6ff",
   },
 ];
-
-const ONLINE_COLORS: Record<string, string> = {
-  Google: "#5b9bd5",
-  Facebook: "#3b82f6",
-  Yelp: "#2563c8",
-  Unknown: "#111111",
-};
 
 const NEIGHBORS = {
   logoBlue: "#5b9bd5",
@@ -362,7 +355,7 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
   const totalStats = useMemo(() => summarize(rangeRecords), [rangeRecords]);
   const monthGroups = useMemo(() => groupByMonth(filteredRecords), [filteredRecords]);
   const channelGroups = useMemo(() => groupByChannel(rangeRecords), [rangeRecords]);
-  const onlineGroups = useMemo(() => groupByOnlineDetail(rangeRecords), [rangeRecords]);
+  const onlineGroups = useMemo(() => groupByOnlineSources(rangeRecords), [rangeRecords]);
   const eligibleServices = useMemo(
     () => eligibleOnlineServices(snapshot?.services ?? [], records, effectiveStartMonth, effectiveEndMonth),
     [snapshot?.services, records, effectiveStartMonth, effectiveEndMonth],
@@ -497,22 +490,28 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
               <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary-700">Inside Online</p>
               <h2 className="mt-1 text-lg font-semibold text-slate-950">Online attribution breakdown</h2>
             </div>
-            <p className="max-w-md text-xs leading-5 text-slate-500">Unknown includes blank, Conditions, and any other non-sales record that is not a referral.</p>
+            <p className="max-w-md text-xs leading-5 text-slate-500">Customer Source shows the recorded acquisition label. Customer Sub-Source adds detail when FieldRoutes has it.</p>
           </div>
           <div className="mt-6 grid gap-5 lg:grid-cols-2">
             {onlineGroups.map((group) => (
-              <div key={group.label} className="rounded-2xl border border-white bg-white/90 p-4 shadow-sm">
-                <div className="flex items-baseline justify-between gap-3">
-                  <span className="font-semibold text-slate-800">{group.label}</span>
+              <div key={JSON.stringify([group.customerSource, group.customerSubSource])} className="rounded-2xl border border-white bg-white/90 p-4 shadow-sm">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">Customer Source</p>
+                    <p className="mt-1 font-semibold text-slate-800">{group.customerSource}</p>
+                  </div>
                   <span className="font-semibold tabular-nums text-slate-950">{currency.format(group.arr)}</span>
                 </div>
+                <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">Customer Sub-Source</p>
+                <p className="mt-1 text-sm text-slate-700">{group.customerSubSource}</p>
                 <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-slate-100">
-                  <div className="h-full rounded-full" style={{ width: `${Math.max((group.arr / maxOnlineARR) * 100, 2)}%`, backgroundColor: ONLINE_COLORS[group.label] ?? ONLINE_COLORS.Unknown }} />
+                  <div className="h-full rounded-full" style={{ width: `${Math.max((group.arr / maxOnlineARR) * 100, 2)}%`, backgroundColor: NEIGHBORS.logoBlue }} />
                 </div>
                 <p className="mt-2 text-[11px] text-slate-500">{wholeNumber.format(group.customers)} customers · {wholeNumber.format(group.subscriptions)} subscriptions</p>
               </div>
             ))}
           </div>
+          <p className="mt-4 text-xs text-slate-500">Unmarked and Unspecified mean the respective fields were blank or N/A. Online remains the non-sales, non-referral reporting category.</p>
         </section>
       ) : null}
 
