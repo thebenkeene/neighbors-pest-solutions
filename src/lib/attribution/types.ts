@@ -82,6 +82,20 @@ export interface OnlineSourceGroup extends AttributionStats {
   customerSubSource: string;
 }
 
+export interface AttributionCustomerRow {
+  customerID: number;
+  subscriptionIDs: number[];
+  firstSoldDate: string;
+  lastSoldDate: string;
+  arr: number;
+  sellerTypes: string[];
+  customerSources: string[];
+  customerSubSources: string[];
+  subscriptionSources: string[];
+  subscriptionSubSources: string[];
+  leadSources: string[];
+}
+
 export interface ServiceStats {
   customers: number;
   services: number;

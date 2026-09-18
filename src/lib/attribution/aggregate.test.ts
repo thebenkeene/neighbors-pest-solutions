@@ -4,6 +4,8 @@ import {
   eligibleOnlineServices,
   filterRecords,
   getAttributionChannel,
+  getOnlineSourcePair,
+  groupByCustomer,
   groupByOnlineSources,
   groupByMonth,
   isFirstYearService,
@@ -138,6 +140,59 @@ test("keeps declared Customer Source separate from missing Customer Sub-Source",
     { customerSource: "Online", customerSubSource: "Unspecified", customers: 5, subscriptions: 5, arr: 4648 },
   ]);
   assert.equal(groups.reduce((total, group) => total + group.arr, 0), 16227);
+});
+
+test("customer drill-down reconciles to the selected active category and preserves source labels", () => {
+  const repSource = {
+    ...records[0],
+    customerID: 25445,
+    subscriptionID: 15838,
+    soldDate: "2026-09-09 11:11:00",
+    annualRecurringValue: "714.00",
+    customerSource: "Rep",
+    customerSubSource: "",
+  };
+  const secondOnlineSubscription = {
+    ...records[0],
+    subscriptionID: 11,
+    soldDate: "2026-04-20 10:00:00",
+    annualRecurringValue: "300.00",
+  };
+  const inactive = {
+    ...repSource,
+    customerID: 999,
+    subscriptionID: 999,
+    subscriptionActive: false,
+  };
+  const selected = filterRecords(
+    [...records, secondOnlineSubscription, repSource, inactive],
+    { startMonth: "2026-04", endMonth: "2026-09", channel: "online" },
+  );
+  const customers = groupByCustomer(selected);
+  assert.equal(customers.length, summarize(selected).customers);
+  assert.equal(customers.reduce((total, row) => total + row.arr, 0), summarize(selected).arr);
+  assert.deepEqual(customers.find((row) => row.customerID === 1), {
+    customerID: 1,
+    subscriptionIDs: [10, 11],
+    firstSoldDate: "2026-04-03 10:00:00",
+    lastSoldDate: "2026-04-20 10:00:00",
+    arr: 900,
+    sellerTypes: ["Office Staff"],
+    customerSources: ["Online"],
+    customerSubSources: ["Google Organic"],
+    subscriptionSources: ["Unmarked"],
+    subscriptionSubSources: ["Unspecified"],
+    leadSources: ["Unmarked"],
+  });
+  assert.deepEqual(getOnlineSourcePair(repSource), {
+    customerSource: "Rep",
+    customerSubSource: "Unspecified",
+  });
+  assert.deepEqual(customers.find((row) => row.customerID === 25445)?.customerSources, ["Rep"]);
+  assert.deepEqual(
+    groupByOnlineSources(selected).find((group) => group.customerSource === "Rep"),
+    { customerSource: "Rep", customerSubSource: "Unspecified", customers: 1, subscriptions: 1, arr: 714 },
+  );
 });
 
 test("keeps the inclusive start and end month range accurate", () => {

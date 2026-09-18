@@ -77,6 +77,16 @@ details, or credentials.
   `N/A` Customer Sub-Source is labeled Unspecified. Recorded labels, including
   Google, Facebook, or Yelp sub-sources, remain visible without implying that
   an unmarked source was explicitly Online.
+- **Customer drill-down** appears when Sales Team, Online, or Referral is
+  selected. It groups the same active, recurring, in-range subscription records
+  by customer ID, sums ARR within that selected category, and shows sold dates,
+  seller type, Customer Source/Sub-Source, subscription IDs and sources, and Lead
+  Source. Multiple subscriptions for one customer appear as one row. The list
+  is searchable by ID or label and paginated. Online source cards can narrow
+  only this list to a Customer Source/Sub-Source pair; the Online category
+  totals, charts, and commission view do not change. This uses the existing
+  private snapshot and makes no FieldRoutes API calls. Names are not shown
+  because they are not stored in the minimized snapshot.
 - **Customer Source** remains separate from Subscription Source and Lead Source;
   always state which entity's field is being reported.
 

@@ -1,5 +1,6 @@
 import type {
   AttributionChannel,
+  AttributionCustomerRow,
   AttributionFilters,
   AttributionGroup,
   AttributionRecord,
@@ -134,6 +135,16 @@ function sourceLabel(value: string | null | undefined, fallback: string): string
   return label && clean(label) !== "n a" ? label : fallback;
 }
 
+export function getOnlineSourcePair(record: AttributionRecord): {
+  customerSource: string;
+  customerSubSource: string;
+} {
+  return {
+    customerSource: sourceLabel(record.customerSource, "Unmarked"),
+    customerSubSource: sourceLabel(record.customerSubSource, "Unspecified"),
+  };
+}
+
 export function groupByOnlineSources(
   records: AttributionRecord[],
 ): OnlineSourceGroup[] {
@@ -144,8 +155,7 @@ export function groupByOnlineSources(
   }>();
   for (const record of records) {
     if (getAttributionChannel(record) !== "online") continue;
-    const customerSource = sourceLabel(record.customerSource, "Unmarked");
-    const customerSubSource = sourceLabel(record.customerSubSource, "Unspecified");
+    const { customerSource, customerSubSource } = getOnlineSourcePair(record);
     const key = JSON.stringify([customerSource, customerSubSource]);
     const group = groups.get(key) ?? { customerSource, customerSubSource, records: [] };
     group.records.push(record);
@@ -162,6 +172,40 @@ export function groupByOnlineSources(
       a.customerSource.localeCompare(b.customerSource) ||
       a.customerSubSource.localeCompare(b.customerSubSource),
     );
+}
+
+export function groupByCustomer(records: AttributionRecord[]): AttributionCustomerRow[] {
+  const groups = new Map<number, AttributionRecord[]>();
+  for (const record of records) {
+    groups.set(record.customerID, [...(groups.get(record.customerID) ?? []), record]);
+  }
+
+  const labels = (
+    rows: AttributionRecord[],
+    field: keyof Pick<AttributionRecord,
+      "customerSource" | "customerSubSource" | "subscriptionSource" |
+      "subscriptionSubSource" | "leadSource" | "primarySellerTypeText">,
+    fallback: string,
+  ) => [...new Set(rows.map((row) => sourceLabel(row[field], fallback)))];
+
+  return [...groups.entries()]
+    .map(([customerID, rows]) => {
+      const soldDates = rows.map((row) => row.soldDate).sort();
+      return {
+        customerID,
+        subscriptionIDs: [...new Set(rows.map((row) => row.subscriptionID))].sort((a, b) => a - b),
+        firstSoldDate: soldDates[0],
+        lastSoldDate: soldDates.at(-1) ?? soldDates[0],
+        arr: rows.reduce((total, row) => total + Number(row.annualRecurringValue || 0), 0),
+        sellerTypes: labels(rows, "primarySellerTypeText", "Unknown"),
+        customerSources: labels(rows, "customerSource", "Unmarked"),
+        customerSubSources: labels(rows, "customerSubSource", "Unspecified"),
+        subscriptionSources: labels(rows, "subscriptionSource", "Unmarked"),
+        subscriptionSubSources: labels(rows, "subscriptionSubSource", "Unspecified"),
+        leadSources: labels(rows, "leadSource", "Unmarked"),
+      };
+    })
+    .sort((a, b) => b.firstSoldDate.localeCompare(a.firstSoldDate) || b.customerID - a.customerID);
 }
 
 function customerAttributionRecords(

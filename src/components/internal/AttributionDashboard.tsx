@@ -5,9 +5,11 @@ import {
   eligibleOnlineServices,
   filterRecords,
   groupByChannel,
+  groupByCustomer,
   groupByMonth,
   groupByOnlineSources,
   groupServicesByMonth,
+  getOnlineSourcePair,
   resolveReportingRange,
   summarize,
   summarizeServices,
@@ -16,6 +18,7 @@ import type {
   AttributionChannel,
   AttributionChannelFilter,
   AttributionGroup,
+  AttributionRecord,
   AttributionSnapshot,
   ServiceGroup,
 } from "@/lib/attribution/types";
@@ -26,6 +29,7 @@ const currency = new Intl.NumberFormat("en-US", {
   maximumFractionDigits: 0,
 });
 const wholeNumber = new Intl.NumberFormat("en-US");
+const CUSTOMER_PAGE_SIZE = 25;
 
 const CHANNELS: Array<{
   id: AttributionChannel;
@@ -80,6 +84,17 @@ function prettyRange(startMonth: string, endMonth: string): string {
   if (!startMonth || !endMonth) return "Selected period";
   if (startMonth === endMonth) return prettyMonth(startMonth);
   return `${prettyMonth(startMonth)} – ${prettyMonth(endMonth)}`;
+}
+
+function prettyDate(value: string): string {
+  const date = value.slice(0, 10);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return value || "Unknown";
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${date}T00:00:00Z`));
 }
 
 function nextMonth(value: string): string {
@@ -184,7 +199,122 @@ function ChannelCard({
       <p className="mt-2 text-xs text-slate-500">
         {wholeNumber.format(group?.customers ?? 0)} customers · {channel.detail}
       </p>
+      <p className="mt-3 text-[11px] font-semibold" style={{ color: channel.color }}>
+        {selected ? "Viewing customers below ↓" : "View customers →"}
+      </p>
     </button>
+  );
+}
+
+function CustomerList({
+  records,
+  label,
+  sourcePair,
+}: {
+  records: AttributionRecord[];
+  label: string;
+  sourcePair: { customerSource: string; customerSubSource: string } | null;
+}) {
+  const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const rows = useMemo(() => groupByCustomer(records), [records]);
+  const listStats = useMemo(() => summarize(records), [records]);
+  const matchingRows = useMemo(() => {
+    const needle = query.trim().toLowerCase();
+    if (!needle) return rows;
+    return rows.filter((row) => [
+      String(row.customerID),
+      ...row.subscriptionIDs.map(String),
+      ...row.sellerTypes,
+      ...row.customerSources,
+      ...row.customerSubSources,
+      ...row.subscriptionSources,
+      ...row.subscriptionSubSources,
+      ...row.leadSources,
+    ].some((value) => value.toLowerCase().includes(needle)));
+  }, [rows, query]);
+  const totalPages = Math.max(1, Math.ceil(matchingRows.length / CUSTOMER_PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const visibleRows = matchingRows.slice(
+    (currentPage - 1) * CUSTOMER_PAGE_SIZE,
+    currentPage * CUSTOMER_PAGE_SIZE,
+  );
+
+  return (
+    <section id="attribution-customers" className="rounded-3xl border border-slate-200/80 bg-white p-5 shadow-[0_8px_40px_rgba(15,23,42,0.04)] sm:p-6">
+      <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary-700">Customer drill-down</p>
+          <h2 className="mt-1 text-lg font-semibold text-slate-950">{label} customers</h2>
+          <p className="mt-1 text-xs leading-5 text-slate-500">
+            {sourcePair ? `${sourcePair.customerSource} / ${sourcePair.customerSubSource} · ` : ""}
+            {wholeNumber.format(listStats.customers)} customers · {currency.format(listStats.arr)} ARR in the selected period
+          </p>
+        </div>
+        <div className="sm:w-72">
+          <label htmlFor="customer-search" className="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500">Find a customer</label>
+          <input
+            id="customer-search"
+            type="search"
+            value={query}
+            onChange={(event) => { setQuery(event.target.value); setPage(1); }}
+            placeholder="ID, source, or seller"
+            className="h-10 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800 outline-none transition focus:border-primary-500 focus:ring-4 focus:ring-primary-100"
+          />
+        </div>
+      </div>
+      <p className="mt-4 text-xs text-slate-500">
+        Showing {wholeNumber.format(matchingRows.length)} matching customers. IDs are shown instead of names because this private reporting snapshot does not store customer names.
+      </p>
+
+      {visibleRows.length ? (
+        <div className="mt-4 divide-y divide-slate-100 rounded-2xl border border-slate-200">
+          {visibleRows.map((row) => (
+            <article key={row.customerID} className="p-4 sm:p-5">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h3 className="text-sm font-semibold text-slate-950">Customer #{row.customerID}</h3>
+                  <p className="mt-1 text-xs text-slate-500">
+                    Sold {prettyDate(row.firstSoldDate)}
+                    {row.lastSoldDate.slice(0, 10) !== row.firstSoldDate.slice(0, 10) ? ` – ${prettyDate(row.lastSoldDate)}` : ""}
+                    {` · ${row.subscriptionIDs.length} ${row.subscriptionIDs.length === 1 ? "subscription" : "subscriptions"}`}
+                  </p>
+                </div>
+                <p className="text-lg font-semibold tabular-nums text-slate-950">{currency.format(row.arr)} ARR</p>
+              </div>
+              <dl className="mt-4 grid gap-3 text-xs sm:grid-cols-3">
+                <div><dt className="font-semibold uppercase tracking-[0.1em] text-slate-500">Seller type</dt><dd className="mt-1 break-words text-slate-800">{row.sellerTypes.join(", ")}</dd></div>
+                <div><dt className="font-semibold uppercase tracking-[0.1em] text-slate-500">Customer Source</dt><dd className="mt-1 break-words text-slate-800">{row.customerSources.join(", ")}</dd></div>
+                <div><dt className="font-semibold uppercase tracking-[0.1em] text-slate-500">Customer Sub-Source</dt><dd className="mt-1 break-words text-slate-800">{row.customerSubSources.join(", ")}</dd></div>
+              </dl>
+              <details className="mt-3 text-xs text-slate-600">
+                <summary className="w-fit cursor-pointer font-semibold text-primary-700 hover:text-primary-900">More FieldRoutes details</summary>
+                <dl className="mt-3 grid gap-3 rounded-xl bg-slate-50 p-3 sm:grid-cols-2">
+                  <div><dt className="font-semibold text-slate-500">Subscription IDs</dt><dd className="mt-1 break-words text-slate-800">{row.subscriptionIDs.map((id) => `#${id}`).join(", ")}</dd></div>
+                  <div><dt className="font-semibold text-slate-500">Subscription Source</dt><dd className="mt-1 break-words text-slate-800">{row.subscriptionSources.join(", ")}</dd></div>
+                  <div><dt className="font-semibold text-slate-500">Subscription Sub-Source</dt><dd className="mt-1 break-words text-slate-800">{row.subscriptionSubSources.join(", ")}</dd></div>
+                  <div><dt className="font-semibold text-slate-500">Lead Source</dt><dd className="mt-1 break-words text-slate-800">{row.leadSources.join(", ")}</dd></div>
+                </dl>
+              </details>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p className="mt-4 rounded-2xl border border-dashed border-slate-200 px-5 py-10 text-center text-sm text-slate-500">
+          {query ? "No customers match that search." : "No active recurring customers in this view."}
+        </p>
+      )}
+
+      {matchingRows.length > CUSTOMER_PAGE_SIZE ? (
+        <div className="mt-4 flex items-center justify-between gap-3 text-xs text-slate-500">
+          <span>Page {currentPage} of {totalPages}</span>
+          <div className="flex gap-2">
+            <button type="button" disabled={currentPage === 1} onClick={() => setPage(currentPage - 1)} className="rounded-lg border border-slate-200 px-3 py-2 font-semibold text-slate-700 enabled:hover:bg-slate-50 disabled:opacity-40">Previous</button>
+            <button type="button" disabled={currentPage === totalPages} onClick={() => setPage(currentPage + 1)} className="rounded-lg border border-slate-200 px-3 py-2 font-semibold text-slate-700 enabled:hover:bg-slate-50 disabled:opacity-40">Next</button>
+          </div>
+        </div>
+      ) : null}
+    </section>
   );
 }
 
@@ -335,6 +465,10 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
   const [startMonth, setStartMonth] = useState(firstMonth);
   const [endMonth, setEndMonth] = useState(lastMonth);
   const [channel, setChannel] = useState<AttributionChannelFilter>("all");
+  const [onlineSource, setOnlineSource] = useState<{
+    customerSource: string;
+    customerSubSource: string;
+  } | null>(null);
   const [allTimeSelected, setAllTimeSelected] = useState(false);
   const reportingRange = useMemo(
     () => resolveReportingRange(months, startMonth, endMonth, allTimeSelected),
@@ -364,16 +498,29 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
   const serviceMonthGroups = useMemo(() => groupServicesByMonth(eligibleServices), [eligibleServices]);
   const serviceComplete = snapshot ? serviceCoverageComplete(snapshot, effectiveStartMonth, effectiveEndMonth) : false;
   const maxOnlineARR = Math.max(...onlineGroups.map((group) => group.arr), 1);
+  const selectedOnlineSource = channel === "online" && onlineSource && onlineGroups.some((group) =>
+    group.customerSource === onlineSource.customerSource &&
+    group.customerSubSource === onlineSource.customerSubSource,
+  ) ? onlineSource : null;
+  const drilldownRecords = selectedOnlineSource
+    ? filteredRecords.filter((record) => {
+        const pair = getOnlineSourcePair(record);
+        return pair.customerSource === selectedOnlineSource.customerSource &&
+          pair.customerSubSource === selectedOnlineSource.customerSubSource;
+      })
+    : filteredRecords;
 
   function reset() {
     setStartMonth(firstMonth);
     setEndMonth(lastMonth);
     setChannel("all");
+    setOnlineSource(null);
     setAllTimeSelected(false);
   }
 
   function toggleAllTime() {
     setAllTimeSelected((selected) => !selected);
+    setOnlineSource(null);
   }
 
   if (!snapshot || records.length === 0) return <EmptyState />;
@@ -425,11 +572,11 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <label className="block">
               <span className="mb-2 block text-[11px] font-bold uppercase tracking-[0.15em] text-slate-500">Start month</span>
-              <input type="month" value={startMonth} min={months[0]} max={endMonth || months.at(-1)} onChange={(event) => setStartMonth(event.target.value)} className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800 outline-none transition focus:border-primary-500 focus:ring-4 focus:ring-primary-100" />
+              <input type="month" value={startMonth} min={months[0]} max={endMonth || months.at(-1)} onChange={(event) => { setStartMonth(event.target.value); setOnlineSource(null); }} className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800 outline-none transition focus:border-primary-500 focus:ring-4 focus:ring-primary-100" />
             </label>
             <label className="block">
               <span className="mb-2 block text-[11px] font-bold uppercase tracking-[0.15em] text-slate-500">End month</span>
-              <input type="month" value={endMonth} min={startMonth || months[0]} max={months.at(-1)} onChange={(event) => setEndMonth(event.target.value)} className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800 outline-none transition focus:border-primary-500 focus:ring-4 focus:ring-primary-100" />
+              <input type="month" value={endMonth} min={startMonth || months[0]} max={months.at(-1)} onChange={(event) => { setEndMonth(event.target.value); setOnlineSource(null); }} className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800 outline-none transition focus:border-primary-500 focus:ring-4 focus:ring-primary-100" />
             </label>
           </div>
         ) : null}
@@ -463,10 +610,10 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
         <div className="mb-4 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
             <h2 className="text-base font-semibold text-slate-950">Choose an attribution view</h2>
-            <p className="mt-1 text-xs text-slate-500">Click a card to focus the full dashboard. Click it again to return to all.</p>
+            <p className="mt-1 text-xs text-slate-500">Click a card to view its customers and focus the dashboard. Click it again to return to all.</p>
           </div>
           {channel !== "all" ? (
-            <button type="button" onClick={() => setChannel("all")} className="self-start text-xs font-semibold text-primary-700 hover:text-primary-900">Show all attribution</button>
+            <button type="button" onClick={() => { setChannel("all"); setOnlineSource(null); }} className="self-start text-xs font-semibold text-primary-700 hover:text-primary-900">Show all attribution</button>
           ) : null}
         </div>
         <div className="grid gap-4 md:grid-cols-3">
@@ -477,7 +624,7 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
               group={channelGroups.find((group) => group.label === item.id)}
               totalARR={totalStats.arr}
               selected={channel === item.id}
-              onClick={() => setChannel((current) => (current === item.id ? "all" : item.id))}
+              onClick={() => { setChannel((current) => (current === item.id ? "all" : item.id)); setOnlineSource(null); }}
             />
           ))}
         </div>
@@ -490,11 +637,20 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
               <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary-700">Inside Online</p>
               <h2 className="mt-1 text-lg font-semibold text-slate-950">Online attribution breakdown</h2>
             </div>
-            <p className="max-w-md text-xs leading-5 text-slate-500">Customer Source shows the recorded acquisition label. Customer Sub-Source adds detail when FieldRoutes has it.</p>
+            <div className="max-w-md text-xs leading-5 text-slate-500">
+              <p>Customer Source shows the recorded acquisition label. Customer Sub-Source adds detail when FieldRoutes has it. Click a source card to narrow the customer list below.</p>
+              {selectedOnlineSource ? <button type="button" onClick={() => setOnlineSource(null)} className="mt-2 font-semibold text-primary-700 hover:text-primary-900">Show all Online customers</button> : null}
+            </div>
           </div>
           <div className="mt-6 grid gap-5 lg:grid-cols-2">
             {onlineGroups.map((group) => (
-              <div key={JSON.stringify([group.customerSource, group.customerSubSource])} className="rounded-2xl border border-white bg-white/90 p-4 shadow-sm">
+              <button
+                key={JSON.stringify([group.customerSource, group.customerSubSource])}
+                type="button"
+                aria-pressed={selectedOnlineSource?.customerSource === group.customerSource && selectedOnlineSource?.customerSubSource === group.customerSubSource}
+                onClick={() => setOnlineSource((current) => current?.customerSource === group.customerSource && current?.customerSubSource === group.customerSubSource ? null : { customerSource: group.customerSource, customerSubSource: group.customerSubSource })}
+                className={`rounded-2xl border bg-white/90 p-4 text-left shadow-sm transition hover:border-primary-300 hover:shadow-md ${selectedOnlineSource?.customerSource === group.customerSource && selectedOnlineSource?.customerSubSource === group.customerSubSource ? "border-primary-500 ring-2 ring-primary-100" : "border-white"}`}
+              >
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">Customer Source</p>
@@ -508,11 +664,21 @@ export default function AttributionDashboard({ snapshot }: { snapshot: Attributi
                   <div className="h-full rounded-full" style={{ width: `${Math.max((group.arr / maxOnlineARR) * 100, 2)}%`, backgroundColor: NEIGHBORS.logoBlue }} />
                 </div>
                 <p className="mt-2 text-[11px] text-slate-500">{wholeNumber.format(group.customers)} customers · {wholeNumber.format(group.subscriptions)} subscriptions</p>
-              </div>
+                <p className="mt-2 text-[11px] font-semibold text-primary-700">{selectedOnlineSource?.customerSource === group.customerSource && selectedOnlineSource?.customerSubSource === group.customerSubSource ? "Showing these customers ↓" : "View these customers →"}</p>
+              </button>
             ))}
           </div>
           <p className="mt-4 text-xs text-slate-500">Unmarked and Unspecified mean the respective fields were blank or N/A. Online remains the non-sales, non-referral reporting category.</p>
         </section>
+      ) : null}
+
+      {channel !== "all" ? (
+        <CustomerList
+          key={JSON.stringify([channel, effectiveStartMonth, effectiveEndMonth, selectedOnlineSource])}
+          records={drilldownRecords}
+          label={selectedLabel}
+          sourcePair={selectedOnlineSource}
+        />
       ) : null}
 
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
