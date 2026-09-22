@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { auth, signIn } from "@/auth";
-import { getAllowedGoogleEmail, normalizeEmail } from "@/lib/auth-policy";
+import { isAllowedGoogleEmail } from "@/lib/auth-policy";
 
 export const metadata: Metadata = {
   title: "Team sign in",
@@ -17,7 +17,7 @@ export default async function TeamSignInPage({
   const session = await auth();
   if (
     session?.user?.email &&
-    normalizeEmail(session.user.email) === getAllowedGoogleEmail()
+    isAllowedGoogleEmail(session.user.email)
   ) {
     redirect("/team/attribution");
   }
@@ -44,15 +44,15 @@ export default async function TeamSignInPage({
             Customer attribution
           </h1>
           <p className="mt-3 text-sm leading-6 text-slate-600">
-            Sign in with the authorized Neighbors Google account to view the
+            Sign in with your Neighbors Google account to view the
             private FieldRoutes dashboard.
           </p>
         </div>
 
         {error ? (
           <p className="mt-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-            This Google account is not authorized. Use
-            team@neighborspestsolutions.com.
+            This Google account is not authorized. Use a verified
+            @neighborspestsolutions.com account.
           </p>
         ) : null}
 
@@ -77,7 +77,7 @@ export default async function TeamSignInPage({
           </button>
         </form>
         <p className="mt-6 text-center text-xs text-slate-400">
-          Access is limited to team@neighborspestsolutions.com
+          Access is limited to verified @neighborspestsolutions.com accounts
         </p>
       </section>
     </main>

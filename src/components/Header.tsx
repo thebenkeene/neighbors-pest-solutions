@@ -118,7 +118,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center space-x-6">
+            <div className="hidden xl:flex items-center space-x-6">
               <Link
                 href="/"
                 className={`font-medium transition-all duration-300 ${
@@ -273,7 +273,18 @@ export default function Header() {
             </div>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden xl:flex items-center gap-3">
+              <Link
+                href="/team/attribution"
+                prefetch={false}
+                className={`rounded-lg border px-3 py-2 text-xs font-bold tracking-[0.08em] transition-all duration-300 ${
+                  isTransparent
+                    ? 'border-white/40 text-white hover:bg-white/20'
+                    : 'border-primary-200 text-primary-700 hover:bg-primary-50'
+                }`}
+              >
+                LOG IN
+              </Link>
               <a
                 href={BUSINESS.phoneHref}
                 className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 ${
@@ -292,27 +303,41 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Mobile Hamburger */}
-            <button
-              className={`lg:hidden p-2 rounded-lg transition-all duration-300 ${
-                isTransparent ? 'text-white' : 'text-dark-700'
-              }`}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+            {/* Mobile login and menu */}
+            <div className="flex items-center gap-1 xl:hidden">
+              <Link
+                href="/team/attribution"
+                prefetch={false}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`rounded-lg border px-2.5 py-2 text-[11px] font-bold tracking-wide transition-all duration-300 ${
+                  isTransparent
+                    ? 'border-white/40 text-white hover:bg-white/20'
+                    : 'border-primary-200 text-primary-700 hover:bg-primary-50'
+                }`}
+              >
+                LOG IN
+              </Link>
+              <button
+                className={`p-2 rounded-lg transition-all duration-300 ${
+                  isTransparent ? 'text-white' : 'text-dark-700'
+                }`}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {mobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu — always rendered (CSS-hidden when closed) so its
               links exist in the server-rendered HTML */}
-            <div className={`${mobileMenuOpen ? '' : 'hidden'} lg:hidden bg-white border-t border-gray-100 py-4 shadow-xl rounded-b-xl max-h-[75vh] overflow-y-auto overscroll-contain`}>
+            <div className={`${mobileMenuOpen ? '' : 'hidden'} xl:hidden bg-white border-t border-gray-100 py-4 shadow-xl rounded-b-xl max-h-[75vh] overflow-y-auto overscroll-contain`}>
               <div className="flex flex-col space-y-1 px-2">
                 <Link href="/" className="px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium transition-colors" onClick={() => setMobileMenuOpen(false)}>Home</Link>
                 <div>
@@ -368,6 +393,7 @@ export default function Header() {
                 <Link href="/about" className="px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium transition-colors" onClick={() => setMobileMenuOpen(false)}>About</Link>
                 <Link href="/blog" className="px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium transition-colors" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
                 <Link href="/contact" className="px-4 py-3 text-dark-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+                <Link href="/team/attribution" prefetch={false} className="px-4 py-3 text-primary-700 hover:bg-primary-50 rounded-lg font-bold text-sm tracking-wide transition-colors" onClick={() => setMobileMenuOpen(false)}>LOG IN</Link>
                 <div className="flex gap-2 px-2 pt-2">
                   <a href={BUSINESS.phoneHref} className="flex-1 py-3 text-center font-semibold text-primary-700 bg-primary-50 border border-primary-200 rounded-lg hover:bg-primary-100 transition-colors text-sm" onClick={() => setMobileMenuOpen(false)}>{BUSINESS.phone}</a>
                   <Link href="/contact" className="flex-1 py-3 text-center font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors text-sm" onClick={() => setMobileMenuOpen(false)}>Free Quote</Link>

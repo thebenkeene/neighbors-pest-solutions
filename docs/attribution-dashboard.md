@@ -1,9 +1,9 @@
 # Internal attribution dashboard
 
-The private team dashboard lives at `/team/attribution`. It is intentionally
-absent from public navigation and the sitemap, and `/team/` is blocked in
-`robots.txt` and marked `noindex`. Authentication, rather than the hidden URL,
-is the access control.
+The private team dashboard lives at `/team/attribution`. The public header has
+a LOG IN link to that route; signed-out visitors are sent to `/team/sign-in`.
+The team pages are absent from the sitemap, blocked in `robots.txt`, and marked
+`noindex`. Google authentication controls access.
 
 ## One-time setup
 
@@ -14,14 +14,16 @@ is the access control.
    - `https://<preview-host>/api/auth/callback/google`
 
 2. In Vercel, create and connect a **private** Blob store to the website.
-3. Add every variable from `.env.example` to the appropriate Vercel environments.
+3. Add the required variables from `.env.example` to the appropriate Vercel environments.
    Generate separate long random values for `AUTH_SECRET` and `CRON_SECRET`.
-4. Confirm `ALLOWED_GOOGLE_EMAIL` is exactly
-   `team@neighborspestsolutions.com`.
+4. `ALLOWED_GOOGLE_DOMAIN` defaults to `neighborspestsolutions.com`; set it only
+   if the authorized domain changes. The former `ALLOWED_GOOGLE_EMAIL` setting
+   is no longer used and can be removed from Vercel later.
 
-Auth.js accepts only a Google profile with that exact normalized email and
-`email_verified: true`. Sessions use signed JWTs, expire after eight hours, and
-do not require a user database.
+Auth.js accepts a Google profile with `email_verified: true` and an address in
+the exact `neighborspestsolutions.com` domain. The sign-in callback and every
+dashboard page request use the same domain check. Sessions use signed JWTs,
+expire after eight hours, and do not require a user database.
 
 ## Daily sync
 

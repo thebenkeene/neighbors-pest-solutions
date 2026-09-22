@@ -3,7 +3,7 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import { auth, signOut } from "@/auth";
 import AttributionDashboard from "@/components/internal/AttributionDashboard";
-import { getAllowedGoogleEmail, normalizeEmail } from "@/lib/auth-policy";
+import { isAllowedGoogleEmail } from "@/lib/auth-policy";
 import { loadLatestSnapshot } from "@/lib/attribution/storage";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default async function AttributionPage() {
   const session = await auth();
   if (
     !session?.user?.email ||
-    normalizeEmail(session.user.email) !== getAllowedGoogleEmail()
+    !isAllowedGoogleEmail(session.user.email)
   ) {
     redirect("/team/sign-in");
   }
